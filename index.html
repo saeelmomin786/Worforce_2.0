@@ -3,168 +3,315 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workforce 2.0 — Your AI Workforce</title>
-<meta name="description" content="Workforce 2.0 — an AI Chief Executive, Executive Assistant, and a workforce of AI agents that run your business. Invite-only.">
+<title>Workforce 2.0. Recruit your AI workforce.</title>
+<meta name="description" content="An AI executive assistant, a chief of staff, and specialist workers for sales, support, accounts, legal, and research. Approval gates, your own keys, all data on your machine. Windows and Android, by invitation.">
 <link rel="icon" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #070b12; --panel: #0d1420; --panel-2: #111a2a;
-    --text: #e8eef7; --text-mid: #aab8cc; --dim: #5f6b80;
-    --accent: #00d3d8; --accent-2: #7c5cff;
-    --line: rgba(255,255,255,.08); --ok: #34e0a1; --warn: #ffc24b; --err: #ff5d6c;
+    --bg: #06090f;
+    --ink: #eef3fa; --ink-mid: #b6c2d4; --ink-dim: #6d7a8f;
+    --cyan: #00d3d8; --violet: #8b6cff;
+    --line: rgba(255,255,255,.09);
+    --glass: rgba(13, 20, 32, .55);
+    --ok: #3ee6a8; --err: #ff6d7c;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: "Segoe UI", system-ui, sans-serif; overflow-x: hidden; }
-  a { color: var(--accent); text-decoration: none; }
+  body { background: var(--bg); color: var(--ink); font-family: "Inter", system-ui, sans-serif; overflow-x: hidden; line-height: 1.6; }
+  ::selection { background: rgba(0,211,216,.3); }
 
-  /* ── 3D hero ── */
-  #hero { position: relative; height: 100vh; min-height: 640px; display: flex; align-items: center; justify-content: center; }
-  #orb-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .hero-inner { position: relative; z-index: 2; text-align: center; padding: 0 24px; max-width: 860px; pointer-events: none; }
-  .hero-inner .cta-row, .hero-inner a, .hero-inner button { pointer-events: auto; }
-  .badge { display: inline-block; padding: 6px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); background: rgba(0,211,216,.06); backdrop-filter: blur(6px); margin-bottom: 26px; }
-  h1 { font-size: clamp(40px, 7vw, 76px); font-weight: 700; line-height: 1.05; letter-spacing: -1px; }
-  h1 .grad { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .sub { font-size: clamp(15px, 2vw, 19px); color: var(--text-mid); margin: 22px auto 38px; max-width: 620px; line-height: 1.6; }
+  #world { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; }
+  main { position: relative; z-index: 1; }
+
+  section { min-height: 92vh; display: flex; align-items: center; padding: 96px 24px; }
+  .shell { max-width: 1080px; margin: 0 auto; width: 100%; }
+  .kicker { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--cyan); margin-bottom: 18px; font-weight: 600; }
+  h1, h2 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
+  h2 { font-size: clamp(34px, 5vw, 58px); line-height: 1.08; margin-bottom: 20px; }
+  h2 em, h1 em { font-style: italic; background: linear-gradient(92deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { color: var(--ink-mid); font-size: clamp(15px, 1.8vw, 18px); max-width: 640px; }
+
+  .glass { background: var(--glass); border: 1px solid var(--line); border-radius: 22px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+
+  .rv { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
+  .rv.in { opacity: 1; transform: none; }
+
+  /* hero */
+  #hero { text-align: center; justify-content: center; min-height: 100vh; }
+  #hero .shell { max-width: 940px; }
+  .badge { display: inline-block; padding: 7px 18px; border: 1px solid var(--line); border-radius: 999px; font-size: 11.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-mid); background: rgba(255,255,255,.03); backdrop-filter: blur(8px); margin-bottom: 30px; }
+  #hero h1 { font-size: clamp(44px, 8vw, 92px); line-height: 1.03; }
+  .hero-sub { color: var(--ink-mid); font-size: clamp(15px, 2vw, 19px); margin: 26px auto 14px; max-width: 640px; }
+  .ask { height: 34px; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(19px, 2.6vw, 26px); font-style: italic; color: var(--cyan); opacity: .95; transition: opacity .45s; margin-bottom: 34px; }
+  .ask.fade { opacity: 0; }
   .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; transition: transform .15s, box-shadow .15s; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 32px; border-radius: 14px; font-size: 15px; font-weight: 600; font-family: "Inter", sans-serif; cursor: pointer; border: none; transition: transform .16s ease, box-shadow .16s ease; text-decoration: none; color: inherit; }
   .btn:hover { transform: translateY(-2px); }
-  .btn-primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #04070c; box-shadow: 0 8px 32px rgba(0,211,216,.25); }
-  .btn-ghost { background: rgba(255,255,255,.04); color: var(--text); border: 1px solid var(--line); backdrop-filter: blur(6px); }
-  .scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); color: var(--dim); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; animation: bob 2.2s ease-in-out infinite; z-index: 2; }
-  @keyframes bob { 0%,100% { transform: translate(-50%,0) } 50% { transform: translate(-50%,8px) } }
+  .btn-primary { background: linear-gradient(92deg, var(--cyan), var(--violet)); color: #04070c; box-shadow: 0 10px 36px rgba(0,211,216,.28); }
+  .btn-ghost { background: rgba(255,255,255,.05); color: var(--ink); border: 1px solid var(--line); backdrop-filter: blur(8px); }
 
-  /* ── sections ── */
-  section { max-width: 1080px; margin: 0 auto; padding: 110px 24px; }
-  .sec-label { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-  h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -.5px; margin-bottom: 16px; }
-  .lead { color: var(--text-mid); font-size: 16.5px; line-height: 1.7; max-width: 640px; }
+  /* org: three roles */
+  .org { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 44px; }
+  .role { padding: 32px 30px; }
+  .role .tag { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
+  .role h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 26px; margin: 10px 0 10px; }
+  .role p { color: var(--ink-mid); font-size: 14px; }
 
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 48px; }
-  .card { background: linear-gradient(180deg, var(--panel), var(--panel-2)); border: 1px solid var(--line); border-radius: 16px; padding: 28px; transition: transform .2s, border-color .2s; }
-  .card:hover { transform: translateY(-4px); border-color: rgba(0,211,216,.3); }
-  .card .icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 21px; background: linear-gradient(135deg, rgba(0,211,216,.15), rgba(124,92,255,.15)); margin-bottom: 18px; }
-  .card h3 { font-size: 17px; margin-bottom: 8px; }
-  .card p { color: var(--text-mid); font-size: 13.5px; line-height: 1.65; }
+  /* engines */
+  .engine-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 38px 0 30px; }
+  .engine { padding: 11px 20px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--ink-mid); font-size: 13.5px; font-weight: 500; backdrop-filter: blur(8px); transition: all .25s; }
+  .engine:hover { border-color: rgba(0,211,216,.45); color: var(--ink); transform: translateY(-2px); }
+  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .control { padding: 22px 24px; font-size: 13.5px; color: var(--ink-mid); }
+  .control b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 4px; font-size: 14px; }
 
-  /* invite steps */
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 48px; counter-reset: step; }
-  .step { position: relative; padding: 28px 24px 24px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.02); }
-  .step::before { counter-increment: step; content: "0" counter(step); position: absolute; top: -16px; left: 22px; font-size: 26px; font-weight: 800; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .step h3 { font-size: 15.5px; margin-bottom: 8px; margin-top: 4px; }
-  .step p { color: var(--text-mid); font-size: 13px; line-height: 1.6; }
+  /* economics */
+  .flow { display: flex; align-items: stretch; gap: 14px; margin: 40px 0 26px; flex-wrap: wrap; }
+  .flow-card { flex: 1; min-width: 220px; padding: 26px 24px; text-align: center; }
+  .flow-card .lvl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); font-weight: 600; margin-bottom: 8px; }
+  .flow-card h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 23px; margin-bottom: 8px; }
+  .flow-card p { color: var(--ink-mid); font-size: 13px; }
+  .flow-arrow { align-self: center; font-size: 22px; color: var(--ink-dim); }
+  .providers { display: flex; flex-wrap: wrap; gap: 9px; }
+  .prov { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--ink-dim); font-size: 12.5px; }
+  .prov.free { color: var(--ok); border-color: rgba(62,230,168,.35); }
 
-  /* forms */
-  .form-card { background: linear-gradient(180deg, var(--panel), var(--panel-2)); border: 1px solid var(--line); border-radius: 20px; padding: 40px; max-width: 560px; margin: 44px auto 0; }
-  .form-card label { display: block; font-size: 12px; color: var(--text-mid); letter-spacing: .5px; margin: 18px 0 6px; }
-  .form-card input, .form-card textarea { width: 100%; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 10px; padding: 13px 16px; color: var(--text); font-size: 14.5px; font-family: inherit; outline: none; transition: border-color .15s; }
-  .form-card input:focus, .form-card textarea:focus { border-color: var(--accent); }
-  .form-card textarea { resize: vertical; min-height: 80px; }
-  .form-card .btn { width: 100%; justify-content: center; margin-top: 26px; }
-  .msg { margin-top: 16px; font-size: 13.5px; text-align: center; display: none; }
+  /* memory / privacy */
+  .vault { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 44px; }
+  .vault .v { padding: 28px 26px; }
+  .vault h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 23px; margin-bottom: 8px; }
+  .vault p { color: var(--ink-mid); font-size: 13.5px; }
+
+  /* personas */
+  .chips { display: flex; gap: 10px; flex-wrap: wrap; margin: 36px 0 26px; }
+  .chip { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--ink-mid); font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all .2s; backdrop-filter: blur(8px); white-space: nowrap; }
+  .chip:hover { border-color: rgba(0,211,216,.4); color: var(--ink); }
+  .chip.on { background: linear-gradient(92deg, rgba(0,211,216,.16), rgba(139,108,255,.16)); border-color: rgba(0,211,216,.5); color: var(--ink); }
+  .vignette { padding: 40px 44px; min-height: 230px; max-width: 780px; }
+  .vignette .who { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cyan); font-weight: 600; margin-bottom: 14px; }
+  .vignette .story { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(21px, 2.7vw, 28px); line-height: 1.42; }
+  .vignette .story b { color: var(--cyan); font-weight: 400; }
+  .vignette.swap .who, .vignette.swap .story { opacity: 0; }
+  .vignette .who, .vignette .story { transition: opacity .35s; }
+
+  /* connectors */
+  .conn { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 36px; max-width: 820px; }
+  .conn span { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--ink-mid); font-size: 13px; }
+
+  /* access */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin: 40px 0; }
+  .step { padding: 28px 26px; }
+  .step .n { font-family: "Instrument Serif", Georgia, serif; font-size: 38px; font-style: italic; background: linear-gradient(92deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; margin-bottom: 8px; }
+  .step h3 { font-size: 15.5px; font-weight: 600; margin-bottom: 6px; }
+  .step p { color: var(--ink-mid); font-size: 13.5px; }
+  .form-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+  @media (max-width: 860px) { .form-wrap { grid-template-columns: 1fr; } }
+  .form-card { padding: 36px; }
+  .form-card h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 27px; margin-bottom: 6px; }
+  .form-card .hint { color: var(--ink-dim); font-size: 13px; margin-bottom: 10px; }
+  .form-card label { display: block; font-size: 12px; color: var(--ink-mid); margin: 16px 0 6px; font-weight: 500; }
+  .form-card input, .form-card textarea { width: 100%; background: rgba(255,255,255,.045); border: 1px solid var(--line); border-radius: 11px; padding: 13px 16px; color: var(--ink); font-size: 14.5px; font-family: "Inter", sans-serif; outline: none; transition: border-color .15s; }
+  .form-card input:focus, .form-card textarea:focus { border-color: var(--cyan); }
+  .form-card textarea { resize: vertical; min-height: 76px; }
+  .form-card .btn { width: 100%; margin-top: 24px; }
+  .code-input { font-family: "Consolas", monospace !important; font-size: 18px !important; letter-spacing: 4px; text-align: center; text-transform: uppercase; }
+  .msg { margin-top: 14px; font-size: 13.5px; text-align: center; display: none; }
   .msg.ok { color: var(--ok); display: block; }
   .msg.err { color: var(--err); display: block; }
+  .dl-buttons { display: none; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+  .dl-buttons.show { display: flex; }
+  .dl-buttons .btn { flex: 1; min-width: 160px; }
+  .dl-note { font-size: 12px; color: var(--ink-dim); text-align: center; margin-top: 12px; }
 
-  .code-input { font-family: "Consolas", monospace !important; font-size: 18px !important; letter-spacing: 4px; text-align: center; text-transform: uppercase; }
-  .dl-note { font-size: 12px; color: var(--dim); text-align: center; margin-top: 14px; }
+  footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padding: 40px 24px; text-align: center; color: var(--ink-dim); font-size: 12.5px; background: rgba(6,9,15,.7); backdrop-filter: blur(10px); }
+  footer .name { font-family: "Instrument Serif", Georgia, serif; font-size: 17px; color: var(--ink-mid); margin-bottom: 6px; }
 
-  footer { border-top: 1px solid var(--line); padding: 44px 24px; text-align: center; color: var(--dim); font-size: 12.5px; }
-  footer .logo { font-weight: 700; color: var(--text-mid); margin-bottom: 8px; font-size: 14px; }
-
-  @media (max-width: 640px) { section { padding: 72px 20px; } .form-card { padding: 28px 22px; } }
+  @media (max-width: 640px) {
+    section { padding: 68px 18px; min-height: auto; }
+    #hero { min-height: 100vh; }
+    .vignette { padding: 28px 24px; }
+    .form-card { padding: 26px 20px; }
+    .flow-arrow { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- ── HERO with 3D orb ────────────────────────────────────────────────── -->
-<div id="hero">
-  <canvas id="orb-canvas"></canvas>
-  <div class="hero-inner">
-    <div class="badge">Invite-only early access</div>
-    <h1>Meet your <span class="grad">AI&nbsp;workforce</span>.<br>Not another chatbot.</h1>
-    <p class="sub">Workforce 2.0 gives you an AI Chief Executive, an Executive Assistant, and a team of AI agents with real tools — email, CRM, documents, social — that work while you don't.</p>
-    <div class="cta-row">
-      <button class="btn btn-primary" onclick="document.getElementById('waitlist').scrollIntoView()">Join the waiting list</button>
-      <button class="btn btn-ghost" onclick="document.getElementById('download').scrollIntoView()">I have an invitation</button>
+<canvas id="world"></canvas>
+
+<main>
+
+<!-- 1 · HERO -->
+<section id="hero">
+  <div class="shell">
+    <div class="badge rv">Early access, by invitation</div>
+    <h1 class="rv">Recruit your <em>AI&nbsp;workforce.</em></h1>
+    <p class="hero-sub rv">An assistant who listens, a chief of staff who plans, and specialist workers who do the work. They use your tools, ask before anything leaves your name, and remember how you like things done.</p>
+    <div class="ask rv" id="ask">"Just ask."</div>
+    <div class="cta-row rv">
+      <button class="btn btn-primary" onclick="document.getElementById('access').scrollIntoView()">Request an invitation</button>
+      <button class="btn btn-ghost" onclick="document.getElementById('access').scrollIntoView()">I have a code</button>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
-</div>
+</section>
 
-<!-- ── WHAT IT IS ──────────────────────────────────────────────────────── -->
-<section>
-  <div class="sec-label">The product</div>
-  <h2>A company that runs itself.</h2>
-  <p class="lead">You talk to your Executive Assistant. The AI Chief Executive plans, spawns specialist workers, and reports back — with every connector your business already uses.</p>
-  <div class="grid">
-    <div class="card"><div class="icon">🧠</div><h3>AI Chief Executive</h3><p>Delegates, never micro-works. Plans large tasks, spawns the right specialists, remembers everything in an organizational memory.</p></div>
-    <div class="card"><div class="icon">🎙️</div><h3>Voice-first EA</h3><p>Talk naturally. Your Executive Assistant triages, executes small tasks instantly, and escalates the big ones to the CEO.</p></div>
-    <div class="card"><div class="icon">⚙️</div><h3>16 business engines</h3><p>Sales, Marketing, HR, Recruiting, Accounting, Legal, Support, Research and more — autonomous pipelines with approval gates you control.</p></div>
-    <div class="card"><div class="icon">🔌</div><h3>Real tools, your accounts</h3><p>Gmail, Drive, Calendar, HubSpot, LinkedIn, Meta platforms, Supabase, Slack, Notion — one sign-in each, every AI model shares them.</p></div>
-    <div class="card"><div class="icon">🔑</div><h3>Your keys, your device</h3><p>Bring your own API keys. They live on your machine, never on our servers, never in the browser.</p></div>
-    <div class="card"><div class="icon">🚀</div><h3>Self-updating</h3><p>Silent over-the-air updates. Install once — your workforce gets smarter every week without reinstalling.</p></div>
+<!-- 2 · THE ORGANIZATION -->
+<section id="org">
+  <div class="shell">
+    <div class="kicker rv">How it's organized</div>
+    <h2 class="rv">One conversation.<br>A whole team behind it.</h2>
+    <p class="lead rv">You talk to one assistant. Behind that conversation is a real division of labor, the same way a good company works.</p>
+    <div class="org">
+      <div class="role glass rv"><span class="tag">You talk to</span><h3>The Assistant</h3><p>Voice or text, in the language you think in. Small tasks get done on the spot. Big asks get handed upward, and you get a report back.</p></div>
+      <div class="role glass rv"><span class="tag">Who plans</span><h3>The Chief of Staff</h3><p>Turns your ask into a plan, picks the right specialists, assigns the work, and checks the results. It delegates. It never improvises with your name.</p></div>
+      <div class="role glass rv"><span class="tag">Who executes</span><h3>The Specialists</h3><p>Workers for email, spreadsheets, documents, research, outreach, and posting. Each one gets only the tools and access you allow.</p></div>
+    </div>
   </div>
 </section>
 
-<!-- ── HOW INVITES WORK ────────────────────────────────────────────────── -->
-<section>
-  <div class="sec-label">Early access</div>
-  <h2>Invitation only. On purpose.</h2>
-  <p class="lead">We onboard a small number of founders and operators at a time, so every early member gets direct support while we shape the product together.</p>
-  <div class="steps">
-    <div class="step"><h3>Join the list</h3><p>Tell us who you are and what you'd put your AI workforce to work on.</p></div>
-    <div class="step"><h3>Jarvis reviews</h3><p>Our own AI Executive Assistant reviews the waiting list and selects the next cohort.</p></div>
-    <div class="step"><h3>Get your code</h3><p>Selected members receive a personal invitation code by email.</p></div>
-    <div class="step"><h3>Download &amp; build</h3><p>Redeem the code below and your workforce is running in minutes.</p></div>
+<!-- 3 · FOR BUSINESS: ENGINES -->
+<section id="engines">
+  <div class="shell">
+    <div class="kicker rv">For business</div>
+    <h2 class="rv">Sixteen departments,<br><em>ready on day one.</em></h2>
+    <p class="lead rv">Every engine is a working pipeline you switch on. It researches, drafts, files, and follows up on a schedule. You review a queue of approvals instead of doing the work.</p>
+    <div class="engine-grid rv">
+      <span class="engine">Sales</span><span class="engine">Marketing</span><span class="engine">Customer Support</span><span class="engine">Accounting</span><span class="engine">Legal</span><span class="engine">HR</span><span class="engine">Recruiting</span><span class="engine">Operations</span><span class="engine">Procurement</span><span class="engine">Compliance</span><span class="engine">Research</span><span class="engine">Grants</span><span class="engine">Investor Relations</span><span class="engine">Startup</span><span class="engine">Stock Analysis</span><span class="engine">Job Applications</span>
+    </div>
+    <div class="controls">
+      <div class="control glass rv"><b>Approval gates</b>Anything that leaves the company, an email, a post, a reminder, waits for your yes. You can loosen this per stage when trust is earned.</div>
+      <div class="control glass rv"><b>Your choice of model, per stage</b>Point a careful model at contract review and a fast one at data entry. Change it any time from a dropdown.</div>
+      <div class="control glass rv"><b>Start, watch, stop</b>Live activity for every stage. Pause an engine before a holiday. Resume it after.</div>
+    </div>
   </div>
 </section>
 
-<!-- ── WAITLIST ────────────────────────────────────────────────────────── -->
-<section id="waitlist">
-  <div class="sec-label" style="text-align:center">Request access</div>
-  <h2 style="text-align:center">Join the waiting list</h2>
-  <div class="form-card">
-    <form id="waitlist-form">
-      <label for="wl-name">Name</label>
-      <input id="wl-name" type="text" placeholder="Your name" required maxlength="120">
-      <label for="wl-email">Email *</label>
-      <input id="wl-email" type="email" placeholder="you@company.com" required maxlength="200">
-      <label for="wl-company">Company (optional)</label>
-      <input id="wl-company" type="text" placeholder="Company or project" maxlength="160">
-      <label for="wl-usecase">What would your AI workforce do first? (optional)</label>
-      <textarea id="wl-usecase" placeholder="e.g. run outbound sales for my SaaS, screen job applications, draft investor updates…" maxlength="600"></textarea>
-      <button class="btn btn-primary" type="submit" id="wl-btn">Request an invitation</button>
-      <div class="msg" id="wl-msg"></div>
-    </form>
+<!-- 4 · ECONOMICS -->
+<section id="economics">
+  <div class="shell">
+    <div class="kicker rv">Built to be affordable</div>
+    <h2 class="rv">Expensive minds plan.<br><em>Free hands execute.</em></h2>
+    <p class="lead rv">Workforce routes each step to the right model. A frontier model designs the plan. Fast, cheap models do the busywork. Local models on your own machine cost nothing at all.</p>
+    <div class="flow">
+      <div class="flow-card glass rv"><div class="lvl">Thinks</div><h3>Frontier model</h3><p>Plans the work, makes the judgment calls, reviews what matters. Used sparingly, where it counts.</p></div>
+      <div class="flow-arrow rv">→</div>
+      <div class="flow-card glass rv"><div class="lvl">Executes</div><h3>Fast free models</h3><p>Drafting, extracting, formatting, filing. High volume at pennies, often at zero.</p></div>
+      <div class="flow-arrow rv">→</div>
+      <div class="flow-card glass rv"><div class="lvl">On your machine</div><h3>Local models</h3><p>Ollama and LM Studio supported. No tokens, no bill, no internet required.</p></div>
+    </div>
+    <p class="lead rv" style="margin-bottom:18px">Bring keys from any provider. You pay them directly. There is no seat fee and no markup in the middle.</p>
+    <div class="providers rv">
+      <span class="prov">Claude</span><span class="prov">Gemini</span><span class="prov">GPT</span><span class="prov">DeepSeek</span><span class="prov">Qwen</span><span class="prov">GLM</span><span class="prov">Kimi</span><span class="prov free">Gemma · free</span><span class="prov free">Ollama · local</span><span class="prov free">LM Studio · local</span>
+    </div>
   </div>
 </section>
 
-<!-- ── REDEEM / DOWNLOAD ───────────────────────────────────────────────── -->
-<section id="download">
-  <div class="sec-label" style="text-align:center">Members</div>
-  <h2 style="text-align:center">Have an invitation code?</h2>
-  <div class="form-card">
-    <form id="redeem-form">
-      <label for="rd-code">Invitation code</label>
-      <input id="rd-code" class="code-input" type="text" placeholder="WF-XXXX-XXXX" required maxlength="32" autocomplete="off" spellcheck="false">
-      <button class="btn btn-primary" type="submit" id="rd-btn">Unlock download</button>
-      <div class="msg" id="rd-msg"></div>
-    </form>
-    <div class="dl-note">Windows 10/11 · ~86 MB · updates itself after install</div>
+<!-- 5 · MEMORY + PRIVACY -->
+<section id="memory">
+  <div class="shell">
+    <div class="kicker rv">Yours, properly</div>
+    <h2 class="rv">Your organization's memory,<br>on your own computer.</h2>
+    <p class="lead rv">Every client, preference, and process is written to plain files on your machine. Every worker reads the same memory, so you explain things once and never again.</p>
+    <div class="vault">
+      <div class="v glass rv"><h3>Organizational memory</h3><p>Who Priya is. How you sign emails. Which template the resume uses. The whole team knows, because the memory is shared.</p></div>
+      <div class="v glass rv"><h3>Local by default</h3><p>Conversations, files, and memory live on your device in readable files you can open, edit, and back up yourself.</p></div>
+      <div class="v glass rv"><h3>Keys stay home</h3><p>Your API keys are stored on your machine and used from your machine. They are never uploaded, bundled, or shared.</p></div>
+      <div class="v glass rv"><h3>Data sovereignty by design</h3><p>Nothing to subpoena from us, nothing for us to leak. For firms with confidentiality duties, this is the point.</p></div>
+    </div>
   </div>
 </section>
+
+<!-- 6 · PERSONAS -->
+<section id="people">
+  <div class="shell">
+    <div class="kicker rv">A morning with your workforce</div>
+    <h2 class="rv">What people hand over.</h2>
+    <p class="lead rv">Pick someone like you. This is what their day looks like now.</p>
+    <div class="chips rv" id="chips"></div>
+    <div class="vignette glass rv" id="vignette">
+      <div class="who" id="v-who"></div>
+      <div class="story" id="v-story"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · CONNECTORS -->
+<section id="stack">
+  <div class="shell">
+    <div class="kicker rv">Plays well with your stack</div>
+    <h2 class="rv">Already friends<br>with your tools.</h2>
+    <p class="lead rv">Sign in once per service. Every model and every worker shares the same connections.</p>
+    <div class="conn rv">
+      <span>Gmail</span><span>Google Drive</span><span>Calendar</span><span>Sheets</span><span>Docs</span><span>Slides</span><span>HubSpot</span><span>LinkedIn</span><span>WhatsApp Business</span><span>Instagram</span><span>Facebook</span><span>Slack</span><span>Notion</span><span>Supabase</span><span>GitHub</span><span>Excel</span><span>PDF</span><span>Web search</span><span>Your desktop apps</span>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · ACCESS -->
+<section id="access">
+  <div class="shell">
+    <div class="kicker rv">How access works</div>
+    <h2 class="rv">We open the doors<br>a few people at a time.</h2>
+    <p class="lead rv">Early members get real attention while we shape this together. The waiting list is read by Jarvis, our own assistant. Choosing people is his job.</p>
+    <div class="steps">
+      <div class="step glass rv"><span class="n">one</span><h3>Tell us about you</h3><p>Who you are and what you would hand over first. Two minutes.</p></div>
+      <div class="step glass rv"><span class="n">two</span><h3>Jarvis writes back</h3><p>Invitations go out in waves, each with a personal code.</p></div>
+      <div class="step glass rv"><span class="n">three</span><h3>Meet your team</h3><p>Download for Windows or Android. Running in minutes, improving itself weekly.</p></div>
+    </div>
+    <div class="form-wrap">
+      <div class="form-card glass rv">
+        <h3>Request an invitation</h3>
+        <div class="hint">Jarvis reads every request.</div>
+        <form id="waitlist-form">
+          <label for="wl-name">Name</label>
+          <input id="wl-name" type="text" placeholder="Your name" required maxlength="120">
+          <label for="wl-email">Email</label>
+          <input id="wl-email" type="email" placeholder="you@anywhere.com" required maxlength="200">
+          <label for="wl-company">What do you do? (optional)</label>
+          <input id="wl-company" type="text" placeholder="Business owner, lawyer, student, curious human" maxlength="160">
+          <label for="wl-usecase">What would you hand over first? (optional)</label>
+          <textarea id="wl-usecase" placeholder="Run outbound sales. Answer support email. Chase invoices. Apply to internships for me." maxlength="600"></textarea>
+          <button class="btn btn-primary" type="submit" id="wl-btn">Join the waiting list</button>
+          <div class="msg" id="wl-msg"></div>
+        </form>
+      </div>
+      <div class="form-card glass rv">
+        <h3>Already invited?</h3>
+        <div class="hint">Enter the code from your invitation email.</div>
+        <form id="redeem-form">
+          <label for="rd-code">Invitation code</label>
+          <input id="rd-code" class="code-input" type="text" placeholder="WF-XXXX-XXXX" required maxlength="32" autocomplete="off" spellcheck="false">
+          <button class="btn btn-primary" type="submit" id="rd-btn">Unlock downloads</button>
+          <div class="msg" id="rd-msg"></div>
+        </form>
+        <div class="dl-buttons" id="dl-buttons">
+          <a class="btn btn-primary" id="dl-win" href="#" download>Windows</a>
+          <a class="btn btn-ghost" id="dl-android" href="#" download>Android</a>
+        </div>
+        <div class="dl-note">Windows 10/11 · Android 10+ · installs in minutes, updates itself</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
 
 <footer>
-  <div class="logo">Workforce 2.0</div>
-  <div>Your AI workforce, powered by your own keys. · © 2026 Saeel Momin</div>
+  <div class="name">Workforce 2.0</div>
+  <div>Your keys. Your computer. Your team. © 2026 Saeel Momin</div>
 </footer>
 
-<!-- ── Three.js particle orb ───────────────────────────────────────────── -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
+/* ── The living background ─────────────────────────────────────────────────
+   One particle field, four shapes, driven by scroll:
+   sphere (you) → constellation (your team) → ring (your tools, connected)
+   → globe (your whole organization, anywhere). */
 (function () {
-  const canvas = document.getElementById("orb-canvas");
+  const canvas = document.getElementById("world");
   if (!window.THREE || !window.WebGLRenderingContext) { canvas.style.display = "none"; return; }
   let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); }
@@ -172,44 +319,81 @@
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
-  camera.position.z = 7;
+  camera.position.z = 8;
 
-  // Particle sphere — the Workforce "orb" (matches the in-app voice sphere).
-  const COUNT = 4200;
-  const pos = new Float32Array(COUNT * 3);
+  const COUNT = 5200;
+  const targets = [];
+
+  (function sphere() {
+    const a = new Float32Array(COUNT * 3);
+    for (let i = 0; i < COUNT; i++) {
+      const y = 1 - (i / (COUNT - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.39996323;
+      a[i*3] = Math.cos(th) * r * 2.7; a[i*3+1] = y * 2.7; a[i*3+2] = Math.sin(th) * r * 2.7;
+    }
+    targets.push(a);
+  })();
+
+  (function constellation() {
+    const a = new Float32Array(COUNT * 3);
+    const K = 8;
+    for (let i = 0; i < COUNT; i++) {
+      const k = i % K;
+      let cx = 0, cy = 0, cz = 0, cr = 1.0;
+      if (k > 0) {
+        const ang = (k - 1) / (K - 1) * Math.PI * 2;
+        cx = Math.cos(ang) * 3.1; cy = Math.sin(ang) * 2.1; cz = Math.sin(ang * 2) * 0.8; cr = 0.62;
+      }
+      const u = Math.random(), v = Math.random();
+      const th = 2 * Math.PI * u, ph = Math.acos(2 * v - 1), rr = cr * Math.cbrt(Math.random());
+      a[i*3] = cx + rr * Math.sin(ph) * Math.cos(th);
+      a[i*3+1] = cy + rr * Math.sin(ph) * Math.sin(th);
+      a[i*3+2] = cz + rr * Math.cos(ph);
+    }
+    targets.push(a);
+  })();
+
+  (function ring() {
+    const a = new Float32Array(COUNT * 3);
+    const R = 2.7, r = 0.75;
+    for (let i = 0; i < COUNT; i++) {
+      const u = (i / COUNT) * Math.PI * 2 * 3 % (Math.PI * 2);
+      const v = Math.random() * Math.PI * 2;
+      a[i*3] = (R + r * Math.cos(v)) * Math.cos(u);
+      a[i*3+1] = r * Math.sin(v) * 1.15;
+      a[i*3+2] = (R + r * Math.cos(v)) * Math.sin(u) * 0.6;
+    }
+    targets.push(a);
+  })();
+
+  (function globe() {
+    const a = new Float32Array(COUNT * 3);
+    for (let i = 0; i < COUNT; i++) {
+      const y = 1 - (i / (COUNT - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.39996323;
+      a[i*3] = Math.cos(th) * r * 3.4; a[i*3+1] = y * 3.4; a[i*3+2] = Math.sin(th) * r * 3.4;
+    }
+    targets.push(a);
+  })();
+
+  const pos = new Float32Array(targets[0]);
   const seed = new Float32Array(COUNT);
-  for (let i = 0; i < COUNT; i++) {
-    // Fibonacci sphere for even coverage
-    const y = 1 - (i / (COUNT - 1)) * 2;
-    const r = Math.sqrt(1 - y * y);
-    const th = i * 2.39996323;
-    pos[i * 3] = Math.cos(th) * r * 2.6;
-    pos[i * 3 + 1] = y * 2.6;
-    pos[i * 3 + 2] = Math.sin(th) * r * 2.6;
-    seed[i] = Math.random() * Math.PI * 2;
-  }
+  for (let i = 0; i < COUNT; i++) seed[i] = Math.random() * Math.PI * 2;
+
   const geo = new THREE.BufferGeometry();
   geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
   geo.setAttribute("seed", new THREE.BufferAttribute(seed, 1));
 
   const mat = new THREE.ShaderMaterial({
-    transparent: true,
-    depthWrite: false,
-    blending: THREE.AdditiveBlending,
-    uniforms: { uTime: { value: 0 }, uMouse: { value: new THREE.Vector2(0, 0) } },
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    uniforms: { uTime: { value: 0 } },
     vertexShader: `
-      uniform float uTime; uniform vec2 uMouse; attribute float seed; varying float vMix;
+      uniform float uTime; attribute float seed; varying float vMix;
       void main() {
         vec3 p = position;
-        float breathe = 1.0 + 0.06 * sin(uTime * 0.7 + seed);
-        p *= breathe;
-        p.x += 0.09 * sin(uTime * 0.9 + seed * 3.1);
-        p.y += 0.09 * cos(uTime * 0.8 + seed * 2.3);
-        // gentle tilt toward the pointer
-        p.xy += uMouse * 0.18 * sin(seed);
-        vMix = 0.5 + 0.5 * sin(seed + uTime * 0.35);
+        p.x += 0.07 * sin(uTime * 0.8 + seed * 3.1);
+        p.y += 0.07 * cos(uTime * 0.7 + seed * 2.3);
+        vMix = 0.5 + 0.5 * sin(seed + uTime * 0.3);
         vec4 mv = modelViewMatrix * vec4(p, 1.0);
-        gl_PointSize = (2.4 + 1.4 * vMix) * (300.0 / -mv.z) / 50.0;
+        gl_PointSize = (2.2 + 1.5 * vMix) * (300.0 / -mv.z) / 50.0;
         gl_Position = projectionMatrix * mv;
       }`,
     fragmentShader: `
@@ -217,21 +401,14 @@
       void main() {
         float d = length(gl_PointCoord - 0.5);
         if (d > 0.5) discard;
-        float a = smoothstep(0.5, 0.05, d);
+        float a = smoothstep(0.5, 0.06, d);
         vec3 cyan = vec3(0.0, 0.83, 0.85);
-        vec3 violet = vec3(0.49, 0.36, 1.0);
-        gl_FragColor = vec4(mix(cyan, violet, vMix), a * 0.85);
+        vec3 violet = vec3(0.55, 0.42, 1.0);
+        gl_FragColor = vec4(mix(cyan, violet, vMix), a * 0.7);
       }`,
   });
   const points = new THREE.Points(geo, mat);
   scene.add(points);
-
-  // faint inner glow sphere
-  const glow = new THREE.Mesh(
-    new THREE.SphereGeometry(1.5, 32, 32),
-    new THREE.MeshBasicMaterial({ color: 0x0a2233, transparent: true, opacity: 0.35 })
-  );
-  scene.add(glow);
 
   const mouse = { x: 0, y: 0 };
   window.addEventListener("pointermove", (e) => {
@@ -240,30 +417,111 @@
   });
 
   function resize() {
-    const w = canvas.clientWidth, h = canvas.clientHeight;
-    renderer.setSize(w, h, false);
+    renderer.setSize(window.innerWidth, window.innerHeight, false);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    camera.aspect = w / h;
+    camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
   }
   window.addEventListener("resize", resize);
   resize();
 
+  let phase = 0;
+  function onScroll() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    phase = Math.min(3, Math.max(0, (window.scrollY / Math.max(1, max)) * 3.35));
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  const ease = (t) => t * t * (3 - 2 * t);
+  let shown = 0;
   const clock = new THREE.Clock();
+
   (function tick() {
     const t = clock.getElapsedTime();
+    shown += (phase - shown) * 0.06;
+    const i0 = Math.min(2, Math.floor(shown));
+    const f = ease(Math.min(1, shown - i0));
+    const A = targets[i0], B = targets[i0 + 1];
+    const arr = geo.attributes.position.array;
+    for (let i = 0; i < COUNT * 3; i++) arr[i] = A[i] + (B[i] - A[i]) * f;
+    geo.attributes.position.needsUpdate = true;
+
     mat.uniforms.uTime.value = t;
-    mat.uniforms.uMouse.value.lerp(new THREE.Vector2(mouse.x, mouse.y), 0.05);
-    points.rotation.y = t * 0.08 + mouse.x * 0.25;
-    points.rotation.x = mouse.y * 0.15;
+    points.rotation.y = t * 0.07 + mouse.x * 0.22;
+    points.rotation.x = mouse.y * 0.12 + shown * 0.05;
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
   })();
 })();
-</script>
 
-<!-- ── Waitlist + invite redemption (Supabase) ─────────────────────────── -->
-<script>
+/* ── "Just ask" in many languages ── */
+(function () {
+  const el = document.getElementById("ask");
+  const phrases = ['"Just ask."', '"बस कह दो."', '"फक्त सांगा."', '"Solo pídelo."', '"Il suffit de demander."', '"Einfach fragen."', '"يكفي أن تطلب."', '"说一声就好。"'];
+  let i = 0;
+  setInterval(() => {
+    el.classList.add("fade");
+    setTimeout(() => { i = (i + 1) % phrases.length; el.textContent = phrases[i]; el.classList.remove("fade"); }, 450);
+  }, 3400);
+})();
+
+/* ── Personas: one morning each ── */
+(function () {
+  const P = [
+    ["Business owner", "Elena · design studio, Lisbon",
+      "Her support engine answered the inbox overnight, drafts waiting for her yes. The marketing engine proposed this week's posts from her portfolio. <b>Monday begins with ten approvals and a coffee.</b>"],
+    ["Sales team", "Dan · SaaS sales lead, Austin",
+      "While his team slept, the sales engine researched two hundred prospects and wrote a personal email for each. He approves the good ones over breakfast. <b>The CRM updates itself.</b>"],
+    ["Lawyer", "Meera · solo practice, Mumbai",
+      "A vendor contract lands at 6 pm. Her workforce flags two risky clauses, drafts the redline, and writes a plain-language summary for her client. <b>She reviews in ten minutes</b> and goes home."],
+    ["Accountant", "Rahul · chartered accountant, Pune",
+      "Every morning, invoices are pulled from the inbox, posted to the books, and the three clients who haven't paid get a polite reminder. <b>Month-end reports write themselves.</b>"],
+    ["Student", "Asha · engineering student, Delhi",
+      "She forwards an internship posting at 7:40 am. Her workforce tailors the resume, writes the cover letter, and files the application as a clean PDF before her first lecture. <b>Six more by lunch.</b>"],
+    ["Job seeker", "Jonas · switching careers, Berlin",
+      "Fifty openings screened overnight. Five worth his time. Five tailored applications sitting ready, <b>waiting only for his yes.</b>"],
+    ["Farmer", "Dattatray · grape farmer, Nashik",
+      "He asks in Marathi, by voice. Grape prices across three mandis, which subsidy covers drip irrigation, and a WhatsApp to his trader. <b>He never typed a word.</b>"],
+    ["Founder", "Neha · fintech founder, Bengaluru",
+      "Her investor update drafts itself from the metrics sheet. The research engine watches two competitors and briefs her weekly. <b>She approves. It sends.</b>"],
+    ["You", "Anyone, honestly",
+      "Summarize the 40-page PDF. Find the best route. Remind the plumber. Plan the birthday. Small things add up. <b>Now they're handled.</b>"],
+  ];
+  const chips = document.getElementById("chips");
+  const who = document.getElementById("v-who");
+  const story = document.getElementById("v-story");
+  const card = document.getElementById("vignette");
+  let cur = 0, timer = null;
+
+  function show(i) {
+    cur = i;
+    [...chips.children].forEach((c, j) => c.classList.toggle("on", j === i));
+    card.classList.add("swap");
+    setTimeout(() => {
+      who.textContent = P[i][1];
+      story.innerHTML = P[i][2];
+      card.classList.remove("swap");
+    }, 350);
+  }
+  P.forEach((p, i) => {
+    const b = document.createElement("button");
+    b.className = "chip"; b.textContent = p[0];
+    b.onclick = () => { clearInterval(timer); show(i); };
+    chips.appendChild(b);
+  });
+  who.textContent = P[0][1]; story.innerHTML = P[0][2];
+  chips.children[0].classList.add("on");
+  timer = setInterval(() => show((cur + 1) % P.length), 5600);
+})();
+
+/* ── Reveal on scroll ── */
+(function () {
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in"); }), { threshold: 0.15 });
+  document.querySelectorAll(".rv").forEach((el) => io.observe(el));
+})();
+
+/* ── Waitlist + invitation code (Supabase) ── */
 const SB_URL = "https://ieqkozrcbdecnhbyqhhd.supabase.co";
 const SB_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImllcWtvenJjYmRlY25oYnlxaGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5MTEyMzksImV4cCI6MjA5ODQ4NzIzOX0.GU04lRCy6n5cQA-wDn2AIR8QvcDPprWANfsrTbziT9c";
 
@@ -272,7 +530,7 @@ function show(el, cls, text) { el.className = "msg " + cls; el.textContent = tex
 document.getElementById("waitlist-form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const btn = document.getElementById("wl-btn"), msg = document.getElementById("wl-msg");
-  btn.disabled = true; btn.textContent = "Submitting…";
+  btn.disabled = true; btn.textContent = "Sending...";
   try {
     const r = await fetch(`${SB_URL}/rest/v1/waitlist`, {
       method: "POST",
@@ -284,20 +542,20 @@ document.getElementById("waitlist-form").addEventListener("submit", async (e) =>
         use_case: document.getElementById("wl-usecase").value.trim() || null,
       }),
     });
-    if (r.status === 409) { show(msg, "ok", "You're already on the list — we'll be in touch soon."); }
+    if (r.status === 409) { show(msg, "ok", "You're already on the list. Jarvis has your name."); }
     else if (!r.ok) { throw new Error("HTTP " + r.status); }
-    else { show(msg, "ok", "You're on the list! Watch your inbox — invitations go out in waves."); e.target.reset(); }
+    else { show(msg, "ok", "You're on the list. Watch your inbox, invitations go out in waves."); e.target.reset(); }
   } catch (err) {
-    show(msg, "err", "Something went wrong — please try again in a minute.");
+    show(msg, "err", "Something went wrong. Please try again in a minute.");
   }
-  btn.disabled = false; btn.textContent = "Request an invitation";
+  btn.disabled = false; btn.textContent = "Join the waiting list";
 });
 
 document.getElementById("redeem-form").addEventListener("submit", async (e) => {
   e.preventDefault();
   const btn = document.getElementById("rd-btn"), msg = document.getElementById("rd-msg");
   const code = document.getElementById("rd-code").value.trim().toUpperCase();
-  btn.disabled = true; btn.textContent = "Checking…";
+  btn.disabled = true; btn.textContent = "Checking...";
   try {
     const r = await fetch(`${SB_URL}/functions/v1/redeem-invite`, {
       method: "POST",
@@ -305,16 +563,20 @@ document.getElementById("redeem-form").addEventListener("submit", async (e) => {
       body: JSON.stringify({ code }),
     });
     const j = await r.json().catch(() => ({}));
-    if (j.ok && j.url) {
-      show(msg, "ok", "Welcome aboard — your download is starting.");
-      window.location.href = j.url;
+    if (j.ok && (j.urls || j.url)) {
+      const urls = j.urls || { windows: j.url };
+      show(msg, "ok", "Welcome aboard. Pick your platform.");
+      const box = document.getElementById("dl-buttons");
+      document.getElementById("dl-win").href = urls.windows || "#";
+      document.getElementById("dl-android").href = urls.android || "#";
+      box.classList.add("show");
     } else {
-      show(msg, "err", j.error || "That code didn't work — check it and try again.");
+      show(msg, "err", j.error || "That code didn't work. Check it and try again.");
     }
   } catch (err) {
-    show(msg, "err", "Couldn't reach the server — please try again.");
+    show(msg, "err", "Couldn't reach the server. Please try again.");
   }
-  btn.disabled = false; btn.textContent = "Unlock download";
+  btn.disabled = false; btn.textContent = "Unlock downloads";
 });
 </script>
 </body>
