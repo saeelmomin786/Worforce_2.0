@@ -1,0 +1,15 @@
+# The site is generated on Windows but served from Linux. Normalise to LF in
+# the repository so a rebuild does not show every file as modified, and so the
+# checkout stops warning about it on every commit.
+* text=auto eol=lf
+
+*.webp binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.ico  binary
+*.mp4  binary
+*.webm binary
+*.woff2 binary
+*.exe  binary
+*.apk  binary
