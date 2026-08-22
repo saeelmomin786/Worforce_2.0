@@ -1,583 +1,528 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Workforce 2.0. Recruit your AI workforce.</title>
-<meta name="description" content="An AI executive assistant, a chief of staff, and specialist workers for sales, support, accounts, legal, and research. Approval gates, your own keys, all data on your machine. Windows and Android, by invitation.">
-<link rel="icon" href="icons/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #06090f;
-    --ink: #eef3fa; --ink-mid: #b6c2d4; --ink-dim: #6d7a8f;
-    --cyan: #00d3d8; --violet: #8b6cff;
-    --line: rgba(255,255,255,.09);
-    --glass: rgba(13, 20, 32, .55);
-    --ok: #3ee6a8; --err: #ff6d7c;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--ink); font-family: "Inter", system-ui, sans-serif; overflow-x: hidden; line-height: 1.6; }
-  ::selection { background: rgba(0,211,216,.3); }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workforce 2.0 — An AI workforce that finishes the job</title>
+<meta name="description" content="Tell it what you need, out loud or typed, and a team of AI workers gets the job done. Runs on a free Google key. Your files stay on your computer.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 
-  #world { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; }
-  main { position: relative; z-index: 1; }
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="Workforce 2.0 — An AI workforce that finishes the job">
+<meta property="og:description" content="Tell it what you need, out loud or typed, and a team of AI workers gets the job done. Runs on a free Google key. Your files stay on your computer.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Workforce 2.0 — An AI workforce that finishes the job">
+<meta name="twitter:description" content="Tell it what you need, out loud or typed, and a team of AI workers gets the job done. Runs on a free Google key. Your files stay on your computer.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/home.png">
 
-  section { min-height: 92vh; display: flex; align-items: center; padding: 96px 24px; }
-  .shell { max-width: 1080px; margin: 0 auto; width: 100%; }
-  .kicker { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--cyan); margin-bottom: 18px; font-weight: 600; }
-  h1, h2 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; }
-  h2 { font-size: clamp(34px, 5vw, 58px); line-height: 1.08; margin-bottom: 20px; }
-  h2 em, h1 em { font-style: italic; background: linear-gradient(92deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .lead { color: var(--ink-mid); font-size: clamp(15px, 1.8vw, 18px); max-width: 640px; }
-
-  .glass { background: var(--glass); border: 1px solid var(--line); border-radius: 22px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
-
-  .rv { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s ease; }
-  .rv.in { opacity: 1; transform: none; }
-
-  /* hero */
-  #hero { text-align: center; justify-content: center; min-height: 100vh; }
-  #hero .shell { max-width: 940px; }
-  .badge { display: inline-block; padding: 7px 18px; border: 1px solid var(--line); border-radius: 999px; font-size: 11.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-mid); background: rgba(255,255,255,.03); backdrop-filter: blur(8px); margin-bottom: 30px; }
-  #hero h1 { font-size: clamp(44px, 8vw, 92px); line-height: 1.03; }
-  .hero-sub { color: var(--ink-mid); font-size: clamp(15px, 2vw, 19px); margin: 26px auto 14px; max-width: 640px; }
-  .ask { height: 34px; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(19px, 2.6vw, 26px); font-style: italic; color: var(--cyan); opacity: .95; transition: opacity .45s; margin-bottom: 34px; }
-  .ask.fade { opacity: 0; }
-  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 32px; border-radius: 14px; font-size: 15px; font-weight: 600; font-family: "Inter", sans-serif; cursor: pointer; border: none; transition: transform .16s ease, box-shadow .16s ease; text-decoration: none; color: inherit; }
-  .btn:hover { transform: translateY(-2px); }
-  .btn-primary { background: linear-gradient(92deg, var(--cyan), var(--violet)); color: #04070c; box-shadow: 0 10px 36px rgba(0,211,216,.28); }
-  .btn-ghost { background: rgba(255,255,255,.05); color: var(--ink); border: 1px solid var(--line); backdrop-filter: blur(8px); }
-
-  /* org: three roles */
-  .org { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 44px; }
-  .role { padding: 32px 30px; }
-  .role .tag { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
-  .role h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 26px; margin: 10px 0 10px; }
-  .role p { color: var(--ink-mid); font-size: 14px; }
-
-  /* engines */
-  .engine-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 38px 0 30px; }
-  .engine { padding: 11px 20px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--ink-mid); font-size: 13.5px; font-weight: 500; backdrop-filter: blur(8px); transition: all .25s; }
-  .engine:hover { border-color: rgba(0,211,216,.45); color: var(--ink); transform: translateY(-2px); }
-  .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-  .control { padding: 22px 24px; font-size: 13.5px; color: var(--ink-mid); }
-  .control b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 4px; font-size: 14px; }
-
-  /* economics */
-  .flow { display: flex; align-items: stretch; gap: 14px; margin: 40px 0 26px; flex-wrap: wrap; }
-  .flow-card { flex: 1; min-width: 220px; padding: 26px 24px; text-align: center; }
-  .flow-card .lvl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--cyan); font-weight: 600; margin-bottom: 8px; }
-  .flow-card h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 23px; margin-bottom: 8px; }
-  .flow-card p { color: var(--ink-mid); font-size: 13px; }
-  .flow-arrow { align-self: center; font-size: 22px; color: var(--ink-dim); }
-  .providers { display: flex; flex-wrap: wrap; gap: 9px; }
-  .prov { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--ink-dim); font-size: 12.5px; }
-  .prov.free { color: var(--ok); border-color: rgba(62,230,168,.35); }
-
-  /* memory / privacy */
-  .vault { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; margin-top: 44px; }
-  .vault .v { padding: 28px 26px; }
-  .vault h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 23px; margin-bottom: 8px; }
-  .vault p { color: var(--ink-mid); font-size: 13.5px; }
-
-  /* personas */
-  .chips { display: flex; gap: 10px; flex-wrap: wrap; margin: 36px 0 26px; }
-  .chip { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--ink-mid); font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all .2s; backdrop-filter: blur(8px); white-space: nowrap; }
-  .chip:hover { border-color: rgba(0,211,216,.4); color: var(--ink); }
-  .chip.on { background: linear-gradient(92deg, rgba(0,211,216,.16), rgba(139,108,255,.16)); border-color: rgba(0,211,216,.5); color: var(--ink); }
-  .vignette { padding: 40px 44px; min-height: 230px; max-width: 780px; }
-  .vignette .who { font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--cyan); font-weight: 600; margin-bottom: 14px; }
-  .vignette .story { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(21px, 2.7vw, 28px); line-height: 1.42; }
-  .vignette .story b { color: var(--cyan); font-weight: 400; }
-  .vignette.swap .who, .vignette.swap .story { opacity: 0; }
-  .vignette .who, .vignette .story { transition: opacity .35s; }
-
-  /* connectors */
-  .conn { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 36px; max-width: 820px; }
-  .conn span { padding: 9px 18px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.03); color: var(--ink-mid); font-size: 13px; }
-
-  /* access */
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin: 40px 0; }
-  .step { padding: 28px 26px; }
-  .step .n { font-family: "Instrument Serif", Georgia, serif; font-size: 38px; font-style: italic; background: linear-gradient(92deg, var(--cyan), var(--violet)); -webkit-background-clip: text; background-clip: text; color: transparent; display: block; margin-bottom: 8px; }
-  .step h3 { font-size: 15.5px; font-weight: 600; margin-bottom: 6px; }
-  .step p { color: var(--ink-mid); font-size: 13.5px; }
-  .form-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
-  @media (max-width: 860px) { .form-wrap { grid-template-columns: 1fr; } }
-  .form-card { padding: 36px; }
-  .form-card h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 27px; margin-bottom: 6px; }
-  .form-card .hint { color: var(--ink-dim); font-size: 13px; margin-bottom: 10px; }
-  .form-card label { display: block; font-size: 12px; color: var(--ink-mid); margin: 16px 0 6px; font-weight: 500; }
-  .form-card input, .form-card textarea { width: 100%; background: rgba(255,255,255,.045); border: 1px solid var(--line); border-radius: 11px; padding: 13px 16px; color: var(--ink); font-size: 14.5px; font-family: "Inter", sans-serif; outline: none; transition: border-color .15s; }
-  .form-card input:focus, .form-card textarea:focus { border-color: var(--cyan); }
-  .form-card textarea { resize: vertical; min-height: 76px; }
-  .form-card .btn { width: 100%; margin-top: 24px; }
-  .code-input { font-family: "Consolas", monospace !important; font-size: 18px !important; letter-spacing: 4px; text-align: center; text-transform: uppercase; }
-  .msg { margin-top: 14px; font-size: 13.5px; text-align: center; display: none; }
-  .msg.ok { color: var(--ok); display: block; }
-  .msg.err { color: var(--err); display: block; }
-  .dl-buttons { display: none; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
-  .dl-buttons.show { display: flex; }
-  .dl-buttons .btn { flex: 1; min-width: 160px; }
-  .dl-note { font-size: 12px; color: var(--ink-dim); text-align: center; margin-top: 12px; }
-
-  footer { position: relative; z-index: 1; border-top: 1px solid var(--line); padding: 40px 24px; text-align: center; color: var(--ink-dim); font-size: 12.5px; background: rgba(6,9,15,.7); backdrop-filter: blur(10px); }
-  footer .name { font-family: "Instrument Serif", Georgia, serif; font-size: 17px; color: var(--ink-mid); margin-bottom: 6px; }
-
-  @media (max-width: 640px) {
-    section { padding: 68px 18px; min-height: auto; }
-    #hero { min-height: 100vh; }
-    .vignette { padding: 28px 24px; }
-    .form-card { padding: 26px 20px; }
-    .flow-arrow { display: none; }
-  }
-</style>
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Workforce 2.0","url":"https://workforce.trackmystartup.com/","description":"An AI workforce for small businesses. A chief executive you talk to, specialist AI workers who do the work, and twenty engines that each run a whole business function.","sameAs":["https://github.com/saeelmomin786/Worforce_2.0"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Workforce 2.0","applicationCategory":"BusinessApplication","operatingSystem":"Windows, Android","description":"An AI workforce for small businesses. Twenty engines that each run a whole business function, from finding sales leads to watching competitor prices. Runs on your own free Google API key, and your memory stays on your machine.","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Free to download. Everyday work runs on your own free Google key at no cost. Finished jobs are charged per unit."}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I need to be technical to use it?","acceptedAnswer":{"@type":"Answer","text":"No. You talk to it or type at it in ordinary words, and it hands the work out. Setup is one free Google key, which takes about two minutes, and the app walks you through it on first launch."}},{"@type":"Question","name":"Do I need an API key, and is it free?","acceptedAnswer":{"@type":"Answer","text":"Yes, and yes. You need a free Google key, which is a password that lets the app use Google's AI on your behalf. You create it at aistudio.google.com/apikey with any Google account. There is no card to enter and no charge."}},{"@type":"Question","name":"Will it send emails without asking me?","acceptedAnswer":{"@type":"Answer","text":"No. Sending, publishing and spending all need your approval, and every attempt goes through the same gate. If you are not there to answer within 90 seconds, it stops rather than sending."}},{"@type":"Question","name":"Where does my data live?","acceptedAnswer":{"@type":"Answer","text":"On your computer, in a normal folder you can open and back up. It reads and indexes your files there, offline, so your documents and memory never leave the machine."}},{"@type":"Question","name":"How much does it cost to run?","acceptedAnswer":{"@type":"Answer","text":"Everyday work costs nothing, because it runs on your own free Google key and picks a cheap AI for simple steps. Finished jobs are charged per unit, for example ten cents for each sales lead you decide to keep. A two-person consultancy doing outbound spends around twelve euros a month."}},{"@type":"Question","name":"Will I get a surprise bill from Workforce 2.0?","acceptedAnswer":{"@type":"Answer","text":"No. Every job is either free, because it ran on your own free Google API key, or a fixed per-task price shown before the work starts. Nothing is billed per token. It also checks your balance before starting a chargeable job and stops at zero rather than running a negative balance."}},{"@type":"Question","name":"What happens to company knowledge when an employee leaves?","acceptedAnswer":{"@type":"Answer","text":"It stays with the business. Everyone works into one shared organisation memory that syncs hourly in both directions, covering notes, reference material, generated work and the conversations behind them. The whole corpus is searchable, so when someone leaves, how they priced a job or what wording worked is already recorded and the next person can ask for it."}},{"@type":"Question","name":"Does it work on a Mac?","acceptedAnswer":{"@type":"Answer","text":"Not yet. Workforce 2.0 runs on Windows, and there is an Android build. A Mac version is not available today."}}]}</script>
 </head>
-<body>
+<body class="home">
 
-<canvas id="world"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
 
-<main>
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
 
-<!-- 1 · HERO -->
-<section id="hero">
-  <div class="shell">
-    <div class="badge rv">Early access, by invitation</div>
-    <h1 class="rv">Recruit your <em>AI&nbsp;workforce.</em></h1>
-    <p class="hero-sub rv">An assistant who listens, a chief of staff who plans, and specialist workers who do the work. They use your tools, ask before anything leaves your name, and remember how you like things done.</p>
-    <div class="ask rv" id="ask">"Just ask."</div>
-    <div class="cta-row rv">
-      <button class="btn btn-primary" onclick="document.getElementById('access').scrollIntoView()">Request an invitation</button>
-      <button class="btn btn-ghost" onclick="document.getElementById('access').scrollIntoView()">I have a code</button>
-    </div>
-  </div>
-</section>
 
-<!-- 2 · THE ORGANIZATION -->
-<section id="org">
-  <div class="shell">
-    <div class="kicker rv">How it's organized</div>
-    <h2 class="rv">One conversation.<br>A whole team behind it.</h2>
-    <p class="lead rv">You talk to one assistant. Behind that conversation is a real division of labor, the same way a good company works.</p>
-    <div class="org">
-      <div class="role glass rv"><span class="tag">You talk to</span><h3>The Assistant</h3><p>Voice or text, in the language you think in. Small tasks get done on the spot. Big asks get handed upward, and you get a report back.</p></div>
-      <div class="role glass rv"><span class="tag">Who plans</span><h3>The Chief of Staff</h3><p>Turns your ask into a plan, picks the right specialists, assigns the work, and checks the results. It delegates. It never improvises with your name.</p></div>
-      <div class="role glass rv"><span class="tag">Who executes</span><h3>The Specialists</h3><p>Workers for email, spreadsheets, documents, research, outreach, and posting. Each one gets only the tools and access you allow.</p></div>
-    </div>
-  </div>
-</section>
+<main id="main">
 
-<!-- 3 · FOR BUSINESS: ENGINES -->
-<section id="engines">
-  <div class="shell">
-    <div class="kicker rv">For business</div>
-    <h2 class="rv">Sixteen departments,<br><em>ready on day one.</em></h2>
-    <p class="lead rv">Every engine is a working pipeline you switch on. It researches, drafts, files, and follows up on a schedule. You review a queue of approvals instead of doing the work.</p>
-    <div class="engine-grid rv">
-      <span class="engine">Sales</span><span class="engine">Marketing</span><span class="engine">Customer Support</span><span class="engine">Accounting</span><span class="engine">Legal</span><span class="engine">HR</span><span class="engine">Recruiting</span><span class="engine">Operations</span><span class="engine">Procurement</span><span class="engine">Compliance</span><span class="engine">Research</span><span class="engine">Grants</span><span class="engine">Investor Relations</span><span class="engine">Startup</span><span class="engine">Stock Analysis</span><span class="engine">Job Applications</span>
-    </div>
-    <div class="controls">
-      <div class="control glass rv"><b>Approval gates</b>Anything that leaves the company, an email, a post, a reminder, waits for your yes. You can loosen this per stage when trust is earned.</div>
-      <div class="control glass rv"><b>Your choice of model, per stage</b>Point a careful model at contract review and a fast one at data entry. Change it any time from a dropdown.</div>
-      <div class="control glass rv"><b>Start, watch, stop</b>Live activity for every stage. Pause an engine before a holiday. Resume it after.</div>
-    </div>
-  </div>
-</section>
-
-<!-- 4 · ECONOMICS -->
-<section id="economics">
-  <div class="shell">
-    <div class="kicker rv">Built to be affordable</div>
-    <h2 class="rv">Expensive minds plan.<br><em>Free hands execute.</em></h2>
-    <p class="lead rv">Workforce routes each step to the right model. A frontier model designs the plan. Fast, cheap models do the busywork. Local models on your own machine cost nothing at all.</p>
-    <div class="flow">
-      <div class="flow-card glass rv"><div class="lvl">Thinks</div><h3>Frontier model</h3><p>Plans the work, makes the judgment calls, reviews what matters. Used sparingly, where it counts.</p></div>
-      <div class="flow-arrow rv">→</div>
-      <div class="flow-card glass rv"><div class="lvl">Executes</div><h3>Fast free models</h3><p>Drafting, extracting, formatting, filing. High volume at pennies, often at zero.</p></div>
-      <div class="flow-arrow rv">→</div>
-      <div class="flow-card glass rv"><div class="lvl">On your machine</div><h3>Local models</h3><p>Ollama and LM Studio supported. No tokens, no bill, no internet required.</p></div>
-    </div>
-    <p class="lead rv" style="margin-bottom:18px">Bring keys from any provider. You pay them directly. There is no seat fee and no markup in the middle.</p>
-    <div class="providers rv">
-      <span class="prov">Claude</span><span class="prov">Gemini</span><span class="prov">GPT</span><span class="prov">DeepSeek</span><span class="prov">Qwen</span><span class="prov">GLM</span><span class="prov">Kimi</span><span class="prov free">Gemma · free</span><span class="prov free">Ollama · local</span><span class="prov free">LM Studio · local</span>
-    </div>
-  </div>
-</section>
-
-<!-- 5 · MEMORY + PRIVACY -->
-<section id="memory">
-  <div class="shell">
-    <div class="kicker rv">Yours, properly</div>
-    <h2 class="rv">Your organization's memory,<br>on your own computer.</h2>
-    <p class="lead rv">Every client, preference, and process is written to plain files on your machine. Every worker reads the same memory, so you explain things once and never again.</p>
-    <div class="vault">
-      <div class="v glass rv"><h3>Organizational memory</h3><p>Who Priya is. How you sign emails. Which template the resume uses. The whole team knows, because the memory is shared.</p></div>
-      <div class="v glass rv"><h3>Local by default</h3><p>Conversations, files, and memory live on your device in readable files you can open, edit, and back up yourself.</p></div>
-      <div class="v glass rv"><h3>Keys stay home</h3><p>Your API keys are stored on your machine and used from your machine. They are never uploaded, bundled, or shared.</p></div>
-      <div class="v glass rv"><h3>Data sovereignty by design</h3><p>Nothing to subpoena from us, nothing for us to leak. For firms with confidentiality duties, this is the point.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 6 · PERSONAS -->
-<section id="people">
-  <div class="shell">
-    <div class="kicker rv">A morning with your workforce</div>
-    <h2 class="rv">What people hand over.</h2>
-    <p class="lead rv">Pick someone like you. This is what their day looks like now.</p>
-    <div class="chips rv" id="chips"></div>
-    <div class="vignette glass rv" id="vignette">
-      <div class="who" id="v-who"></div>
-      <div class="story" id="v-story"></div>
-    </div>
-  </div>
-</section>
-
-<!-- 7 · CONNECTORS -->
-<section id="stack">
-  <div class="shell">
-    <div class="kicker rv">Plays well with your stack</div>
-    <h2 class="rv">Already friends<br>with your tools.</h2>
-    <p class="lead rv">Sign in once per service. Every model and every worker shares the same connections.</p>
-    <div class="conn rv">
-      <span>Gmail</span><span>Google Drive</span><span>Calendar</span><span>Sheets</span><span>Docs</span><span>Slides</span><span>HubSpot</span><span>LinkedIn</span><span>WhatsApp Business</span><span>Instagram</span><span>Facebook</span><span>Slack</span><span>Notion</span><span>Supabase</span><span>GitHub</span><span>Excel</span><span>PDF</span><span>Web search</span><span>Your desktop apps</span>
-    </div>
-  </div>
-</section>
-
-<!-- 8 · ACCESS -->
-<section id="access">
-  <div class="shell">
-    <div class="kicker rv">How access works</div>
-    <h2 class="rv">We open the doors<br>a few people at a time.</h2>
-    <p class="lead rv">Early members get real attention while we shape this together. The waiting list is read by Jarvis, our own assistant. Choosing people is his job.</p>
-    <div class="steps">
-      <div class="step glass rv"><span class="n">one</span><h3>Tell us about you</h3><p>Who you are and what you would hand over first. Two minutes.</p></div>
-      <div class="step glass rv"><span class="n">two</span><h3>Jarvis writes back</h3><p>Invitations go out in waves, each with a personal code.</p></div>
-      <div class="step glass rv"><span class="n">three</span><h3>Meet your team</h3><p>Download for Windows or Android. Running in minutes, improving itself weekly.</p></div>
-    </div>
-    <div class="form-wrap">
-      <div class="form-card glass rv">
-        <h3>Request an invitation</h3>
-        <div class="hint">Jarvis reads every request.</div>
-        <form id="waitlist-form">
-          <label for="wl-name">Name</label>
-          <input id="wl-name" type="text" placeholder="Your name" required maxlength="120">
-          <label for="wl-email">Email</label>
-          <input id="wl-email" type="email" placeholder="you@anywhere.com" required maxlength="200">
-          <label for="wl-company">What do you do? (optional)</label>
-          <input id="wl-company" type="text" placeholder="Business owner, lawyer, student, curious human" maxlength="160">
-          <label for="wl-usecase">What would you hand over first? (optional)</label>
-          <textarea id="wl-usecase" placeholder="Run outbound sales. Answer support email. Chase invoices. Apply to internships for me." maxlength="600"></textarea>
-          <button class="btn btn-primary" type="submit" id="wl-btn">Join the waiting list</button>
-          <div class="msg" id="wl-msg"></div>
-        </form>
-      </div>
-      <div class="form-card glass rv">
-        <h3>Already invited?</h3>
-        <div class="hint">Enter the code from your invitation email.</div>
-        <form id="redeem-form">
-          <label for="rd-code">Invitation code</label>
-          <input id="rd-code" class="code-input" type="text" placeholder="WF-XXXX-XXXX" required maxlength="32" autocomplete="off" spellcheck="false">
-          <button class="btn btn-primary" type="submit" id="rd-btn">Unlock downloads</button>
-          <div class="msg" id="rd-msg"></div>
-        </form>
-        <div class="dl-buttons" id="dl-buttons">
-          <a class="btn btn-primary" id="dl-win" href="#" download>Windows</a>
-          <a class="btn btn-ghost" id="dl-android" href="#" download>Android</a>
+<section data-shape="tree" data-cap="The whole business, as one tree" class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Recruit your <em class="g">AI&nbsp;workforce.</em></h1>
+        <p class="lead">Tell it what you need, out loud or typed. It hands the work out to AI
+        workers who get it done, and asks you before anything leaves the building.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/download/">Download for Windows</a>
+          <a class="btn btn-ghost" href="#see-it">Watch it work</a>
         </div>
-        <div class="dl-note">Windows 10/11 · Android 10+ · installs in minutes, updates itself</div>
+        <p class="cta-note" style="margin-top:14px">Free to download. Everyday work runs at no cost on your own free Google key.</p>
+        <p class="hero-scale">
+          <b>20</b> jobs it runs <span aria-hidden="true">·</span>
+          <b>36</b> apps connected <span aria-hidden="true">·</span>
+          <b>your files</b> stay on your computer
+        </p>
+      </div>
+      <figure class="shot">
+        <img src="/assets/img/app-console.webp" alt="The Workforce 2.0 console, with the AI chief executive on standby" width="1330" height="860" fetchpriority="high" decoding="async">
+        <figcaption>The console. Tap the sphere and talk, or open the transcript and type.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-cap="One worker, doing one job" id="see-it">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">See it work</p>
+      <h2>A look around, in fifty seconds.</h2>
+      <p class="answer">The actual application, recorded as it runs. The console you talk to, the
+      workers, the task board, and the twenty engines with what each one costs.</p>
+    </div>
+    <figure class="shot rv">
+      <video controls muted playsinline preload="none"
+             poster="/assets/video/tour-poster.webp"
+             width="1280" height="800" style="width:100%;display:block">
+        <source src="/assets/video/tour.webm" type="video/webm">
+        <source src="/assets/video/tour.mp4" type="video/mp4">
+      </video>
+      <figcaption>Recorded from the running app. No mockups.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="People come and go. The knowledge stays.">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Why this one</p>
+      <h2>Three things nothing else does.</h2>
+      <p class="answer">Plenty of tools will draft you an email. These are the reasons businesses
+      keep this one running after the novelty wears off.</p>
+    </div>
+
+    <div class="stack">
+      <div class="card row rv">
+        <h4>One</h4>
+        <h3>You are never guessing what it costs</h3>
+        <p>Every job is one of two things: <b>free</b>, because it ran on your own free Google key,
+        or a <b>fixed price you saw before it started</b>. Ten cents for a lead you keep. One euro
+        for a tailored application. There is no token meter running in the background and no bill
+        at the end of the month that you have to reverse-engineer.</p>
+        <p class="dim">Most AI tools bill you per token, which is a unit you cannot count, for work
+        you have not seen yet. That is the thing that stops people using them properly.</p>
+        <span class="price">Free, or a number you already knew</span>
+      </div>
+
+      <div class="card row rv">
+        <h4>Two</h4>
+        <h3>Your files never leave your computer</h3>
+        <p>It reads and indexes your documents on your own machine, offline. No upload step, no
+        copy on our side, nothing to leak and nothing to subpoena from us. The memory is a folder
+        of plain text files you can open, edit and back up yourself.</p>
+        <p class="dim">If you handle anything under a confidentiality duty, this is usually the
+        clause that decides whether you can use AI at all.</p>
+        <span class="price">Indexed on your machine, offline</span>
+      </div>
+
+      <div class="card row rv">
+        <h4>Three</h4>
+        <h3>What your team learns, the business keeps</h3>
+        <p>Everyone works into <b>one shared memory</b>. Notes, decisions, reference material and
+        the conversations behind them sync across the company every hour, in both directions, and
+        the whole lot is searchable.</p>
+        <p>So when someone leaves, the handover is not a document nobody wrote. How they priced
+        that job, why the client wanted it that way, the wording that actually worked — it is
+        already in there, and the next person can ask for it.</p>
+        <p class="dim">This is the one that compounds. A company that has been running it for a
+        year knows things a new install cannot.</p>
+        <span class="price">One brain, and it stays</span>
       </div>
     </div>
+  </div>
+</section>
+
+<section data-shape="people" data-cap="Four ways in. Pick the one that is you."
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Start here</p>
+      <h2>Which of these is you?</h2>
+    </div>
+    <div class="grid g4">
+      <a class="card rv" href="/engines/sales/">
+        <h3>You run a business</h3>
+        <p>Sales is the thing that never gets done, because you are the one who has to do it and
+        you are also doing everything else.</p>
+        <span class="more">Start with the sales engine</span>
+      </a>
+      <a class="card rv" href="/security/">
+        <h3>You run a practice</h3>
+        <p>You would hand over half your admin tomorrow, if you could be certain nothing about a
+        client ever leaves your machine.</p>
+        <span class="more">Read how your data is handled</span>
+      </a>
+      <a class="card rv" href="/engines/communication/">
+        <h3>You run someone's diary</h3>
+        <p>Two inboxes, two calendars, and everything anyone asks for lands in one of them. It
+        drafts in their voice, not yours.</p>
+        <span class="more">See the inbox engine</span>
+      </a>
+      <a class="card rv" href="/engines/">
+        <h3>You run a startup</h3>
+        <p>You are paying an agency for work you could describe in a paragraph, and waiting a
+        week for it.</p>
+        <span class="more">See all twenty engines</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="It thinks at the top. It has no hands.">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">What it is</p>
+      <h2>What is this, exactly?</h2>
+      <p class="answer">Three levels, like a real company. You talk to an assistant. It passes the
+      big things to a chief executive who plans them. The plan goes to workers who do the job with
+      real tools. <strong>The one that plans has no tools of its own.</strong></p>
+    </div>
+    <div class="grid g3">
+      <div class="card rv">
+        <h4>You talk to</h4>
+        <h3>The assistant</h3>
+        <p>Voice or typing. Small things it handles on the spot. Big things go upstairs, and you
+        get told what happened.</p>
+      </div>
+      <div class="card rv">
+        <h4>Which plans</h4>
+        <h3>The chief executive</h3>
+        <p>Turns your ask into a plan, picks who does what, and checks what comes back. It has no
+        way into your email, your calendar, your files or your customers.</p>
+      </div>
+      <div class="card rv">
+        <h4>Which does the work</h4>
+        <h3>The workers</h3>
+        <p>Each one gets only the apps you allow it. You can change which AI it uses, limit what
+        it touches, or pause it.</p>
+      </div>
+    </div>
+    <div class="srcquote rv">
+      <p class="framing">A comment one of our engineers left in the code, not marketing copy:</p>
+      <blockquote>&ldquo;CEO never executes.&rdquo;</blockquote>
+    </div>
+    <p class="rv"><a href="/platform/">How the three levels work &rarr;</a></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">What it does</p>
+      <h2>What can it actually do for me?</h2>
+      <p class="answer">Twenty jobs, each run start to finish rather than one step at a time. Six
+      of them are the ones people install it for.</p>
+    </div>
+    <div class="stack">
+    <a class="card row rv" href="/engines/sales/" data-shape="worker" data-motion="1"
+       data-cap="Worker 1 of 6 &middot; <b>Sales</b>">
+      <h3>Sales</h3>
+      <p>Finds companies that match the customers you already have, checks the contact details are real, writes the outreach and chases the follow-ups.</p>
+      <span class="price">Finding is free &middot; &euro;0.10 per lead you keep</span>
+      <span class="more">How it works &rarr;</span>
+    </a>
+    <a class="card row rv" href="/engines/marketing/" data-shape="worker" data-motion="2"
+       data-cap="Worker 2 of 6 &middot; <b>Marketing</b>">
+      <h3>Marketing</h3>
+      <p>Studies your brand and your rivals, builds a plan and a calendar, writes the posts, and tells you which channel actually brought leads.</p>
+      <span class="price">&euro;0.35 per campaign of 3</span>
+      <span class="more">How it works &rarr;</span>
+    </a>
+    <a class="card row rv" href="/engines/communication/" data-shape="worker" data-motion="3"
+       data-cap="Worker 3 of 6 &middot; <b>Inbox and replies</b>">
+      <h3>Inbox and replies</h3>
+      <p>Reads the mailboxes you choose, drafts replies in your voice, and pulls out the things people have assigned you.</p>
+      <span class="price">&euro;0.02&ndash;0.05 per reply drafted</span>
+      <span class="more">How it works &rarr;</span>
+    </a>
+    <a class="card row rv" href="/engines/pricing-intelligence/" data-shape="worker" data-motion="4"
+       data-cap="Worker 4 of 6 &middot; <b>Competitor prices</b>">
+      <h3>Competitor prices</h3>
+      <p>Reads your rivals&rsquo; pricing pages, shows where you sit, and tells you when one of them moves.</p>
+      <span class="price">&euro;0.10 per competitor, per check</span>
+      <span class="more">How it works &rarr;</span>
+    </a>
+    <a class="card row rv" href="/engines/video/" data-shape="worker" data-motion="5"
+       data-cap="Worker 5 of 6 &middot; <b>Video studio</b>">
+      <h3>Video studio</h3>
+      <p>Say a rough idea out loud. It writes the script, breaks it into scenes, and films them one at a time.</p>
+      <span class="price">&euro;0.05&ndash;0.20 per second of film</span>
+      <span class="more">How it works &rarr;</span>
+    </a>
+    <a class="card row rv" href="/engines/jobs/" data-shape="worker" data-motion="6"
+       data-cap="Worker 6 of 6 &middot; <b>Job applications</b>">
+      <h3>Job applications</h3>
+      <p>Matches your CV to jobs you can realistically get, checks each one is still open, and writes a tailored CV and letter for it.</p>
+      <span class="price">&euro;1.00 per application</span>
+      <span class="more">How it works &rarr;</span>
+    </a>
+    </div>
+    <p class="rv" style="margin-top:26px"><a href="/engines/">And fourteen more, from bookkeeping to compliance &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="You talk. It hands the work out."
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Getting started</p>
+      <h2>Do I have to learn it?</h2>
+      <p class="answer">No. You talk to it. Tap the sphere, say what you want in ordinary words,
+      and cut in mid-sentence if it goes the wrong way. <strong>There is no interface to master.</strong></p>
+    </div>
+    <ul class="ticks rv">
+      <li>It is a real conversation, not dictation fed to a chatbot. <b>You can interrupt it.</b></li>
+      <li>Talking can hand work to the whole team, not just answer a question.</li>
+      <li>It knows the same things whether you speak or type.</li>
+      <li>It can record a meeting you are sitting in and file the transcript into your notes.</li>
+    </ul>
+    <p class="rv"><a href="/voice/">More on voice and meetings &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="Free, or a number you already knew"
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Cost</p>
+      <h2>What will this cost me?</h2>
+      <p class="answer">Everyday work costs nothing. It runs on a free Google key you set up in
+      two minutes, and it picks a cheap AI for the simple steps. <strong>You pay per job
+      finished</strong>, and it shows you the price before it spends.</p>
+    </div>
+    <div class="note note-ok rv" style="max-width:60ch">
+      <h4>A real month, with the arithmetic shown</h4>
+      <p>A two-person consultancy doing outbound. It finds 200 companies, which costs nothing.
+      You look through them and keep 40, at &euro;0.10 each. It writes and sends the outreach and
+      chases the follow-ups.</p>
+      <p><b>About &euro;12 for the month.</b></p>
+    </div>
+    <p class="rv"><a href="/pricing/">Two more worked months, and the full price list &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="Below the soil: your files, on your machine"
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Your data</p>
+      <h2>Where do my files live?</h2>
+      <p class="answer">On your computer, in a normal folder you can open and back up. It reads
+      and indexes them there, offline. <strong>Your documents and your memory never leave the
+      machine</strong>, and there is no per-search cost because nothing is being sent anywhere.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card rv">
+        <h3>It remembers your business</h3>
+        <p>Who your customers are, how you sign off an email, which template you use. It gets
+        better at finding the right thing the more you use it, and it learns how you write from
+        your own emails.</p>
+      </div>
+      <div class="card rv">
+        <h3>And it stays yours</h3>
+        <p>It is a folder of plain text files. Open one and correct it by hand, and your
+        correction survives. Stop using Workforce 2.0 and the folder stays exactly where it is.</p>
+      </div>
+    </div>
+    <div class="note rv" style="max-width:66ch">
+      <h4>One thing that does leave, and only if you let it</h4>
+      <p>Your own Google key gets used first, always. If your free allowance has been refusing for
+      about 90 seconds and you are signed in, engine work can go through our connection instead so
+      the job finishes rather than dying halfway. Conversations and background housekeeping never
+      do, and you can switch it off. Your files and your memory are not part of this either way.</p>
+    </div>
+    <p class="rv"><a href="/memory/">What it remembers &rarr;</a> &nbsp; <a href="/security/">The full data story &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Nothing leaves without you"
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Staying in control</p>
+      <h2>What stops it doing something I didn't ask for?</h2>
+      <p class="answer">You decide how far it can go: read only, draft but never send, or send.
+      Anything that sends, publishes or spends stops and waits for you. <strong>If you are not
+      there to answer, it stops rather than sending.</strong></p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>Every attempt goes through the same gate.</b> The assistant, a worker, an engine — whoever asked, it is the same check. A new feature cannot forget to ask you.</li>
+      <li><b>No answer within 90 seconds counts as a no.</b> Not as a quiet yes.</li>
+      <li><b>Every decision is written down</b>, so you can see what was asked and what you said.</li>
+      <li><b>It stops at zero.</b> It checks your balance before it starts a job, not after.</li>
+    </ul>
+    <div class="srcquote rv">
+      <p class="framing">The reason, again from the code:</p>
+      <blockquote>&ldquo;unattended runs should not silently send messages to real people.&rdquo;</blockquote>
+    </div>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="It keeps working"
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">While you are away</p>
+      <h2>What runs while I'm asleep?</h2>
+      <p class="answer">A specific list, rather than the phrase "runs in the background". Each of
+      these ticks on its own, and pauses when you are using the machine for something else.</p>
+    </div>
+    <div class="tablewrap rv">
+      <table>
+        <thead><tr><th>Job</th><th>How often</th></tr></thead>
+        <tbody>
+          <tr><td><b>Sales follow-ups, and topping up the list</b></td><td class="num">every 10 minutes</td></tr>
+          <tr><td><b>Checking competitor prices</b></td><td class="num">hourly, each page once a day</td></tr>
+          <tr><td><b>Syncing shared files for the team</b></td><td class="num">hourly</td></tr>
+          <tr><td><b>Learning how you write</b></td><td class="num">every 6 hours</td></tr>
+          <tr><td><b>Rebuilding the map of your documents</b></td><td class="num">when they change</td></tr>
+          <tr><td><b>Checking your calendar and task sheets</b></td><td class="num">every 60 seconds</td></tr>
+          <tr><td><b>Raising something worth interrupting you for</b></td><td class="num">at most one, 20-min cooldown</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="srcquote rv">
+      <p class="framing">On why it will not nag you:</p>
+      <blockquote>&ldquo;an assistant that always has something to say is one the user turns off&rdquo;</blockquote>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Get it</h2>
+      <p class="answer">Free to download and free to run the everyday work. It installs like any
+      other Windows program. No server, no IT person, no monthly minimum.</p>
+    </div>
+    <div class="cta-row rv">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/download/">Android</a>
+      <span class="cta-note">No Mac version yet.</span>
+    </div>
+    <p class="dim rv" style="margin-top:18px">It updates itself when you say yes, and you can go
+    back to any earlier version.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head rv"><h2>Questions people ask first</h2></div>
+    <div class="faq rv">
+      <details>
+        <summary>Do I need to be technical to use it?</summary>
+        <div><p>No. You talk to it or type at it in ordinary words, and it hands the work out.
+        Setup is one free Google key, which takes about two minutes, and the app walks you through
+        it on first launch.</p></div>
+      </details>
+      <details>
+        <summary>Do I need an API key, and is it free?</summary>
+        <div><p>Yes, and yes. You need a free Google key, which is a password that lets the app use
+        Google's AI on your behalf. You create it at aistudio.google.com/apikey with any Google
+        account. There is no card to enter and no charge.
+        <a href="/download/">The steps, with screenshots &rarr;</a></p></div>
+      </details>
+      <details>
+        <summary>Will it send emails without asking me?</summary>
+        <div><p>No. Sending, publishing and spending all need your approval, and every attempt goes
+        through the same gate. If you are not there to answer within 90 seconds, it stops rather
+        than sending. <a href="/security/">More on approvals &rarr;</a></p></div>
+      </details>
+      <details>
+        <summary>Where does my data live?</summary>
+        <div><p>On your computer, in a normal folder you can open and back up. It reads and indexes
+        your files there, offline, so your documents and memory never leave the machine.
+        <a href="/memory/">What it remembers &rarr;</a></p></div>
+      </details>
+      <details>
+        <summary>How much does it cost to run?</summary>
+        <div><p>Everyday work costs nothing, because it runs on your own free Google key and picks a
+        cheap AI for simple steps. Finished jobs are charged per unit, for example ten cents for
+        each sales lead you decide to keep. A two-person consultancy doing outbound spends around
+        twelve euros a month. <a href="/pricing/">The full price list &rarr;</a></p></div>
+      </details>
+      <details>
+        <summary>Will I get a surprise bill?</summary>
+        <div><p>No. Every job is either free, because it ran on your own free Google key, or a fixed
+        price shown before it starts. Nothing is billed per token, and it stops at zero rather than
+        running a balance you have to settle later.
+        <a href="/pricing/">Three worked months &rarr;</a></p></div>
+      </details>
+      <details>
+        <summary>What happens to what we have learned if someone leaves?</summary>
+        <div><p>It stays. Everyone in the company works into one shared memory that syncs hourly in
+        both directions, so notes, decisions, reference material and the conversations behind them
+        belong to the business rather than to one person's laptop. The next person can search it and
+        ask about it.</p></div>
+      </details>
+      <details>
+        <summary>Does it work on a Mac?</summary>
+        <div><p>Not yet. Workforce 2.0 runs on Windows, and there is an Android build. A Mac version
+        is not available today.</p></div>
+      </details>
+    </div>
+    <p class="rv" style="margin-top:24px"><a href="/faq/">All the questions &rarr;</a> &nbsp;
+    <a href="/limits/">What it does not do &rarr;</a></p>
   </div>
 </section>
 
 </main>
 
-<footer>
-  <div class="name">Workforce 2.0</div>
-  <div>Your keys. Your computer. Your team. © 2026 Saeel Momin</div>
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-<script>
-/* ── The living background ─────────────────────────────────────────────────
-   One particle field, four shapes, driven by scroll:
-   sphere (you) → constellation (your team) → ring (your tools, connected)
-   → globe (your whole organization, anywhere). */
-(function () {
-  const canvas = document.getElementById("world");
-  if (!window.THREE || !window.WebGLRenderingContext) { canvas.style.display = "none"; return; }
-  let renderer;
-  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); }
-  catch (e) { canvas.style.display = "none"; return; }
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
-  camera.position.z = 8;
-
-  const COUNT = 5200;
-  const targets = [];
-
-  (function sphere() {
-    const a = new Float32Array(COUNT * 3);
-    for (let i = 0; i < COUNT; i++) {
-      const y = 1 - (i / (COUNT - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.39996323;
-      a[i*3] = Math.cos(th) * r * 2.7; a[i*3+1] = y * 2.7; a[i*3+2] = Math.sin(th) * r * 2.7;
-    }
-    targets.push(a);
-  })();
-
-  (function constellation() {
-    const a = new Float32Array(COUNT * 3);
-    const K = 8;
-    for (let i = 0; i < COUNT; i++) {
-      const k = i % K;
-      let cx = 0, cy = 0, cz = 0, cr = 1.0;
-      if (k > 0) {
-        const ang = (k - 1) / (K - 1) * Math.PI * 2;
-        cx = Math.cos(ang) * 3.1; cy = Math.sin(ang) * 2.1; cz = Math.sin(ang * 2) * 0.8; cr = 0.62;
-      }
-      const u = Math.random(), v = Math.random();
-      const th = 2 * Math.PI * u, ph = Math.acos(2 * v - 1), rr = cr * Math.cbrt(Math.random());
-      a[i*3] = cx + rr * Math.sin(ph) * Math.cos(th);
-      a[i*3+1] = cy + rr * Math.sin(ph) * Math.sin(th);
-      a[i*3+2] = cz + rr * Math.cos(ph);
-    }
-    targets.push(a);
-  })();
-
-  (function ring() {
-    const a = new Float32Array(COUNT * 3);
-    const R = 2.7, r = 0.75;
-    for (let i = 0; i < COUNT; i++) {
-      const u = (i / COUNT) * Math.PI * 2 * 3 % (Math.PI * 2);
-      const v = Math.random() * Math.PI * 2;
-      a[i*3] = (R + r * Math.cos(v)) * Math.cos(u);
-      a[i*3+1] = r * Math.sin(v) * 1.15;
-      a[i*3+2] = (R + r * Math.cos(v)) * Math.sin(u) * 0.6;
-    }
-    targets.push(a);
-  })();
-
-  (function globe() {
-    const a = new Float32Array(COUNT * 3);
-    for (let i = 0; i < COUNT; i++) {
-      const y = 1 - (i / (COUNT - 1)) * 2, r = Math.sqrt(1 - y * y), th = i * 2.39996323;
-      a[i*3] = Math.cos(th) * r * 3.4; a[i*3+1] = y * 3.4; a[i*3+2] = Math.sin(th) * r * 3.4;
-    }
-    targets.push(a);
-  })();
-
-  const pos = new Float32Array(targets[0]);
-  const seed = new Float32Array(COUNT);
-  for (let i = 0; i < COUNT; i++) seed[i] = Math.random() * Math.PI * 2;
-
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-  geo.setAttribute("seed", new THREE.BufferAttribute(seed, 1));
-
-  const mat = new THREE.ShaderMaterial({
-    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-    uniforms: { uTime: { value: 0 } },
-    vertexShader: `
-      uniform float uTime; attribute float seed; varying float vMix;
-      void main() {
-        vec3 p = position;
-        p.x += 0.07 * sin(uTime * 0.8 + seed * 3.1);
-        p.y += 0.07 * cos(uTime * 0.7 + seed * 2.3);
-        vMix = 0.5 + 0.5 * sin(seed + uTime * 0.3);
-        vec4 mv = modelViewMatrix * vec4(p, 1.0);
-        gl_PointSize = (2.2 + 1.5 * vMix) * (300.0 / -mv.z) / 50.0;
-        gl_Position = projectionMatrix * mv;
-      }`,
-    fragmentShader: `
-      varying float vMix;
-      void main() {
-        float d = length(gl_PointCoord - 0.5);
-        if (d > 0.5) discard;
-        float a = smoothstep(0.5, 0.06, d);
-        vec3 cyan = vec3(0.0, 0.83, 0.85);
-        vec3 violet = vec3(0.55, 0.42, 1.0);
-        gl_FragColor = vec4(mix(cyan, violet, vMix), a * 0.7);
-      }`,
-  });
-  const points = new THREE.Points(geo, mat);
-  scene.add(points);
-
-  const mouse = { x: 0, y: 0 };
-  window.addEventListener("pointermove", (e) => {
-    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
-  });
-
-  function resize() {
-    renderer.setSize(window.innerWidth, window.innerHeight, false);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-  }
-  window.addEventListener("resize", resize);
-  resize();
-
-  let phase = 0;
-  function onScroll() {
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    phase = Math.min(3, Math.max(0, (window.scrollY / Math.max(1, max)) * 3.35));
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  const ease = (t) => t * t * (3 - 2 * t);
-  let shown = 0;
-  const clock = new THREE.Clock();
-
-  (function tick() {
-    const t = clock.getElapsedTime();
-    shown += (phase - shown) * 0.06;
-    const i0 = Math.min(2, Math.floor(shown));
-    const f = ease(Math.min(1, shown - i0));
-    const A = targets[i0], B = targets[i0 + 1];
-    const arr = geo.attributes.position.array;
-    for (let i = 0; i < COUNT * 3; i++) arr[i] = A[i] + (B[i] - A[i]) * f;
-    geo.attributes.position.needsUpdate = true;
-
-    mat.uniforms.uTime.value = t;
-    points.rotation.y = t * 0.07 + mouse.x * 0.22;
-    points.rotation.x = mouse.y * 0.12 + shown * 0.05;
-    renderer.render(scene, camera);
-    requestAnimationFrame(tick);
-  })();
-})();
-
-/* ── "Just ask" in many languages ── */
-(function () {
-  const el = document.getElementById("ask");
-  const phrases = ['"Just ask."', '"बस कह दो."', '"फक्त सांगा."', '"Solo pídelo."', '"Il suffit de demander."', '"Einfach fragen."', '"يكفي أن تطلب."', '"说一声就好。"'];
-  let i = 0;
-  setInterval(() => {
-    el.classList.add("fade");
-    setTimeout(() => { i = (i + 1) % phrases.length; el.textContent = phrases[i]; el.classList.remove("fade"); }, 450);
-  }, 3400);
-})();
-
-/* ── Personas: one morning each ── */
-(function () {
-  const P = [
-    ["Business owner", "Elena · design studio, Lisbon",
-      "Her support engine answered the inbox overnight, drafts waiting for her yes. The marketing engine proposed this week's posts from her portfolio. <b>Monday begins with ten approvals and a coffee.</b>"],
-    ["Sales team", "Dan · SaaS sales lead, Austin",
-      "While his team slept, the sales engine researched two hundred prospects and wrote a personal email for each. He approves the good ones over breakfast. <b>The CRM updates itself.</b>"],
-    ["Lawyer", "Meera · solo practice, Mumbai",
-      "A vendor contract lands at 6 pm. Her workforce flags two risky clauses, drafts the redline, and writes a plain-language summary for her client. <b>She reviews in ten minutes</b> and goes home."],
-    ["Accountant", "Rahul · chartered accountant, Pune",
-      "Every morning, invoices are pulled from the inbox, posted to the books, and the three clients who haven't paid get a polite reminder. <b>Month-end reports write themselves.</b>"],
-    ["Student", "Asha · engineering student, Delhi",
-      "She forwards an internship posting at 7:40 am. Her workforce tailors the resume, writes the cover letter, and files the application as a clean PDF before her first lecture. <b>Six more by lunch.</b>"],
-    ["Job seeker", "Jonas · switching careers, Berlin",
-      "Fifty openings screened overnight. Five worth his time. Five tailored applications sitting ready, <b>waiting only for his yes.</b>"],
-    ["Farmer", "Dattatray · grape farmer, Nashik",
-      "He asks in Marathi, by voice. Grape prices across three mandis, which subsidy covers drip irrigation, and a WhatsApp to his trader. <b>He never typed a word.</b>"],
-    ["Founder", "Neha · fintech founder, Bengaluru",
-      "Her investor update drafts itself from the metrics sheet. The research engine watches two competitors and briefs her weekly. <b>She approves. It sends.</b>"],
-    ["You", "Anyone, honestly",
-      "Summarize the 40-page PDF. Find the best route. Remind the plumber. Plan the birthday. Small things add up. <b>Now they're handled.</b>"],
-  ];
-  const chips = document.getElementById("chips");
-  const who = document.getElementById("v-who");
-  const story = document.getElementById("v-story");
-  const card = document.getElementById("vignette");
-  let cur = 0, timer = null;
-
-  function show(i) {
-    cur = i;
-    [...chips.children].forEach((c, j) => c.classList.toggle("on", j === i));
-    card.classList.add("swap");
-    setTimeout(() => {
-      who.textContent = P[i][1];
-      story.innerHTML = P[i][2];
-      card.classList.remove("swap");
-    }, 350);
-  }
-  P.forEach((p, i) => {
-    const b = document.createElement("button");
-    b.className = "chip"; b.textContent = p[0];
-    b.onclick = () => { clearInterval(timer); show(i); };
-    chips.appendChild(b);
-  });
-  who.textContent = P[0][1]; story.innerHTML = P[0][2];
-  chips.children[0].classList.add("on");
-  timer = setInterval(() => show((cur + 1) % P.length), 5600);
-})();
-
-/* ── Reveal on scroll ── */
-(function () {
-  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in"); }), { threshold: 0.15 });
-  document.querySelectorAll(".rv").forEach((el) => io.observe(el));
-})();
-
-/* ── Waitlist + invitation code (Supabase) ── */
-const SB_URL = "https://ieqkozrcbdecnhbyqhhd.supabase.co";
-const SB_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImllcWtvenJjYmRlY25oYnlxaGhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5MTEyMzksImV4cCI6MjA5ODQ4NzIzOX0.GU04lRCy6n5cQA-wDn2AIR8QvcDPprWANfsrTbziT9c";
-
-function show(el, cls, text) { el.className = "msg " + cls; el.textContent = text; }
-
-document.getElementById("waitlist-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const btn = document.getElementById("wl-btn"), msg = document.getElementById("wl-msg");
-  btn.disabled = true; btn.textContent = "Sending...";
-  try {
-    const r = await fetch(`${SB_URL}/rest/v1/waitlist`, {
-      method: "POST",
-      headers: { apikey: SB_ANON, Authorization: `Bearer ${SB_ANON}`, "Content-Type": "application/json", Prefer: "return=minimal" },
-      body: JSON.stringify({
-        name: document.getElementById("wl-name").value.trim(),
-        email: document.getElementById("wl-email").value.trim().toLowerCase(),
-        company: document.getElementById("wl-company").value.trim() || null,
-        use_case: document.getElementById("wl-usecase").value.trim() || null,
-      }),
-    });
-    if (r.status === 409) { show(msg, "ok", "You're already on the list. Jarvis has your name."); }
-    else if (!r.ok) { throw new Error("HTTP " + r.status); }
-    else { show(msg, "ok", "You're on the list. Watch your inbox, invitations go out in waves."); e.target.reset(); }
-  } catch (err) {
-    show(msg, "err", "Something went wrong. Please try again in a minute.");
-  }
-  btn.disabled = false; btn.textContent = "Join the waiting list";
-});
-
-document.getElementById("redeem-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const btn = document.getElementById("rd-btn"), msg = document.getElementById("rd-msg");
-  const code = document.getElementById("rd-code").value.trim().toUpperCase();
-  btn.disabled = true; btn.textContent = "Checking...";
-  try {
-    const r = await fetch(`${SB_URL}/functions/v1/redeem-invite`, {
-      method: "POST",
-      headers: { apikey: SB_ANON, Authorization: `Bearer ${SB_ANON}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ code }),
-    });
-    const j = await r.json().catch(() => ({}));
-    if (j.ok && (j.urls || j.url)) {
-      const urls = j.urls || { windows: j.url };
-      show(msg, "ok", "Welcome aboard. Pick your platform.");
-      const box = document.getElementById("dl-buttons");
-      document.getElementById("dl-win").href = urls.windows || "#";
-      document.getElementById("dl-android").href = urls.android || "#";
-      box.classList.add("show");
-    } else {
-      show(msg, "err", j.error || "That code didn't work. Check it and try again.");
-    }
-  } catch (err) {
-    show(msg, "err", "Couldn't reach the server. Please try again.");
-  }
-  btn.disabled = false; btn.textContent = "Unlock downloads";
-});
-</script>
+<script src="/assets/boot.js" defer></script>
 </body>
 </html>

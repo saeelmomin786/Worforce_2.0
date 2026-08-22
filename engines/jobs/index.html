@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI job applications — real openings, a tailored CV for each</title>
+<meta name="description" content="It opens every posting in a real browser and runs ten checks that it is still open, then writes a CV and cover letter for that job without inventing anything.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/engines/jobs/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="AI job applications — real openings, a tailored CV for each">
+<meta property="og:description" content="It opens every posting in a real browser and runs ten checks that it is still open, then writes a CV and cover letter for that job without inventing anything.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/engines/jobs/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI job applications — real openings, a tailored CV for each">
+<meta name="twitter:description" content="It opens every posting in a real browser and runs ten checks that it is still open, then writes a CV and cover letter for that job without inventing anything.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How Workforce 2.0 applies for a job","step":[{"@type":"HowToStep","name":"Upload your CV","text":"Word, PDF or plain text."},{"@type":"HowToStep","name":"Match","text":"Roles are weighted toward ones you can realistically get rather than ones you would like."},{"@type":"HowToStep","name":"Verify","text":"Every posting is opened in a real browser and put through ten checks that it is genuinely still open."},{"@type":"HowToStep","name":"Write","text":"A CV and cover letter tailored to that specific job, with every claim checked back against your real CV."},{"@type":"HowToStep","name":"Edit","text":"Change anything inline. The PDF rebuilds from your version."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I check if a job posting is still open?","acceptedAnswer":{"@type":"Answer","text":"Workforce 2.0 opens every link in a real browser and runs ten checks: the site is gone, the page errors, the posting expired but still loads and quietly redirects to a board index, it is a help or login page, it is the company's whole careers page rather than one job, the page says it is no longer accepting applications, there is no job description on it, or it is a list of jobs rather than a job."}},{"@type":"Question","name":"Will an AI invent experience on my CV?","acceptedAnswer":{"@type":"Answer","text":"Not this one. Every generated claim is checked back against the text of your actual CV, and a phrase blocklist strips filler adverbs. It cannot give you experience you did not put in."}},{"@type":"Question","name":"Can I edit what it wrote?","acceptedAnswer":{"@type":"Answer","text":"Yes, inline. The PDF is rebuilt from your edited version rather than from the original draft, so your changes are what gets sent."}},{"@type":"Question","name":"Do I get a Word document?","acceptedAnswer":{"@type":"Answer","text":"No. Word is an input format only. What comes out is a PDF."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><a href="/engines/">Engines</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Job applications</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"Engines","item":"https://workforce.trackmystartup.com/engines/"},{"@type":"ListItem","position":3,"name":"Job applications","item":"https://workforce.trackmystartup.com/engines/jobs/"}]}</script>
+<section class="hero" data-shape="worker" data-motion="6" data-cap="The worker that applies for you">
+  <div class="wrap">
+    <p class="kicker">Job application engine</p>
+    <h1>Jobs you can actually get. <em class="g">Openings that are actually open.</em></h1>
+    <p class="lead">Upload your CV. It matches you to roles you could realistically win, checks each
+    posting is genuinely still live, and writes a CV and letter for that specific job.</p>
+    <p class="answer" style="margin-top:26px"><strong>&euro;1.00 per application</strong>, for a
+    tailored CV and cover letter.</p>
+    <div class="cta-row" style="margin-top:26px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">What it costs</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Ten checks before you see it">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How does it know a job is still open?</h2>
+      <p class="answer">It opens every link the way a person would and runs <strong>ten
+      checks</strong> before showing it to you. Anything that fails is dropped. This is the part
+      job boards do not do, and it is why their listings waste your evenings.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>The site is gone entirely.</li>
+      <li>The page returns an error.</li>
+      <li>The posting expired, but the page <b>still loads fine</b> and quietly sends you to a jobs index.</li>
+      <li>It is a help page.</li>
+      <li>It is a sign-in page.</li>
+      <li>It is the company's <b>whole careers page</b>, not one job.</li>
+      <li>The page says it is no longer accepting applications.</li>
+      <li>There is no job description on it at all.</li>
+      <li>It is a <b>list</b> of jobs. "Remote Product Manager Jobs" is a list, not a job.</li>
+      <li>It redirects somewhere unrelated.</li>
+    </ul>
+    <p class="rv" style="margin-top:22px">The third one is the one that matters most. A posting that
+    was filled in March often still returns a perfectly healthy page, which is why you keep applying
+    into nothing.</p>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="6" data-cap="Roles you could actually win">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What does "roles you can actually get" mean?</h2>
+      <p class="answer">Matching is weighted toward what your CV can realistically win, not toward
+      what you would enjoy. A list of forty jobs you will not hear back from is worse than six you
+      might.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="Checked back against your real CV">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Will it invent experience I don't have?</h2>
+      <p class="answer">No. <strong>Every claim it writes is checked back against the text of your
+      actual CV.</strong> If it is not in there, it does not go in the letter.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>A phrase blocklist strips the filler adverbs that make a letter read as machine-written.</li>
+      <li>It rewrites how your real experience is <b>presented</b> for each job. It does not add experience.</li>
+    </ul>
+    <p class="rv">This matters more than it sounds. A letter that overstates you is worse than no
+    letter, because you have to sit in the interview and account for it.</p>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="Your edit is what gets sent">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can I change what it wrote?</h2>
+      <p class="answer">Yes, in place. <strong>The PDF rebuilds from your version</strong>, not from
+      the original draft, so what you changed is what gets sent.</p>
+    </div>
+    <div class="note rv" style="max-width:60ch">
+      <h4>What you get</h4>
+      <p>A PDF. Word documents go <b>in</b> as your source CV; they do not come out. If an employer
+      insists on .docx, this will not produce one.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="A number you already knew">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What does it cost?</h2>
+      <p class="answer"><strong>&euro;1.00 per application</strong>, covering both the tailored CV
+      and the cover letter. Fifteen applications is &euro;15, once. If you are applying heavily,
+      &euro;19 a month covers unlimited.</p>
+    </div>
+    <div class="cta-row rv" style="margin-top:24px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">Full price list</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="6" data-cap="Questions">
+  <div class="wrap">
+    <div class="section-head rv"><h2>Questions</h2></div>
+    <div class="faq rv">
+      <details><summary>Does it apply for me automatically?</summary><div><p>It writes the
+      documents. You send them. Anything that leaves the building needs your approval, and a job
+      application is exactly the sort of thing you should read first.</p></div></details>
+      <details><summary>Where does it find the jobs?</summary><div><p>It searches, then verifies
+      each one it finds. The verification is the valuable half.</p></div></details>
+      <details><summary>Is my CV uploaded anywhere?</summary><div><p>Your CV is read and indexed on
+      your own machine. <a href="/security/">How your data is handled &rarr;</a></p></div></details>
+      <details><summary>Can it write in another language?</summary><div><p>It writes in the language
+      of the posting where that is what the employer expects.</p></div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

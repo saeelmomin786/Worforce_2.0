@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI inbox that writes in your voice, and never sends</title>
+<meta name="description" content="It reads the mailboxes you choose, drafts replies that sound like you, and catches what people assign you. Your mail stays unread until you read it.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/engines/communication/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="AI inbox that writes in your voice, and never sends">
+<meta property="og:description" content="It reads the mailboxes you choose, drafts replies that sound like you, and catches what people assign you. Your mail stays unread until you read it.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/engines/communication/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI inbox that writes in your voice, and never sends">
+<meta name="twitter:description" content="It reads the mailboxes you choose, drafts replies that sound like you, and catches what people assign you. Your mail stays unread until you read it.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will an AI assistant mark my email as read?","acceptedAnswer":{"@type":"Answer","text":"Not this one. Your mail stays unread until you have read it yourself. That is built into the code rather than requested of the AI in a prompt, because a prompt is not a guarantee."}},{"@type":"Question","name":"Will it send replies without asking me?","acceptedAnswer":{"@type":"Answer","text":"No. Nothing sends without your say-so. Drafts wait for you, and if you are not there to approve within 90 seconds the send is refused rather than left to go out quietly."}},{"@type":"Question","name":"How does it write in my voice?","acceptedAnswer":{"@type":"Answer","text":"It learns from your own past correspondence, distilling how you actually write into a durable profile that you can open and edit by hand. Drafts then sound like you rather than like an assistant."}},{"@type":"Question","name":"Can it handle two different people's mailboxes?","acceptedAnswer":{"@type":"Answer","text":"Yes. Several Google accounts can be signed in at once and each task is pinned to a specific account, so if you run the diaries of two executives their mail and drafts do not get mixed up."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><a href="/engines/">Engines</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Inbox and replies</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"Engines","item":"https://workforce.trackmystartup.com/engines/"},{"@type":"ListItem","position":3,"name":"Inbox and replies","item":"https://workforce.trackmystartup.com/engines/communication/"}]}</script>
+<section class="hero" data-shape="worker" data-motion="3" data-cap="The worker that handles your inbox">
+  <div class="wrap">
+    <p class="kicker">Communication engine</p>
+    <h1>Your mail stays unread <em class="g">until you have read it yourself.</em></h1>
+    <p class="lead">It reads the mailboxes you choose, drafts replies that sound like you, and
+    catches the things people quietly assign you. Nothing sends without your say-so.</p>
+    <div class="cta-row" style="margin-top:26px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/security/">Your data</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Two promises, both enforced">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Will it mark my email as read?</h2>
+      <p class="answer">No. <strong>Your mail stays unread until you have read it yourself.</strong>
+      That is enforced in the code, not requested of the AI in a prompt, because a prompt is not a
+      guarantee and we are not going to pretend otherwise.</p>
+    </div>
+    <p class="rv">It matters more than it sounds. An assistant that reads your inbox for you and
+    leaves everything marked read has taken away the one signal you use to know what you have
+    actually seen.</p>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Nothing sends without you">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Will it send anything on its own?</h2>
+      <p class="answer">No. <strong>Nothing sends without your say-so.</strong> Drafts wait. If you
+      are not there to answer, the send is refused rather than quietly going out.</p>
+    </div>
+    <div class="srcquote rv">
+      <p class="framing">From a comment in the code:</p>
+      <blockquote>&ldquo;unattended runs should not silently send messages to real people.&rdquo;</blockquote>
+    </div>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="It learns how you actually write">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How does it sound like me?</h2>
+      <p class="answer">It learns from your own past correspondence: how you open, how you sign off,
+      how blunt you are, what you never say. That becomes a profile you can open and edit by hand.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>It distils overnight, so it gets closer to you every week rather than staying where it started.</li>
+      <li>The profile is <b>a plain text file you own</b>. Correct it and your correction survives every rebuild.</li>
+      <li>What a customer said to you can never end up in an answer about your business. That wall only runs one way, by design.</li>
+    </ul>
+    <p class="rv"><a href="/memory/">How the memory works &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="You choose what it can see">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What can it read?</h2>
+      <p class="answer">Email, WhatsApp and your social pages, and <strong>you choose which
+      mailboxes and groups it touches.</strong> Anything you do not point it at, it never sees.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="It catches what people assign you">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Does it catch things people assign me?</h2>
+      <p class="answer">Yes. It pulls the buried asks out of long threads into a list, so the
+      request in paragraph four of a Tuesday email does not disappear.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="people" data-cap="If you run somebody else's diary">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">For assistants</p>
+      <h2>If you run somebody else's diary</h2>
+      <p class="answer">This engine is built for the job you already do, and it is careful about
+      the parts of it that matter.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card rv">
+        <h3>It drafts in their voice, not yours</h3>
+        <p>The profile it learns is per mailbox, so a reply going out over their name reads like
+        them.</p>
+      </div>
+      <div class="card rv">
+        <h3>Their inbox stays untouched</h3>
+        <p>Nothing is marked read, nothing is filed, nothing is archived. They open their mail to
+        exactly what they expected.</p>
+      </div>
+      <div class="card rv">
+        <h3>Two executives, no crossover</h3>
+        <p>Several Google accounts can be signed in at once, and each task is pinned to one of them.
+        Their mail and their drafts stay separate.</p>
+      </div>
+      <div class="card rv">
+        <h3>You still hold the send</h3>
+        <p>Every draft comes to you. It is a faster first pass, not somebody sending mail over your
+        head.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="Free, or a number you already knew">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What does it cost?</h2>
+      <p class="answer"><strong>&euro;0.02 to &euro;0.05 per reply drafted.</strong> Reading costs
+      nothing. If you are drafting all day, &euro;99 a month covers unlimited replies across email,
+      WhatsApp and every social page.</p>
+    </div>
+    <div class="cta-row rv" style="margin-top:24px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/voice/">Voice and meetings</a>
+      <a class="btn btn-ghost" href="/pricing/">Full price list</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="3" data-cap="Questions">
+  <div class="wrap">
+    <div class="section-head rv"><h2>Questions</h2></div>
+    <div class="faq rv">
+      <details><summary>Does it need my email password?</summary><div><p>No. You sign in to Google
+      the normal way and the app holds the connection. The tokens live outside the app and are never
+      bundled with it.</p></div></details>
+      <details><summary>Can I stop it seeing one mailbox?</summary><div><p>Yes. You pick which
+      mailboxes and groups it reads, and you can change that at any time.</p></div></details>
+      <details><summary>What if it drafts something wrong?</summary><div><p>You edit it or bin it.
+      Nothing leaves without you pressing send, and the edits teach it.</p></div></details>
+      <details><summary>Does it work with Outlook?</summary><div><p>Gmail is the supported mailbox
+      today. WhatsApp and social pages work alongside it.</p></div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

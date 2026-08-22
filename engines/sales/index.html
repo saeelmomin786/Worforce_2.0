@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI sales engine — finds the leads, writes the outreach</title>
+<meta name="description" content="It drives a real browser over search and Google Maps to find companies like your customers, checks the details work, and writes the outreach you approve.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/engines/sales/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="AI sales engine — finds the leads, writes the outreach">
+<meta property="og:description" content="It drives a real browser over search and Google Maps to find companies like your customers, checks the details work, and writes the outreach you approve.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/engines/sales/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI sales engine — finds the leads, writes the outreach">
+<meta name="twitter:description" content="It drives a real browser over search and Google Maps to find companies like your customers, checks the details work, and writes the outreach you approve.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How the Workforce 2.0 sales engine runs an outbound campaign","step":[{"@type":"HowToStep","name":"Find companies","text":"A real web browser is driven over search and Google Maps, city by city, to find companies matching the customers you already have."},{"@type":"HowToStep","name":"Qualify","text":"Each company is scored against the kind of customer you described, and the contact details are checked to be real working mailboxes."},{"@type":"HowToStep","name":"Write","text":"Outreach is drafted from your templates and your own past sending, per lead."},{"@type":"HowToStep","name":"Approve","text":"You approve who gets contacted. Nothing sends without that."},{"@type":"HowToStep","name":"Follow up","text":"Follow-ups run automatically, re-checking the do-not-contact list at the moment of sending."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does an AI sales agent find prospects?","acceptedAnswer":{"@type":"Answer","text":"Workforce 2.0 drives a real web browser over search and Google Maps, city by city, the way a person would. No model is asked to invent a company or a URL, so the companies it returns are ones that actually exist and can be checked."}},{"@type":"Question","name":"Does it cost anything to find leads?","acceptedAnswer":{"@type":"Answer","text":"No. Finding companies is free. You are charged ten cents for each lead you decide to keep, after you have seen it. Nothing is billed per token."}},{"@type":"Question","name":"What stops it contacting someone who opted out?","acceptedAnswer":{"@type":"Answer","text":"One do-not-contact list covers every product you sell. It never expires, it covers every address and phone number that person has, and it is checked at the moment of sending rather than when the message was scheduled."}},{"@type":"Question","name":"Does the sales engine watch for replies?","acceptedAnswer":{"@type":"Answer","text":"No. Automatic reply detection is not implemented. There is no reply rate and no automatic opt-out when someone replies. You mark replies yourself, and the do-not-contact list is added to manually."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><a href="/engines/">Engines</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Sales</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"Engines","item":"https://workforce.trackmystartup.com/engines/"},{"@type":"ListItem","position":3,"name":"Sales","item":"https://workforce.trackmystartup.com/engines/sales/"}]}</script>
+<section class="hero" data-shape="worker" data-motion="1" data-cap="The worker that finds your customers">
+  <div class="wrap">
+    <p class="kicker">Sales engine</p>
+    <h1>It finds the leads itself. <em class="g">You approve who gets contacted.</em></h1>
+    <p class="lead">A full outbound run: find companies like the customers you already have, check
+    the contact details are real, write the outreach, and chase the follow-ups.</p>
+    <p class="answer" style="margin-top:26px"><strong>Finding costs nothing.</strong> You pay
+    &euro;0.10 for each lead you decide to keep, after you have seen it.</p>
+    <div class="cta-row" style="margin-top:26px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">What it costs</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="1" data-cap="It opens a real browser, city by city">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How does it find prospects?</h2>
+      <p class="answer">It drives a real web browser over search and Google Maps, city by city, the
+      way you would. <strong>No AI is asked to invent a company or a website.</strong> Everything it
+      brings back is somewhere you can go and look at.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>You describe the kind of customer you want. It works from the ones you already have.</li>
+      <li>It works through a <b>list of cities</b>, because businesses are geographic and one search never finds them all.</li>
+      <li>When a site asks it to prove it is human, <b>a window opens so you can click it</b> rather than the run failing quietly and pretending it found nothing.</li>
+    </ul>
+    <figure class="shot rv" style="margin-top:32px">
+      <div class="shot-todo">SCREENSHOT PENDING<br>sales engine mid-run<br>(assets/img/sales-run.webp)</div>
+      <figcaption>A run in progress. Every company it finds is listed before anything is sent.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Junk is dropped before you are charged">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How do I know the leads are real?</h2>
+      <p class="answer">Three checks run before a lead reaches you, and <strong>anything that fails
+      is dropped before you are charged for it.</strong></p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>Does it fit?</b> Each company is scored against the kind of customer you described.</li>
+      <li><b>Is the address real?</b> It checks the domain actually accepts mail, so a lead with a dead mailbox never counts.</li>
+      <li><b>Is it a person?</b> It drops <code>info@</code>, <code>sales@</code> and made-up addresses at the point of collection.</li>
+    </ul>
+    <div class="note rv" style="max-width:62ch; margin-top:26px">
+      <h4>Why this matters to the bill</h4>
+      <p>You are charged per lead you keep. Filtering junk before you see it is the difference
+      between paying for 40 useful companies and paying for 200 rows you then have to weed.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="1" data-cap="WhatsApp, for the ones with only a phone number">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can it reach people who only have a phone number?</h2>
+      <p class="answer">Yes, over WhatsApp. It tidies the number into the international format
+      WhatsApp opens straight away, so a cold number can be messaged without you first saving it as
+      a contact.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Out once means out everywhere, forever">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What stops it contacting someone who opted out?</h2>
+      <p class="answer">One do-not-contact list, shared across <strong>every product you sell</strong>.
+      It never expires. It covers <strong>every address and number that person has</strong>, so
+      somebody who opted out by email cannot then be reached on WhatsApp.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>It is checked <b>at the moment of sending</b>, not when the message was scheduled. A follow-up queued last week still gets stopped today.</li>
+      <li>Every outbound message goes through the same single check. There is no second path around it.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="1" data-cap="A click that did nothing is not a send">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How do I know a message actually sent?</h2>
+      <p class="answer">It checks the message box actually emptied before it reports success. If the
+      send silently failed, it says so instead of marking the lead contacted.</p>
+    </div>
+    <div class="srcquote rv">
+      <p class="framing">From a comment in the code, not marketing copy:</p>
+      <blockquote>&ldquo;A click that did nothing leaves the text in the box. Reporting &lsquo;sent&rsquo;
+      then would be a lie.&rdquo;</blockquote>
+    </div>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="It learns from what you actually send">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Does it write like me?</h2>
+      <p class="answer">It compares its draft against what you actually sent, and learns the
+      difference. Edit the opening line every time and it stops writing that opening line.</p>
+    </div>
+    <div class="note note-ok rv" style="max-width:62ch">
+      <h4>One detail that keeps it honest</h4>
+      <p>Messages it sent on its own are left out of that learning. Training on its own output would
+      just teach it its own habits and drift further from you every week.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="Bring the list you already have">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>I already have a list</h2>
+      <p class="answer">Import it by spreadsheet or paste it in. The same checks and the same
+      do-not-contact list apply to imported leads, so a stale list gets cleaned on the way in.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="What it does not do">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What it does not do</h2>
+      <p class="answer">It does not watch your inbox for replies. There is no reply rate, and
+      nobody is automatically added to the do-not-contact list because they replied asking to be.
+      <strong>You mark those yourself.</strong></p>
+    </div>
+    <p class="rv">We would rather say so here than let you find out by assuming a reply was handled.
+    <a href="/limits/">Everything else it does not do &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="Free, or a number you already knew">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What does it cost?</h2>
+      <p class="answer">Finding companies is free. <strong>&euro;0.10 for each lead you keep.</strong>
+      Writing and sending are free. A two-person consultancy doing outbound spends around
+      &euro;12 a month.</p>
+    </div>
+    <div class="cta-row rv" style="margin-top:24px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/engines/marketing/">Marketing engine</a>
+      <a class="btn btn-ghost" href="/security/">Your data</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="1" data-cap="Questions">
+  <div class="wrap">
+    <div class="section-head rv"><h2>Questions</h2></div>
+    <div class="faq rv">
+      <details><summary>Do I have to approve every message?</summary><div><p>That is your choice.
+      You can approve each one, approve a batch, or set the engine to send without asking once you
+      trust it. Sending always starts locked. <a href="/security/">How approvals work &rarr;</a></p></div></details>
+      <details><summary>How many leads can it find?</summary><div><p>It keeps working through your
+      city list, topping the list up every ten minutes while a campaign is running. The practical
+      limit is how many you want to look through, not how many it can reach.</p></div></details>
+      <details><summary>Will it get my domain blacklisted?</summary><div><p>It sends from your own
+      connected mailbox at a human pace, checks each address is real before using it, and never
+      contacts anyone on the do-not-contact list. It cannot stop you writing something people
+      report, which is why the drafts come to you first.</p></div></details>
+      <details><summary>Can two people in the company run it at once?</summary><div><p>Yes, and the
+      do-not-contact list is shared, so one person's opt-out protects everyone else's campaigns too.
+      <a href="/teams/">How teams share &rarr;</a></p></div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

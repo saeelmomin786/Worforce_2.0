@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Competitor price tracking that refuses to guess</title>
+<meta name="description" content="It reads your rivals' pricing pages with no AI involved, checks every number appears on the page, and only advises when there is enough evidence.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/engines/pricing-intelligence/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="Competitor price tracking that refuses to guess">
+<meta property="og:description" content="It reads your rivals' pricing pages with no AI involved, checks every number appears on the page, and only advises when there is enough evidence.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/engines/pricing-intelligence/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Competitor price tracking that refuses to guess">
+<meta name="twitter:description" content="It reads your rivals' pricing pages with no AI involved, checks every number appears on the page, and only advises when there is enough evidence.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I track competitor prices automatically?","acceptedAnswer":{"@type":"Answer","text":"Workforce 2.0 reads your rivals' pricing pages on a schedule, taking the currency, plan names, features and billing period straight off the page with no AI involved in the reading. Each competitor is checked hourly at most, and each page is read at most once a day."}},{"@type":"Question","name":"Can it make up a price?","acceptedAnswer":{"@type":"Answer","text":"No. Every number must appear on the page before it is stored. Prices are read directly rather than summarised, and an AI is only consulted after three failed attempts at reading the page."}},{"@type":"Question","name":"How does it decide whether I should raise my price?","acceptedAnswer":{"@type":"Answer","text":"By arithmetic, with no AI opinion involved. There are five possible verdicts, and below three comparable plans it says there is not enough evidence rather than guessing. Confidence follows how much evidence exists, not how big the price gap looks."}},{"@type":"Question","name":"Will the alerts be noisy?","acceptedAnswer":{"@type":"Answer","text":"Each of the five alert kinds is designed not to cry wolf. A promotion only alerts when it starts, and an undercut only alerts when a rival moves below you having not been below you before, so a permanently cheaper rival does not alert on every run forever."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><a href="/engines/">Engines</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Competitor prices</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"Engines","item":"https://workforce.trackmystartup.com/engines/"},{"@type":"ListItem","position":3,"name":"Competitor prices","item":"https://workforce.trackmystartup.com/engines/pricing-intelligence/"}]}</script>
+<section class="hero" data-shape="worker" data-motion="4" data-cap="The worker that watches the market">
+  <div class="wrap">
+    <p class="kicker">Competitor price tracking</p>
+    <h1>It reads their pricing pages. <em class="g">No AI invents a number.</em></h1>
+    <p class="lead">Watches what your rivals charge, shows where you sit in that market, and tells
+    you when one of them moves, starts a discount, or drops below you.</p>
+    <div class="cta-row" style="margin-top:26px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">What it costs</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="Read off the page, not summarised">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How does it read the prices?</h2>
+      <p class="answer"><strong>With no AI at all.</strong> It takes the currency, the plan names,
+      the features and the billing period straight off the page. An AI is only consulted after three
+      failed attempts, and even then its answer has to survive the checks below.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>It throws out things that look like prices but are not. <b>A funding announcement is not a price</b> — "raised", "ARR" and "Series B" are not what you charge.</li>
+      <li>It throws out things that look like plan names but are not. <b>"Get started" is not a plan.</b></li>
+      <li>It knows monthly from yearly, so a &euro;99 annual plan is not filed next to a &euro;99 monthly one.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Every number must be on the page">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can it make a price up?</h2>
+      <p class="answer">No. <strong>Every number has to appear on the page before it is stored.</strong>
+      If the figure cannot be found in the text it was read from, it is discarded.</p>
+    </div>
+    <p class="rv">This is the one path where being wrong costs you money directly. You would be
+    changing what you charge on the strength of it, so a plausible-sounding number is worse than no
+    number.</p>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="Arithmetic, not an opinion">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How does it decide whether I should raise my price?</h2>
+      <p class="answer">By arithmetic. <strong>There is no AI opinion in the recommendation at
+      all</strong>, which means the same evidence always produces the same answer and you can check
+      the working.</p>
+    </div>
+    <div class="srcquote rv">
+      <p class="framing">The reasoning, from a comment in the code:</p>
+      <blockquote>&ldquo;A pricing recommendation has to be defensible and reproducible; &lsquo;the
+      model said raise it&rsquo; is neither, and the user is being asked to change what they
+      charge.&rdquo;</blockquote>
+    </div>
+    <div class="tablewrap rv" style="margin-top:26px">
+      <table>
+        <thead><tr><th>It will tell you one of five things</th></tr></thead>
+        <tbody>
+          <tr><td>Add your own price, so it has something to compare against</td></tr>
+          <tr><td>There are not enough public prices to advise on</td></tr>
+          <tr><td><b>Consider raising</b></td></tr>
+          <tr><td><b>You are in the top quarter of the market — check that it is earned</b></td></tr>
+          <tr><td>You sit mid-market, and nothing indicates a change</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="It says when it does not know">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What if there isn't enough data?</h2>
+      <p class="answer">It says so. <strong>Below three comparable plans it declines to advise</strong>
+      rather than producing a confident answer from two data points.</p>
+    </div>
+    <p class="rv">Its confidence follows how much evidence there is, not how big the gap looks. A
+    huge gap measured against one rival is not a strong signal, and it will not present it as one.</p>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="A different currency is not a cheaper price">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What about different currencies?</h2>
+      <p class="answer">It never quietly converts them. A rival priced in another currency is shown
+      in that currency, flagged rather than folded into the comparison.</p>
+    </div>
+    <div class="srcquote rv">
+      <blockquote>&ldquo;a &lsquo;cheaper&rsquo; rival priced in a different currency is not cheaper,
+      it is unconverted.&rdquo;</blockquote>
+    </div>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="Five alerts, none of them noise">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Will the alerts nag me?</h2>
+      <p class="answer">Five kinds, each built not to cry wolf: a price drop, a price rise, a new
+      plan, a removed plan, a promotion, and an undercut.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>A promotion alerts when it starts</b>, not every day it continues.</li>
+      <li><b>An undercut alerts only when a rival moves below you having not been below you before.</b> A rival who has always been cheaper would otherwise alert on every run forever, which is exactly how you learn to ignore a channel.</li>
+      <li>Suggested competitors go into an approve-or-reject queue, and <b>a rejection is remembered</b> so it stops offering them.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="A number you already knew">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What does it cost?</h2>
+      <p class="answer"><strong>&euro;0.10 per competitor, per check.</strong> Each rival is checked
+      hourly at most and each page read at most once a day, so ten competitors watched daily is
+      about a euro. Unlimited competitors is &euro;129 a month.</p>
+    </div>
+    <div class="cta-row rv" style="margin-top:24px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">Full price list</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="4" data-cap="Questions">
+  <div class="wrap">
+    <div class="section-head rv"><h2>Questions</h2></div>
+    <div class="faq rv">
+      <details><summary>How does it find my competitors?</summary><div><p>It suggests them and you
+      approve or reject each one. A rejection sticks, so it learns who you do not consider a
+      rival.</p></div></details>
+      <details><summary>What if a rival hides pricing behind a sales call?</summary><div><p>Then
+      there is no public price to read, and it says so rather than estimating one.</p></div></details>
+      <details><summary>Does it work for products, not just software?</summary><div><p>Yes. It reads
+      pricing pages, whatever is on them.</p></div></details>
+      <details><summary>Will they know I am watching?</summary><div><p>It reads public pages the way
+      any visitor does, at most once a day per page.</p></div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

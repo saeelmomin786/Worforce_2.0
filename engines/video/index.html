@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI video studio — say an idea out loud, get a film</title>
+<meta name="description" content="Speak a rough idea. It writes the script, a second pass directs it into scenes, draws a still for each, films them, and gives you a timeline to cut it in.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/engines/video/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="AI video studio — say an idea out loud, get a film">
+<meta property="og:description" content="Speak a rough idea. It writes the script, a second pass directs it into scenes, draws a still for each, films them, and gives you a timeline to cut it in.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/engines/video/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI video studio — say an idea out loud, get a film">
+<meta name="twitter:description" content="Speak a rough idea. It writes the script, a second pass directs it into scenes, draws a still for each, films them, and gives you a timeline to cut it in.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/engine.png">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How the Workforce 2.0 video studio turns an idea into a film","step":[{"@type":"HowToStep","name":"Speak","text":"Say a rough idea out loud. It is transcribed."},{"@type":"HowToStep","name":"Script","text":"A screenwriting pass turns it into a script."},{"@type":"HowToStep","name":"Direct","text":"A separate directing pass breaks the script into scenes with action, camera, composition, dialogue and duration."},{"@type":"HowToStep","name":"Storyboard","text":"A still is drawn for every scene."},{"@type":"HowToStep","name":"Film","text":"Each scene is filmed as its own clip."},{"@type":"HowToStep","name":"Cut","text":"A timeline editor with captions, graphics and a music track, then export as one file."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is a two-pass script better than one prompt?","acceptedAnswer":{"@type":"Answer","text":"Asking one AI for a script and its shots produces a script with the shots ignored. Workforce 2.0 writes the script first, then a separate directing pass breaks it into scenes with camera, action and duration, then the two argue it out and a third pass criticises the result."}},{"@type":"Question","name":"Can the same character appear in every scene?","acceptedAnswer":{"@type":"Answer","text":"Yes. An optional generated character stays consistent from scene to scene. Their mouth does not match the words, so this is character consistency and not lip-sync."}},{"@type":"Question","name":"How long does exporting a film take?","acceptedAnswer":{"@type":"Answer","text":"In the browser it is a real-time re-encode, so a three-minute film takes about three minutes to save. The button tells you the wait before it starts."}},{"@type":"Question","name":"Why is the video studio not on a monthly plan?","acceptedAnswer":{"@type":"Answer","text":"Almost all of its cost is per-second rendering billed by an upstream provider, so a flat monthly fee would be a promise that could not be funded. It is pay as you go only, deliberately, at five to twenty cents per second of film by quality."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><a href="/engines/">Engines</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Video studio</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"Engines","item":"https://workforce.trackmystartup.com/engines/"},{"@type":"ListItem","position":3,"name":"Video studio","item":"https://workforce.trackmystartup.com/engines/video/"}]}</script>
+<section class="hero" data-shape="worker" data-motion="5" data-cap="The worker that makes your films">
+  <div class="wrap">
+    <p class="kicker">Video studio</p>
+    <h1>Say it out loud. <em class="g">Get a film back.</em></h1>
+    <p class="lead">Speak a rough idea. It writes the script, directs it into scenes, draws a still
+    for each one, and films them.</p>
+    <div class="cta-row" style="margin-top:26px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">What it costs</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="It starts with you talking">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How does an idea become a film?</h2>
+      <p class="answer">You talk. It writes that down, turns it into a script, breaks the script
+      into scenes, draws a still for each one, then films them one at a time.</p>
+    </div>
+    <ol class="steps rv">
+      <li><h3>You speak</h3><p>A rough idea, out loud, in ordinary words. No format, no brief.</p></li>
+      <li><h3>It writes the script</h3><p>A whole pass that does nothing but write.</p></li>
+      <li><h3>A second pass directs it</h3><p>Scene by scene: what happens, where the camera is, what is in frame, who says what, how long it runs, what it sounds like, and the frame it ends on.</p></li>
+      <li><h3>It draws each scene</h3><p>A still per scene, so you can see the film before it costs anything to make.</p></li>
+      <li><h3>It films them</h3><p>One clip per scene.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="A writer and a director, arguing">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Why is this better than one long prompt?</h2>
+      <p class="answer">Because <strong>the writing and the directing are separate passes.</strong>
+      Ask one AI for "a script and the shots" and you get a script with the shots ignored, every
+      time. So it writes first, then directs what it wrote.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>Writer and director then argue it out.</b> The director sends notes back; the script changes.</li>
+      <li><b>A third pass criticises the result</b> the way a marketing lead would, before anything is filmed.</li>
+      <li>All of this happens on the still images, which cost nothing, <b>before you pay for a single second of video.</b></li>
+    </ul>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="5" data-cap="One character, every scene">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can the same character appear in every scene?</h2>
+      <p class="answer">Yes. You can generate a character who stays the same from scene to scene,
+      so a film about one person actually looks like one person.</p>
+    </div>
+    <div class="note note-warn rv" style="max-width:60ch">
+      <h4>To be clear about what this is not</h4>
+      <p>Their mouth does not match the words. This is the same character appearing throughout, not
+      a talking avatar. If you need lips in sync with audio, this will not do it.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="Your voice, with consent recorded">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can it use my voice?</h2>
+      <p class="answer">Yes, on <strong>Windows only</strong>, in six languages: English, French,
+      German, Portuguese, Italian and Spanish. You have to record consent first, and a voice with no
+      recorded consent cannot be used at all.</p>
+    </div>
+    <p class="dim rv">There is no Android path for this one. If you are on the Android build, the
+    read-aloud voices are not available to you.</p>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="A real timeline, not a render button">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can I edit the result?</h2>
+      <p class="answer">Yes. There is a proper timeline editor, not just a render button. Four
+      tracks, and everything on them is yours to move.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card rv"><h3>Captions</h3><p>Styled caption presets, placed and timed on the timeline.</p></div>
+      <div class="card rv"><h3>Graphics</h3><p>Lower thirds, lists, numbers, comparisons. Drag to place, drag the corner to size.</p></div>
+      <div class="card rv"><h3>Music</h3><p>Its own track, mixed under the film.</p></div>
+      <div class="card rv"><h3>Shape</h3><p>Cut the same film for a vertical reel or for widescreen. The choice is part of the edit and it is remembered.</p></div>
+    </div>
+    <figure class="shot rv" style="margin-top:30px">
+      <div class="shot-todo">SCREENSHOT PENDING<br>video editor timeline<br>(assets/img/video-editor.webp)</div>
+      <figcaption>The timeline. Scenes, captions, graphics and music.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="One file, out">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How do I get one file out?</h2>
+      <p class="answer">It joins the scenes into <strong>one file</strong> and repacks it so other
+      programs will open it, not just this one. You get something you can hand to a client.</p>
+    </div>
+    <div class="note rv" style="max-width:62ch">
+      <h4>How long it takes, said before you press it</h4>
+      <p>Saving is a real re-encode in the browser, so <b>a three-minute film takes about three
+      minutes.</b> The button says so before it starts, because a progress bar that surprises you is
+      worse than a wait you agreed to.</p>
+    </div>
+    <div class="note rv" style="max-width:62ch; margin-top:16px">
+      <h4>The first export downloads its tools</h4>
+      <p>The part that does the encoding is <b>79 MB</b>, and it is not in the installer,
+      because most people never make a film and it would have doubled the download for
+      everyone. The first time you export, it fetches it once and keeps it. After that there
+      is nothing to wait for.</p>
+    </div>
+    <div class="note note-warn rv" style="max-width:62ch; margin-top:16px">
+      <h4>One limit worth knowing</h4>
+      <p>Scenes do not flow into each other frame by frame. Each clip is filmed on its own, so you
+      get cuts between scenes rather than a continuous camera move across them.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="Pay as you go, on purpose">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What does it cost?</h2>
+      <p class="answer"><strong>&euro;0.05 to &euro;0.20 per second of film</strong>, depending on
+      quality. Writing, directing and storyboarding cost nothing extra. You only pay when you
+      actually film something.</p>
+    </div>
+    <div class="note note-warn rv" style="max-width:62ch">
+      <h4>There is no monthly plan for this one, deliberately</h4>
+      <p>We are billed by the second for rendering. A flat fee covering unlimited video would be a
+      promise we could not fund, so we do not offer one. We would rather say that plainly than sell
+      a plan we would later have to put limits on.</p>
+    </div>
+    <div class="cta-row rv" style="margin-top:26px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">Full price list</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="5" data-cap="Questions">
+  <div class="wrap">
+    <div class="section-head rv"><h2>Questions</h2></div>
+    <div class="faq rv">
+      <details><summary>How long can a film be?</summary><div><p>It is built scene by scene, so
+      length is a question of how many scenes you want and what you want to spend, not a hard cap.</p></div></details>
+      <details><summary>Can I redo one scene without redoing the film?</summary><div><p>Yes. Scenes
+      are separate clips, so you can refilm one and leave the rest alone.</p></div></details>
+      <details><summary>Can I use my own footage?</summary><div><p>The studio is built around
+      generating the scenes. The timeline is where you would assemble anything else.</p></div></details>
+      <details><summary>Do I need a good graphics card?</summary><div><p>No. The filming happens
+      remotely. Saving the final file happens on your machine, which is why it takes about as long
+      as the film.</p></div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

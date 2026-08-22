@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works — three levels, and the top one has no hands</title>
+<meta name="description" content="You talk to an assistant, a chief executive plans the work, and workers do it with real tools. The one that plans has no way into your email or files.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/platform/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="How it works — three levels, and the top one has no hands">
+<meta property="og:description" content="You talk to an assistant, a chief executive plans the work, and workers do it with real tools. The one that plans has no way into your email or files.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/platform/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/platform.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How it works — three levels, and the top one has no hands">
+<meta name="twitter:description" content="You talk to an assistant, a chief executive plans the work, and workers do it with real tools. The one that plans has no way into your email or files.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/platform.png">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How Workforce 2.0 delegates work across three tiers","description":"The assistant dispatches, the chief executive plans, and workers execute with tools. The planning tier holds no connectors at all, which is a structural safety property rather than a prompt instruction."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do AI agents delegate tasks in Workforce 2.0?","acceptedAnswer":{"@type":"Answer","text":"Three levels. An assistant takes your request and handles small things itself. Bigger things go to a chief executive that plans them and picks who does what. The plan goes to workers who do the job with real tools. The chief executive holds no tools of its own."}},{"@type":"Question","name":"Can the planning AI send email on its own?","acceptedAnswer":{"@type":"Answer","text":"No. It has no connection to email, calendar, files or customers. It can only think and hand out work. This is a structural property of how the app is built, not an instruction given to the model in a prompt."}},{"@type":"Question","name":"How much control do I have over each AI worker?","acceptedAnswer":{"@type":"Answer","text":"Per worker you can change which AI it uses, give it skills, restrict which connected apps it may touch, or pause it entirely. A paused worker receives no task assignments."}},{"@type":"Question","name":"Which AI model runs which job?","acceptedAnswer":{"@type":"Answer","text":"It is chosen per step rather than per app: a cheap model for sorting and classifying, a strong one for writing and judgement. There are 105 routing rules covering 42 distinct kinds of task. Free-tier models are used automatically wherever they are good enough, which is why routine work costs nothing."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">How it works</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"How it works","item":"https://workforce.trackmystartup.com/platform/"}]}</script>
+<section class="hero" data-shape="org" data-cap="Three levels, like a real company">
+  <div class="wrap">
+    <p class="kicker">How it works</p>
+    <h1>Three levels, and <em class="g">the top one has no hands.</em></h1>
+    <p class="lead">You talk to an assistant. It passes the big things to a chief executive that
+    plans them. The plan goes to workers who do the job with real tools.</p>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="The assistant dispatches. The CEO plans.">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Who decides what gets done?</h2>
+      <p class="answer">The assistant takes your request and handles the small things itself. Bigger
+      things go upstairs to be planned. <strong>The planning and the doing are separate jobs held by
+      separate parts of the system.</strong></p>
+    </div>
+    <div class="grid g3">
+      <div class="card rv"><h4>You talk to</h4><h3>The assistant</h3><p>Routes everything. Answers the quick things on the spot, hands the rest up, and tells you what came back.</p></div>
+      <div class="card rv"><h4>Which plans</h4><h3>The chief executive</h3><p>Turns your ask into a plan, picks who does what, and checks the results. Delegation only.</p></div>
+      <div class="card rv"><h4>Which does the work</h4><h3>The workers</h3><p>Each gets only the apps you allowed it. Nothing more.</p></div>
+    </div>
+    <div class="srcquote rv">
+      <p class="framing">Two comments from the code, not marketing copy:</p>
+      <blockquote>&ldquo;CEO never executes.&rdquo;</blockquote>
+      <blockquote style="margin-top:14px">&ldquo;In a real org the CEO does not hand out tasks — the EA does.&rdquo;</blockquote>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="It thinks. It cannot touch.">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can the part that plans my work send email?</h2>
+      <p class="answer">No. It has <strong>no connection to your email, your calendar, your files or
+      your customers.</strong> It can spawn workers and write plans, and that is the whole of what
+      it can reach.</p>
+    </div>
+    <p class="rv">This is a property of how the thing is built, not an instruction we gave a model
+    and hope it follows. The difference matters: an instruction can be talked around, and a missing
+    connection cannot.</p>
+    <p class="rv">It is also the answer to the question people actually mean when they ask whether
+    AI is safe to give access to. The part clever enough to decide something reckless is the part
+    with nothing plugged into it.</p>
+  </div>
+</section>
+
+<section data-shape="people" data-cap="Every worker is yours to change">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How much control do I have over each worker?</h2>
+      <p class="answer">Every worker the chief executive creates is visible and yours to change.
+      Click one and you can retune it or switch it off.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card rv"><h3>Change its AI</h3><p>Pin it to a particular quality tier for everything it does, or leave it blank and let the assistant pick by how hard the job is.</p></div>
+      <div class="card rv"><h3>Give it skills</h3><p>Skills help the assistant match the right work to the right worker.</p></div>
+      <div class="card rv"><h3>Limit its apps</h3><p>Restrict which connected apps this worker may use. Leave it on "all" and the assistant decides per task.</p></div>
+      <div class="card rv"><h3>Pause it</h3><p>A paused worker receives no assignments at all.</p></div>
+    </div>
+    <figure class="shot rv" style="margin-top:30px">
+      <img src="/assets/img/app-workers.webp" alt="The workers panel, showing every AI worker and its settings" width="1520" height="950" loading="lazy" decoding="async">
+      <figcaption>Every worker, with its model, its skills, its apps and its pause switch.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Read only, draft only, or send">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How do I set how far it can go?</h2>
+      <p class="answer">Three settings, and they apply to everything: <strong>read only</strong>
+      (it looks and reports), <strong>draft only</strong> (it creates and updates but sends nothing),
+      or <strong>send</strong>.</p>
+    </div>
+    <p class="rv">The block is enforced by the app, not by asking the AI nicely. A tool it is not
+    allowed to use is refused outright rather than politely declined, which are different things.</p>
+    <p class="rv">Most people run on draft-only for the first week. That is the sensible way to do
+    it. <a href="/security/">The rest of the safety story &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="A cheap AI for easy steps">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Which AI does which job?</h2>
+      <p class="answer">It is picked <strong>per step, not per app.</strong> A cheap model sorts and
+      classifies; a strong one writes and judges. That is the mechanism behind routine work costing
+      nothing.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>105 routing rules</b> covering <b>42 distinct kinds of task</b> across the main engines.</li>
+      <li>Free-tier models are used automatically wherever they are good enough.</li>
+      <li>A panel tells you what a job will actually call, and <b>whose key pays for it</b>, before it runs.</li>
+    </ul>
+    <p class="dim rv">We deliberately never tell you which model served a request. You get quality
+    tiers, so we can change what is underneath when something better arrives without changing what
+    you bought.</p>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="Eighty skills, applied per job">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What are skills?</h2>
+      <p class="answer"><strong>Eighty of them, built in.</strong> Each one is a piece of
+      professional judgement written down and dropped into the right job: how to write a cold email,
+      how to screen a candidate, how to handle a sensitive message.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card rv"><h3>Cold outreach</h3><p>What makes a first email get answered rather than deleted.</p></div>
+      <div class="card rv"><h3>Candidate screening</h3><p>What to weigh, and what to ignore.</p></div>
+      <div class="card rv"><h3>Reconciliation</h3><p>How to match what was paid against what was invoiced.</p></div>
+      <div class="card rv"><h3>Sensitive replies</h3><p>How to answer someone who is upset without making it worse.</p></div>
+    </div>
+    <p class="rv" style="margin-top:22px">Skills are the reason the output does not read like generic
+    AI text. You can edit any of them, and your edit survives an app update.</p>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="Work you can watch">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can I see what it's doing?</h2>
+      <p class="answer">Yes. Work in flight appears as tasks you can open, not as a spinner.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>The console</b> — where you type or talk.</li>
+      <li><b>The task board</b> — everything in flight, and what it is waiting on.</li>
+      <li><b>Team chat</b> — a place to talk to a worker directly.</li>
+      <li><b>The routing panel</b> — what a job will call, and on whose key.</li>
+    </ul>
+    <div class="cta-row rv" style="margin-top:28px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/memory/">What it remembers</a>
+      <a class="btn btn-ghost" href="/security/">Your data</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

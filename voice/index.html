@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talk to it, and have it take the minutes</title>
+<meta name="description" content="A real two-way conversation you can interrupt mid-sentence. It records the room through your own microphone, never speaks in the meeting, and files the transcript against the calendar entry.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/voice/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="Talk to it, and have it take the minutes">
+<meta property="og:description" content="A real two-way conversation you can interrupt mid-sentence. It records the room through your own microphone, never speaks in the meeting, and files the transcript against the calendar entry.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/voice/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/platform.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Talk to it, and have it take the minutes">
+<meta name="twitter:description" content="A real two-way conversation you can interrupt mid-sentence. It records the room through your own microphone, never speaks in the meeting, and files the transcript against the calendar entry.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/platform.png">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Voice and meeting notes in Workforce 2.0","description":"Real two-way speech with barge-in rather than dictation into a chatbot, and a listen-only meeting recorder that files the transcript into your own notes."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can Workforce 2.0 sit in on my meetings?","acceptedAnswer":{"@type":"Answer","text":"It records the room through your computer's microphone while you sit in the meeting. It does not join the call as a participant, it has no microphone of its own, and it never speaks. It is listen-only by design: no task can be created from anything it overhears."}},{"@type":"Question","name":"Is this dictation with a chatbot behind it?","acceptedAnswer":{"@type":"Answer","text":"No. It is a real two-way conversation with barge-in, so you can interrupt it mid-sentence the way you would a person. It is not speech converted to text and fed to a chat window."}},{"@type":"Question","name":"What do I get after a meeting?","acceptedAnswer":{"@type":"Answer","text":"The transcript is written into your notes folder as a plain Markdown file, filed against the calendar entry it belongs to, and the actions are pulled out of it. It joins everything else the system knows and becomes searchable."}},{"@type":"Question","name":"What are the limits on meetings?","acceptedAnswer":{"@type":"Answer","text":"It cannot join a call by itself, so you have to be in the meeting with it. It records whatever your microphone can hear, which means a room mic beats a headset. It never speaks in the meeting. Read-aloud voices are Windows only and cover six languages."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Voice & meetings</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"Voice & meetings","item":"https://workforce.trackmystartup.com/voice/"}]}</script>
+<section class="hero" data-shape="wave" data-cap="A real conversation, not dictation">
+  <div class="wrap">
+    <p class="kicker">Voice and meetings</p>
+    <h1>Talk to it. <em class="g">Cut in when you need to.</em></h1>
+    <p class="lead">There is nothing to learn. Say what you want in ordinary words, and interrupt it
+    mid-sentence if it heads the wrong way.</p>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="You can interrupt it">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Is this dictation with a chatbot behind it?</h2>
+      <p class="answer">No. It is a <strong>real two-way conversation</strong>, and you can cut in
+      mid-sentence the way you would with a person. Your speech is not being converted to text and
+      posted into a chat window.</p>
+    </div>
+    <p class="rv">The difference shows up the first time it starts explaining something you already
+    know. With dictation you wait. Here you talk over it and it stops.</p>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="Talking hands out real work">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What can I get done just by talking?</h2>
+      <p class="answer">Speaking is not a separate, lesser mode. It reaches the whole workforce.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>Hand work to the whole team.</b> Say what you need and it gets planned and assigned.</li>
+      <li><b>Tell it something to remember</b>, and it keeps it.</li>
+      <li><b>Ask what everyone is working on</b>, and it reads the state of play back to you.</li>
+      <li><b>Have it draw you a diagram</b> on screen while you are still talking.</li>
+    </ul>
+    <p class="rv">For anyone who avoids new software, this is the whole product. There is no
+    interface to master because you are just describing what you want.</p>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="Same memory either way">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Does it know what I typed earlier?</h2>
+      <p class="answer">Yes. Voice and typing share one memory and one context. You can start a
+      thing by talking on the way to work and finish it by typing at your desk.</p>
+    </div>
+    <p class="rv">It also reads your next seven days, so it knows what your week looks like without
+    being told.</p>
+  </div>
+</section>
+
+<section data-shape="people" data-cap="It listens, you do the talking">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="kicker">Meetings</p>
+      <h2>Can it sit in on my meetings?</h2>
+      <p class="answer">It records the room through <strong>your computer's microphone</strong>
+      while you sit in the meeting. It does not join the call itself and it has no microphone of
+      its own, so you have to be in the room with it.</p>
+    </div>
+    <p class="rv">Press <b>Transcribe meeting</b> on the console and put the laptop where it can
+    hear the table. When you stop, the transcript is filed against the calendar entry it belongs
+    to.</p>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Listen-only, by design">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Will it interrupt, or act on what it hears?</h2>
+      <p class="answer">No, to both. While it is recording it is <strong>listen-only</strong>: it
+      never speaks, and nothing said in the room can start a job. Somebody saying &ldquo;email that
+      over&rdquo; in a meeting does not send an email.</p>
+    </div>
+    <p class="rv">That is enforced in the code rather than asked of the model, which is the right
+    way round for something sitting on a table with your clients.</p>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="The transcript, into the memory">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What do I get afterwards?</h2>
+      <p class="answer">The transcript, written into your notes folder as a plain Markdown file
+      with the actions pulled out of it. It joins everything else the system knows, so a decision
+      made in a call in March is searchable in November.</p>
+    </div>
+    <p class="rv">This is where meetings stop evaporating. <a href="/memory/">How the memory works &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="What it does not do yet">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>The limits, stated plainly</h2>
+      <p class="answer">The meeting side is a recorder, not a participant. Better you know that
+      now than find out on a call.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>It cannot join a call on its own.</b> You are in the meeting; it listens alongside you.</li>
+      <li><b>It never speaks in the meeting.</b> There is no bot in the participant list.</li>
+      <li>It hears <b>whatever your microphone hears</b>, so a room mic beats a headset.</li>
+      <li><b>Read-aloud voices are Windows only</b>, in six languages: English, French, German, Portuguese, Italian and Spanish.</li>
+    </ul>
+    <div class="cta-row rv" style="margin-top:28px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/engines/communication/">Inbox and replies</a>
+      <a class="btn btn-ghost" href="/limits/">What it does not do</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

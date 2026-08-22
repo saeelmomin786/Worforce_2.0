@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your data — where it lives and what needs your permission</title>
+<meta name="description" content="Files and memory are indexed on your machine, offline. Sending, publishing and spending stop and wait for you, and it fails closed if you are away.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/security/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="Your data — where it lives and what needs your permission">
+<meta property="og:description" content="Files and memory are indexed on your machine, offline. Sending, publishing and spending stop and wait for you, and it fails closed if you are away.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/security/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/og/platform.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your data — where it lives and what needs your permission">
+<meta name="twitter:description" content="Files and memory are indexed on your machine, offline. Sending, publishing and spending stop and wait for you, and it fails closed if you are away.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/og/platform.png">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"How Workforce 2.0 handles your data, your keys and your permission","description":"Local-first storage, offline indexing, a single approval chokepoint that fails closed at 90 seconds, server-side key handling, and a plainly disclosed opt-in fallback relay."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there an AI assistant that keeps my data on my own computer?","acceptedAnswer":{"@type":"Answer","text":"Workforce 2.0 stores config, data, memory and media in a normal folder on your machine, and indexes your documents in-process and offline. Your files and your memory do not leave the device."}},{"@type":"Question","name":"Do my requests ever go through your servers?","acceptedAnswer":{"@type":"Answer","text":"Your own key is used first, always. If it has been refusing for about 90 seconds and you are signed in, engine work can be carried on a hosted connection so a run finishes rather than dying halfway. Conversations and background housekeeping never do, you can switch it off, and your files and memory are not part of it either way."}},{"@type":"Question","name":"How do I stop an AI from sending emails without my approval?","acceptedAnswer":{"@type":"Answer","text":"In Workforce 2.0 sending, publishing and spending all stop and wait for you. Every attempt passes through one gate that no caller can go around, and no answer within 90 seconds counts as a refusal rather than a silent send. Every decision is written to a log."}},{"@type":"Question","name":"Does Workforce 2.0 work offline?","acceptedAnswer":{"@type":"Answer","text":"Reading and indexing your own files works offline. Anything that needs an AI needs a network connection, so it does not work fully offline and we do not claim it does."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">Your data</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"Your data","item":"https://workforce.trackmystartup.com/security/"}]}</script>
+<section class="hero" data-shape="vault" data-cap="Where it lives, and who holds the keys">
+  <div class="wrap">
+    <p class="kicker">Your data</p>
+    <h1>What it can do, what it cannot, <em class="g">and who holds the keys.</em></h1>
+    <p class="lead">This page is deliberately precise. If you handle anything confidential, the
+    details are the point.</p>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="A normal folder you own">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Where is my data stored?</h2>
+      <p class="answer">On your computer, in a normal folder you can open, copy and back up. Config,
+      data, memory and media all live there. The notes folder is one you own outright.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="This claim has no conditions on it">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Does anything I write ever leave my machine?</h2>
+      <p class="answer"><strong>Your files and your memory do not.</strong> Reading and indexing
+      happen in-process, offline, on your machine. There is no upload step and no copy on our side.</p>
+    </div>
+    <p class="rv">We lead with this one rather than a broader claim because it is true without
+    conditions. The next section is the part that does have conditions, and we would rather you read
+    it here than discover it later.</p>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="The one thing that can leave, if you let it">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Do my requests ever go through your servers?</h2>
+      <p class="answer">Your own key is used first, always. If it has been refusing for about
+      <strong>90 seconds</strong> and you are signed in, engine work can be carried on our
+      connection instead, so a long run finishes rather than dying halfway.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>Conversations and background housekeeping never do.</b> Only engine work, and only after your own key has actually failed.</li>
+      <li><b>You can switch it off.</b> It is opt-in and tied to being signed in.</li>
+      <li><b>Your files and your memory are not part of this either way.</b> The fallback carries the request, not your documents.</li>
+      <li>Steps that drive a real browser cannot be carried this way and <b>stop honestly</b> instead of guessing.</li>
+    </ul>
+    <div class="note note-warn rv" style="max-width:64ch; margin-top:24px">
+      <h4>Why we put this on the page rather than in a footnote</h4>
+      <p>Plenty of software would describe itself as fully local and quietly keep this bit out of
+      sight. Burying it is what would make it a problem. Told plainly, it is just a feature that
+      stops your work dying at the worst moment.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Send, publish, spend">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What needs my permission?</h2>
+      <p class="answer">Three things: <strong>sending</strong>, <strong>publishing</strong> and
+      <strong>spending.</strong> Outbound actions across your connected apps are held for your
+      approval. Everything else runs freely.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card rv"><h3>Sending</h3><p>Email, WhatsApp, Slack, Teams, Discord, calendar invites.</p></div>
+      <div class="card rv"><h3>Publishing</h3><p>LinkedIn, the Meta platforms, YouTube, Reddit, blog hosts.</p></div>
+      <div class="card rv"><h3>Spending</h3><p>Stripe, PayPal, Razorpay.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="One gate. Nothing goes around it.">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Could a new feature forget to ask?</h2>
+      <p class="answer">No. <strong>Everything funnels through the same single gate</strong>,
+      whoever asked for it: the assistant, a worker, an engine, or a direct call. There is no second
+      path.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>18 of the 20 built-in engines hold their outbound work for approval.</b> The two that do not send nothing outside the company at all.</li>
+      <li>Every step that sends externally <b>ships requiring approval</b>. You can turn that off per step; it is never off by default.</li>
+    </ul>
+    <p class="rv">That is what makes this durable rather than a promise about today's code. A
+    feature built next year cannot forget to ask, because asking is not something each feature does
+    for itself.</p>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="Silence is a no">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What if I'm not there to approve it?</h2>
+      <p class="answer">It stops. <strong>No answer within 90 seconds counts as a no</strong>, not
+      as a quiet yes. Every decision is written to a log you can read.</p>
+    </div>
+    <div class="srcquote rv">
+      <p class="framing">The reason, from a comment in the code:</p>
+      <blockquote>&ldquo;unattended runs should not silently send messages to real people.&rdquo;</blockquote>
+    </div>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="Your keys stay on your machine">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Where do my keys live?</h2>
+      <p class="answer">On your machine. They never reach the web page, they are not in the download,
+      and they are not in our code. Google sign-in tokens live outside the app and are never bundled
+      with it.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="It stops at zero">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Can it spend more than I have?</h2>
+      <p class="answer">No. It checks your balance <strong>before</strong> starting a chargeable job
+      rather than after, and stops at zero instead of running a negative balance you have to settle.</p>
+    </div>
+    <p class="rv"><a href="/pricing/">Every job is free or a fixed price you saw first &rarr;</a></p>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="A voice needs recorded consent">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Voice cloning</h2>
+      <p class="answer">A voice with no recorded consent cannot be used. The consent gate sits at the
+      one route that accepts a voice sample, so there is no way in around it.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="Indexing offline. AI needs network.">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Does it work without internet?</h2>
+      <p class="answer">Reading and indexing your own files does. <strong>Anything that needs an AI
+      needs a connection.</strong> It does not work fully offline and we do not claim it does.</p>
+    </div>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="For a practice or a regulated firm">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Is this safe for client work?</h2>
+      <p class="answer">We will not claim a certification we do not hold. Here is what is actually
+      true, so you can decide against your own obligations.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>Client files stay on your machine and are <b>indexed there</b>, not uploaded.</li>
+      <li>You choose which mailboxes and folders it can see. Anything you do not point it at, it never reads.</li>
+      <li><b>Nothing sends without you</b>, and it fails closed when you are away.</li>
+      <li>What a client told you <b>cannot cross into</b> an answer about your business, or into a reply to somebody else.</li>
+      <li>The one case where a request leaves your machine is described above, and can be switched off.</li>
+    </ul>
+    <div class="cta-row rv" style="margin-top:28px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/memory/">What it remembers</a>
+      <a class="btn btn-ghost" href="/limits/">What it does not do</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/">All 20 engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

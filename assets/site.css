@@ -1,0 +1,374 @@
+/* Workforce 2.0 — one stylesheet, all 21 pages.
+   Dark only, on purpose: it matches the app (css/theme.css), and a marketing
+   site that changes identity with the OS setting reads as two products.
+   Fonts are the system stack. 0KB and no third-party request beats 28KB of
+   self-hosted woff2. Swap in subset faces when someone can produce them. */
+
+:root {
+  --bg: #06090f;
+  --bg-2: #0b111b;
+  --panel: rgba(13, 20, 32, .55);
+  --ink: #eef3fa;
+  --ink-mid: #b6c2d4;
+  --ink-dim: #7c8a9f;
+  --line: rgba(255, 255, 255, .09);
+  --line-2: rgba(255, 255, 255, .16);
+  --cyan: #00d3d8;
+  --violet: #8b6cff;
+  --ok: #3ee6a8;
+  --warn: #ffc24b;
+  --grad: linear-gradient(92deg, var(--cyan), var(--violet));
+
+  --serif: ui-serif, Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --wrap: 1140px;
+  --r: 18px;
+  --r-sm: 10px;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--sans); line-height: 1.65; font-size: 17px;
+  overflow-x: hidden; text-rendering: optimizeLegibility;
+}
+img, video, canvas, svg { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+::selection { background: rgba(0, 211, 216, .3); }
+
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--cyan); color: #04070c; padding: 12px 20px; font-weight: 600;
+}
+.skip:focus { left: 8px; top: 8px; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
+
+/* ── the split ──────────────────────────────────────────────────────────
+   The tree is not a backdrop. It holds the left column and stays put while
+   the content scrolls past it, so the growth reads as a sequence rather than
+   as wallpaper. Content still owns its own column and never overlaps it. */
+:root { --stage: 46vw; }
+
+#stage {
+  position: fixed; left: 0; top: 0; height: 100vh;
+  /* Wider than the column it nominally owns, then faded out across the
+     overlap. A canvas that stops dead on a vertical line reads as two panels
+     bolted together; letting the cloud thin out under the first inch of the
+     text makes it one page. main sits at z-index 1, so nothing is ever drawn
+     over the words. */
+  width: calc(var(--stage) + 15vw);
+  --edge: linear-gradient(to right,
+      #000 0,
+      #000 calc(var(--stage) - 17vw),
+      rgba(0, 0, 0, .30) var(--stage),
+      transparent calc(var(--stage) + 9vw));
+  -webkit-mask-image: var(--edge);
+          mask-image: var(--edge);
+  z-index: 0; pointer-events: none;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+#world { position: absolute; inset: 0; width: 100%; height: 100%; }
+.stage-cap {
+  position: relative; margin: 0 0 34px; max-width: 30ch; text-align: center;
+  font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-dim); font-weight: 650;
+  opacity: 0; transform: translateY(8px); transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+.stage-cap.in { opacity: 1; transform: none; }
+.stage-cap b { color: var(--cyan); font-weight: 650; }
+
+main { margin-left: var(--stage); }
+.topbar, .site-footer { position: relative; z-index: 1; }
+main { position: relative; z-index: 1; }
+
+/* The content column lives inside the right half, so .wrap measures against
+   that rather than the viewport. */
+main .wrap, main .crumbs { width: min(100% - 72px, 680px); margin-inline: auto; }
+
+/* Two ways of going without the live renderer, and they are not the same.
+
+   "none" is for a device asking for fewer bytes: no column, no image, the
+   layout falls back to a normal centred page.
+
+   "poster" is for a device asking for no MOVEMENT — reduced motion, or no
+   WebGL2. The column stays exactly where it is and holds a still of the shape
+   that section would have animated to. These used to be one tier, which is why
+   the tree was missing from the whole site for anyone with animations off. */
+html[data-3d="none"] { --stage: 0px; }
+html[data-3d="none"] #stage { display: none; }
+html[data-3d="none"] main .wrap,
+html[data-3d="none"] main .crumbs { width: min(100% - 40px, var(--wrap)); }
+
+html[data-3d="poster"] #stage {
+  background-repeat: no-repeat;
+  background-position: center 56%;
+  background-size: contain;
+}
+
+@media (max-width: 1100px) {
+  :root { --stage: 0px; }
+  #stage {
+    position: sticky; width: 100%; height: 46vh; top: 57px;
+    margin-bottom: -6vh; align-items: flex-end;
+    --edge: linear-gradient(to bottom, #000 0, #000 58%, transparent 100%);
+  }
+  main { margin-left: 0; }
+  main .wrap, main .crumbs { width: min(100% - 40px, var(--wrap)); }
+  .stage-cap { margin-bottom: 14px; font-size: 11.5px; }
+}
+
+/* ── type ───────────────────────────────────────────────────────────────── */
+h1, h2, h3, .display { font-family: var(--serif); font-weight: 400; line-height: 1.1; letter-spacing: -.015em; }
+h1 { font-size: clamp(40px, 6.4vw, 76px); }
+h2 { font-size: clamp(28px, 3.9vw, 46px); margin-bottom: 18px; }
+h3 { font-size: clamp(20px, 2.1vw, 26px); margin-bottom: 10px; }
+h4 { font-family: var(--sans); font-size: 15px; font-weight: 650; margin-bottom: 6px; }
+em.g, .grad {
+  font-style: italic; background: var(--grad);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+p { max-width: 68ch; }
+p + p { margin-top: 1em; }
+.lead { font-size: clamp(17px, 1.9vw, 21px); color: var(--ink-mid); max-width: 60ch; }
+.kicker {
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--cyan); font-weight: 650; margin-bottom: 14px; font-family: var(--sans);
+}
+.muted { color: var(--ink-mid); }
+.dim { color: var(--ink-dim); font-size: 14px; }
+
+/* The answer block: the first 40-60 words under an H2. Answer engines lift
+   this, so it gets weight rather than hiding as another paragraph. */
+.answer { font-size: clamp(17px, 1.8vw, 19.5px); color: var(--ink); max-width: 62ch; }
+.answer strong { color: var(--cyan); font-weight: 600; }
+
+/* ── layout ─────────────────────────────────────────────────────────────── */
+.wrap { width: min(100% - 40px, var(--wrap)); margin-inline: auto; }
+section { padding: clamp(64px, 9vw, 128px) 0; }
+section > .wrap > * + * { margin-top: 22px; }
+.section-head { max-width: 62ch; margin-bottom: 44px; }
+.grid { display: grid; gap: 18px; }
+.g2 { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.g3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.g4 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+
+.card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--r);
+  padding: 28px 26px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+}
+.card p { font-size: 15px; color: var(--ink-mid); }
+.card .price { font-family: var(--mono); font-size: 13px; color: var(--cyan); margin-top: 14px; display: block; }
+a.card { text-decoration: none; transition: border-color .2s var(--ease), transform .2s var(--ease); }
+a.card:hover { border-color: rgba(0, 211, 216, .45); transform: translateY(-3px); }
+a.card .more { color: var(--cyan); font-size: 14px; font-weight: 600; margin-top: 14px; display: block; }
+
+/* ── buttons ────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 15px 30px; border-radius: 13px; font: 600 15.5px/1 var(--sans);
+  cursor: pointer; border: 1px solid transparent; text-decoration: none;
+  transition: transform .16s var(--ease), box-shadow .16s var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--grad); color: #04070c; box-shadow: 0 10px 32px rgba(0, 211, 216, .24); }
+.btn-ghost { background: rgba(255, 255, 255, .05); color: var(--ink); border-color: var(--line-2); }
+.btn-sm { padding: 10px 20px; font-size: 14px; border-radius: 10px; }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.cta-note { font-size: 13.5px; color: var(--ink-dim); }
+
+/* The install command is a control, not a code sample, so it is built like one.
+   The prompt is a sibling span rather than ::before content: generated text
+   gets swept into a manual selection in some browsers, and pasting "PS>" into
+   a terminal is a broken first impression. */
+.cmd {
+  display: flex; align-items: center; gap: 10px; max-width: 580px;
+  margin-top: 18px; padding: 9px 9px 9px 15px;
+  border: 1px solid var(--line-2); border-radius: var(--r-sm);
+  background: rgba(0, 0, 0, .35);
+}
+.cmd .prompt { font-family: var(--mono); font-size: 13.5px; color: var(--cyan); flex: none; }
+.cmd code {
+  flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap;
+  font-family: var(--mono); font-size: 13.5px; color: var(--ink-mid);
+}
+.cmd button {
+  flex: none; font: inherit; font-size: 13px; cursor: pointer;
+  padding: 7px 14px; border-radius: 7px; color: var(--ink);
+  border: 1px solid var(--line-2); background: rgba(255, 255, 255, .05);
+  transition: background .15s var(--ease), color .15s var(--ease);
+}
+.cmd button:hover { background: rgba(255, 255, 255, .1); }
+.cmd button.done { color: var(--ok); border-color: rgba(62, 230, 168, .4); }
+
+/* ── topbar ─────────────────────────────────────────────────────────────── */
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 14px max(20px, calc((100vw - var(--wrap)) / 2));
+  background: rgba(6, 9, 15, .82); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 650; font-size: 16px; text-decoration: none; letter-spacing: -.01em; }
+.brand-mark { width: 22px; height: 22px; border-radius: 7px; background: var(--grad); flex: none; }
+.navlinks { display: flex; align-items: center; gap: 26px; }
+.navlinks a { font-size: 15px; color: var(--ink-mid); text-decoration: none; transition: color .18s; }
+.navlinks a:hover { color: var(--ink); }
+.navlinks a.btn { color: #04070c; }
+.navtoggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+.navtoggle span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+.navtoggle span + span { margin-top: 5px; }
+
+@media (max-width: 860px) {
+  .navtoggle { display: block; }
+  .navlinks {
+    position: absolute; inset: 100% 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--bg-2); border-bottom: 1px solid var(--line); padding: 8px 20px 20px;
+    display: none;
+  }
+  .navlinks.open { display: flex; }
+  .navlinks a { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .navlinks a.btn { margin-top: 14px; border-bottom: 0; justify-content: center; }
+}
+
+/* ── hero: the tree on the left, the real product on the right ──────────── */
+.hero { padding-top: clamp(48px, 7vw, 88px); padding-bottom: clamp(48px, 7vw, 88px); }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+.hero h1 { margin-bottom: 22px; }
+.hero .lead { margin-bottom: 30px; }
+.hero-scale {
+  margin-top: 28px; font-size: 13.5px; color: var(--ink-dim);
+  display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+}
+.hero-scale b { color: var(--ink-mid); font-weight: 600; }
+.shot {
+  border: 1px solid var(--line-2); border-radius: var(--r); overflow: hidden;
+  background: var(--bg-2); box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .9);
+}
+.shot img, .shot video { width: 100%; display: block; }
+.shot figcaption { font-size: 13px; color: var(--ink-dim); padding: 12px 16px; border-top: 1px solid var(--line); }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 34px; } }
+
+/* Placeholder until the real screenshots land. Deliberately obvious, so it
+   cannot ship by accident. */
+.shot-todo {
+  aspect-ratio: 16 / 10; display: grid; place-content: center; gap: 6px; text-align: center;
+  background: repeating-linear-gradient(45deg, #0b111b, #0b111b 12px, #0d1420 12px, #0d1420 24px);
+  color: var(--ink-dim); font: 600 13px/1.5 var(--mono); padding: 20px;
+}
+
+/* ── quotes lifted from the source ──────────────────────────────────────── */
+.srcquote { border-left: 2px solid var(--cyan); padding: 4px 0 4px 22px; margin: 28px 0; max-width: 62ch; }
+.srcquote .framing { font-size: 13.5px; color: var(--ink-dim); margin-bottom: 8px; }
+.srcquote blockquote { font-family: var(--serif); font-size: clamp(19px, 2.3vw, 25px); line-height: 1.4; color: var(--ink); }
+
+/* ── callouts ───────────────────────────────────────────────────────────── */
+.note { border: 1px solid var(--line); border-radius: var(--r-sm); padding: 20px 22px; background: rgba(255, 255, 255, .03); }
+.note h4 { color: var(--ink); }
+.note p { font-size: 15px; color: var(--ink-mid); }
+.note-warn { border-color: rgba(255, 194, 75, .3); background: rgba(255, 194, 75, .05); }
+.note-warn h4 { color: var(--warn); }
+.note-ok { border-color: rgba(62, 230, 168, .28); background: rgba(62, 230, 168, .05); }
+.note-ok h4 { color: var(--ok); }
+
+/* ── lists ──────────────────────────────────────────────────────────────── */
+.ticks { list-style: none; display: grid; gap: 12px; max-width: 66ch; }
+.ticks li { padding-left: 30px; position: relative; color: var(--ink-mid); font-size: 15.5px; }
+.ticks li::before {
+  content: ""; position: absolute; left: 6px; top: .62em; width: 7px; height: 7px;
+  border-radius: 50%; background: var(--cyan);
+}
+.ticks li b, .ticks li strong { color: var(--ink); font-weight: 600; }
+.steps { list-style: none; counter-reset: s; display: grid; gap: 22px; max-width: 70ch; }
+.steps li { counter-increment: s; padding-left: 52px; position: relative; }
+.steps li::before {
+  content: counter(s); position: absolute; left: 0; top: -2px;
+  width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--line-2);
+  display: grid; place-content: center; font: 600 15px var(--mono); color: var(--cyan);
+}
+.steps li p { font-size: 15.5px; color: var(--ink-mid); }
+
+/* ── tables ─────────────────────────────────────────────────────────────── */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 15px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 650 13px/1.4 var(--sans); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-dim); }
+tbody tr:last-child td { border-bottom: 0; }
+td b { color: var(--ink); }
+td { color: var(--ink-mid); }
+.num { font-family: var(--mono); color: var(--cyan); white-space: nowrap; }
+
+/* ── faq ────────────────────────────────────────────────────────────────── */
+.faq { display: grid; gap: 0; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 0; }
+.faq summary {
+  cursor: pointer; padding: 20px 24px; font-weight: 600; font-size: 16.5px;
+  list-style: none; display: flex; justify-content: space-between; gap: 20px; align-items: center;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--cyan); font: 400 22px var(--mono); flex: none; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details > div { padding: 0 24px 22px; }
+.faq details p { font-size: 15.5px; color: var(--ink-mid); }
+
+/* ── breadcrumbs ────────────────────────────────────────────────────────── */
+.crumbs { width: min(100% - 40px, var(--wrap)); margin: 24px auto -8px; font-size: 13.5px; color: var(--ink-dim); }
+.crumbs a { color: var(--ink-dim); text-decoration: none; }
+.crumbs a:hover { color: var(--cyan); }
+.crumbs .sep { margin: 0 8px; opacity: .5; }
+
+/* ── footer ─────────────────────────────────────────────────────────────── */
+.site-footer { border-top: 1px solid var(--line); padding: 64px 0 32px; background: rgba(6, 9, 15, .8); }
+.foot-grid {
+  width: min(100% - 40px, var(--wrap)); margin-inline: auto;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px 28px;
+}
+.foot-grid h3 { font: 650 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 16px; }
+.foot-grid a { display: block; font-size: 14.5px; color: var(--ink-mid); text-decoration: none; padding: 5px 0; }
+.foot-grid a:hover { color: var(--cyan); }
+.foot-brand p { font-size: 14.5px; color: var(--ink-mid); margin: 12px 0 18px; }
+.foot-brand a.btn { display: inline-flex; color: #04070c; }
+.foot-legal {
+  width: min(100% - 40px, var(--wrap)); margin: 48px auto 0; padding-top: 24px;
+  border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  font-size: 13.5px; color: var(--ink-dim);
+}
+.foot-legal a { color: var(--ink-dim); text-decoration: none; margin-right: 18px; }
+.foot-legal a:hover { color: var(--cyan); }
+@media (max-width: 820px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .foot-grid { grid-template-columns: 1fr; gap: 30px; } }
+
+/* ── reveal ─────────────────────────────────────────────────────────────── */
+/* Reveal-on-scroll hides content, so it is gated on JS actually being alive.
+   Without the html.js guard, one script error leaves 44 sections at opacity 0
+   on a page whose whole premise is that the content is in the HTML. */
+.js .rv { opacity: 0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.js .rv.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .rv { opacity: 1; transform: none; }
+}
+
+/* ── the engine list ────────────────────────────────────────────────────
+   One engine per row rather than a grid, so each one can own the tree for
+   the length of its scroll and light its own worker. */
+.stack { display: grid; gap: 14px; }
+.card.row { padding: 24px 26px; }
+.card.row h3 { margin-bottom: 6px; }
+.card.row .price { margin-top: 10px; }
+.card.row .more { margin-top: 8px; }
+
+/* The content column is ~680px wide while the viewport is not, so the normal
+   width media queries never fire. These key off the split instead. */
+@media (min-width: 1101px) {
+  html:not([data-3d="none"]) .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+  html:not([data-3d="none"]) .g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  html:not([data-3d="none"]) .foot-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+  html:not([data-3d="none"]) table { min-width: 480px; }
+}
