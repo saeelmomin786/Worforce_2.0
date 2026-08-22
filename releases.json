@@ -10,10 +10,10 @@
     },
     "android": {
       "version": "2.47.0",
-      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.47.0/Workforce-2.0.apk",
-      "size": "TODO — build the APK",
-      "date": "TODO",
-      "sha256": "TODO"
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.47.0/Workforce-2.0-2.47.0.apk",
+      "size": "123 MB",
+      "date": "22 August 2026",
+      "sha256": "dfc2ae5c99eab2dddb35952da3d29853fe67b69f424fa77d67c686ffac1399e8"
     }
   }
 }
