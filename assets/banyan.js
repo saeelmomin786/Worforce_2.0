@@ -145,7 +145,7 @@
 
   // A figure woven from root: strands spiralling around each limb, with mass.
   // Deliberately not the Marvel character — no ridged crown, no face, no eyes.
-  function figureSegs(x, s, seed) {
+  function figureSegs(x, s, seed, pose) {
     seedAt(seed * 977 + 13);
     var L = [];
     function limb(x1, y1, x2, y2, r1, r2, n, twist) {
@@ -164,8 +164,15 @@
       }
     }
     limb(x, 0.46 * s, x, 0.96 * s, 0.145 * s, 0.105 * s, 22, 3.4);            // torso
-    limb(x - 0.10 * s, 0.92 * s, x - 0.20 * s, 0.34 * s, 0.050 * s, 0.036 * s, 7, 2.8);  // arms
-    limb(x + 0.10 * s, 0.92 * s, x + 0.20 * s, 0.34 * s, 0.050 * s, 0.036 * s, 7, 2.8);
+    // Arms. The hand end is posable: default is hanging at the side, but a
+    // scene can raise a forearm to hold a cup or reach across to pass work.
+    // Without this every figure has the same silhouette and nothing that is
+    // placed near a hand reads as being held.
+    var po = pose || {};
+    var lhx = po.lx === undefined ? -0.20 : po.lx, lhy = po.ly === undefined ? 0.34 : po.ly;
+    var rhx = po.rx === undefined ? 0.20 : po.rx, rhy = po.ry === undefined ? 0.34 : po.ry;
+    limb(x - 0.10 * s, 0.92 * s, x + lhx * s, lhy * s, 0.050 * s, 0.036 * s, 7, 2.8);  // arms
+    limb(x + 0.10 * s, 0.92 * s, x + rhx * s, rhy * s, 0.050 * s, 0.036 * s, 7, 2.8);
     limb(x - 0.06 * s, 0.50 * s, x - 0.10 * s, 0, 0.066 * s, 0.050 * s, 9, 2.6);         // legs
     limb(x + 0.06 * s, 0.50 * s, x + 0.10 * s, 0, 0.066 * s, 0.050 * s, 9, 2.6);
     limb(x, 1.03 * s, x, 1.22 * s, 0.082 * s, 0.068 * s, 13, 3.0);            // head, a woven knot
@@ -229,8 +236,8 @@
                  y1 + (y2 - y1) * u + t * jit * 2.2, t * jit * 2.2, k);
         }
       },
-      person: function (n, x, y, s, seed) {
-        var segs = figureSegs(x, s, seed);
+      person: function (n, x, y, s, seed, pose) {
+        var segs = figureSegs(x, s, seed, pose);
         for (var j = 0; j < n && i < N; j++) {
           var g = segs[Math.floor(rnd() * segs.length)], u = rnd();
           api.at(g.x1 + (g.x2 - g.x1) * u, y + g.y1 + (g.y2 - g.y1) * u, (rnd() - 0.5) * 0.3, 2);
@@ -297,9 +304,20 @@
 
     // ── four people: which of these is you ──────────────────────────────
     people: function (F) {
-      F.curtain(N * 0.30);
-      var xs = [-5.4, -1.8, 1.8, 5.4];
-      for (var i = 0; i < 4; i++) F.person(N * 0.16, xs[i], 0, 2.3, i + 1);
+      // Four standing together, each holding a cup: the near hand is raised
+      // to chest height and the cup sits AT that hand. Spaced wide enough
+      // that they stay four people and do not merge into one mass.
+      var px = [-4.5, -1.5, 1.5, 4.5];
+      var CUP = 1.42;
+      for (var i = 0; i < 4; i++) {
+        var inward = px[i] < 0 ? 1 : -1;
+        var hx = 0.34 * inward;
+        F.person(N * 0.135, px[i], 0, 2.3, i + 1,
+                 { rx: inward > 0 ? hx : 0.20, ry: inward > 0 ? CUP / 2.3 : 0.34,
+                   lx: inward > 0 ? -0.20 : hx, ly: inward > 0 ? 0.34 : CUP / 2.3 });
+        F.ring(N * 0.011, px[i] + hx * 2.3, CUP, 0.15, 0.07, 0);
+      }
+      F.curtain(N * 0.20);
       F.fill(function (f) { f.at((rnd() - 0.5) * 18, rnd() * 6, (rnd() - 0.5) * 5, 3); });
     },
 
@@ -366,10 +384,25 @@
 
     // ── the grove: everyone, working, under the roots that made them ─────
     grove: function (F) {
-      F.curtain(N * 0.30);
-      var xs = [-8.2, -4.9, -1.6, 1.6, 4.9, 8.2];
-      for (var i = 0; i < 6; i++) F.person(N * 0.09, xs[i], 0, 2.5, i + 1);
-      F.fill(function (f) { f.at((rnd() - 0.5) * 19, rnd() * 8, (rnd() - 0.5) * 6, 3); });
+      // Five along one desk, work moving down the line. Each figure has its
+      // inner hand DOWN ON the desk surface and the outer hand at its side,
+      // so the documents are held rather than hovering.
+      var gx = [-6.0, -3.0, 0, 3.0, 6.0];
+      var DESK = 1.62;
+      for (var i = 0; i < 5; i++) {
+        // hand reaches toward the next person along, at desk height
+        F.person(N * 0.112, gx[i], 0, 2.4, i + 1,
+                 { rx: 0.46, ry: 0.62, lx: -0.24, ly: 0.42 });
+      }
+      // The desk: a slab with a lit front edge, deep enough to read as a top.
+      F.box(N * 0.085, 0, DESK - 0.06, 1.1, 15.0, 0.07, 2.8, 4);
+      F.line(N * 0.020, -7.5, DESK + 0.02, 7.5, DESK + 0.02, 0.04, 0);
+      // A document under each reaching hand, lying flat on the surface.
+      for (var d = 0; d < 5; d++) {
+        F.box(N * 0.012, gx[d] + 1.50, DESK + 0.07, 1.1, 0.90, 0.02, 0.62, 0);
+      }
+      F.curtain(N * 0.06);
+      F.fill(function (f) { f.at((rnd() - 0.5) * 19, rnd() * 6.5, (rnd() - 0.5) * 5, 3); });
     },
   };
 
@@ -409,40 +442,57 @@
     // and the motes around it hold still, or the whole frame swims.
     "  float amp = step(1.5, kNow) * (1.0 - step(2.5, kNow)) * uMotionAmp;",
     "  if (amp > 0.001) {",
-    "    float h = clamp(p.y / 6.6, 0.0, 1.0);",   // 0 at the feet, 1 at the head
+    "    float h = clamp(p.y / 6.6, 0.0, 1.0);",
+    // Where the work happens. Hands and forearms carry the motion; the
+    // torso answers it faintly and the legs stay planted. Without this the
+    // whole figure swings as one mass and reads as hanging, not working.
+    "    float hand = smoothstep(0.42, 0.78, h) * (1.0 - smoothstep(0.86, 1.0, h));",
+    "    float lean = smoothstep(0.30, 0.95, h) * 0.22;",
+    // NOT sign(p.x): the body straddles the centreline, so that sends the
+    // left and right halves opposite ways and tears the figure in two.
+    // One direction for the whole figure, from its own motion id.
+    "    float side = uMotion > 3.5 ? -1.0 : 1.0;",
+    // One clock for all six workers, each offset, so the row reads as a
+    // team on the same job rather than six unrelated loops.
+    "    float T = uTime + uMotion * 0.7;",
     "    vec3 mv = vec3(0.0);",
-    "    if (uMotion < 1.5) {",                    // 1 · sales, out walking
-    "      float leg = 1.0 - smoothstep(0.2, 2.9, p.y);",
-    "      float sw = sin(uTime * 2.0);",
-    "      mv.x += sw * 0.58 * leg * sign(p.x);",
-    "      mv.z += sw * 0.70 * leg * sign(p.x);",
-    "      mv.y += abs(sw) * 0.40;",
-    "      mv.x += sin(uTime * 2.0 + 1.6) * 0.20 * h;",
-    "    } else if (uMotion < 2.5) {",             // 2 · marketing, turning to face out
-    "      float a = sin(uTime * 0.55) * 0.75;",
-    "      mv.x += p.x * (cos(a) - 1.0) - p.z * sin(a);",
-    "      mv.z += p.x * sin(a) + p.z * (cos(a) - 1.0);",
-    "      mv.x += sin(uTime * 0.55) * 0.60;",
-    "    } else if (uMotion < 3.5) {",             // 3 · inbox, turning at the waist to answer
-    "      float a = sin(uTime * 0.9) * 1.35 * h;",
-    "      mv.x += p.x * (cos(a) - 1.0) - p.z * sin(a);",
-    "      mv.z += p.x * sin(a) + p.z * (cos(a) - 1.0);",
-    "      mv.x += sin(uTime * 0.9) * 0.52 * smoothstep(0.40, 1.0, h);",
-    "    } else if (uMotion < 4.5) {",             // 4 · prices, a band reading up the body
-    "      float q = (h - fract(uTime * 0.26)) * 7.0;",   // NOT pow(): a negative
-    "      float band = exp(-q * q);",                    // base there is undefined
-    "      mv += vec3(sin(aSeed * 41.0), cos(aSeed * 29.0), sin(aSeed * 53.0)) * band * 0.42;",
-    "    } else if (uMotion < 5.5) {",             // 5 · video, a slow camera drift
-    "      mv.x += sin(uTime * 0.95) * 0.85 * h * h;",
-    "      mv.z += cos(uTime * 0.75) * 0.45 * h * h;",
-    "    } else {",                                // 6 · jobs, reaching up
-    "      float r = sin(uTime * 1.15) * 0.5 + 0.5;",
-    // A gradual ramp, and no sign(p.x) term. Splitting on the sign of x tears
-    // the head in two, because the head straddles the centreline; and lifting
-    // the top hard against a low ramp detaches it from the shoulders. Stretch
-    // the whole upper body instead and it reads as a reach.
-    "      mv.y += r * 1.60 * smoothstep(0.08, 1.0, h);",
-    "      mv.z += r * 0.40 * smoothstep(0.45, 1.0, h);",
+    "    if (uMotion < 1.5) {",                    // 1 - sales: reaching out, offering
+    "      float r = sin(T * 1.5) * 0.5 + 0.5;",
+    "      mv.x += r * 0.62 * hand * side;",
+    "      mv.z += r * 0.78 * hand;",
+    "      mv.y += r * 0.16 * hand;",
+    "      mv.z += r * 0.10 * lean;",
+    "    } else if (uMotion < 2.5) {",             // 2 - marketing: setting a piece down and stepping back
+    "      float c = fract(T * 0.24);",
+    "      float place = smoothstep(0.0, 0.35, c) * (1.0 - smoothstep(0.55, 0.95, c));",
+    "      mv.y -= place * 0.70 * hand;",
+    "      mv.z += place * 0.66 * hand;",
+    "      mv.z += place * 0.14 * lean;",
+    "    } else if (uMotion < 3.5) {",             // 3 - inbox: hands working, one item after another
+    "      float c = fract(T * 0.55);",
+    "      float b1 = (c - 0.25) * 5.0; float b2 = (c - 0.72) * 5.0;",
+    "      float beat = exp(-b1 * b1) + exp(-b2 * b2);",
+    "      mv.x += beat * 0.34 * hand * side;",
+    "      mv.y += beat * 0.30 * hand;",
+    "      mv.z += beat * 0.22 * hand;",
+    "    } else if (uMotion < 4.5) {",             // 4 - prices: scanning a line across, then back
+    "      float sweep = sin(T * 0.85);",
+    "      mv.x += sweep * 0.66 * hand;",
+    "      mv.z += (1.0 - abs(sweep)) * 0.20 * hand;",
+    "      mv.x += sweep * 0.10 * lean;",
+    "    } else if (uMotion < 5.5) {",             // 5 - video: framing a shot, holding it steady
+    "      float c = fract(T * 0.20);",
+    "      float hold = smoothstep(0.05, 0.3, c) * (1.0 - smoothstep(0.62, 0.92, c));",
+    "      mv.y += hold * 0.52 * hand;",
+    "      mv.z += hold * 0.46 * hand;",
+    "      mv.x += sin(T * 1.9) * 0.05 * hold * hand;",
+    "    } else {",                                // 6 - jobs: taking one in, passing it on
+    "      float c = fract(T * 0.40);",
+    "      float q1 = (c - 0.2) * 4.5; float take = exp(-q1 * q1);",
+    "      float q2 = (c - 0.68) * 4.5; float pass = exp(-q2 * q2);",
+    "      mv.z += take * 0.60 * hand;",
+    "      mv.x += pass * 0.58 * hand * side;",
+    "      mv.y += (take + pass) * 0.20 * hand;",
     "    }",
     "    p += mv * amp;",
     "  }",
@@ -574,13 +624,13 @@
 
   var CAM = {   //      eyeX  eyeY   eyeZ  targetY
     tree:   [0,     5.0, 24.0,  4.8],
-    people: [0,     2.8, 16.5,  2.6],
+    people: [0.6,   3.4, 16.5,  2.2],
     org:    [0,     2.4, 19.5,  2.2],
     worker: [0,     3.2, 15.5,  3.0],
     wave:   [0,     3.0, 16.0,  3.0],
     vault:  [0,     0.6, 17.5,  0.4],
     gate:   [0,     2.4, 17.0,  2.2],
-    grove:  [0,     2.8, 19.0,  2.6],
+    grove:  [0.8,   4.2, 20.0,  2.0],
   };
 
   var from = 0, to = 0, mix = 1, mixTarget = 1;

@@ -54,14 +54,14 @@ a { color: inherit; }
 :root { --stage: 46vw; }
 
 #stage {
-  position: fixed; left: 0; top: 0; height: 100vh;
+  position: fixed; right: 0; top: 0; height: 100vh;
   /* Wider than the column it nominally owns, then faded out across the
      overlap. A canvas that stops dead on a vertical line reads as two panels
      bolted together; letting the cloud thin out under the first inch of the
      text makes it one page. main sits at z-index 1, so nothing is ever drawn
      over the words. */
   width: calc(var(--stage) + 15vw);
-  --edge: linear-gradient(to right,
+  --edge: linear-gradient(to left,
       #000 0,
       #000 calc(var(--stage) - 17vw),
       rgba(0, 0, 0, .30) var(--stage),
@@ -81,7 +81,7 @@ a { color: inherit; }
 .stage-cap.in { opacity: 1; transform: none; }
 .stage-cap b { color: var(--cyan); font-weight: 650; }
 
-main { margin-left: var(--stage); }
+main { margin-right: var(--stage); }
 .topbar, .site-footer { position: relative; z-index: 1; }
 main { position: relative; z-index: 1; }
 
@@ -116,7 +116,7 @@ html[data-3d="poster"] #stage {
     margin-bottom: -6vh; align-items: flex-end;
     --edge: linear-gradient(to bottom, #000 0, #000 58%, transparent 100%);
   }
-  main { margin-left: 0; }
+  main { margin-right: 0; }
   main .wrap, main .crumbs { width: min(100% - 40px, var(--wrap)); }
   .stage-cap { margin-bottom: 14px; font-size: 11.5px; }
 }
