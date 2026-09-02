@@ -91,7 +91,11 @@
       var rend = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : "";
       soft = /SwiftShader|Basic Render|llvmpipe|Software Adapter|Mesa OffScreen|Microsoft Basic/i.test(rend);
     } catch (e) { /* extension unavailable: fall through on the other signals */ }
-    if (soft) return "poster";
+    // No GPU does not have to mean no scene. With leaves instead of a dot
+    // cloud the element count drops far enough that a CPU rasteriser can
+    // carry the live render, so software rendering takes the light tier
+    // rather than falling back to a still.
+    if (soft) return "light";
 
     var small = window.matchMedia && window.matchMedia("(max-width: 900px), (pointer: coarse)").matches;
     // deviceMemory is undefined outside Chromium AND on some Chromium builds,

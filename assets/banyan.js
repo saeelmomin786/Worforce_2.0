@@ -24,7 +24,10 @@
   if (!gl) { canvas.remove(); return; }
 
   var LIGHT = document.documentElement.getAttribute("data-3d") === "light";
-  var N = LIGHT ? 18000 : 330000;
+  // Leaves, not dots: ~8x fewer elements. A shaped sprite carries the form a
+  // dot cannot, so the canopy still reads with real gaps between leaves.
+  // This is what lets the live scene run without a GPU at all.
+  var N = LIGHT ? 14000 : 42000;
   var BEATS = 7;
   var HOME = document.body.classList.contains("home");
 
@@ -449,8 +452,8 @@
     // made the transition asymmetric: scrolling down from the tree drew every
     // point at canopy weight the whole way, scrolling back drew the same frames
     // at figure weight, so the two directions looked like different renderers.
-    "  float fA = aKA < 0.5 ? 1.30 : (aKA < 1.5 ? 0.78 : (aKA < 2.5 ? 0.62 : (aKA < 3.5 ? 0.70 : 0.90)));",
-    "  float fB = aKB < 0.5 ? 1.30 : (aKB < 1.5 ? 0.78 : (aKB < 2.5 ? 0.62 : (aKB < 3.5 ? 0.70 : 0.90)));",
+    "  float fA = aKA < 0.5 ? 2.60 : (aKA < 1.5 ? 1.05 : (aKA < 2.5 ? 1.70 : (aKA < 3.5 ? 0.65 : 1.90)));",
+    "  float fB = aKB < 0.5 ? 2.60 : (aKB < 1.5 ? 1.05 : (aKB < 2.5 ? 1.70 : (aKB < 3.5 ? 0.65 : 1.90)));",
     "  float fat = mix(fA, fB, m);",
     "  gl_PointSize = max(1.0, uScale * fat * (0.75 + aSeed * 0.9) / max(clip.w, 0.4));",
     "  vSeed = aSeed; vKind = mix(aKA, aKB, m); vY = p.y;",
@@ -469,21 +472,62 @@
     "const vec3 ROOT      = vec3(0.741, 0.792, 0.898);",
     "const vec3 CYAN      = vec3(0.000, 0.827, 0.847);",
     "const vec3 VIOLET    = vec3(0.545, 0.424, 1.000);",
+    // A leaf, not a dot. Shape lives here because gl_PointCoord is free:
+    // no texture, no extra geometry, no second draw call. Fewer, larger,
+    // shaped sprites cover the same silhouette with far less vertex work,
+    // and because a leaf reads as a leaf you can leave real gaps between
+    // them - a dot cloud needs density just to look solid.
+    "float leafMask(vec2 q, float seed){",
+    // Rotate per point so a canopy is never a grid of aligned stamps.
+    "  float a = seed * 6.2831853;",
+    "  vec2 r = vec2(q.x * cos(a) - q.y * sin(a), q.x * sin(a) + q.y * cos(a));",
+    // Ovate blade: widest below the middle, drawn to a tip at v = 1.
+    // v runs 0 at the stem to 1 at the tip; half-width follows a lobe.
+    "  float v = clamp(r.y + 0.5, 0.0, 1.0);",
+    "  float w = 0.62 * sin(3.14159 * pow(v, 0.72)) * (1.0 - 0.28 * v);",
+    "  float body = 1.0 - smoothstep(w * 0.72, w, abs(r.x));",
+    // Fade the very base and tip so the blade ends softly instead of
+    // stopping on a hard edge, which is what made the old discs look
+    // stamped rather than lit.
+    "  float ends = smoothstep(0.0, 0.16, v) * (1.0 - smoothstep(0.86, 1.0, v));",
+    // A midrib, brightest along the spine, so a big sprite still has
+    // internal structure rather than reading as a blob.
+    "  float rib = (1.0 - smoothstep(0.0, 0.09, abs(r.x))) * ends * 0.55;",
+    "  return clamp(body * ends + rib, 0.0, 1.0);",
+    "}",
+    // A strand: long, thin, tapered at both ends. The figures are already
+    // woven from spiralling root strands (see figureSegs) - drawing them as
+    // round dots is what hid that weave.
+    "float strandMask(vec2 q, float seed){",
+    "  float a = seed * 6.2831853;",
+    "  vec2 r = vec2(q.x * cos(a) - q.y * sin(a), q.x * sin(a) + q.y * cos(a));",
+    "  float v = clamp(r.y + 0.5, 0.0, 1.0);",
+    "  float w = 0.15 * sin(3.14159 * v);",
+    "  return (1.0 - smoothstep(w * 0.30, w, abs(r.x))) * smoothstep(0.0, 0.12, v) * (1.0 - smoothstep(0.88, 1.0, v));",
+    "}",
     "void main(){",
-    "  float d = length(gl_PointCoord - 0.5);",
+    "  vec2 q = gl_PointCoord - 0.5;",
+    "  float d = length(q);",
     "  if (d > 0.5) discard;",
     // A soft disc that reaches exactly zero at the rim. The previous version
     // used pow() against a hard discard, so every point ended on an aliased
     // edge and the whole cloud read as coarse. smoothstep fades out before the
     // cutoff, which is what makes a point look lit rather than stamped.
-    "  float core = smoothstep(0.5, 0.06, d);",
+    "  float disc = smoothstep(0.5, 0.06, d);",
+    "  float core;",
+    "  if (vKind < 0.5)      core = leafMask(q, vSeed);",
+    "  else if (vKind < 1.5) core = disc;",
+    "  else if (vKind < 2.5) core = strandMask(q, vSeed);",
+    "  else if (vKind < 3.5) core = disc;",
+    "  else                  core = strandMask(q, vSeed);",
+    "  if (core < 0.01) discard;",
     "  vec3 col; float amp;",
-    "  float lift = clamp((vY - 1.9) / 8.5, 0.0, 1.0);",
-    "  if (vKind < 0.5)      { col = mix(CANOPY_LO, CANOPY_HI, lift); amp = 0.60; }",
-    "  else if (vKind < 1.5) { col = BARK;                     amp = 0.62; }",
-    "  else if (vKind < 2.5) { col = mix(CYAN, VIOLET, vSeed); amp = 0.62; }",
-    "  else if (vKind < 3.5) { col = mix(VIOLET, CYAN, vSeed); amp = 0.13; }",
-    "  else                  { col = ROOT;                     amp = 0.82; }",
+    "  float lift = pow(clamp((vY - 1.9) / 8.5, 0.0, 1.0), 1.6);",
+    "  if (vKind < 0.5)      { col = mix(CANOPY_LO, CANOPY_HI, lift); amp = 0.20; }",
+    "  else if (vKind < 1.5) { col = BARK;                     amp = 0.34; }",
+    "  else if (vKind < 2.5) { col = mix(CYAN, VIOLET, vSeed); amp = 0.30; }",
+    "  else if (vKind < 3.5) { col = mix(VIOLET, CYAN, vSeed); amp = 0.10; }",
+    "  else                  { col = ROOT;                     amp = 0.38; }",
     "  frag = vec4(col, core * vFade * amp);",
     "}",
   ].join("\n");
@@ -683,7 +727,7 @@
     gl.uniform1f(uMotion, motion);
     gl.uniform1f(uMotionAmp, motionAmp);
     gl.uniform1f(uTime, elapsed);
-    gl.uniform1f(uScale, 17 * dpr * (LIGHT ? 1.7 : 1));
+    gl.uniform1f(uScale, 30 * dpr * (LIGHT ? 1.5 : 1));
 
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
