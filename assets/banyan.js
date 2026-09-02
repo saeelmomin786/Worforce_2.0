@@ -27,7 +27,7 @@
   // Leaves, not dots: ~8x fewer elements. A shaped sprite carries the form a
   // dot cannot, so the canopy still reads with real gaps between leaves.
   // This is what lets the live scene run without a GPU at all.
-  var N = LIGHT ? 14000 : 42000;
+  var N = LIGHT ? 28000 : 84000;
   var BEATS = 7;
   var HOME = document.body.classList.contains("home");
 
@@ -777,7 +777,7 @@
     gl.uniform1f(uMotion, motion);
     gl.uniform1f(uMotionAmp, motionAmp);
     gl.uniform1f(uTime, elapsed);
-    gl.uniform1f(uScale, 30 * dpr * (LIGHT ? 1.5 : 1));
+    gl.uniform1f(uScale, 21.21 * dpr * (LIGHT ? 1.5 : 1));
 
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
