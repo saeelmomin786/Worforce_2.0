@@ -79,8 +79,25 @@
     try { gl = canvas.getContext("webgl2"); } catch (e) { /* blocked or unsupported */ }
     if (!gl) return "poster";
 
+    // Having WebGL2 is not the same as having a GPU. With hardware acceleration
+    // off — no driver, a VM, an old laptop, a locked-down machine, or Chrome
+    // blocklisting the chip — getContext() still hands back a context and every
+    // point is then rasterised on the CPU. Measured on exactly such a machine:
+    // 2.2fps and 460ms frames, i.e. unusable. Plenty of visitors are in this
+    // state, so it is a first-class case, not an edge case: give them the still.
+    var soft = false;
+    try {
+      var dbg = gl.getExtension("WEBGL_debug_renderer_info");
+      var rend = dbg ? String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)) : "";
+      soft = /SwiftShader|Basic Render|llvmpipe|Software Adapter|Mesa OffScreen|Microsoft Basic/i.test(rend);
+    } catch (e) { /* extension unavailable: fall through on the other signals */ }
+    if (soft) return "poster";
+
     var small = window.matchMedia && window.matchMedia("(max-width: 900px), (pointer: coarse)").matches;
-    var lowmem = (navigator.deviceMemory || 8) < 4;
+    // deviceMemory is undefined outside Chromium AND on some Chromium builds,
+    // so the "|| 8" default quietly treated an unknown machine as a big one.
+    // Fall back to core count, which is far more widely reported.
+    var lowmem = (navigator.deviceMemory || 8) < 4 || (navigator.hardwareConcurrency || 8) <= 4;
     return (small || lowmem) ? "light" : "full";
   }
 
@@ -96,12 +113,42 @@
   }
 
   if (t === "poster") {
-    // A still of whatever this page would have opened on. Set here rather than
-    // in the HTML so the other tiers never download an image they paint over.
-    var first = document.querySelector("[data-shape]");
-    var shape = (first && first.getAttribute("data-shape")) || "grove";
+    // A still instead of the renderer. Set here rather than in the HTML so the
+    // other tiers never download an image they paint over.
     var stage = document.getElementById("stage");
-    if (stage) stage.style.backgroundImage = "url(/assets/img/stage-" + shape + ".webp)";
+    var sections = document.querySelectorAll("[data-shape]");
+    var shown = "";
+    function show(shape) {
+      if (!stage || !shape || shape === shown) return;
+      shown = shape;
+      stage.style.backgroundImage = "url(/assets/img/stage-" + shape + ".webp)";
+    }
+    show((sections[0] && sections[0].getAttribute("data-shape")) || "grove");
+
+    // Follow the sections on scroll. This tier is now a first-class case, not a
+    // rarity — a machine with no GPU acceleration lands here — so it gets the
+    // same beat-by-beat imagery, just as stills. Swapping a background costs
+    // nothing next to rendering a point cloud, and each shape is one small webp.
+    if (sections.length > 1) {
+      var ticking = false;
+      var pick = function () {
+        ticking = false;
+        var mid = window.innerHeight / 2, best = null, bestD = 1e9;
+        for (var i = 0; i < sections.length; i++) {
+          var r = sections[i].getBoundingClientRect();
+          if (r.bottom < 0 || r.top > window.innerHeight) continue;
+          var d = Math.abs(r.top + r.height / 2 - mid);
+          if (d < bestD) { bestD = d; best = sections[i]; }
+        }
+        if (best) show(best.getAttribute("data-shape"));
+      };
+      window.addEventListener("scroll", function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(pick);
+      }, { passive: true });
+      pick();
+    }
     world.remove();
     return;
   }

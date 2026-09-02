@@ -20,11 +20,11 @@
 
   var canvas = document.getElementById("world");
   if (!canvas) return;
-  var gl = canvas.getContext("webgl2", { antialias: true, alpha: true, powerPreference: "low-power" });
+  var gl = canvas.getContext("webgl2", { antialias: true, alpha: true, powerPreference: "low-power", preserveDrawingBuffer: true });
   if (!gl) { canvas.remove(); return; }
 
   var LIGHT = document.documentElement.getAttribute("data-3d") === "light";
-  var N = LIGHT ? 34000 : 330000;
+  var N = LIGHT ? 18000 : 330000;
   var BEATS = 7;
   var HOME = document.body.classList.contains("home");
 
@@ -251,7 +251,7 @@
     // ── the banyan, whole. The first thing you see and the only place it is. ──
     tree: function (F) {
       var cr = T.crown;
-      for (var g = 0; F.n() < N * 0.40 && g < N * 8; g++) {
+      for (var g = 0; F.n() < N * 0.36 && g < N * 8; g++) {
         var bl = T.billows[Math.floor(rnd() * T.billows.length)];
         var th = rnd() * Math.PI * 2, ph = Math.acos(2 * rnd() - 1), rr = bl.r * Math.cbrt(rnd());
         var x = bl.x + rr * Math.sin(ph) * Math.cos(th);
@@ -274,11 +274,11 @@
         var lb = BR[Math.floor(rnd() * BR.length)], t2 = rnd();
         F.at(lb.x1 + (lb.x2 - lb.x1) * t2, lb.y1 + (lb.y2 - lb.y1) * t2, (rnd() - 0.5) * 0.9, 1);
       }
-      for (i2 = 0; i2 < N * 0.16; i2++) {
+      for (i2 = 0; i2 < N * 0.20; i2++) {
         var rt = T.roots[Math.floor(rnd() * T.roots.length)];
         var k = Math.floor(rnd() * (rt.pts.length - 1)), t3 = rnd();
         var q0 = rt.pts[k], q1 = rt.pts[k + 1];
-        F.at(q0[0] + (q1[0] - q0[0]) * t3, q0[1] + (q1[1] - q0[1]) * t3, (rnd() - 0.5) * 1.4, 1);
+        F.at(q0[0] + (q1[0] - q0[0]) * t3, q0[1] + (q1[1] - q0[1]) * t3, (rnd() - 0.5) * 0.9, 4);
       }
       // the CEO, a bright knot up in the crown
       for (i2 = 0; i2 < N * 0.04; i2++) {
@@ -443,16 +443,14 @@
     "    }",
     "    p += mv * amp;",
     "  }",
-    "  float w = uTime * 0.45 + aSeed * 6.283;",
-    "  p += vec3(sin(w) * 0.05, cos(w * 0.8) * 0.04, sin(w * 1.3) * 0.05);",
     "  vec4 clip = uVP * vec4(p, 1.0);",
     "  gl_Position = clip;",
     // Point size has to blend BOTH ends of the morph. Reading it off aKA alone
     // made the transition asymmetric: scrolling down from the tree drew every
     // point at canopy weight the whole way, scrolling back drew the same frames
     // at figure weight, so the two directions looked like different renderers.
-    "  float fA = aKA < 0.5 ? 1.30 : (aKA < 1.5 ? 0.78 : (aKA < 2.5 ? 0.62 : 0.70));",
-    "  float fB = aKB < 0.5 ? 1.30 : (aKB < 1.5 ? 0.78 : (aKB < 2.5 ? 0.62 : 0.70));",
+    "  float fA = aKA < 0.5 ? 1.30 : (aKA < 1.5 ? 0.78 : (aKA < 2.5 ? 0.62 : (aKA < 3.5 ? 0.70 : 0.90)));",
+    "  float fB = aKB < 0.5 ? 1.30 : (aKB < 1.5 ? 0.78 : (aKB < 2.5 ? 0.62 : (aKB < 3.5 ? 0.70 : 0.90)));",
     "  float fat = mix(fA, fB, m);",
     "  gl_PointSize = max(1.0, uScale * fat * (0.75 + aSeed * 0.9) / max(clip.w, 0.4));",
     "  vSeed = aSeed; vKind = mix(aKA, aKB, m); vY = p.y;",
@@ -468,6 +466,7 @@
     "const vec3 CANOPY_LO = vec3(0.110, 0.420, 0.480);",
     "const vec3 CANOPY_HI = vec3(0.420, 0.870, 0.930);",
     "const vec3 BARK      = vec3(0.557, 0.639, 0.776);",
+    "const vec3 ROOT      = vec3(0.741, 0.792, 0.898);",
     "const vec3 CYAN      = vec3(0.000, 0.827, 0.847);",
     "const vec3 VIOLET    = vec3(0.545, 0.424, 1.000);",
     "void main(){",
@@ -483,7 +482,8 @@
     "  if (vKind < 0.5)      { col = mix(CANOPY_LO, CANOPY_HI, lift); amp = 0.60; }",
     "  else if (vKind < 1.5) { col = BARK;                     amp = 0.62; }",
     "  else if (vKind < 2.5) { col = mix(CYAN, VIOLET, vSeed); amp = 0.62; }",
-    "  else                  { col = mix(VIOLET, CYAN, vSeed); amp = 0.13; }",
+    "  else if (vKind < 3.5) { col = mix(VIOLET, CYAN, vSeed); amp = 0.13; }",
+    "  else                  { col = ROOT;                     amp = 0.82; }",
     "  frag = vec4(col, core * vFade * amp);",
     "}",
   ].join("\n");
@@ -562,6 +562,7 @@
     // Each engine gets its own framing as well as its own motion, so two worker
     // sections running back to back are never the same shot.
     if (motionWant) { want[1] += (motionWant - 3.5) * 0.30; want[2] += (motionWant - 3.5) * 1.10; }
+    wake();
     var text = el.getAttribute("data-cap");
     if (cap && capBox) {
       if (text) { cap.innerHTML = text; capBox.classList.add("in"); }
@@ -627,18 +628,38 @@
     canvas.width = W; canvas.height = H; gl.viewport(0, 0, W, H);
   }
   resize();
-  window.addEventListener("resize", resize, { passive: true });
+  window.addEventListener("resize", function () { resize(); wake(); }, { passive: true });
 
   var elapsed = 0, running = true, t0 = performance.now();
+  // The scene is a still except while something is easing. Drawing 330k points
+  // for a picture that is not changing is the whole cost of this file, and it
+  // was being paid on every section of the page, including with the canvas
+  // scrolled out of sight. So the loop parks itself and wake() restarts it.
+  var idle = false;
+  function needsFrame() {
+    for (var q = 0; q < 4; q++) if (Math.abs(want[q] - shot[q]) > 0.0005) return true;
+    if (mix < 0.999) return true;
+    if (motionWant !== motion) return true;
+    return motion !== 0;
+  }
+  function wake() {
+    if (!idle || !running) return;
+    idle = false;
+    t0 = performance.now() - elapsed * 1000;
+    requestAnimationFrame(frame);
+  }
   document.addEventListener("visibilitychange", function () {
     running = !document.hidden;
-    if (running) { t0 = performance.now() - elapsed * 1000; requestAnimationFrame(frame); }
+    if (running) { t0 = performance.now() - elapsed * 1000; idle = false; requestAnimationFrame(frame); }
   });
 
   function frame(now) {
     if (!running) return;
     elapsed = (now - t0) / 1000;
-    for (var i = 0; i < 4; i++) shot[i] += (want[i] - shot[i]) * 0.05;
+    for (var i = 0; i < 4; i++) {
+      shot[i] += (want[i] - shot[i]) * 0.05;
+      if (Math.abs(want[i] - shot[i]) < 0.0005) shot[i] = want[i];
+    }
     mix += (mixTarget - mix) * 0.045;
     if (mix > 0.9995) { mix = 1; from = to; }
     // Cutting from one motion to another mid-stride snaps the figure. Let it
@@ -667,7 +688,8 @@
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.POINTS, 0, N);
-    requestAnimationFrame(frame);
+    if (needsFrame()) requestAnimationFrame(frame);
+    else idle = true;   // parked: wake() brings it back
   }
   requestAnimationFrame(frame);
 
