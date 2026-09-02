@@ -456,12 +456,17 @@
     // team on the same job rather than six unrelated loops.
     "    float T = uTime + uMotion * 0.7;",
     "    vec3 mv = vec3(0.0);",
-    "    if (uMotion < 1.5) {",                    // 1 - sales: reaching out, offering
-    "      float r = sin(T * 1.5) * 0.5 + 0.5;",
-    "      mv.x += r * 0.62 * hand * side;",
-    "      mv.z += r * 0.78 * hand;",
-    "      mv.y += r * 0.16 * hand;",
-    "      mv.z += r * 0.10 * lean;",
+    "    if (uMotion < 1.5) {",                    // 1 - sales: out walking
+    // The original walk, restored. This one is not done with the hands, so
+    // it uses its own leg mask instead of the shared hand weighting, and
+    // sign(p.x) is correct HERE - the legs really are a left and a right,
+    // unlike the torso and head, which straddle the centreline and tear.
+    "      float leg = 1.0 - smoothstep(0.2, 2.9, p.y);",
+    "      float sw = sin(uTime * 2.0);",
+    "      mv.x += sw * 0.58 * leg * sign(p.x);",
+    "      mv.z += sw * 0.70 * leg * sign(p.x);",
+    "      mv.y += abs(sw) * 0.40;",
+    "      mv.x += sin(uTime * 2.0 + 1.6) * 0.20 * h;",
     "    } else if (uMotion < 2.5) {",             // 2 - marketing: setting a piece down and stepping back
     "      float c = fract(T * 0.24);",
     "      float place = smoothstep(0.0, 0.35, c) * (1.0 - smoothstep(0.55, 0.95, c));",
