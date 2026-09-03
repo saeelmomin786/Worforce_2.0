@@ -2,18 +2,18 @@
   "_comment": "Source of truth for /download/ AND for install.ps1, which reads this file at run time. One self-contained installer, uploaded as a GitHub Release asset. The video encoder is NOT in it — the app fetches that once on the first export (see ffmpeg-native.js). Change the version, size, date and sha256 here on every release and both the page and the one-line command follow.",
   "builds": {
     "win": {
-      "version": "2.48.0",
-      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.48.0/Workforce-2.0-Setup-2.48.0.exe",
+      "version": "2.49.2",
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.2/Workforce-2.0-Setup-2.49.2.exe",
       "size": "132 MB",
-      "date": "29 August 2026",
-      "sha256": "a4e090b9a10e16b27ecb73acadefb46727fde2a626afa590929a226635f45870"
+      "date": "4 September 2026",
+      "sha256": "09da2cad150fd7e19ee0404f6a515eef41b2dfb731f32cda5cb47cee7da14d89"
     },
     "android": {
-      "version": "2.48.0",
-      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.48.0/Workforce-2.0-2.48.0.apk",
+      "version": "2.49.2",
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.2/Workforce-2.0-2.49.2.apk",
       "size": "38 MB",
-      "date": "29 August 2026",
-      "sha256": "eb2451b8ae2475cd07e031f8f59b22cbf8ffe74177b47603eaf1f34b27eec5eb"
+      "date": "4 September 2026",
+      "sha256": "edc584ba659ef9b1a55caddfe443693be2ae649c6ac6546a382d8eaf4044ddff"
     }
   }
 }
