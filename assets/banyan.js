@@ -20,14 +20,11 @@
 
   var canvas = document.getElementById("world");
   if (!canvas) return;
-  var gl = canvas.getContext("webgl2", { antialias: true, alpha: true, powerPreference: "low-power", preserveDrawingBuffer: true });
+  var gl = canvas.getContext("webgl2", { antialias: true, alpha: true, powerPreference: "low-power" });
   if (!gl) { canvas.remove(); return; }
 
   var LIGHT = document.documentElement.getAttribute("data-3d") === "light";
-  // Leaves, not dots: ~8x fewer elements. A shaped sprite carries the form a
-  // dot cannot, so the canopy still reads with real gaps between leaves.
-  // This is what lets the live scene run without a GPU at all.
-  var N = LIGHT ? 28000 : 84000;
+  var N = LIGHT ? 34000 : 330000;
   var BEATS = 7;
   var HOME = document.body.classList.contains("home");
 
@@ -145,7 +142,7 @@
 
   // A figure woven from root: strands spiralling around each limb, with mass.
   // Deliberately not the Marvel character — no ridged crown, no face, no eyes.
-  function figureSegs(x, s, seed, pose) {
+  function figureSegs(x, s, seed) {
     seedAt(seed * 977 + 13);
     var L = [];
     function limb(x1, y1, x2, y2, r1, r2, n, twist) {
@@ -164,15 +161,8 @@
       }
     }
     limb(x, 0.46 * s, x, 0.96 * s, 0.145 * s, 0.105 * s, 22, 3.4);            // torso
-    // Arms. The hand end is posable: default is hanging at the side, but a
-    // scene can raise a forearm to hold a cup or reach across to pass work.
-    // Without this every figure has the same silhouette and nothing that is
-    // placed near a hand reads as being held.
-    var po = pose || {};
-    var lhx = po.lx === undefined ? -0.20 : po.lx, lhy = po.ly === undefined ? 0.34 : po.ly;
-    var rhx = po.rx === undefined ? 0.20 : po.rx, rhy = po.ry === undefined ? 0.34 : po.ry;
-    limb(x - 0.10 * s, 0.92 * s, x + lhx * s, lhy * s, 0.050 * s, 0.036 * s, 7, 2.8);  // arms
-    limb(x + 0.10 * s, 0.92 * s, x + rhx * s, rhy * s, 0.050 * s, 0.036 * s, 7, 2.8);
+    limb(x - 0.10 * s, 0.92 * s, x - 0.20 * s, 0.34 * s, 0.050 * s, 0.036 * s, 7, 2.8);  // arms
+    limb(x + 0.10 * s, 0.92 * s, x + 0.20 * s, 0.34 * s, 0.050 * s, 0.036 * s, 7, 2.8);
     limb(x - 0.06 * s, 0.50 * s, x - 0.10 * s, 0, 0.066 * s, 0.050 * s, 9, 2.6);         // legs
     limb(x + 0.06 * s, 0.50 * s, x + 0.10 * s, 0, 0.066 * s, 0.050 * s, 9, 2.6);
     limb(x, 1.03 * s, x, 1.22 * s, 0.082 * s, 0.068 * s, 13, 3.0);            // head, a woven knot
@@ -236,8 +226,8 @@
                  y1 + (y2 - y1) * u + t * jit * 2.2, t * jit * 2.2, k);
         }
       },
-      person: function (n, x, y, s, seed, pose) {
-        var segs = figureSegs(x, s, seed, pose);
+      person: function (n, x, y, s, seed) {
+        var segs = figureSegs(x, s, seed);
         for (var j = 0; j < n && i < N; j++) {
           var g = segs[Math.floor(rnd() * segs.length)], u = rnd();
           api.at(g.x1 + (g.x2 - g.x1) * u, y + g.y1 + (g.y2 - g.y1) * u, (rnd() - 0.5) * 0.3, 2);
@@ -261,7 +251,7 @@
     // ── the banyan, whole. The first thing you see and the only place it is. ──
     tree: function (F) {
       var cr = T.crown;
-      for (var g = 0; F.n() < N * 0.36 && g < N * 8; g++) {
+      for (var g = 0; F.n() < N * 0.40 && g < N * 8; g++) {
         var bl = T.billows[Math.floor(rnd() * T.billows.length)];
         var th = rnd() * Math.PI * 2, ph = Math.acos(2 * rnd() - 1), rr = bl.r * Math.cbrt(rnd());
         var x = bl.x + rr * Math.sin(ph) * Math.cos(th);
@@ -284,11 +274,11 @@
         var lb = BR[Math.floor(rnd() * BR.length)], t2 = rnd();
         F.at(lb.x1 + (lb.x2 - lb.x1) * t2, lb.y1 + (lb.y2 - lb.y1) * t2, (rnd() - 0.5) * 0.9, 1);
       }
-      for (i2 = 0; i2 < N * 0.20; i2++) {
+      for (i2 = 0; i2 < N * 0.16; i2++) {
         var rt = T.roots[Math.floor(rnd() * T.roots.length)];
         var k = Math.floor(rnd() * (rt.pts.length - 1)), t3 = rnd();
         var q0 = rt.pts[k], q1 = rt.pts[k + 1];
-        F.at(q0[0] + (q1[0] - q0[0]) * t3, q0[1] + (q1[1] - q0[1]) * t3, (rnd() - 0.5) * 0.9, 4);
+        F.at(q0[0] + (q1[0] - q0[0]) * t3, q0[1] + (q1[1] - q0[1]) * t3, (rnd() - 0.5) * 1.4, 1);
       }
       // the CEO, a bright knot up in the crown
       for (i2 = 0; i2 < N * 0.04; i2++) {
@@ -304,20 +294,9 @@
 
     // ── four people: which of these is you ──────────────────────────────
     people: function (F) {
-      // Four standing together, each holding a cup: the near hand is raised
-      // to chest height and the cup sits AT that hand. Spaced wide enough
-      // that they stay four people and do not merge into one mass.
-      var px = [-4.5, -1.5, 1.5, 4.5];
-      var CUP = 1.42;
-      for (var i = 0; i < 4; i++) {
-        var inward = px[i] < 0 ? 1 : -1;
-        var hx = 0.34 * inward;
-        F.person(N * 0.135, px[i], 0, 2.3, i + 1,
-                 { rx: inward > 0 ? hx : 0.20, ry: inward > 0 ? CUP / 2.3 : 0.34,
-                   lx: inward > 0 ? -0.20 : hx, ly: inward > 0 ? 0.34 : CUP / 2.3 });
-        F.ring(N * 0.011, px[i] + hx * 2.3, CUP, 0.15, 0.07, 0);
-      }
-      F.curtain(N * 0.20);
+      F.curtain(N * 0.30);
+      var xs = [-5.4, -1.8, 1.8, 5.4];
+      for (var i = 0; i < 4; i++) F.person(N * 0.16, xs[i], 0, 2.3, i + 1);
       F.fill(function (f) { f.at((rnd() - 0.5) * 18, rnd() * 6, (rnd() - 0.5) * 5, 3); });
     },
 
@@ -384,25 +363,10 @@
 
     // ── the grove: everyone, working, under the roots that made them ─────
     grove: function (F) {
-      // Five along one desk, work moving down the line. Each figure has its
-      // inner hand DOWN ON the desk surface and the outer hand at its side,
-      // so the documents are held rather than hovering.
-      var gx = [-6.0, -3.0, 0, 3.0, 6.0];
-      var DESK = 1.62;
-      for (var i = 0; i < 5; i++) {
-        // hand reaches toward the next person along, at desk height
-        F.person(N * 0.112, gx[i], 0, 2.4, i + 1,
-                 { rx: 0.46, ry: 0.62, lx: -0.24, ly: 0.42 });
-      }
-      // The desk: a slab with a lit front edge, deep enough to read as a top.
-      F.box(N * 0.085, 0, DESK - 0.06, 1.1, 15.0, 0.07, 2.8, 4);
-      F.line(N * 0.020, -7.5, DESK + 0.02, 7.5, DESK + 0.02, 0.04, 0);
-      // A document under each reaching hand, lying flat on the surface.
-      for (var d = 0; d < 5; d++) {
-        F.box(N * 0.012, gx[d] + 1.50, DESK + 0.07, 1.1, 0.90, 0.02, 0.62, 0);
-      }
-      F.curtain(N * 0.06);
-      F.fill(function (f) { f.at((rnd() - 0.5) * 19, rnd() * 6.5, (rnd() - 0.5) * 5, 3); });
+      F.curtain(N * 0.30);
+      var xs = [-8.2, -4.9, -1.6, 1.6, 4.9, 8.2];
+      for (var i = 0; i < 6; i++) F.person(N * 0.09, xs[i], 0, 2.5, i + 1);
+      F.fill(function (f) { f.at((rnd() - 0.5) * 19, rnd() * 8, (rnd() - 0.5) * 6, 3); });
     },
   };
 
@@ -442,73 +406,53 @@
     // and the motes around it hold still, or the whole frame swims.
     "  float amp = step(1.5, kNow) * (1.0 - step(2.5, kNow)) * uMotionAmp;",
     "  if (amp > 0.001) {",
-    "    float h = clamp(p.y / 6.6, 0.0, 1.0);",
-    // Where the work happens. Hands and forearms carry the motion; the
-    // torso answers it faintly and the legs stay planted. Without this the
-    // whole figure swings as one mass and reads as hanging, not working.
-    "    float hand = smoothstep(0.42, 0.78, h) * (1.0 - smoothstep(0.86, 1.0, h));",
-    "    float lean = smoothstep(0.30, 0.95, h) * 0.22;",
-    // NOT sign(p.x): the body straddles the centreline, so that sends the
-    // left and right halves opposite ways and tears the figure in two.
-    // One direction for the whole figure, from its own motion id.
-    "    float side = uMotion > 3.5 ? -1.0 : 1.0;",
-    // One clock for all six workers, each offset, so the row reads as a
-    // team on the same job rather than six unrelated loops.
-    "    float T = uTime + uMotion * 0.7;",
+    "    float h = clamp(p.y / 6.6, 0.0, 1.0);",   // 0 at the feet, 1 at the head
     "    vec3 mv = vec3(0.0);",
-    "    if (uMotion < 1.5) {",                    // 1 - sales: out walking
-    // The original walk, restored. This one is not done with the hands, so
-    // it uses its own leg mask instead of the shared hand weighting, and
-    // sign(p.x) is correct HERE - the legs really are a left and a right,
-    // unlike the torso and head, which straddle the centreline and tear.
+    "    if (uMotion < 1.5) {",                    // 1 · sales, out walking
     "      float leg = 1.0 - smoothstep(0.2, 2.9, p.y);",
     "      float sw = sin(uTime * 2.0);",
     "      mv.x += sw * 0.58 * leg * sign(p.x);",
     "      mv.z += sw * 0.70 * leg * sign(p.x);",
     "      mv.y += abs(sw) * 0.40;",
     "      mv.x += sin(uTime * 2.0 + 1.6) * 0.20 * h;",
-    "    } else if (uMotion < 2.5) {",             // 2 - marketing: setting a piece down and stepping back
-    "      float c = fract(T * 0.24);",
-    "      float place = smoothstep(0.0, 0.35, c) * (1.0 - smoothstep(0.55, 0.95, c));",
-    "      mv.y -= place * 0.70 * hand;",
-    "      mv.z += place * 0.66 * hand;",
-    "      mv.z += place * 0.14 * lean;",
-    "    } else if (uMotion < 3.5) {",             // 3 - inbox: hands working, one item after another
-    "      float c = fract(T * 0.55);",
-    "      float b1 = (c - 0.25) * 5.0; float b2 = (c - 0.72) * 5.0;",
-    "      float beat = exp(-b1 * b1) + exp(-b2 * b2);",
-    "      mv.x += beat * 0.34 * hand * side;",
-    "      mv.y += beat * 0.30 * hand;",
-    "      mv.z += beat * 0.22 * hand;",
-    "    } else if (uMotion < 4.5) {",             // 4 - prices: scanning a line across, then back
-    "      float sweep = sin(T * 0.85);",
-    "      mv.x += sweep * 0.66 * hand;",
-    "      mv.z += (1.0 - abs(sweep)) * 0.20 * hand;",
-    "      mv.x += sweep * 0.10 * lean;",
-    "    } else if (uMotion < 5.5) {",             // 5 - video: framing a shot, holding it steady
-    "      float c = fract(T * 0.20);",
-    "      float hold = smoothstep(0.05, 0.3, c) * (1.0 - smoothstep(0.62, 0.92, c));",
-    "      mv.y += hold * 0.52 * hand;",
-    "      mv.z += hold * 0.46 * hand;",
-    "      mv.x += sin(T * 1.9) * 0.05 * hold * hand;",
-    "    } else {",                                // 6 - jobs: taking one in, passing it on
-    "      float c = fract(T * 0.40);",
-    "      float q1 = (c - 0.2) * 4.5; float take = exp(-q1 * q1);",
-    "      float q2 = (c - 0.68) * 4.5; float pass = exp(-q2 * q2);",
-    "      mv.z += take * 0.60 * hand;",
-    "      mv.x += pass * 0.58 * hand * side;",
-    "      mv.y += (take + pass) * 0.20 * hand;",
+    "    } else if (uMotion < 2.5) {",             // 2 · marketing, turning to face out
+    "      float a = sin(uTime * 0.55) * 0.75;",
+    "      mv.x += p.x * (cos(a) - 1.0) - p.z * sin(a);",
+    "      mv.z += p.x * sin(a) + p.z * (cos(a) - 1.0);",
+    "      mv.x += sin(uTime * 0.55) * 0.60;",
+    "    } else if (uMotion < 3.5) {",             // 3 · inbox, turning at the waist to answer
+    "      float a = sin(uTime * 0.9) * 1.35 * h;",
+    "      mv.x += p.x * (cos(a) - 1.0) - p.z * sin(a);",
+    "      mv.z += p.x * sin(a) + p.z * (cos(a) - 1.0);",
+    "      mv.x += sin(uTime * 0.9) * 0.52 * smoothstep(0.40, 1.0, h);",
+    "    } else if (uMotion < 4.5) {",             // 4 · prices, a band reading up the body
+    "      float q = (h - fract(uTime * 0.26)) * 7.0;",   // NOT pow(): a negative
+    "      float band = exp(-q * q);",                    // base there is undefined
+    "      mv += vec3(sin(aSeed * 41.0), cos(aSeed * 29.0), sin(aSeed * 53.0)) * band * 0.42;",
+    "    } else if (uMotion < 5.5) {",             // 5 · video, a slow camera drift
+    "      mv.x += sin(uTime * 0.95) * 0.85 * h * h;",
+    "      mv.z += cos(uTime * 0.75) * 0.45 * h * h;",
+    "    } else {",                                // 6 · jobs, reaching up
+    "      float r = sin(uTime * 1.15) * 0.5 + 0.5;",
+    // A gradual ramp, and no sign(p.x) term. Splitting on the sign of x tears
+    // the head in two, because the head straddles the centreline; and lifting
+    // the top hard against a low ramp detaches it from the shoulders. Stretch
+    // the whole upper body instead and it reads as a reach.
+    "      mv.y += r * 1.60 * smoothstep(0.08, 1.0, h);",
+    "      mv.z += r * 0.40 * smoothstep(0.45, 1.0, h);",
     "    }",
     "    p += mv * amp;",
     "  }",
+    "  float w = uTime * 0.45 + aSeed * 6.283;",
+    "  p += vec3(sin(w) * 0.05, cos(w * 0.8) * 0.04, sin(w * 1.3) * 0.05);",
     "  vec4 clip = uVP * vec4(p, 1.0);",
     "  gl_Position = clip;",
     // Point size has to blend BOTH ends of the morph. Reading it off aKA alone
     // made the transition asymmetric: scrolling down from the tree drew every
     // point at canopy weight the whole way, scrolling back drew the same frames
     // at figure weight, so the two directions looked like different renderers.
-    "  float fA = aKA < 0.5 ? 2.60 : (aKA < 1.5 ? 1.05 : (aKA < 2.5 ? 1.70 : (aKA < 3.5 ? 0.65 : 1.90)));",
-    "  float fB = aKB < 0.5 ? 2.60 : (aKB < 1.5 ? 1.05 : (aKB < 2.5 ? 1.70 : (aKB < 3.5 ? 0.65 : 1.90)));",
+    "  float fA = aKA < 0.5 ? 1.30 : (aKA < 1.5 ? 0.78 : (aKA < 2.5 ? 0.62 : 0.70));",
+    "  float fB = aKB < 0.5 ? 1.30 : (aKB < 1.5 ? 0.78 : (aKB < 2.5 ? 0.62 : 0.70));",
     "  float fat = mix(fA, fB, m);",
     "  gl_PointSize = max(1.0, uScale * fat * (0.75 + aSeed * 0.9) / max(clip.w, 0.4));",
     "  vSeed = aSeed; vKind = mix(aKA, aKB, m); vY = p.y;",
@@ -524,65 +468,22 @@
     "const vec3 CANOPY_LO = vec3(0.110, 0.420, 0.480);",
     "const vec3 CANOPY_HI = vec3(0.420, 0.870, 0.930);",
     "const vec3 BARK      = vec3(0.557, 0.639, 0.776);",
-    "const vec3 ROOT      = vec3(0.741, 0.792, 0.898);",
     "const vec3 CYAN      = vec3(0.000, 0.827, 0.847);",
     "const vec3 VIOLET    = vec3(0.545, 0.424, 1.000);",
-    // A leaf, not a dot. Shape lives here because gl_PointCoord is free:
-    // no texture, no extra geometry, no second draw call. Fewer, larger,
-    // shaped sprites cover the same silhouette with far less vertex work,
-    // and because a leaf reads as a leaf you can leave real gaps between
-    // them - a dot cloud needs density just to look solid.
-    "float leafMask(vec2 q, float seed){",
-    // Rotate per point so a canopy is never a grid of aligned stamps.
-    "  float a = seed * 6.2831853;",
-    "  vec2 r = vec2(q.x * cos(a) - q.y * sin(a), q.x * sin(a) + q.y * cos(a));",
-    // Ovate blade: widest below the middle, drawn to a tip at v = 1.
-    // v runs 0 at the stem to 1 at the tip; half-width follows a lobe.
-    "  float v = clamp(r.y + 0.5, 0.0, 1.0);",
-    "  float w = 0.62 * sin(3.14159 * pow(v, 0.72)) * (1.0 - 0.28 * v);",
-    "  float body = 1.0 - smoothstep(w * 0.72, w, abs(r.x));",
-    // Fade the very base and tip so the blade ends softly instead of
-    // stopping on a hard edge, which is what made the old discs look
-    // stamped rather than lit.
-    "  float ends = smoothstep(0.0, 0.16, v) * (1.0 - smoothstep(0.86, 1.0, v));",
-    // A midrib, brightest along the spine, so a big sprite still has
-    // internal structure rather than reading as a blob.
-    "  float rib = (1.0 - smoothstep(0.0, 0.09, abs(r.x))) * ends * 0.55;",
-    "  return clamp(body * ends + rib, 0.0, 1.0);",
-    "}",
-    // A strand: long, thin, tapered at both ends. The figures are already
-    // woven from spiralling root strands (see figureSegs) - drawing them as
-    // round dots is what hid that weave.
-    "float strandMask(vec2 q, float seed){",
-    "  float a = seed * 6.2831853;",
-    "  vec2 r = vec2(q.x * cos(a) - q.y * sin(a), q.x * sin(a) + q.y * cos(a));",
-    "  float v = clamp(r.y + 0.5, 0.0, 1.0);",
-    "  float w = 0.15 * sin(3.14159 * v);",
-    "  return (1.0 - smoothstep(w * 0.30, w, abs(r.x))) * smoothstep(0.0, 0.12, v) * (1.0 - smoothstep(0.88, 1.0, v));",
-    "}",
     "void main(){",
-    "  vec2 q = gl_PointCoord - 0.5;",
-    "  float d = length(q);",
+    "  float d = length(gl_PointCoord - 0.5);",
     "  if (d > 0.5) discard;",
     // A soft disc that reaches exactly zero at the rim. The previous version
     // used pow() against a hard discard, so every point ended on an aliased
     // edge and the whole cloud read as coarse. smoothstep fades out before the
     // cutoff, which is what makes a point look lit rather than stamped.
-    "  float disc = smoothstep(0.5, 0.06, d);",
-    "  float core;",
-    "  if (vKind < 0.5)      core = leafMask(q, vSeed);",
-    "  else if (vKind < 1.5) core = disc;",
-    "  else if (vKind < 2.5) core = strandMask(q, vSeed);",
-    "  else if (vKind < 3.5) core = disc;",
-    "  else                  core = strandMask(q, vSeed);",
-    "  if (core < 0.01) discard;",
+    "  float core = smoothstep(0.5, 0.06, d);",
     "  vec3 col; float amp;",
-    "  float lift = pow(clamp((vY - 1.9) / 8.5, 0.0, 1.0), 1.6);",
-    "  if (vKind < 0.5)      { col = mix(CANOPY_LO, CANOPY_HI, lift); amp = 0.20; }",
-    "  else if (vKind < 1.5) { col = BARK;                     amp = 0.34; }",
-    "  else if (vKind < 2.5) { col = mix(CYAN, VIOLET, vSeed); amp = 0.30; }",
-    "  else if (vKind < 3.5) { col = mix(VIOLET, CYAN, vSeed); amp = 0.10; }",
-    "  else                  { col = ROOT;                     amp = 0.38; }",
+    "  float lift = clamp((vY - 1.9) / 8.5, 0.0, 1.0);",
+    "  if (vKind < 0.5)      { col = mix(CANOPY_LO, CANOPY_HI, lift); amp = 0.60; }",
+    "  else if (vKind < 1.5) { col = BARK;                     amp = 0.62; }",
+    "  else if (vKind < 2.5) { col = mix(CYAN, VIOLET, vSeed); amp = 0.62; }",
+    "  else                  { col = mix(VIOLET, CYAN, vSeed); amp = 0.13; }",
     "  frag = vec4(col, core * vFade * amp);",
     "}",
   ].join("\n");
@@ -629,13 +530,13 @@
 
   var CAM = {   //      eyeX  eyeY   eyeZ  targetY
     tree:   [0,     5.0, 24.0,  4.8],
-    people: [0.6,   3.4, 16.5,  2.2],
+    people: [0,     2.8, 16.5,  2.6],
     org:    [0,     2.4, 19.5,  2.2],
     worker: [0,     3.2, 15.5,  3.0],
     wave:   [0,     3.0, 16.0,  3.0],
     vault:  [0,     0.6, 17.5,  0.4],
     gate:   [0,     2.4, 17.0,  2.2],
-    grove:  [0.8,   4.2, 20.0,  2.0],
+    grove:  [0,     2.8, 19.0,  2.6],
   };
 
   var from = 0, to = 0, mix = 1, mixTarget = 1;
@@ -661,7 +562,6 @@
     // Each engine gets its own framing as well as its own motion, so two worker
     // sections running back to back are never the same shot.
     if (motionWant) { want[1] += (motionWant - 3.5) * 0.30; want[2] += (motionWant - 3.5) * 1.10; }
-    wake();
     var text = el.getAttribute("data-cap");
     if (cap && capBox) {
       if (text) { cap.innerHTML = text; capBox.classList.add("in"); }
@@ -727,38 +627,18 @@
     canvas.width = W; canvas.height = H; gl.viewport(0, 0, W, H);
   }
   resize();
-  window.addEventListener("resize", function () { resize(); wake(); }, { passive: true });
+  window.addEventListener("resize", resize, { passive: true });
 
   var elapsed = 0, running = true, t0 = performance.now();
-  // The scene is a still except while something is easing. Drawing 330k points
-  // for a picture that is not changing is the whole cost of this file, and it
-  // was being paid on every section of the page, including with the canvas
-  // scrolled out of sight. So the loop parks itself and wake() restarts it.
-  var idle = false;
-  function needsFrame() {
-    for (var q = 0; q < 4; q++) if (Math.abs(want[q] - shot[q]) > 0.0005) return true;
-    if (mix < 0.999) return true;
-    if (motionWant !== motion) return true;
-    return motion !== 0;
-  }
-  function wake() {
-    if (!idle || !running) return;
-    idle = false;
-    t0 = performance.now() - elapsed * 1000;
-    requestAnimationFrame(frame);
-  }
   document.addEventListener("visibilitychange", function () {
     running = !document.hidden;
-    if (running) { t0 = performance.now() - elapsed * 1000; idle = false; requestAnimationFrame(frame); }
+    if (running) { t0 = performance.now() - elapsed * 1000; requestAnimationFrame(frame); }
   });
 
   function frame(now) {
     if (!running) return;
     elapsed = (now - t0) / 1000;
-    for (var i = 0; i < 4; i++) {
-      shot[i] += (want[i] - shot[i]) * 0.05;
-      if (Math.abs(want[i] - shot[i]) < 0.0005) shot[i] = want[i];
-    }
+    for (var i = 0; i < 4; i++) shot[i] += (want[i] - shot[i]) * 0.05;
     mix += (mixTarget - mix) * 0.045;
     if (mix > 0.9995) { mix = 1; from = to; }
     // Cutting from one motion to another mid-stride snaps the figure. Let it
@@ -782,13 +662,12 @@
     gl.uniform1f(uMotion, motion);
     gl.uniform1f(uMotionAmp, motionAmp);
     gl.uniform1f(uTime, elapsed);
-    gl.uniform1f(uScale, 21.21 * dpr * (LIGHT ? 1.5 : 1));
+    gl.uniform1f(uScale, 17 * dpr * (LIGHT ? 1.7 : 1));
 
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.POINTS, 0, N);
-    if (needsFrame()) requestAnimationFrame(frame);
-    else idle = true;   // parked: wake() brings it back
+    requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
 

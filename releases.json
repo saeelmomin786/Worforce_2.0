@@ -2,18 +2,32 @@
   "_comment": "Source of truth for /download/ AND for install.ps1, which reads this file at run time. One self-contained installer, uploaded as a GitHub Release asset. The video encoder is NOT in it — the app fetches that once on the first export (see ffmpeg-native.js). Change the version, size, date and sha256 here on every release and both the page and the one-line command follow.",
   "builds": {
     "win": {
-      "version": "2.49.2",
-      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.2/Workforce-2.0-Setup-2.49.2.exe",
+      "version": "2.49.42",
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.42/Workforce-2.0-Setup-2.49.42.exe",
       "size": "132 MB",
-      "date": "4 September 2026",
-      "sha256": "09da2cad150fd7e19ee0404f6a515eef41b2dfb731f32cda5cb47cee7da14d89"
+      "date": "18 September 2026",
+      "sha256": "6f3e532729d595594edff719edaa23db80d0da1332c3bf9c3f89a024b07cc17b"
     },
     "android": {
-      "version": "2.49.2",
-      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.2/Workforce-2.0-2.49.2.apk",
+      "version": "2.49.42",
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.42/Workforce-2.0-2.49.42.apk",
       "size": "38 MB",
-      "date": "4 September 2026",
-      "sha256": "edc584ba659ef9b1a55caddfe443693be2ae649c6ac6546a382d8eaf4044ddff"
+      "date": "18 September 2026",
+      "sha256": "4be62a3270e91ffd3ea9fb674511d68654ea7e530d26f7acaaed76912f9f1798"
+    },
+    "linux_x64": {
+      "version": "2.49.37",
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.37/Workforce-2.0-2.49.37-x86_64.AppImage",
+      "size": "TODO",
+      "date": "TODO",
+      "sha256": "TODO"
+    },
+    "linux_arm64": {
+      "version": "2.49.37",
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.37/Workforce-2.0-2.49.37-arm64.AppImage",
+      "size": "TODO",
+      "date": "TODO",
+      "sha256": "TODO"
     }
   }
 }
