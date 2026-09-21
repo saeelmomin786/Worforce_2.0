@@ -2,11 +2,11 @@
   "_comment": "Source of truth for /download/ AND for install.ps1, which reads this file at run time. One self-contained installer, uploaded as a GitHub Release asset. The video encoder is NOT in it — the app fetches that once on the first export (see ffmpeg-native.js). Change the version, size, date and sha256 here on every release and both the page and the one-line command follow.",
   "builds": {
     "win": {
-      "version": "2.49.47",
-      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.47/Workforce-2.0-Setup-2.49.47.exe",
+      "version": "2.49.48",
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.48/Workforce-2.0-Setup-2.49.48.exe",
       "size": "132 MB",
       "date": "21 September 2026",
-      "sha256": "9cabef018446b1db2b825c80101bb888df7dc0190b01184a3a961ed108ddf3f9"
+      "sha256": "1107a521f52b9f6abbc055588bec36c60f218a83856a44d6301ce5b36e5d3a85"
     },
     "android": {
       "version": "2.49.42",
