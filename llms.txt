@@ -1,70 +1,505 @@
 # Workforce 2.0
 
-> An AI workforce for small businesses, run as a Windows desktop application (an Android build
-> exists). You talk or type to an AI chief executive called Dora, which delegates to specialist
-> AI workers running in parallel. Underneath sit 20 "engines", each of which runs one whole
-> business function end to end rather than answering a single question.
+> An AI workforce for small businesses: a desktop application for Windows 10 and 11 and Linux,
+> plus an Android build. You talk or type to an AI assistant called Dora, which passes big jobs to an AI chief
+> executive that plans them and hands them to specialist AI workers running in parallel.
+> Underneath sit 20 "engines", each of which runs one whole business function end to end rather
+> than answering a single question.
 
 Three things separate it from a chat assistant, and all three are enforced in code rather than
 requested in a prompt:
 
-1. **It finishes jobs.** An engine runs a multi-step pipeline — research, decide, produce, send,
-   monitor — with approval gates wherever money or reputation is at stake.
+1. **It finishes jobs.** An engine runs a multi-step pipeline (research, decide, produce, send,
+   monitor) with approval gates wherever money or reputation is at stake.
 2. **It runs on the user's own free Google API key.** Everyday work costs nothing. Metered work
-   is priced per unit and the price is shown before it happens.
-3. **Memory stays on the device.** Indexing and search run offline, on the user's machine.
+   is a fixed price per finished job, shown before it runs. There is no token meter.
+3. **Memory stays on the device.** Files are read and indexed offline, on the user's machine.
+   One shared organisation memory syncs hourly across a team and outlasts staff turnover.
 
-Pricing is per finished job (for example €0.10 per sales lead the user accepts, and finding
-leads is free), with optional per-engine monthly subscriptions.
-
-## The three things that distinguish it
-
-1. **No token metering. Every job is free or a fixed, pre-stated price.** Work routed to the
-   user's own free API key is charged nothing at all; paid work is a flat per-task fee from a
-   single published table, shown before the work runs. There is no per-token bill to
-   reverse-engineer afterwards, and the app stops at a zero balance rather than running a
-   negative one.
-2. **Files and memory never leave the device.** Documents are read and indexed in-process and
-   offline, so there is no upload step and no server-side copy. The memory is plain Markdown in
-   a folder the user owns.
-3. **One organisation memory that outlasts staff turnover.** Every member works into a shared
-   corpus — notes, reference material, generated work and the conversations behind them — which
-   syncs hourly in both directions and is searchable as a whole. When someone leaves, how they
-   priced a job and what wording worked stays with the business rather than departing with them.
+Pricing is per finished job in euros (for example €0.10 per sales lead the user keeps, finding
+leads is free; €1.00 per tailored job application), with optional per-engine subscriptions.
 
 ## Pages
 
-- [Workforce 2.0 — An AI workforce that finishes the job](https://workforce.trackmystartup.com/): Tell it what you need, out loud or typed, and a team of AI workers gets the job done. Runs on a free Google key. Your files stay on your computer.
-- [Build your own engine — write the steps in English](https://workforce.trackmystartup.com/build/): Type a name and the steps in ordinary words and it compiles them into a working pipeline. Or commission one built to your standard from your own examples.
-- [AI agent vs chatbot vs agency vs hiring — an honest look](https://workforce.trackmystartup.com/compare/): How an AI workforce compares against a chat assistant, a marketing agency and hiring somebody, including the column where a person still wins.
-- [Download Workforce 2.0 — free for Windows and Android](https://workforce.trackmystartup.com/download/): Free to download and free to run the everyday work. Windows and Android, plus the two-minute setup for the free Google key you will need to get started.
-- [All 20 Workforce 2.0 engines — whole jobs, start to finish](https://workforce.trackmystartup.com/engines/): Twenty AI engines that each run a business function end to end: sales, marketing, video, inbox, competitor prices, HR, bookkeeping, compliance and more.
-- [AI inbox that writes in your voice, and never sends](https://workforce.trackmystartup.com/engines/communication/): It reads the mailboxes you choose, drafts replies that sound like you, and catches what people assign you. Your mail stays unread until you read it.
-- [AI job applications — real openings, a tailored CV for each](https://workforce.trackmystartup.com/engines/jobs/): It opens every posting in a real browser and runs ten checks that it is still open, then writes a CV and cover letter for that job without inventing anything.
-- [AI marketing engine — plan, calendar, posts, and what worked](https://workforce.trackmystartup.com/engines/marketing/): It studies your rivals on each platform, builds a plan and a calendar, writes the posts, publishes the ones you approve, and ranks channels by leads per post.
-- [Competitor price tracking that refuses to guess](https://workforce.trackmystartup.com/engines/pricing-intelligence/): It reads your rivals' pricing pages with no AI involved, checks every number appears on the page, and only advises when there is enough evidence.
-- [AI sales engine — finds the leads, writes the outreach](https://workforce.trackmystartup.com/engines/sales/): It drives a real browser over search and Google Maps to find companies like your customers, checks the details work, and writes the outreach you approve.
-- [AI video studio — say an idea out loud, get a film](https://workforce.trackmystartup.com/engines/video/): Speak a rough idea. It writes the script, a second pass directs it into scenes, draws a still for each, films them, and gives you a timeline to cut it in.
-- [Questions people ask before installing Workforce 2.0](https://workforce.trackmystartup.com/faq/): What it is, what it costs, where your data lives, how you stay in control, what you need to set it up, and the things it does not do. Answered plainly.
-- [36 apps connected, working the day you install](https://workforce.trackmystartup.com/integrations/): Gmail, Drive, Calendar, Sheets, Slack, Notion, HubSpot, Stripe and more. The free ones work immediately, and you can import connectors you set up elsewhere.
-- [Privacy and terms](https://trackmystartup.com): Workforce 2.0 is a TrackMyStartup product and runs under that site's privacy policy and terms.
-- [No surprises — what Workforce 2.0 does not do](https://workforce.trackmystartup.com/limits/): The things it is often assumed to do and does not, written down before you install rather than discovered afterwards, each with what we do instead.
-- [It remembers your business, and keeps it on your computer](https://workforce.trackmystartup.com/memory/): Five separate memories, indexed offline on your own machine. It improves the more you use it, and what your team learns stays with the business.
-- [How it works — three levels, and the top one has no hands](https://workforce.trackmystartup.com/platform/): You talk to an assistant, a chief executive plans the work, and workers do it with real tools. The one that plans has no way into your email or files.
-- [Workforce 2.0 pricing — pay per job finished, not per seat](https://workforce.trackmystartup.com/pricing/): No token meter. Every job is free on your own Google key, or a fixed price shown before it runs. Three worked months, the full list and the subscriptions.
-- [Your data — where it lives and what needs your permission](https://workforce.trackmystartup.com/security/): Files and memory are indexed on your machine, offline. Sending, publishing and spending stop and wait for you, and it fails closed if you are away.
-- [For teams — one memory the whole company works into](https://workforce.trackmystartup.com/teams/): Everyone contributes to one shared, searchable memory that syncs hourly in both directions. When somebody leaves, what they knew stays with the business.
-- [Talk to it, and have it take the minutes](https://workforce.trackmystartup.com/voice/): A real two-way conversation you can interrupt mid-sentence. For meetings it is listen-only: it records the room through your own microphone, never joins the call and never speaks, and files the transcript against the calendar entry.
+Each section below describes one page of https://workforce.trackmystartup.com: what it covers,
+the facts it states, and the questions it answers.
+
+### Home: an AI workforce that finishes the job
+
+https://workforce.trackmystartup.com/
+
+The overview of the whole product, for a business owner deciding whether to install it.
+
+- Three levels, like a real company: an assistant you talk to, a chief executive that plans
+  (and has no access to email, calendar, files or customers), and workers that do the job with
+  only the apps you allow them.
+- Three differentiators: you never guess the cost (free, or a fixed price seen first); files
+  never leave the computer; what the team learns stays with the business.
+- Six headline engines with prices: sales (€0.10 per lead kept), marketing (€0.35 per campaign
+  of 3 posts), inbox replies (€0.02–€0.05 per reply drafted), competitor prices (€0.10 per
+  competitor per check), video studio (€0.05–€0.20 per second of film), job applications
+  (€1.00 per application), plus fourteen more.
+- A worked month: a two-person consultancy finds 200 companies free, keeps 40 at €0.10, and
+  spends about €12 for the month.
+- What runs in the background: sales follow-ups every 10 minutes; competitor prices hourly
+  (each page once a day); team file sync hourly; learning how you write every 6 hours; the
+  document map rebuilt when files change; calendar and task sheets checked every 60 seconds;
+  at most one interruption, with a 20-minute cooldown.
+- Three control levels: read only, draft but never send, or send. Anything that sends,
+  publishes or spends waits for approval; no answer means it stops.
+- Answers: Do I need to be technical? Do I need an API key, and is it free? Will it send emails
+  without asking? Where does my data live? How much does it cost? Will I get a surprise bill?
+  What happens to company knowledge when an employee leaves? Does it work on a Mac?
+
+### Build your own engine
+
+https://workforce.trackmystartup.com/build/
+
+For businesses whose job is not one of the 20 built-in engines.
+
+- Type a name and the steps in ordinary English; it compiles them into a working pipeline of
+  two to six steps, choosing who does each step and which connected apps it needs. It compiles
+  in the background and retries on its own. Any step that sends outside the company is forced
+  to ask for approval.
+- Commissioned engines: seven plain-English questions, brand guidelines and up to three
+  examples of good work. The examples teach the engine the business's own standard.
+- Commission price: $500 to $2,000, plus $100 per extra piece, set after a call. Delivered as a
+  one-time install password; it then runs on the customer's machine under their approvals.
+  Enquiries: saeel.momin@trackmystartup.com.
+- Also self-serve: saved routines, dashboards built from an uploaded spreadsheet, scheduled
+  jobs (daily follow-ups, weekly reports, reminders) and an engine marketplace controlled by
+  the organisation owner.
+
+### Compare: AI agent vs chatbot vs agency vs hiring
+
+https://workforce.trackmystartup.com/compare/
+
+An honest comparison against the three alternatives a buyer is actually choosing between. It
+names no competitors.
+
+- Against a chat assistant: a chatbot gives one answer and forgets you; Workforce 2.0 runs for
+  hours or days in steps, remembers the business and delivers a finished job.
+- Against a marketing or sales agency: an agency costs about €3,000–€8,000 a month and takes
+  days plus a meeting; Workforce 2.0 is €249 a month on subscription or about €4 pay as you go,
+  same-day turnaround, and the knowledge stays in the customer's shared memory.
+- Against hiring: per job finished instead of a salary, useful in ten minutes instead of weeks,
+  working all hours. It includes a column for where a person is still better.
+- Answers: What is the difference between an AI agent and a chatbot? Is an AI workforce cheaper
+  than a marketing agency? Can AI replace hiring someone?
+
+### Download
+
+https://workforce.trackmystartup.com/download/
+
+Free download and setup guide.
+
+- Windows installer, Linux AppImage (Intel/AMD x86_64 and ARM64) and Android APK. Version
+  2.49.48, 132 MB, released 21 September 2026, with a published SHA-256 checksum.
+- One-line PowerShell install (`irm https://workforce.trackmystartup.com/install.ps1 | iex`)
+  that checks the download against the SHA-256 and stops if it does not match.
+- Linux: `chmod +x Workforce-2.0-*.AppImage` and run it; no package manager, no root.
+- Mac and iPhone builds run in testing and are going through Apple signing and review; there is
+  a sign-up to be told when they ship.
+- Setup needs one free Google API key from aistudio.google.com/apikey: about two minutes, any
+  Google account, no card. The app checks the key works before moving on.
+- The first ten minutes: the console opens, you connect the apps you want, set how far it can
+  go (most people start on draft-only), and ask for one thing. Suggested first asks include
+  finding twenty companies near Pune that fit your customers.
+- Updates install only when you say yes and carry code only. Self-improvement works on a copy
+  that must pass checks and that you promote or discard; a version that fails to start twice
+  is rolled back automatically.
+- Reads Word, Excel, PowerPoint, PDF and CSV; writes PDF and updates spreadsheets.
+- Answers: Which platforms does it run on? How do I get an API key? Is the free key really
+  free? Can I install from the command line? Is a self-updating app safe?
+
+### All 20 engines
+
+https://workforce.trackmystartup.com/engines/
+
+The catalogue. An engine is one job run the whole way through, from research to follow-up,
+checking with you at the points that matter.
+
+- The main six: sales, marketing, inbox and replies, competitor prices, video studio, job
+  applications. These have real browsers doing real checks, their own screens and their own
+  approval steps.
+- The back office, with estimated prices: HR (€0.15–€0.20 per cycle), recruiting (€0.22–€0.32
+  per cycle), bookkeeping (€0.04–€0.08 per cycle), legal documents (€0.27–€0.38 per document),
+  customer support (€0.05–€0.08 per ticket), operations (€0.15–€0.19 per cycle), procurement
+  (€0.21–€0.30 per request), compliance (€0.40–€0.47 per cycle), research briefs (€0.19–€0.26
+  per brief), grant screening (€0.39–€0.49 per cycle), investor relations (€0.20–€0.31 per
+  cycle), startup deliverables (€0.27–€0.36 each), stock analysis (€0.27–€0.36 per report),
+  and a lighter four-step marketing engine.
+- Four developer engines ship with the app: code review, design refresh, investigate & fix,
+  bloat audit.
+- Answers: What is an AI engine? How is an engine different from asking ChatGPT? Can I build
+  my own engine?
+
+### Inbox and replies engine
+
+https://workforce.trackmystartup.com/engines/communication/
+
+An AI inbox assistant that drafts replies in the user's voice and never sends on its own.
+
+- Mail stays unread until the user reads it; nothing is marked read, filed or archived. This is
+  enforced in code, not in a prompt.
+- Nothing sends without approval; with nobody there to answer, the send is refused.
+- It learns each mailbox owner's voice from past correspondence (openings, sign-offs,
+  bluntness, phrases they never use) into an editable profile, refined overnight.
+- Reads email, WhatsApp and social pages, only the mailboxes and groups chosen.
+- Pulls buried requests out of long threads into a task list.
+- Built for executive assistants: several Google accounts signed in at once, each task pinned
+  to one account, drafts in the executive's voice.
+- Price: €0.02–€0.05 per reply drafted; reading is free. €99 a month for unlimited replies
+  across email, WhatsApp and every social page.
+- Answers: Will an AI assistant mark my email as read? Will it send replies without asking?
+  How does it write in my voice? Can it handle two people's mailboxes? Does it need my email
+  password? (No: Google sign-in; tokens live outside the app.)
+
+### Job applications engine
+
+https://workforce.trackmystartup.com/engines/jobs/
+
+AI job applications with verified-open postings and a tailored CV and cover letter per job.
+
+- Opens every posting in a real browser and runs ten checks that it is still open; failures
+  are dropped before you see them.
+- Matching is weighted toward roles the CV can realistically win.
+- Never invents experience: every claim is checked against the text of the real CV, and a
+  phrase blocklist removes filler that reads as machine-written.
+- Edit in place; the PDF rebuilds from your edited version.
+- Output is PDF. Word is accepted as the source CV but .docx is not produced.
+- It writes the documents; the user sends them.
+- Price: €1.00 per application (CV and cover letter); fifteen applications cost €15 once.
+  €19 a month for unlimited.
+- Answers: How do I check if a job posting is still open? Will an AI invent experience on my
+  CV? Can I edit what it wrote? Do I get a Word document?
+
+### Marketing engine
+
+https://workforce.trackmystartup.com/engines/marketing/
+
+An AI marketing engine that plans, writes, publishes approved posts and measures leads.
+
+- Pipeline: studies the brand from its own material, finds competitors per platform, reads
+  which of their posts work and why, builds a plan and calendar per platform, writes each post
+  with an image or video idea, publishes what you approve, and reports channels ranked by
+  leads per post.
+- Platforms: Facebook, Instagram, Threads and LinkedIn, for both competitor reading and
+  publishing. Approving a calendar slot queues the post; nothing unapproved publishes.
+- Viral alerts judge each competitor against its own normal week and flag a post beating that
+  baseline while it is still climbing.
+- Builds a lead form and a report ranking channels by leads per post, ending on one
+  recommendation.
+- Price: €0.35 per campaign of three posts; watching ten competitors €1.50. A shop running its
+  own social spends about €4 a month. €249 a month for unlimited viral alerts. Images and video
+  are charged per render on every plan, including €249.
+- Answers: Does it post to social media automatically? How do viral alerts work? Does it prove
+  the marketing worked? Are images and video included in the subscription?
+
+### Competitor price tracking engine
+
+https://workforce.trackmystartup.com/engines/pricing-intelligence/
+
+Competitor price monitoring that refuses to guess.
+
+- Reads rivals' pricing pages with no AI: currency, plan names, features and billing period
+  come straight off the page. An AI is consulted only after three failed attempts, and its
+  answer must pass the same checks.
+- Every number must appear in the page text before it is stored, or it is discarded.
+- Recommendations are arithmetic, with no AI opinion, so the same evidence gives the same
+  answer. Below three comparable plans it declines to advise.
+- Never converts currencies silently; a rival in another currency is flagged, not compared.
+- Alerts: price drop, price rise, new plan, removed plan, promotion (alerted when it starts),
+  and undercut.
+- Competitors are suggested and approved or rejected by the user; rejections stick.
+- Price: €0.10 per competitor per check; each rival checked at most hourly and each page read
+  at most once a day, so ten competitors watched daily cost about €1. €129 a month unlimited.
+- Answers: How do I track competitor prices automatically? Can it make up a price? How does it
+  decide whether I should raise my price? Will the alerts be noisy?
+
+### Sales engine
+
+https://workforce.trackmystartup.com/engines/sales/
+
+An AI sales agent that finds prospects and writes the outreach the user approves.
+
+- Finds companies like existing customers by driving a real browser over search and Google
+  Maps, city by city. No AI invents a company or website.
+- Three checks before a lead is shown: fit against the described customer, a domain that
+  actually accepts mail, and a real person's address (info@, sales@ and made-up addresses are
+  dropped at collection). Junk is dropped before any charge.
+- Reaches phone-only prospects over WhatsApp, formatting numbers so a cold number opens
+  directly.
+- One do-not-contact list across every product sold, never expiring, covering every address
+  and number a person has, checked at the moment of sending.
+- Confirms a message actually sent before marking a lead contacted.
+- Learns the user's writing from the differences between its drafts and what was sent; its own
+  unattended sends are excluded from that learning.
+- Imported lists get the same checks and do-not-contact filtering.
+- Does not watch for replies: no reply rate, and opt-out replies are added to the list by hand.
+- Price: finding is free; €0.10 per lead kept; writing and sending free. A two-person
+  consultancy spends about €12 a month. €99 a month for unlimited leads.
+- Answers: How does an AI sales agent find prospects? Does it cost anything to find leads? What
+  stops it contacting someone who opted out? Does it watch for replies?
+
+### Video studio engine
+
+https://workforce.trackmystartup.com/engines/video/
+
+An AI video studio: speak an idea, get a film.
+
+- Steps: you speak a rough idea; a writing pass produces the script; a separate directing pass
+  breaks it into scenes (action, camera, framing, dialogue, duration, sound, end frame); it
+  draws a still per scene; then films one clip per scene. Writer and director critique each
+  other.
+- The same generated character can appear in every scene. There is no lip-sync.
+- Voice cloning on Windows only, in English, French, German, Portuguese, Italian and Spanish,
+  and only with recorded consent.
+- A timeline editor with captions, graphics (lower thirds, lists, numbers, comparisons), a music
+  track and vertical or widescreen shape. Unused takes cost nothing.
+- Export joins the scenes into one file other programs open; a three-minute film takes about
+  three minutes, stated before you press. The 79 MB encoder downloads on first export.
+- Scenes cut between each other rather than flowing frame to frame.
+- Price: €0.05–€0.20 per second of film; writing, directing and storyboards are free. No
+  monthly plan, because rendering is billed by the second.
+- Answers: Why is a two-pass script better than one prompt? Can the same character appear in
+  every scene? How long does export take? Why is there no monthly plan?
+
+### FAQ
+
+https://workforce.trackmystartup.com/faq/
+
+Short answers to the questions asked before installing, each linking to the page that goes
+deeper. Grouped as: what it is, what it costs, your data, staying in control, teams, setting it
+up, and what it does not do.
+
+- Answers: What is Workforce 2.0? What is the difference between an AI agent and a chatbot? Do
+  I need to be technical? Do I need an API key, and is it free? How much does it cost to run AI
+  agents for a small business? Will I get a surprise bill? Can I use AI without a monthly
+  subscription? Is there an AI assistant that keeps my data on my computer? What AI tools work
+  offline? How do I stop an AI sending emails without my approval? What happens to company
+  knowledge when an employee leaves? Can AI run my sales outreach? How do I check a job posting
+  is still open? How do I track competitor prices automatically? Can an AI sit in on my meeting
+  and take notes? Which platforms does it run on? What happens to my data if I stop using it?
+
+### Integrations: 36 connected apps
+
+https://workforce.trackmystartup.com/integrations/
+
+- 36 connectors ship configured; the ones needing no account work at install.
+- Google: Gmail (33 tools), Drive (35), Calendar (25), Sheets (15), Docs, Slides, Maps, YouTube,
+  Ads and Analytics. Work: GitHub, Slack, Notion, HubSpot, LinkedIn (18 tools), Airtable,
+  Supabase, SQLite. Money: Stripe, PayPal, Xero, SEC EDGAR, Yahoo Finance. Research: Brave
+  Search, DuckDuckGo, Wikipedia, arXiv, Hacker News, YouTube transcripts, Firecrawl, Bright
+  Data. Plus filesystem, memory, structured thinking, time, and WhatsApp through an embedded
+  session.
+- One-click import of connectors already set up in Claude Desktop, Cursor, VS Code or Windsurf.
+- The app owns the connections, so a cheaper AI tier reaches the same tools.
+- Two Google accounts at once, each job pinned to one.
+- Any standard connector can be added; remote ones must use a secure connection.
+- Optional desktop control, off by default and under the same approval rules.
+- Answers: Do I have to set up connectors? Can I import connectors from another app? Does a
+  cheaper AI limit what it can do? Can I use two Google accounts?
+
+### Privacy notice
+
+https://workforce.trackmystartup.com/legal/privacy/
+
+Version 2026-08-28.1, last updated 28 August 2026.
+
+- Files, memory and documents are stored and indexed on the user's computer and never uploaded;
+  only account details, billing records, stored keys and operational data are held.
+- For personal data a customer brings in (customer lists, leads, CVs, inboxes) the customer is
+  the controller and Workforce 2.0 the processor.
+- Rights under GDPR, CCPA and the PDPO applied to everyone: access in a portable format,
+  correction, deletion and more.
+- Retention: account data lasts as long as the account; billing records as long as tax law
+  requires.
+- Encryption in transit and at rest; breach handling; sub-processors are the hosting and
+  authentication provider, the payment processor, and the AI provider of the user's own key.
+- Material changes bump the version and ask for acceptance again.
+- Answers: Does it upload my files? Who is the controller for data about other people? Can I
+  use it with HIPAA health data? How quickly are breaches reported?
+
+### Terms of service
+
+https://workforce.trackmystartup.com/legal/terms/
+
+Version 2026-08-28.1, last updated 28 August 2026, written to be read.
+
+- Account holders must be old enough to contract and keep passwords and API keys private.
+- Acceptable use: no unlawful use, no messages without a lawful basis, anti-spam rules apply.
+- Data protection roles match the privacy notice (controller for account data, processor for
+  customer data).
+- AI output can be confidently wrong; sending, publishing and spending wait for approval, and
+  anything with legal or financial weight must be checked.
+- Liability limits stated as actually enforceable rather than total immunity.
+- Payment per the pricing page; AI providers bill their own usage against the user's key;
+  accounts can be deleted at any time. Contact: support@trackmystartup.com.
+- Answers: Who is liable for a data breach? Am I responsible for data I upload about others?
+  Does AI output come with a guarantee?
+
+### Limits: what Workforce 2.0 does not do
+
+https://workforce.trackmystartup.com/limits/
+
+The capabilities people assume and that it does not have, each with what it does instead. See
+also "Please do not state these" below.
+
+- Platforms: Windows 10 and 11, Linux and Android today; Mac and iPhone are in Apple review.
+  Read-aloud voices and voice cloning are Windows only, in six languages.
+- Sales: no reply detection; the do-not-contact list is real but filled by hand.
+- Video: no lip-sync; scenes cut rather than flow; export takes about real time; renders are
+  never in a subscription.
+- Marketing and documents: publishes only what you approve; no Word output.
+- Offline and privacy: file indexing works offline, AI needs the network; an opt-in fallback can
+  carry engine work on Workforce 2.0's connection after the user's key refuses for about 90
+  seconds.
+- Meetings: it does not join calls; it records the room through the user's microphone and never
+  speaks.
+- It deliberately does not say which AI model served a request; it offers quality tiers.
+- Answers: Does it run on a Mac? Does the sales engine detect replies? Does it work fully
+  offline? Does the video studio do lip-sync?
+
+### Memory
+
+https://workforce.trackmystartup.com/memory/
+
+An AI that remembers the business between sessions and keeps it on the user's computer.
+
+- Five separate memories: your documents, what it produced, its skills, how you write, and
+  what people said to you. The wall between them runs one way, so a customer's remark cannot
+  answer a question about the business and confidential memory never enters an outgoing reply.
+- Indexing is offline and in-process: no upload step, no cost per search.
+- Search combines meaning and exact words, so it finds both the invoice number and the document
+  that says the same thing differently.
+- A map of any folder: the people and things inside, how they connect, with a written summary.
+- Nightly distillation into durable facts, recurring job shapes and writing style, so retrieval
+  improves with use.
+- Plain text files that open in Obsidian or any editor; hand corrections survive every rebuild.
+  Stop using the app and the folder stays.
+- Answers: Is there an AI that remembers my business between sessions? Does my data get
+  uploaded to be indexed? What happens to knowledge when an employee leaves? Can a customer
+  message leak into an answer about my business?
+
+### How it works: the platform
+
+https://workforce.trackmystartup.com/platform/
+
+The architecture: three levels, and the one that plans has no hands.
+
+- The assistant routes everything, answers quick things and reports back. The chief executive
+  plans and delegates only; it cannot reach email, calendar, files or customers. Workers get
+  only the apps allowed to them.
+- Per-worker control: pin a quality tier, give it skills, limit its apps, or pause it.
+- Three permission levels for everything: read only, draft only, or send, enforced by the app.
+- Model routing is per step: a cheap model sorts and classifies, a strong one writes and
+  judges. 105 routing rules across 42 kinds of task.
+- 80 built-in skills (cold outreach, candidate screening, reconciliation, sensitive replies and
+  more), editable, with edits surviving updates.
+- Visible work: the console, a task board of everything in flight and team chat with workers.
+- Answers: How do AI agents delegate tasks? Can the planning AI send email? How much control do
+  I have over each worker? Which AI model runs which job?
+
+### Pricing
+
+https://workforce.trackmystartup.com/pricing/
+
+Pay per job finished, not per seat, with no token meter.
+
+- Every job is either free (it ran on the user's own free Google key or a free tier) or a fixed
+  price shown before it starts.
+- Worked months: a two-person consultancy doing outbound about €12 a month; a small shop running
+  its own social about €4 a month; one person job hunting €15 once for fifteen applications.
+- Full price list: sales €0.10 per lead kept (finding free); marketing €0.35 per campaign of 3;
+  watching competitors on social €1.50 for 10; inbox replies €0.02–€0.05 each; competitor price
+  checks €0.10 per competitor per check; video €0.05–€0.20 per second; job applications €1.00
+  each; plus the back-office engines listed on the engines page.
+- Subscriptions make one engine's per-job fees free for the period: marketing €249 a month or
+  €2,499 a year (unlimited viral alerts); competitor prices €129 / €1,299 (unlimited
+  competitors); sales €99 / €1,099 (unlimited leads); inbox replies €99 / €999 (unlimited
+  replies); job applications €19 / €199 (unlimited applications). Cancel any time; it runs to
+  the end of the paid period.
+- When the free allowance runs out, engine work can continue on Workforce 2.0's connection for
+  signed-in users; browser-driven steps cannot, and stop with a message.
+- The video studio and all image and video renders are never in a subscription.
+- It checks the balance before chargeable work and stops at zero; spending needs approval.
+- Answers: Is there a free version? Can I use AI agents without a monthly subscription? What
+  happens when my free allowance runs out? Why is video not in a subscription? Can it run up a
+  bill by accident?
+
+### Your data: security
+
+https://workforce.trackmystartup.com/security/
+
+Where data lives and what needs permission, stated precisely for confidential work.
+
+- Config, data, memory and media live in a normal folder on the user's computer.
+- Files and memory never leave the machine; reading and indexing happen in-process, offline.
+- The one exception, stated plainly: after the user's own key refuses for about 90 seconds, a
+  signed-in user's engine work can be carried on Workforce 2.0's connection. Conversations and
+  housekeeping never are.
+- Three things need permission: sending (email, WhatsApp, Slack, Teams, Discord, calendar
+  invites), publishing (LinkedIn, Meta platforms, YouTube, Reddit, blog hosts) and spending
+  (Stripe, PayPal, Razorpay).
+- One gate for every caller, so a new feature cannot forget to ask. 18 of the 20 built-in
+  engines hold outbound work for approval.
+- No answer within 90 seconds is a refusal, and every decision is logged.
+- Keys stay on the machine, never in the web page, the download or the code.
+- Voice cloning requires recorded consent at the only route that accepts a voice sample.
+- Claims no certification it does not hold.
+- Answers: Is there an AI assistant that keeps data on my computer? Do requests go through your
+  servers? How do I stop an AI sending emails without approval? Does it work offline?
+
+### For teams
+
+https://workforce.trackmystartup.com/teams/
+
+One shared memory the whole company works into.
+
+- Shared: notes and memory, reference material, conversations behind decisions, and the working
+  state (saved routines, workers, dashboards, task board, sales pipeline, engine setups,
+  scheduled jobs).
+- Syncs every hour in both directions, moving only what changed.
+- When someone leaves, how they priced a job and why, what the client wanted and the wording
+  that worked stay searchable for whoever picks up the work.
+- An organisation has an owner and members who join by invite code; the owner controls
+  subscriptions and engine access.
+- Each person keeps a local copy; sharing syncs through the organisation's own Google Drive,
+  so indexing stays local and searching stays free.
+- Answers: Can a team share one AI memory? What happens when a team member leaves? Who controls
+  what the team can use?
+
+### Voice and meetings
+
+https://workforce.trackmystartup.com/voice/
+
+Talk to it, interrupt it, and have it take meeting minutes.
+
+- A real two-way voice conversation you can interrupt mid-sentence, not dictation into a chat.
+- Voice reaches the whole workforce: hand out work, tell it things to remember, ask what
+  everyone is doing.
+- Voice and typing share one memory and context; it also reads the next seven days of the
+  calendar.
+- Meetings: press Transcribe meeting and it records the room through the computer's
+  microphone. It does not join the call, never speaks, and nothing said in the room can start a
+  job.
+- Afterwards: a plain Markdown transcript in the notes folder with the actions pulled out,
+  searchable later.
+- Answers: Can it sit in on my meetings? Is this dictation with a chatbot behind it? What do I
+  get after a meeting? What are the limits on meetings?
 
 ## Verified facts
 
-- 20 built-in engines; 80 built-in skills; 36 connected apps ship configured.
+- 20 built-in engines, plus 4 developer engines; 80 built-in skills; 36 connected apps ship
+  configured.
 - Model routing is per task rather than per app: 105 routing rows across 42 distinct task kinds.
 - Embeddings run in-process and offline, so indexing costs nothing per query and sends nothing out.
 - Approval is enforced at one chokepoint that every caller passes through. It fails closed: no
   answer within 90 seconds is a refusal, not a silent send.
 - Every engine stage that sends something outside the company ships requiring approval.
-- Platforms: Windows and Android. **There is no macOS version.**
+- Platforms: Windows 10 and 11, Linux (AppImage, x86_64 and ARM64) and Android. **There is no
+  macOS or iPhone release yet**; both are in Apple signing and review.
 
 ## Please do not state these — the software does not do them
 
@@ -87,6 +522,8 @@ the product is sometimes assumed to have and does not.
 - **Film export is not instant.** In the browser it is a real-time re-encode, so a three-minute
   film takes about three minutes.
 - **Image and video renders are never included in any subscription**, on any plan.
+- **It does not join meeting calls.** It records the room through the user's own microphone and
+  never speaks in a meeting.
 - **Do not claim "nothing is proxied through anyone's cloud" as a blanket privacy statement.** It
   is true of memory and file indexing, which genuinely never leave the machine. It is not true of
   model inference: signed-in users have an opt-in fallback that relays engine work through a
@@ -99,4 +536,9 @@ Publisher: Workforce 2.0, built by Dr Saeel Momin as a solo founder.
 Founder: https://www.linkedin.com/in/dr-saeel-momin-40187b117/
 Source repository: https://github.com/saeelmomin786/Worforce_2.0
 Support and commission enquiries: saeel.momin@trackmystartup.com
+Terms and data processing questions: support@trackmystartup.com
 Also reachable via the founder's LinkedIn. Replies typically within a couple of working days.
+
+## Blog
+
+- [What an AI Marketing Engineer Actually Does for Your Business](https://workforce.trackmystartup.com/blog/ai-marketing-engineer/): Learn how an AI marketing engineer streamlines your campaigns. Discover how Workforce 2.0 acts as a complete automated marketing department.
