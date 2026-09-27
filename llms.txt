@@ -1,7 +1,7 @@
 # Workforce 2.0
 
 > An AI workforce for small businesses: a desktop application for Windows 10 and 11 and Linux,
-> plus an Android build. You talk or type to an assistant, which passes big jobs to an AI chief
+> plus an Android build. You talk or type to an AI assistant called Dora, which passes big jobs to an AI chief
 > executive that plans them and hands them to specialist AI workers running in parallel.
 > Underneath sit 20 "engines", each of which runs one whole business function end to end rather
 > than answering a single question.
