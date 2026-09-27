@@ -100,3 +100,7 @@ Founder: https://www.linkedin.com/in/dr-saeel-momin-40187b117/
 Source repository: https://github.com/saeelmomin786/Worforce_2.0
 Support and commission enquiries: saeel.momin@trackmystartup.com
 Also reachable via the founder's LinkedIn. Replies typically within a couple of working days.
+
+## Blog
+
+- [What an AI Marketing Engineer Actually Does for Your Business](https://workforce.trackmystartup.com/blog/ai-marketing-engineer/): Learn how an AI marketing engineer streamlines your campaigns. Discover how Workforce 2.0 acts as a complete automated marketing department.
