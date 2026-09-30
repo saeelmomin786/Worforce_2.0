@@ -165,6 +165,12 @@ section > .wrap > * + * { margin-top: 22px; }
 a.card { text-decoration: none; transition: border-color .2s var(--ease), transform .2s var(--ease); }
 a.card:hover { border-color: rgba(0, 211, 216, .45); transform: translateY(-3px); }
 a.card .more { color: var(--cyan); font-size: 14px; font-weight: 600; margin-top: 14px; display: block; }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.blog-grid .kicker { margin-bottom: 8px; }
+.blog-grid h3 { font-size: 25px; }
+.share { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 28px 0; color: var(--ink-dim); font-size: 14px; }
+.share a { color: var(--ink); border: 1px solid var(--line-2); border-radius: 999px; padding: 5px 11px; text-decoration: none; }
+.share a:hover { color: var(--cyan); border-color: var(--cyan); }
 
 /* ── buttons ────────────────────────────────────────────────────────────── */
 .btn {
