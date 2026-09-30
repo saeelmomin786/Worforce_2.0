@@ -542,5 +542,7 @@ Also reachable via the founder's LinkedIn. Replies typically within a couple of 
 ## Blog
 
 
+
+- [Workforce 2.0 — An AI workforce that finishes the job](https://workforce.trackmystartup.com/): Tell it what you need, out loud or typed, and a team of AI workers gets the job done. Runs on a free Google key. Your files stay on your computer.
 - [Stop Applying to Dead Links: A Manual for AI Job Search Automation](https://workforce.trackmystartup.com/blog/ai-job-search-tools/): Stop wasting time on expired job postings. Learn how to use Workforce 2.0 to verify active listings and automate your job search applications effectively.
 - [What an AI Marketing Engineer Actually Does for Your Business](https://workforce.trackmystartup.com/blog/ai-marketing-engineer/): Learn how an AI marketing engineer streamlines your campaigns. Discover how Workforce 2.0 acts as a complete automated marketing department.
