@@ -16,11 +16,11 @@
       "sha256": "e36b555ff872fd1aef572b341f3d6cc284413f0fb5937a6c3684f2f1d2603dd9"
     },
     "linux_x64": {
-      "version": "2.49.37",
-      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.37/Workforce-2.0-2.49.37-x86_64.AppImage",
-      "size": "TODO",
-      "date": "TODO",
-      "sha256": "TODO"
+      "version": "2.49.50",
+      "file": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.50/Workforce-2.0-2.49.50-x86_64.AppImage",
+      "size": "406 MB",
+      "date": "3 October 2026",
+      "sha256": "f15c340ff92bf2cbf308706fd65fbb23ea009db19afed3bacecafb1ed8a34c1f"
     },
     "linux_arm64": {
       "version": "2.49.37",
