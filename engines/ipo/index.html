@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IPO analysis — Indian mainboard and SME IPOs, scored from the filings</title>
+<meta name="description" content="It reads NSE and BSE issue data and each offer document, and gives every IPO one number: the chance it closes above its issue price on listing day. Analysis, not investment advice.">
+<link rel="canonical" href="https://workforce.trackmystartup.com/engines/ipo/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Workforce 2.0">
+<meta property="og:title" content="IPO analysis — Indian mainboard and SME IPOs, scored from the filings">
+<meta property="og:description" content="It reads NSE and BSE issue data and each offer document, and gives every IPO one number: the chance it closes above its issue price on listing day. Analysis, not investment advice.">
+<meta property="og:url" content="https://workforce.trackmystartup.com/engines/ipo/">
+<meta property="og:image" content="https://workforce.trackmystartup.com/assets/img/app-console.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IPO analysis — Indian mainboard and SME IPOs, scored from the filings">
+<meta name="twitter:description" content="It reads NSE and BSE issue data and each offer document, and gives every IPO one number: the chance it closes above its issue price on listing day. Analysis, not investment advice.">
+<meta name="twitter:image" content="https://workforce.trackmystartup.com/assets/img/app-console.webp">
+
+<link rel="icon" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<script>document.documentElement.className="js"</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Workforce 2.0 IPO analysis","applicationCategory":"FinanceApplication","operatingSystem":"Windows, Linux","url":"https://workforce.trackmystartup.com/engines/ipo/","description":"Scores Indian mainboard and SME IPOs from NSE and BSE issue data and the offer document, giving each one probability of closing above its issue price on listing day. Informational analysis, not investment advice.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","url":"https://workforce.trackmystartup.com/pricing/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does the IPO engine tell me whether to apply?","acceptedAnswer":{"@type":"Answer","text":"No. It gives each IPO one number, the chance it closes above its issue price on listing day, with the reasons for and against. It is informational analysis, not investment advice. Past IPO patterns do not guarantee results."}},{"@type":"Question","name":"Which IPOs does it cover?","acceptedAnswer":{"@type":"Answer","text":"In India: NSE and BSE mainboard issues, plus NSE Emerge and BSE SME. Issue data comes from the exchanges and offer documents are the red herring prospectuses filed with SEBI. It can also follow US IPOs on Nasdaq and NYSE."}},{"@type":"Question","name":"How do I know the score means anything?","acceptedAnswer":{"@type":"Answer","text":"Run the backtest. It replays past NSE IPOs with only what was known by their last bid day, scores each batch of five before the formulas have seen it, compares the call with the listing-day close, then refits. Until 100 past IPOs have been tested it labels the score uncalibrated and tells you to read it as a ranking, not a measured chance."}},{"@type":"Question","name":"What does IPO analysis cost?","acceptedAnswer":{"@type":"Answer","text":"Each IPO analysed is 1 task, and so is each data job the engine runs (a refresh, results, history). The daily refresh can be paused with the Engine on/off switch."}}]}</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="stage" aria-hidden="true"><canvas id="world"></canvas>
+  <p class="stage-cap"><span data-cap></span></p>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Workforce&nbsp;2.0</span>
+  </a>
+  <button class="navtoggle" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="navlinks" class="navlinks" aria-label="Main">
+    <a href="/engines/">What it can do</a>
+    <a href="/platform/">How it works</a>
+    <a href="/security/">Your data</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/blog/">Blog</a>
+    <a class="btn btn-primary btn-sm" href="/download/">Download</a>
+  </nav>
+</header>
+
+
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="sep" aria-hidden="true">/</span><a href="/engines/">Engines</a><span class="sep" aria-hidden="true">/</span><span aria-current="page">IPO analysis</span></nav>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://workforce.trackmystartup.com/"},{"@type":"ListItem","position":2,"name":"Engines","item":"https://workforce.trackmystartup.com/engines/"},{"@type":"ListItem","position":3,"name":"IPO analysis","item":"https://workforce.trackmystartup.com/engines/ipo/"}]}</script>
+<section class="hero" data-shape="worker" data-motion="4" data-cap="The worker that reads the prospectus">
+  <div class="wrap">
+    <p class="kicker">IPO analysis</p>
+    <h1>It reads the offer document. <em class="g">Each IPO gets one number, with the working shown.</em></h1>
+    <p class="lead">For Indian mainboard and SME IPOs: the chance each one closes above its issue
+    price on listing day, worked out from exchange data, the prospectus and the news, and tested
+    against IPOs that have already listed.</p>
+    <p class="answer" style="margin-top:26px"><strong>Informational analysis, not investment
+    advice.</strong> Past IPO patterns do not guarantee results.</p>
+    <div class="cta-row" style="margin-top:26px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">What it costs</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="vault" data-cap="Exchange data and the filing itself">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>Which IPOs does it cover, and where does the data come from?</h2>
+      <p class="answer">NSE and BSE mainboard, plus NSE Emerge and BSE SME. <strong>Issue data
+      comes from the exchanges, and the offer document is the red herring prospectus filed with
+      SEBI.</strong></p>
+    </div>
+    <ul class="ticks rv">
+      <li>From NSE: dates, price band, lot size, issue size, lead managers, and live subscription by category (QIB, NII, retail, employee).</li>
+      <li>From BSE: the issues listed only there, which is where most SME IPOs go.</li>
+      <li>Listing-day prices come from the exchanges' official daily bhavcopy, the only source that covers SME listings.</li>
+      <li>It can also follow US IPOs on Nasdaq and NYSE, from SEC filings.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="No AI reads the numbers">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How does it read the prospectus?</h2>
+      <p class="answer">With code, not AI. It finds the financial statements, the peer
+      comparison and the KPI tables, and computes the ratios: valuation against peers, return on
+      capital, revenue growth, debt, and how much of the issue is existing holders selling.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>A figure that fails the accounting identities a correct read must satisfy is <b>dropped and shown as missing, not shown wrong</b>.</li>
+      <li>Red and green flags follow fixed rules, such as a P/E more than 1.5 times the peer median, or more than 70% of the issue sold by existing holders.</li>
+      <li>From the anchor allocation letter, a row is kept only when shares times price equals the amount.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-shape="org" data-cap="Four perspectives, one probability">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What are the formulas?</h2>
+      <p class="answer">Five. <strong>Four perspectives, each its own formula over its own
+      inputs, and a final one that combines them</strong> into the IPO's probability.</p>
+    </div>
+    <div class="tablewrap rv">
+      <table>
+        <thead><tr><th>Formula</th><th>What goes into it</th></tr></thead>
+        <tbody>
+          <tr><td><b>Fundamentals</b></td><td>P/E against peers, return on capital, revenue growth, debt to equity</td></tr>
+          <tr><td><b>Institutional investors</b></td><td>QIB and overall subscription, share sold by existing holders, the anchors' past IPO record</td></tr>
+          <tr><td><b>Company sentiment</b></td><td>News about the company, from the prospectus date to listing</td></tr>
+          <tr><td><b>Macro effects</b></td><td>Sector news, market momentum, how recent IPOs listed, SME board</td></tr>
+          <tr><td><b>Final probability</b></td><td>The four perspectives together</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="rv" style="margin-top:22px">A missing input counts as neutral rather than guessed,
+    so an IPO with no subscription data yet is neither helped nor hurt by the gap.</p>
+  </div>
+</section>
+
+<section data-shape="wave" data-cap="Tested on IPOs that already listed">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How do I know the score means anything?</h2>
+      <p class="answer">Run the backtest. It replays past NSE IPOs <strong>with only what was
+      known by their last bid day</strong>, and news searches are date-bounded so no later article
+      can leak in.</p>
+    </div>
+    <ol class="steps rv">
+      <li><h3>Score five</h3><p>The oldest untested batch, with the current formulas, which have not seen them.</p></li>
+      <li><h3>Check against listing day</h3><p>Each formula is marked right or wrong against the real close.</p></li>
+      <li><h3>Refit and rescore</h3><p>All five formulas are refit on every IPO tested so far.</p></li>
+      <li><h3>Stop when settled</h3><p>After three batches in a row where nothing moved and nothing improved, with at least 20 tested.</p></li>
+    </ol>
+    <div class="srcquote rv">
+      <p class="framing">From the backtest screen:</p>
+      <blockquote>&ldquo;The first call is the honest measure: the formula had not seen that IPO.&rdquo;</blockquote>
+    </div>
+  </div>
+</section>
+
+<section data-shape="gate" data-cap="One number, and how sure it is">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What does the verdict look like?</h2>
+      <p class="answer">One number: <strong>the chance the stock closes above its issue price on
+      listing day</strong>, with the main reasons for and against and the four perspective
+      scores beside it. There is no buy or avoid label.</p>
+    </div>
+    <ul class="ticks rv">
+      <li>Until 100 past IPOs have been tested, it calls the number an uncalibrated model score and tells you to <b>read it as a ranking against other IPOs, not a measured chance</b>.</li>
+      <li>Before the price band is announced, it does not score at all.</li>
+      <li>After listing, each IPO is marked <b>called it</b> or <b>missed</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="4" data-cap="Once a day, and only if you ask">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>How does it stay current?</h2>
+      <p class="answer">A daily refresh finds new issues, reads their documents, updates
+      subscription, rescores, and records the listing-day close of IPOs that have listed. A
+      Refresh button runs it whenever you want.</p>
+    </div>
+    <ul class="ticks rv">
+      <li><b>Follow an IPO</b> and you get an alert in the app when its probability moves by 10 points or more.</li>
+      <li><b>The daily digest is opt-in and off by default.</b> Turn it on and it emails the IPOs closing in the next three days, once a day, only when there are some.</li>
+      <li><b>The Engine on/off switch pauses the daily refresh.</b> Buttons you press inside the engine still work.</li>
+    </ul>
+  </div>
+</section>
+
+<section data-shape="grove" data-cap="Counted in tasks, not tokens">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2>What does it cost?</h2>
+      <p class="answer"><strong>Each IPO analysed is 1 task, and so is each data job the engine runs (a refresh, results, history).</strong> Turn the engine off and the
+      daily refresh stops using tasks.</p>
+    </div>
+    <div class="cta-row rv" style="margin-top:24px">
+      <a class="btn btn-primary" href="/download/">Download for Windows</a>
+      <a class="btn btn-ghost" href="/pricing/">Plans and tasks</a>
+    </div>
+  </div>
+</section>
+
+<section data-shape="worker" data-motion="4" data-cap="Questions">
+  <div class="wrap">
+    <div class="section-head rv"><h2>Questions</h2></div>
+    <div class="faq rv">
+      <details><summary>Is this investment advice?</summary><div><p>No. It is informational
+      analysis. Past IPO patterns do not guarantee results, and it never places an order.</p></div></details>
+      <details><summary>Does it use the grey market premium?</summary><div><p>No. GMP is not one of
+      its inputs, and news that reports a GMP figure is given no weight.</p></div></details>
+      <details><summary>Where does AI come in?</summary><div><p>In three places only: a summary of
+      each IPO's news, reading an anchor letter that is a scan with no text, and an optional second
+      opinion from an expert you have taught. A news point whose quote is not in the cited article
+      is dropped. The numbers, ratios and formulas are code.</p></div></details>
+      <details><summary>Does it run on Android?</summary><div><p>No. IPO analysis runs on the
+      desktop app.</p></div></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <p><b>Workforce 2.0</b><br>An AI workforce that finishes the job.</p>
+      <a class="btn btn-primary btn-sm" href="/download/">Download for Windows</a>
+    </div>
+    <div>
+      <h3>What it can do</h3>
+      <a href="/engines/sales/">Sales</a>
+      <a href="/engines/marketing/">Marketing</a>
+      <a href="/engines/video/">Video studio</a>
+      <a href="/engines/communication/">Inbox &amp; replies</a>
+      <a href="/engines/pricing-intelligence/">Competitor prices</a>
+      <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/seo/">SEO</a>
+      <a href="/engines/crm/">CRM</a>
+      <a href="/engines/ipo/">IPO analysis</a>
+      <a href="/engines/">All engines</a>
+    </div>
+    <div>
+      <h3>How it works</h3>
+      <a href="/platform/">The three levels</a>
+      <a href="/memory/">Memory</a>
+      <a href="/voice/">Voice &amp; meetings</a>
+      <a href="/integrations/">Connected apps</a>
+      <a href="/build/">Build your own</a>
+      <a href="/teams/">For teams</a>
+    </div>
+    <div>
+      <h3>Before you install</h3>
+      <a href="/pricing/">What it costs</a>
+      <a href="/security/">Your data</a>
+      <a href="/limits/">What it does not do</a>
+      <a href="/compare/">How it compares</a>
+      <a href="/faq/">Questions</a>
+      <a href="https://www.linkedin.com/in/dr-saeel-momin-40187b117/" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <div class="foot-legal">
+    <p>&copy; 2026 Workforce 2.0. Windows, Linux and Android.</p>
+    <p><a href="https://trackmystartup.com" rel="noopener">Privacy &amp; terms &mdash; trackmystartup.com</a></p>
+  </div>
+</footer>
+
+
+<script src="/assets/boot.js" defer></script>
+</body>
+</html>

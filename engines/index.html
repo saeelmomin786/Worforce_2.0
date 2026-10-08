@@ -23,7 +23,7 @@
 <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
 <script>document.documentElement.className="js"</script>
 <link rel="stylesheet" href="/assets/site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Workforce 2.0 engines","description":"Built-in AI engines, each running one business function from start to finish.","mainEntity":{"@type":"ItemList","numberOfItems":12,"itemListElement":[{"@type":"ListItem","position":1,"name":"Sales engine","url":"https://workforce.trackmystartup.com/engines/sales/"},{"@type":"ListItem","position":2,"name":"Marketing engine","url":"https://workforce.trackmystartup.com/engines/marketing/"},{"@type":"ListItem","position":3,"name":"Communication engine","url":"https://workforce.trackmystartup.com/engines/communication/"},{"@type":"ListItem","position":4,"name":"Competitor price tracking","url":"https://workforce.trackmystartup.com/engines/pricing-intelligence/"},{"@type":"ListItem","position":5,"name":"Video studio","url":"https://workforce.trackmystartup.com/engines/video/"},{"@type":"ListItem","position":6,"name":"Job application engine","url":"https://workforce.trackmystartup.com/engines/jobs/"},{"@type":"ListItem","position":7,"name":"SEO engine"},{"@type":"ListItem","position":8,"name":"News engine"},{"@type":"ListItem","position":9,"name":"IPO analysis"},{"@type":"ListItem","position":10,"name":"Expertise"},{"@type":"ListItem","position":11,"name":"CRM"},{"@type":"ListItem","position":12,"name":"History & memory","url":"https://workforce.trackmystartup.com/memory/"}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Workforce 2.0 engines","description":"Built-in AI engines, each running one business function from start to finish.","mainEntity":{"@type":"ItemList","numberOfItems":12,"itemListElement":[{"@type":"ListItem","position":1,"name":"Sales engine","url":"https://workforce.trackmystartup.com/engines/sales/"},{"@type":"ListItem","position":2,"name":"Marketing engine","url":"https://workforce.trackmystartup.com/engines/marketing/"},{"@type":"ListItem","position":3,"name":"Communication engine","url":"https://workforce.trackmystartup.com/engines/communication/"},{"@type":"ListItem","position":4,"name":"Competitor price tracking","url":"https://workforce.trackmystartup.com/engines/pricing-intelligence/"},{"@type":"ListItem","position":5,"name":"Video studio","url":"https://workforce.trackmystartup.com/engines/video/"},{"@type":"ListItem","position":6,"name":"Job application engine","url":"https://workforce.trackmystartup.com/engines/jobs/"},{"@type":"ListItem","position":7,"name":"SEO engine","url":"https://workforce.trackmystartup.com/engines/seo/"},{"@type":"ListItem","position":8,"name":"News engine"},{"@type":"ListItem","position":9,"name":"IPO analysis","url":"https://workforce.trackmystartup.com/engines/ipo/"},{"@type":"ListItem","position":10,"name":"Expertise"},{"@type":"ListItem","position":11,"name":"CRM","url":"https://workforce.trackmystartup.com/engines/crm/"},{"@type":"ListItem","position":12,"name":"History & memory","url":"https://workforce.trackmystartup.com/memory/"}]}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI engine in Workforce 2.0?","acceptedAnswer":{"@type":"Answer","text":"An engine is one job the software runs the whole way through, from the research at the front to the follow-up at the end, checking with you at the points that matter. A sales engine does not write you an email to send; it finds the companies, verifies the contact details, writes the outreach, waits for your approval, sends, and chases the follow-up."}},{"@type":"Question","name":"How is an engine different from asking ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"A chat assistant answers the question you asked and then forgets you. An engine runs a sequence of steps over hours or days, uses real tools like a browser and your email, remembers your business between runs, and stops to ask you before anything is sent. You get a finished job rather than a draft you still have to act on."}},{"@type":"Question","name":"Can I build my own engine?","acceptedAnswer":{"@type":"Answer","text":"Yes. You type a name and the steps in ordinary words, and the app compiles them into a working sequence of two to six steps, choosing who does what and which apps they need. Any step that sends something outside the company is forced to ask your approval unless you explicitly say otherwise."}}]}</script>
 </head>
 <body class="">
@@ -122,34 +122,37 @@
         <span class="price">Finding posts is free &middot; 1 task per post accepted</span>
         <span class="more">The ten checks &rarr;</span>
       </a>
-      <div class="card rv">
+      <a class="card rv" href="/engines/seo/">
         <h3>SEO</h3>
         <p>Writes blog articles for your site and publishes the ones you approve to GitHub or
         WordPress.</p>
-        <span class="price">1 task per article drafted</span>
-      </div>
+        <span class="price">1 task per finished job</span>
+        <span class="more">You confirm every claim &rarr;</span>
+      </a>
       <div class="card rv">
         <h3>News</h3>
         <p>Follows the news on the topics you choose and brings you what is rising.</p>
         <span class="price">1 task per output</span>
       </div>
-      <div class="card rv">
+      <a class="card rv" href="/engines/ipo/">
         <h3>IPO analysis</h3>
         <p>Scores upcoming IPOs from exchange data and filings, and shows the working behind each
         score.</p>
-        <span class="price">1 task per IPO analysed</span>
-      </div>
+        <span class="price">1 task per IPO analysed and per data job</span>
+        <span class="more">How the score is tested &rarr;</span>
+      </a>
       <div class="card rv">
         <h3>Expertise</h3>
         <p>Teach it how you do a job, and later work follows what you taught it.</p>
         <span class="price">1 task per output</span>
       </div>
-      <div class="card rv">
+      <a class="card rv" href="/engines/crm/">
         <h3>CRM</h3>
         <p>Keeps your contacts, companies and conversations in one place. Its AI drafts, answers
         and summaries are not counted.</p>
         <span class="price">Basic and above &middot; CRM AI not counted</span>
-      </div>
+        <span class="more">Where the records come from &rarr;</span>
+      </a>
       <a class="card rv" href="/memory/">
         <h3>History &amp; memory</h3>
         <p>Builds your files into a searchable memory on your own computer.</p>
@@ -253,6 +256,9 @@
       <a href="/engines/communication/">Inbox &amp; replies</a>
       <a href="/engines/pricing-intelligence/">Competitor prices</a>
       <a href="/engines/jobs/">Job applications</a>
+      <a href="/engines/seo/">SEO</a>
+      <a href="/engines/crm/">CRM</a>
+      <a href="/engines/ipo/">IPO analysis</a>
       <a href="/engines/">All engines</a>
     </div>
     <div>

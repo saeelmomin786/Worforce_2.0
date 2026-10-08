@@ -147,10 +147,12 @@ checking with you at the points that matter.
   applications. These have real browsers doing real checks, their own screens and their own
   approval steps.
 - Also built in: SEO (writes blog articles and publishes approved ones to GitHub or WordPress;
-  1 task per article drafted), News (follows chosen topics and brings what is rising), IPO
-  analysis (scores IPOs from exchange data and filings; 1 task per IPO analysed), Expertise
-  (learns how you do a job from what you teach it), CRM (Basic and above; CRM AI is not
-  counted) and History & memory (Basic and above; 1 task per file built into memory).
+  1 task per finished job; https://workforce.trackmystartup.com/engines/seo/), News (follows
+  chosen topics and brings what is rising), IPO analysis (scores IPOs from exchange data and
+  filings; 1 task per IPO analysed and per data job; https://workforce.trackmystartup.com/engines/ipo/),
+  Expertise (learns how you do a job from what you teach it), CRM (Basic and above; CRM AI is
+  not counted; https://workforce.trackmystartup.com/engines/crm/) and History & memory (Basic
+  and above; 1 task per file built into memory).
 - In the engine marketplace: HR, recruiting, bookkeeping, legal documents, customer support,
   operations, procurement, compliance, research briefs, grant screening, investor relations,
   startup deliverables, stock analysis, and the developer engines code review, design refresh,
@@ -286,6 +288,98 @@ An AI video studio: speak an idea, get a film.
   media credits on every plan, with the price shown before rendering.
 - Answers: Why is a two-pass script better than one prompt? Can the same character appear in
   every scene? How long does export take? How is video paid for?
+
+### SEO engine
+
+https://workforce.trackmystartup.com/engines/seo/
+
+An SEO engine that recommends blog posts, drafts them from the owner's own material, and
+publishes only after every claim is confirmed.
+
+- Site study: up to 1,000 pages, sitemap first then links, obeying robots.txt; records what a
+  crawler that runs no JavaScript receives, orphan pages, and index status from Google URL
+  Inspection and Bing.
+- Competitors: suggested from the Marketing engine, a web search, and sites ranking for two or
+  more of the site's searches; the user keeps or removes each. Marketing-approved competitors
+  are recommended, never kept automatically. Competitors' traffic is never shown.
+- Topic map and recommended blogs from ranking gaps and rising searches, plus requests from
+  other engines: one blog per Marketing campaign, and one per News topic whose searches are
+  rising. Under a Google captcha the previous topic map is kept.
+- Drafting requires a specific piece of original evidence from the owner. Every figure must
+  appear in its cited source; links to neither the site nor a source are removed.
+- Every sentence naming the brand, every list item, FAQ answer and the image are claims the
+  owner ticks; Publish stays disabled until all are confirmed. Claims that do not name the
+  brand are not detected.
+- Publishing: GitHub as one commit on a new seo/ branch and a pull request, never the default
+  branch (pressing Publish merges it; a refused merge leaves it open); WordPress as a draft that
+  goes live when published in WordPress.
+- After publishing: a live check, the sitemap submitted to Google Search Console, and Search
+  Console measurement at day 3, 7, 14 and 30, then monthly. A button submits the sitemap to
+  Google and Bing.
+- Competitor monitor: up to eight kept competitors' blogs read daily; an inbox alert when a post
+  ranks above its site's usual position.
+- An Engine on/off switch pauses the hourly scheduled run; buttons inside the engine still work.
+- Tasks: each finished job is 1 task. Competitor jobs (gaps, authority, rich results, monitor)
+  are 1 task per kept competitor. Finding competitors is free. Keeping a found competitor is 1
+  task; one recommended from Marketing is free. Blog images are paid from media credits.
+- Answers: Does the SEO engine publish without asking me? Can it write a blog post with no input
+  from me? How does it decide which blogs to write? What does the SEO engine cost?
+
+### CRM
+
+https://workforce.trackmystartup.com/engines/crm/
+
+A CRM built from the contacts Workforce 2.0 already holds. Basic, Pro and Enterprise only.
+
+- Records are built fresh on every read, never copied, from sales leads, competitors tracked by
+  Marketing and SEO, email and WhatsApp correspondents, and person files in memory. WhatsApp
+  groups and labels can be imported without marking chats read. The user's own addresses and
+  company domain are always left out.
+- LinkedIn connections import from LinkedIn's own Connections.csv export; company websites are
+  then found and read in the background. There is no LinkedIn crawl.
+- Groups: fixed members plus everyone matching a saved filter. Every Sales product is a group.
+  Table, kanban, calendar and list views.
+- Campaigns over email, WhatsApp or LinkedIn, or one message per person on the first reachable
+  channel, with a preview of every message and the list of who is left out. Email follows the
+  Sales pacing and cap; WhatsApp waits 5 to 10 seconds between messages, rests after every 50,
+  and stops at 400 a day including Sales.
+- The Sales do-not-contact list blocks every channel at planning, and email and WhatsApp are
+  checked again at sending.
+- Automations triggered by record changes, a schedule or by hand. Changes made by an automation
+  never start another; at most 60 runs an hour; test runs change and send nothing.
+- AI: draft a message, ask about a record, or summarise it. CRM AI is free and never counted.
+- Stored in a file on the user's computer; optional team sharing through the hourly
+  organisation sync, with per-member permissions.
+- Answers: Do I have to type my contacts into the CRM? Can I import my LinkedIn connections?
+  What stops a CRM campaign messaging someone who opted out? Which plans include the CRM, and is
+  its AI counted?
+
+### IPO analysis engine
+
+https://workforce.trackmystartup.com/engines/ipo/
+
+IPO analysis for Indian mainboard and SME IPOs. Informational analysis, not investment advice.
+
+- Covers NSE and BSE mainboard, NSE Emerge and BSE SME. Issue data, price band and live
+  subscription by category come from NSE, BSE-only issues from BSE, and listing-day prices from
+  the exchanges' bhavcopy. Offer documents are the red herring prospectuses filed with SEBI. US
+  IPOs on Nasdaq and NYSE can also be followed.
+- The prospectus is read by code, not AI; figures that fail accounting identities are dropped as
+  missing rather than shown wrong.
+- Five formulas: Fundamentals, Institutional investors, Company sentiment and Macro effects, and
+  a final probability that combines them. Missing inputs count as neutral.
+- Backtest: past NSE IPOs replayed with only what was known by their last bid day, in batches of
+  five scored before the formulas have seen them, then refit, until settled (at least 20
+  tested).
+- The verdict is one number, the chance of closing above the issue price on listing day, with
+  reasons for and against. Below 100 tested IPOs it is labelled uncalibrated, to be read as a
+  ranking. There is no buy or avoid label. GMP is not an input.
+- A daily refresh finds issues, reads documents and rescores. Followed IPOs alert on a 10-point
+  move. An opt-in daily email digest, off by default, lists IPOs closing within three days.
+- An Engine on/off switch pauses the daily refresh; buttons inside the engine still work.
+- Tasks: each IPO analysed is 1 task, and so is each data job the engine runs (a refresh, results, history).
+- Answers: Does the IPO engine tell me whether to apply? Which IPOs does it cover? How do I know
+  the score means anything? What does IPO analysis cost?
 
 ### FAQ
 
