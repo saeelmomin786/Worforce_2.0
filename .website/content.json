@@ -1,0 +1,1671 @@
+[
+  {
+    "path": "/",
+    "title": "A little less busy. A lot more done.",
+    "summary": "Give everyday work to an AI team that can research, draft and organize across your apps. Review the results and decide what happens next.",
+    "sections": [
+      {
+        "heading": "Start with a job, not a complicated setup",
+        "body": "Describe what you need in ordinary words. Find potential customers. Prepare a week of social posts. Catch up on the requests buried in your inbox. Workforce turns larger requests into steps, assigns them to specialist AI workers and shows you the progress."
+      },
+      {
+        "heading": "Your assistant brings the work together",
+        "body": "You can type or speak, interrupt a voice conversation and move between the two. The assistant handles simple requests directly. A separate planner organizes larger jobs, while workers use only the connected apps you allow. The planner itself cannot reach your inbox, calendar or customer records."
+      },
+      {
+        "heading": "Useful work across your business",
+        "body": "Sales finds prospects and prepares outreach. Marketing researches competitors and builds a content calendar. Inbox drafts replies. Pricing tracks public competitor prices. Video turns ideas into editable scenes. Jobs prepares tailored applications. SEO, CRM, IPO analysis and additional marketplace workflows support the rest of your work."
+      },
+      {
+        "heading": "Your approval is part of the process",
+        "body": "Choose read only, draft only or send permissions. Sending, publishing and spending require approval by default. If an approval request gets no answer within 90 seconds, the action stops. You can review the decision history and change individual engine approval settings when you choose."
+      },
+      {
+        "heading": "A free place to begin",
+        "body": "Free includes 300 tasks each month. Finding leads is free; accepting a lead, drafting a message and sending it each use one task. Accepting 40 leads and drafting and sending one message to each uses 120 tasks, before follow-ups. Assistant chat and voice do not count. Basic is $19.99 a month for 1,000 tasks; images and video use separate media credits."
+      },
+      {
+        "heading": "Knowledge you can keep",
+        "body": "On Basic, Pro and Enterprise, the memory builder turns your documents into searchable local knowledge. One file built uses one task; searches are free. Notes stay in ordinary files you can edit and back up. Team sharing uses your own Drive to sync hourly between members. AI requests need an internet connection and follow the provider’s data terms."
+      },
+      {
+        "heading": "Set up your first job",
+        "body": "Download for Windows, Linux or Android, open the app and connect the tools you want to use. Start in draft-only mode with a request, such as finding twenty relevant companies or summarizing this week’s inbox. Workforce handles the AI behind task engines so you can focus on the result. Mac and iPhone downloads are not available yet."
+      },
+      {
+        "heading": "Work that can continue between requests",
+        "body": "Schedule recurring jobs, save routines and follow progress on the task board. Available tasks and credits limit engine work, and approval settings still apply. Workforce does not detect sales replies or automatically record opt-outs, so those remain part of your review routine."
+      }
+    ],
+    "links": [
+      {
+        "label": "How the three levels work →",
+        "href": "/platform/"
+      },
+      {
+        "label": "Plus SEO, News, IPO analysis, CRM, Teach, and more in the engine marketplace →",
+        "href": "/engines/"
+      },
+      {
+        "label": "More on voice and meetings →",
+        "href": "/voice/"
+      },
+      {
+        "label": "Plans and what counts as a task →",
+        "href": "/pricing/"
+      },
+      {
+        "label": "What it remembers →",
+        "href": "/memory/"
+      },
+      {
+        "label": "The full data story →",
+        "href": "/security/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "All the questions →",
+        "href": "/faq/"
+      },
+      {
+        "label": "What it does not do →",
+        "href": "/limits/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/",
+    "title": "Choose the job you want done.",
+    "summary": "An engine is a ready-made workflow. It takes a business job through its steps, using your connected apps and the permissions you choose.",
+    "sections": [
+      {
+        "heading": "Find customers and prepare campaigns",
+        "body": "Sales finds companies, checks contact details, drafts outreach and prepares follow-ups. Finding leads is free; accepting one uses one task. Marketing studies your brand and competitors, creates a calendar and publishes approved posts. Each drafted post and competitor check uses one task; rendered media uses separate credits."
+      },
+      {
+        "heading": "Make everyday admin easier",
+        "body": "Inbox and replies reads selected Gmail mailboxes, keeps messages unread and drafts responses in your voice. Reading is free; each draft and sent message uses one task. Competitor prices reads public pricing pages and alerts you to changes. Finding competitors is free; accepting one and each check use one task."
+      },
+      {
+        "heading": "Create content and prepare applications",
+        "body": "Video studio turns an idea into a script, storyboard and editable clips. Planning uses tasks; renders use media credits. Job applications verifies live postings and prepares a tailored CV and cover letter. Finding listings is free; accepting one and each written document use one task. You submit the applications."
+      },
+      {
+        "heading": "Build your business knowledge",
+        "body": "SEO researches topics, drafts from your original evidence and helps publish reviewed articles. News follows your chosen topics, at one task per output. Expertise, also called Teach, applies the way you have taught it to perform a job, at one task per output. IPO analysis uses one task per IPO analysis and each data job. CRM and History & memory are included on Basic and above. CRM AI is not counted; building a memory file uses one task."
+      },
+      {
+        "heading": "People, finance and service workflows",
+        "body": "The marketplace includes HR, at one task per request and up to six requests an hour; Recruiting, at one task per output and up to four shortlists an hour; Bookkeeping, at one task per output and three batches an hour; Legal, at one task per document; and Customer support, at one task per answered ticket. Review important employment, legal and financial decisions with a qualified person."
+      },
+      {
+        "heading": "The rest of the back office",
+        "body": "Operations produces an hourly report, at one task per report. Procurement uses one task per output. Compliance runs up to four checks a day, at one task per output. Research uses one task per brief. Grants screens up to six opportunities daily, at one task per output. Investor relations uses one task per output, Startup one per deliverable, and Stock analysis one per report. Marketing (light) offers a shorter four-step workflow, at one task per output."
+      },
+      {
+        "heading": "Workflows for software teams",
+        "body": "Code review looks for correctness issues in a change. Design refresh audits an interface and proposes improvements. Investigate & fix traces a bug to its cause. Bloat audit identifies code that may be removed. These marketplace engines count output-producing steps as tasks and follow the same permissions."
+      },
+      {
+        "heading": "Create a workflow of your own",
+        "body": "Describe a name and the steps in ordinary language. Workforce builds a sequence of two to six steps and chooses the workers and apps needed. Outbound steps require approval by default. You can also save a routine, schedule work or commission an engine built for your business."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Sales Finds companies that match the customers you already have, checks the contact details are real, writes the outreach, and chases the follow-ups. It learns your writing from what you actually send. Finding is free &middot; 1 task per lead you accept How it finds them",
+        "href": "/engines/sales/"
+      },
+      {
+        "label": "Marketing Studies your brand, works out who your competitors are on each platform, reads what is working for them, then builds a plan, a calendar and the posts. Reports back on which channel actually brought leads. 1 task per post drafted &middot; images and video from media credits The whole pipeline",
+        "href": "/engines/marketing/"
+      },
+      {
+        "label": "Inbox and replies Reads the mailboxes you choose, drafts replies that sound like you, and pulls out the things people have quietly assigned you. Your mail stays unread until you read it. 1 task per reply drafted &middot; reading is free The two promises",
+        "href": "/engines/communication/"
+      },
+      {
+        "label": "Competitor prices Reads your rivals' pricing pages with no AI involved in the reading, shows where you sit, and tells you when one of them moves, starts a discount, or drops below you. 1 task per competitor checked Why it refuses to guess",
+        "href": "/engines/pricing-intelligence/"
+      },
+      {
+        "label": "Video studio Say a rough idea out loud. It writes the script, a second pass directs it into scenes, then it draws a still for each one and films them. There is a timeline editor for the cut. Script and storyboard in tasks &middot; renders from media credits Script first, then shots",
+        "href": "/engines/video/"
+      },
+      {
+        "label": "Job applications Matches your CV to roles you can realistically get, opens every posting to check it is genuinely still open, and writes a CV and cover letter for each one. Finding posts is free &middot; 1 task per post accepted The ten checks",
+        "href": "/engines/jobs/"
+      },
+      {
+        "label": "SEO Writes blog articles for your site and publishes the ones you approve to GitHub or WordPress. 1 task per finished job You confirm every claim",
+        "href": "/engines/seo/"
+      },
+      {
+        "label": "IPO analysis Scores upcoming IPOs from exchange data and filings, and shows the working behind each score. 1 task per IPO analysed and per data job How the score is tested",
+        "href": "/engines/ipo/"
+      },
+      {
+        "label": "CRM Keeps your contacts, companies and conversations in one place. Its AI drafts, answers and summaries are not counted. Basic and above &middot; CRM AI not counted Where the records come from",
+        "href": "/engines/crm/"
+      },
+      {
+        "label": "History & memory Builds your files into a searchable memory on your own computer. Basic and above &middot; 1 task per file built What it remembers",
+        "href": "/memory/"
+      },
+      {
+        "label": "The full comparison, including where a person still wins",
+        "href": "/compare/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "Build your own engine",
+        "href": "/build/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      }
+    ]
+  },
+  {
+    "path": "/platform/",
+    "title": "You ask. A team gets to work.",
+    "summary": "An assistant understands your request, a planner organizes larger jobs and specialist workers use your connected tools.",
+    "sections": [
+      {
+        "heading": "One place to ask for help",
+        "body": "Type a request or speak to the assistant. It handles small questions and actions directly. When a job needs several steps, it passes the work to a planner and keeps you informed as results come back."
+      },
+      {
+        "heading": "Planning stays separate from doing",
+        "body": "The planner breaks a request into steps, chooses workers and reviews their results. It has no direct connection to email, calendars, files or customer records. Workers carry out the plan through the app connections you permit."
+      },
+      {
+        "heading": "Control each worker",
+        "body": "See every worker and change its skills and app access. You can pause a worker to stop new assignments. Choose read only, draft only or send permissions for the work as a whole. Approval is enabled by default for outbound actions."
+      },
+      {
+        "heading": "The right AI, already connected",
+        "body": "You do not need to work out which AI is best for a task. We select and connect the models behind each engine. Describe the work you need, review what comes back and focus on using the result. One output-producing step counts as one task, however many AI calls it takes."
+      },
+      {
+        "heading": "Practical skills you can change",
+        "body": "Eighty built-in skills guide jobs such as cold outreach, candidate screening, reconciliation and sensitive replies. You can edit a skill to reflect your business standards, and those edits survive app updates."
+      },
+      {
+        "heading": "See what is happening",
+        "body": "The console holds your requests. The task board shows work in progress and what is waiting. Team chat lets you speak to a worker. You can inspect each job and its results instead of waiting on an unexplained loading screen."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "The rest of the safety story",
+        "href": "/security/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it remembers",
+        "href": "/memory/"
+      }
+    ]
+  },
+  {
+    "path": "/security/",
+    "title": "Clear permissions. Clear boundaries.",
+    "summary": "Choose what Workforce can access, keep your files under your control and review how information is used.",
+    "sections": [
+      {
+        "heading": "Files and search stay on your computer",
+        "body": "Configuration, documents, memory and media live in a local folder you can open and back up. Reading and indexing files happen locally and can work offline. If you enable team sharing, copies sync through your own Drive. Local storage is different from saying the whole product runs offline."
+      },
+      {
+        "heading": "AI work needs a connection",
+        "body": "Task engines use AI services selected and connected by Workforce. AI requests require an internet connection and send the information needed for that request to the relevant service. Read the Privacy Notice before using confidential material."
+      },
+      {
+        "heading": "Approve the actions that matter",
+        "body": "Sending, publishing and spending require approval by default through a shared permission check. This covers messages, calendar invites, social publishing and payment actions. You can change approval settings for individual steps. Where approval is required, no answer within 90 seconds means the action stops; decisions are recorded."
+      },
+      {
+        "heading": "Limit access before work begins",
+        "body": "Choose read only, draft only or send permissions. Restrict apps per worker and select which mailboxes, groups and folders are available. Pause a worker whenever you need. The planning component itself has no direct access to connected business apps."
+      },
+      {
+        "heading": "Accounts and special data",
+        "body": "Read the Privacy Notice for account information, retention and data handling. No certification is claimed here. Special-category data needs the appropriate signed agreement; a Business Associate Agreement is not in place unless agreed in writing."
+      },
+      {
+        "heading": "Controls for spending and voice",
+        "body": "Extra tasks cost $0.03 each from prepaid task credits. Work stops when the allowance and credits are exhausted. Render prices are shown before media credits are used. Voice cloning requires recorded consent before a voice sample can be used."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "How plans and tasks work",
+        "href": "/pricing/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it remembers",
+        "href": "/memory/"
+      },
+      {
+        "label": "What it does not do",
+        "href": "/limits/"
+      }
+    ]
+  },
+  {
+    "path": "/pricing/",
+    "title": "A plan you can understand.",
+    "summary": "Count useful steps, not the number of AI calls behind them. Start with 300 tasks each month for free.",
+    "sections": [
+      {
+        "heading": "Four plans, one way to count",
+        "body": "Free is $0 with 300 tasks each month. Basic is $19.99 monthly or $199.90 yearly with 1,000 monthly tasks. Pro is $199.99 monthly or $1,999.90 yearly with unlimited tasks. Enterprise is $19.99 per seat monthly or $199.90 per seat yearly, with 1,000 monthly tasks per seat pooled across the organisation. Prices are in USD and charged in local currency at checkout."
+      },
+      {
+        "heading": "What one task means",
+        "body": "One task is an engine or memory-building step that produces an output. Accepting a found lead, competitor or job posting uses one task. A written draft, sent message, competitor analysis or check, and a file built into memory each use one task. Several AI calls within a step do not make it several tasks."
+      },
+      {
+        "heading": "What does not use tasks",
+        "body": "Finding leads, competitors and job postings is free. Chat and voice with the assistant are not counted. CRM AI drafts, answers and summaries are not counted. Images and video renders use separate media credits, rather than your task allowance. CRM and History & memory are available on Basic, Pro and Enterprise, not Free."
+      },
+      {
+        "heading": "A real example",
+        "body": "Finding 200 companies uses no tasks. Accepting 40, drafting one message to each and sending those 40 messages uses 120 tasks. Each follow-up sent adds one task; a separately generated draft is another output step. For a job search, 15 accepted postings plus a CV and cover letter for each use 45 tasks."
+      },
+      {
+        "heading": "When the allowance runs out",
+        "body": "Extra tasks cost $0.03 each and are paid from prepaid task credits. When the plan allowance and credits are exhausted, the app stops and asks you to upgrade. It does not run a negative task-credit balance."
+      },
+      {
+        "heading": "Images and video are separate",
+        "body": "AI image and video renders are paid from media credits on every plan, including Pro. The price appears before you render. Approving an image prompt is free. Your task allowance covers the output-producing steps in your workflows; media credits cover rendered images and video."
+      },
+      {
+        "heading": "Work with a team",
+        "body": "An Enterprise plan holder can create an organisation. Anyone can join using an invite code, including a Free user. Members share the organisation’s pooled tasks and features. The owner chooses which engines the organisation uses."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "How teams share one memory",
+        "href": "/teams/"
+      },
+      {
+        "label": "See what the engines do",
+        "href": "/engines/"
+      }
+    ]
+  },
+  {
+    "path": "/download/",
+    "title": "Your first job is a download away.",
+    "summary": "Install Workforce, connect the apps you choose and start with 300 free tasks each month.",
+    "sections": [
+      {
+        "heading": "Choose your device",
+        "body": "Windows 10 and 11, Linux and Android are available. The Windows installer is version 2.49.52, 146 MB, released 11 October 2026. Linux AppImage and Android APK downloads are version 2.49.50. Mac and iPhone releases are being prepared but are not available to download yet."
+      },
+      {
+        "heading": "Install on Windows",
+        "body": "Download the installer and run it for your user account. Administrator access is not required by the standard installation. You can also use the published PowerShell installer: irm https://workforce.trackmystartup.com/install.ps1 | iex. Read the script first by removing the final | iex. It checks the downloaded file against its published SHA-256 before installing. There is no winget package."
+      },
+      {
+        "heading": "Install on Linux",
+        "body": "The AppImage supports x86_64 Intel and AMD machines; there is no ARM64 build. Check with uname -m, make the file executable with chmod +x Workforce-2.0-*.AppImage, then run it. You can also allow execution in file properties. Some distributions need libfuse2; the AppImage also supports --appimage-extract-and-run."
+      },
+      {
+        "heading": "Open the app and start with one job",
+        "body": "Open Workforce, connect the tools you want to use and describe the work you need. We select and connect the AI behind the task engines, so you do not need to compare models before getting started. You can add more connected tools as your work grows."
+      },
+      {
+        "heading": "Connect only what you need",
+        "body": "Sign in to Gmail, Drive, Calendar or another app when you want to use it. Account-free tools are available immediately. Start with draft-only permissions, then ask for one small job: find twenty relevant companies, summarize requests in this week’s inbox or check three competitors’ public prices."
+      },
+      {
+        "heading": "Updates stay in your hands",
+        "body": "The app checks for updates at launch and shows an Update button. Updates require your approval and keep your existing data and connections. Candidate changes are prepared separately. If an approved version fails to start twice, the app restores the previous version; earlier versions can also be restored manually."
+      },
+      {
+        "heading": "Work with your existing files",
+        "body": "Read Word, Excel, PowerPoint, PDF and CSV files, and read or update spreadsheets. Generated application documents are PDFs; Word export is not supported. Your local notes and files remain accessible if you stop using Workforce."
+      },
+      {
+        "heading": "Verify the Windows download",
+        "body": "SHA-256 for Windows version 2.49.52: 12925cb64c871ac0fb0d8dbcae9733731c61316cd4f270d161b7d3d1ba3db0c0. Release details reflect the website’s 11 October 2026 download listing."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Download for Windows",
+        "href": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.52/Workforce-2.0-Setup-2.49.52.exe"
+      },
+      {
+        "label": "Linux AppImage",
+        "href": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.50/Workforce-2.0-2.49.50-x86_64.AppImage"
+      },
+      {
+        "label": "Android APK",
+        "href": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.50/Workforce-2.0-2.49.50.apk"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/dr-saeel-momin-40187b117/"
+      },
+      {
+        "label": "More on that",
+        "href": "/security/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      },
+      {
+        "label": "What it does not do",
+        "href": "/limits/"
+      },
+      {
+        "label": "Read the Windows install script",
+        "href": "https://workforce.trackmystartup.com/install.ps1"
+      }
+    ]
+  },
+  {
+    "path": "/voice/",
+    "title": "Say what you need.",
+    "summary": "Talk through a job, interrupt when you need to and keep going by typing whenever it suits you.",
+    "sections": [
+      {
+        "heading": "A conversation you can steer",
+        "body": "Tap the voice control and describe what you want in ordinary words. You can interrupt mid-sentence to change direction or skip an explanation. Voice can hand work to the same team and tools as typed requests."
+      },
+      {
+        "heading": "Keep the same context",
+        "body": "Voice and typing share context, so you can start a request in one and continue in the other. Ask what workers are doing, request an on-screen diagram or discuss your calendar. With a connected calendar, the assistant can read the coming seven days."
+      },
+      {
+        "heading": "Record a meeting you attend",
+        "body": "Start Transcribe meeting and place your computer where its microphone can hear the room. Workforce records alongside you; it does not join a call as a separate participant. The resulting transcript is filed with the matching calendar entry."
+      },
+      {
+        "heading": "Listening does not start jobs",
+        "body": "During recording, the app is listen-only. It does not speak and does not act on instructions overheard in the meeting. Someone saying “send that email” does not trigger an email."
+      },
+      {
+        "heading": "Keep the transcript and actions",
+        "body": "The transcript and extracted action items are saved as a Markdown note. On plans with History & memory, the note can join your searchable business knowledge. Audio quality depends on what your microphone can hear."
+      },
+      {
+        "heading": "Know the voice limits",
+        "body": "Read-aloud voices and voice cloning are available on Windows only, in English, French, German, Portuguese, Italian and Spanish. There is no Android path for these features. Meeting recording is a recorder alongside you, not an autonomous meeting attendee."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "How the memory works",
+        "href": "/memory/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "Inbox and replies",
+        "href": "/engines/communication/"
+      },
+      {
+        "label": "What it does not do",
+        "href": "/limits/"
+      }
+    ]
+  },
+  {
+    "path": "/memory/",
+    "title": "Keep what your business learns.",
+    "summary": "Turn documents, decisions and past work into knowledge you can find again, in files you control.",
+    "sections": [
+      {
+        "heading": "Included on paid plans",
+        "body": "History & memory is part of Basic, Pro and Enterprise. It is not included on Free. Building one file into memory uses one task. Searching existing memory does not use tasks and works without an AI request."
+      },
+      {
+        "heading": "Different information, kept separate",
+        "body": "The system separates your documents, generated work, editable skills, writing style and things people said to you. That separation is designed to prevent a customer’s remark being treated as company policy or confidential business notes being pulled into an unrelated outgoing reply. Review sensitive output before sharing it."
+      },
+      {
+        "heading": "Search locally by words and meaning",
+        "body": "Files are read and indexed on your computer. Search combines exact words with meaning, so both an invoice number and a differently worded description can help find the right document. Local indexing and searches can run offline."
+      },
+      {
+        "heading": "See how documents connect",
+        "body": "Point the app at a folder to build a map of the people, subjects and relationships inside it, with a written summary. Overnight processing organizes recurring facts, patterns of work and your writing preferences."
+      },
+      {
+        "heading": "Correct it in a text editor",
+        "body": "Memory is stored in ordinary text files. Open them in Notepad, Obsidian or another editor to correct information. Your edits survive rebuilds. If you stop using Workforce, the folder and its readable files stay with you."
+      },
+      {
+        "heading": "Share knowledge with your team",
+        "body": "Organisation members can share notes, reference material and the conversations behind decisions. Changes sync hourly in both directions through your own Drive, with a local copy on each machine. This helps preserve knowledge when roles change; it is not real-time collaboration."
+      },
+      {
+        "heading": "Understand the data boundary",
+        "body": "Local storage and indexing do not make AI work fully offline. AI requests go to the provider used for that work. Optional team sharing transfers information through your Drive. Read the data page and Privacy Notice before using sensitive material."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "How sharing works across a company",
+        "href": "/teams/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "Your data",
+        "href": "/security/"
+      }
+    ]
+  },
+  {
+    "path": "/faq/",
+    "title": "A few things worth knowing.",
+    "summary": "Straight answers about getting started, paying for work and staying in control.",
+    "sections": [
+      {
+        "heading": "What is Workforce, and do I need technical skills?",
+        "body": "Workforce is an app for Windows, Linux and Android that helps complete business workflows. Describe a job by typing or speaking. An assistant organizes it with a planner and specialist workers. A ready-made workflow is called an engine. Open the app and sign in to the connected tools you want to use."
+      },
+      {
+        "heading": "What does it cost?",
+        "body": "Free includes 300 tasks monthly. Basic costs $19.99 monthly for 1,000 tasks. Pro is $199.99 monthly for unlimited tasks. Enterprise is $19.99 per seat monthly with 1,000 tasks per seat pooled. Yearly plans cost ten monthly payments. Extra tasks use prepaid credits at $0.03 each. Images and video use separate media credits."
+      },
+      {
+        "heading": "What counts as a task?",
+        "body": "One output-producing engine or memory-build step counts as one task. Examples include an accepted lead, draft, sent message, competitor check or memory file. Finding leads, competitors and job posts is free. Assistant chat and voice, CRM AI and the AI calls within a step are not counted. CRM and History & memory require Basic or above."
+      },
+      {
+        "heading": "Where does my information go?",
+        "body": "Documents and memory are stored and indexed locally. AI work needs internet and sends request content to the services used for that work. Team sharing uses your own Drive. Local files remain yours when you stop using the app."
+      },
+      {
+        "heading": "Can it send something without asking?",
+        "body": "Sending, publishing and spending require approval by default. You can change individual engine step settings. When approval is required, no response within 90 seconds stops the action. You can choose read only or draft only, restrict worker app access and pause workers."
+      },
+      {
+        "heading": "How do teams and accounts work?",
+        "body": "An Enterprise holder creates an organisation. Members can join by invite code and use pooled tasks and features. Shared knowledge syncs hourly. Multiple Google accounts can be connected, with each job assigned to a specific account. Updates require approval, with rollback available if a new version fails."
+      },
+      {
+        "heading": "What are the important limits?",
+        "body": "Mac and iPhone downloads are not available. Sales does not detect replies or automatically add opt-outs to its suppression list. Video does not support lip-sync. Job documents are PDFs and you submit them yourself. Meeting recording does not join a call. AI work is not fully offline."
+      },
+      {
+        "heading": "What can I connect?",
+        "body": "The app ships with a catalogue of 36 connectors, including Google tools, work apps, finance and research services. Sign in to the accounts you need. Existing standard connector setup can be imported from Claude Desktop, Cursor, VS Code or Windsurf. We choose the AI behind task engines, so you can focus on the work."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "How it works",
+        "href": "/platform/"
+      },
+      {
+        "label": "The full comparison",
+        "href": "/compare/"
+      },
+      {
+        "label": "See them",
+        "href": "/engines/"
+      },
+      {
+        "label": "Plans and tasks",
+        "href": "/pricing/"
+      },
+      {
+        "label": "The full data story",
+        "href": "/security/"
+      },
+      {
+        "label": "How memory works",
+        "href": "/memory/"
+      },
+      {
+        "label": "For teams",
+        "href": "/teams/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "Connected apps",
+        "href": "/integrations/"
+      },
+      {
+        "label": "Everything it does not do",
+        "href": "/limits/"
+      },
+      {
+        "label": "Who built this",
+        "href": "https://www.linkedin.com/in/dr-saeel-momin-40187b117/"
+      }
+    ]
+  },
+  {
+    "path": "/limits/",
+    "title": "Know what to expect.",
+    "summary": "These are the current boundaries of the product, so you can choose the right work to give it.",
+    "sections": [
+      {
+        "heading": "Available devices and voices",
+        "body": "Workforce runs on Windows 10 and 11, Linux and Android. Mac and iPhone releases are not available yet. Linux is x86_64 only. Read-aloud voices and voice cloning are Windows only, in English, French, German, Portuguese, Italian and Spanish."
+      },
+      {
+        "heading": "Sales replies still need a person",
+        "body": "The sales engine does not detect replies, calculate a reply rate or add opt-outs to the do-not-contact list automatically. You must record opt-outs yourself. The shared list is checked for outbound messages so a recorded opt-out can stop queued follow-ups."
+      },
+      {
+        "heading": "Video is made scene by scene",
+        "body": "Characters can remain consistent, but lips do not sync to spoken words. Clips are generated independently, so scenes cut rather than forming one continuous camera move. Export re-encodes on your machine and may take roughly as long as the film. Image and video renders always use media credits."
+      },
+      {
+        "heading": "Approvals and documents",
+        "body": "Marketing publishes approved calendar slots. Approval is enabled by default and can be changed per step. Job applications produce PDFs, not Word files; you submit the documents yourself. Review factual claims before publishing or sending any AI-generated work."
+      },
+      {
+        "heading": "Plans and connectivity",
+        "body": "Free excludes CRM and History & memory. Local reading, indexing and search can work offline; AI work cannot. AI requests go to online services. Optional team sharing uses your Drive. The entire product is not local-only."
+      },
+      {
+        "heading": "Meetings and specialist engines",
+        "body": "The meeting recorder listens through your microphone while you attend. It cannot join, speak or act in the meeting. IPO analysis is desktop only. SEO site studies, competitor reading and rank checks require the Windows or Linux browser. Informational analysis does not replace professional judgment."
+      },
+      {
+        "heading": "Review important results",
+        "body": "We select and connect the AI behind each task engine. You do not need to choose a model before starting work. AI output can still be wrong, so check important legal, financial, employment and client-facing work before relying on it."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "The full explanation",
+        "href": "/security/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "All the questions",
+        "href": "/faq/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/sales/",
+    "title": "Find the right people. Start better conversations.",
+    "summary": "Research prospects, review the contacts and prepare outreach from your own connected accounts.",
+    "sections": [
+      {
+        "heading": "Start with the customers you want",
+        "body": "Describe your ideal customer or use the customers you already have as a starting point. The engine searches with a real browser across search results and Google Maps, city by city. If a site requires a human check, it opens a window for you to complete it."
+      },
+      {
+        "heading": "Review prospects before using tasks",
+        "body": "Companies are checked against your criteria. The engine checks whether a contact domain accepts mail and filters generic addresses such as info@ and sales@. These checks reduce bad leads but do not guarantee a reply or prove every mailbox exists. Finding companies is free; accepting a lead uses one task."
+      },
+      {
+        "heading": "Draft in your voice",
+        "body": "The engine prepares outreach and learns from the difference between its drafts and what you actually send. Its own unedited autonomous messages are excluded from that learning. Import an existing list from a spreadsheet or paste it in; imported leads receive the same checks."
+      },
+      {
+        "heading": "Send through your accounts",
+        "body": "Use your connected mailbox or WhatsApp session. Phone numbers are formatted for WhatsApp without requiring you to save a contact first. Approve individual messages or a batch. Sending starts locked; you can change the engine’s approval setting. The engine checks for evidence that a WhatsApp message actually sent before reporting success."
+      },
+      {
+        "heading": "Keep one do-not-contact list",
+        "body": "The suppression list is shared across your products and team. An opt-out can cover a person’s email addresses and phone numbers, and is checked at send time, including for queued follow-ups. Entries do not expire automatically."
+      },
+      {
+        "heading": "Handle replies yourself",
+        "body": "Reply detection is not implemented. There is no automatic reply rate or automatic recording of opt-out requests. Review incoming replies and update the do-not-contact list yourself. Follow-up automation is not a substitute for that responsibility."
+      },
+      {
+        "heading": "Count the work clearly",
+        "body": "Finding is free. Accepting each lead, generating each draft and sending each message use one task apiece. A running campaign can top up its city-based prospect list every ten minutes. Sending pace and verification help manage outreach, but do not guarantee deliverability or protect a domain from every complaint."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Engines",
+        "href": "/engines/"
+      },
+      {
+        "label": "Beyond Drafting: How to Actually Automate Your Sales Process",
+        "href": "/blog/ai-sales-tools/"
+      },
+      {
+        "label": "Your mail stays unread until you have read it yourself.",
+        "href": "/engines/communication"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      },
+      {
+        "label": "Everything else it does not do",
+        "href": "/limits/"
+      },
+      {
+        "label": "Marketing engine",
+        "href": "/engines/marketing/"
+      },
+      {
+        "label": "Your data",
+        "href": "/security/"
+      },
+      {
+        "label": "How teams share",
+        "href": "/teams/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/marketing/",
+    "title": "Turn your brand into a practical content plan.",
+    "summary": "Research your market, prepare posts and see which channels bring useful enquiries.",
+    "sections": [
+      {
+        "heading": "Begin with your business",
+        "body": "The engine studies your existing material and brand guidelines to understand what you offer and how you communicate. It identifies competitors separately for each platform, because the relevant accounts can differ between LinkedIn and Instagram."
+      },
+      {
+        "heading": "Build a calendar you can review",
+        "body": "It looks at competitor content, creates a platform-specific plan and writes posts with suggested images or video. Everything is available to edit before approval. Giving it examples of work you like helps establish the standard."
+      },
+      {
+        "heading": "Publish approved posts",
+        "body": "The supported social platforms are Facebook, Instagram, Threads and LinkedIn. Approving a calendar slot queues that post for publication. Unapproved slots remain drafts. Approval starts enabled, though you can change it per step."
+      },
+      {
+        "heading": "Spot unusual competitor activity",
+        "body": "The engine compares a competitor’s post with that account’s normal performance. It flags posts outperforming that baseline while they are still gaining attention, rather than judging every account against one fixed number."
+      },
+      {
+        "heading": "Follow results through to leads",
+        "body": "After publication, it checks real engagement after 24 hours and counts submissions to its lead form. Reports compare channels by leads per post and provide a recommendation for what to focus on next. This helps connect activity to enquiries rather than likes alone."
+      },
+      {
+        "heading": "Understand campaign costs",
+        "body": "Each drafted post and competitor check uses one task. AI images and video renders use separate media credits, with the price shown before rendering. Approving an image idea does not itself render an image or use media credits."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Engines",
+        "href": "/engines/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      },
+      {
+        "label": "Sales engine",
+        "href": "/engines/sales/"
+      },
+      {
+        "label": "What an AI Marketing Engineer Actually Does for Your Business",
+        "href": "/blog/ai-marketing-engineer/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/video/",
+    "title": "From a rough idea to an editable film.",
+    "summary": "Develop the story, plan the scenes and assemble the result with captions, graphics and music.",
+    "sections": [
+      {
+        "heading": "Write before you film",
+        "body": "Say or type your idea. A writing pass creates the script, then a directing pass defines the scenes, framing, action, dialogue and timing. Review passes help improve the plan before you commit to rendered clips."
+      },
+      {
+        "heading": "Build it one scene at a time",
+        "body": "The studio prepares a storyboard and generates separate clips. A consistent character can appear throughout, and you can redo one scene without rebuilding every other clip. Writing, directing and storyboards use tasks; generated images and video use media credits with a price shown before rendering."
+      },
+      {
+        "heading": "Edit the final shape",
+        "body": "Use the timeline to move clips, add styled captions, position graphics and mix music. Create a vertical reel or a widescreen film. Separate tracks keep captions, graphics and audio available to adjust."
+      },
+      {
+        "heading": "Use a voice with consent",
+        "body": "Voice cloning requires a recorded consent step before the sample can be used. Read-aloud and cloned voices are Windows only, in English, French, German, Portuguese, Italian and Spanish. They are not available on Android."
+      },
+      {
+        "heading": "Plan for the limits",
+        "body": "The studio does not support lip-sync. Independent clips cut between scenes rather than continuing one uninterrupted camera move. Film length depends on the scenes you create and your media budget, rather than a stated fixed runtime cap."
+      },
+      {
+        "heading": "Export a file you can share",
+        "body": "The studio joins the clips and re-encodes a final file locally. A three-minute film may take about three minutes to save. First export downloads 79 MB of encoding tools and caches them. Video generation happens remotely; exporting the finished film uses your machine."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Engines",
+        "href": "/engines/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/communication/",
+    "title": "An inbox that feels more manageable.",
+    "summary": "Find the requests hidden in long threads and prepare replies that sound like the right person.",
+    "sections": [
+      {
+        "heading": "Read without changing your unread markers",
+        "body": "Choose the Gmail mailboxes the engine can read. It leaves messages unread until you read them, preserving your existing signal for what you have seen. WhatsApp and selected social pages can work alongside the mailbox."
+      },
+      {
+        "heading": "Prepare a reply in your voice",
+        "body": "The engine learns openings, sign-offs and tone from past correspondence. The writing profile is an editable text file and is refined over time. You can change or discard a draft before it is sent."
+      },
+      {
+        "heading": "Keep mailboxes separate",
+        "body": "Connect several Google accounts at once and assign each job to a specific account. Writing profiles are per mailbox, so a reply for someone whose diary you manage can sound like them. The engine does not file or archive their mail as part of reading it."
+      },
+      {
+        "heading": "Bring buried requests into view",
+        "body": "Requests inside long email threads are pulled into a list, helping you catch work that might otherwise be missed. You decide which mailboxes and groups are available and can change that selection."
+      },
+      {
+        "heading": "Review before sending",
+        "body": "Drafts wait for your approval. If an approval request is unanswered, the send is refused. This gives an assistant a faster first draft while leaving control over the final message with the person responsible."
+      },
+      {
+        "heading": "What it costs and supports",
+        "body": "Reading is free. Each drafted reply and each sent message uses one task. Pro includes unlimited tasks. Gmail is the supported email mailbox today; do not assume Outlook mailbox support from the wider connected-app catalogue."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog/"
+      },
+      {
+        "label": "How the memory works →",
+        "href": "/memory/"
+      },
+      {
+        "label": "Plans and tasks",
+        "href": "/pricing/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/pricing-intelligence/",
+    "title": "Keep up with what competitors charge.",
+    "summary": "Read public pricing pages, compare like with like and notice meaningful changes.",
+    "sections": [
+      {
+        "heading": "Read the source page",
+        "body": "The engine extracts currency, plan names, features and billing periods directly from page text. After three failed extraction attempts it may ask AI for help, but a stored price must still appear in the source. Funding announcements and interface labels are filtered out of the pricing data."
+      },
+      {
+        "heading": "Compare prices carefully",
+        "body": "Monthly and yearly billing periods are kept distinct. Prices in different currencies are flagged rather than silently converted. A business with sales-call-only pricing is marked as having no public price rather than given an estimate."
+      },
+      {
+        "heading": "Get a recommendation with its working",
+        "body": "Recommendations use arithmetic rather than an AI opinion. Add your own price to compare with the market. With fewer than three comparable plans, the engine declines to recommend a change. Results can suggest considering a raise, reviewing a top-quarter position or staying with a mid-market price."
+      },
+      {
+        "heading": "Receive useful change alerts",
+        "body": "Alerts cover price rises, price drops, new plans, removed plans, promotions and competitors moving below your price. A promotion is flagged when it begins. An undercut alert is triggered by a new move below you, rather than repeated simply because a competitor remains cheaper."
+      },
+      {
+        "heading": "Choose who matters",
+        "body": "Suggested competitors enter an approve-or-reject queue. Rejected suggestions are remembered. The engine reads public pricing pages for products as well as software, provided usable prices are visible."
+      },
+      {
+        "heading": "Know the frequency and cost",
+        "body": "Finding competitors is free. Accepting a competitor and each competitor check use one task. Each rival is checked at most hourly, and each source page is read at most once a day. Pro includes unlimited tasks, but the reading frequency limits still apply."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Engines",
+        "href": "/engines/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      },
+      {
+        "label": "What an AI Marketing Engineer Actually Does for Your Business",
+        "href": "/blog/ai-marketing-engineer/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/jobs/",
+    "title": "Spend time on applications worth making.",
+    "summary": "Find live roles that fit your experience and prepare a CV and cover letter for each one.",
+    "sections": [
+      {
+        "heading": "Start from your actual experience",
+        "body": "Upload your CV and describe the roles you want. Matching focuses on jobs your experience can reasonably support. The engine changes how that experience is presented for a role; it should not add qualifications or achievements you do not have."
+      },
+      {
+        "heading": "Check that the listing is real and current",
+        "body": "Every link is opened and checked for ten common failure cases: a missing site, page error, expired posting, help page, sign-in page, generic careers page, closed applications, missing job description, a list of jobs rather than one job, or an unrelated redirect."
+      },
+      {
+        "heading": "Prepare documents for the role",
+        "body": "The engine compares the job description with your source CV and drafts a tailored CV and cover letter. Claims are checked against the source text, and generic filler is removed. It can use the language expected by the posting."
+      },
+      {
+        "heading": "Edit the version you will use",
+        "body": "Make changes directly in the draft. The PDF is rebuilt from your edits, so the final document reflects your review. Word documents can be used as input, but the app does not export .docx."
+      },
+      {
+        "heading": "You submit the application",
+        "body": "Workforce prepares documents; it does not automatically apply for you. Check every claim and send the documents yourself through the verified posting. Live checks reduce wasted effort but cannot guarantee an interview or acceptance by an applicant tracking system."
+      },
+      {
+        "heading": "Pay for useful output",
+        "body": "Finding listings is free. Accepting a posting uses one task and each document written uses one task. Fifteen accepted postings with a CV and cover letter each use 45 tasks, within the Free plan’s 300 monthly tasks."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Engines",
+        "href": "/engines/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      },
+      {
+        "label": "How your data is handled",
+        "href": "/security/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/seo/",
+    "title": "Write the articles your business can stand behind.",
+    "summary": "Find useful topics, draft from your own evidence and check results after publication.",
+    "sections": [
+      {
+        "heading": "Study your site and competitors",
+        "body": "The engine crawls up to 1,000 pages, using the sitemap and links while respecting robots.txt. It records titles, descriptions, headings, links and raw HTML, and looks for pages with no incoming links. Index checks use Google and Bing where available. You approve or remove suggested competitors."
+      },
+      {
+        "heading": "Choose topics with a reason",
+        "body": "Topics come from competitor gaps, rising searches and requests from Marketing and News. A site must appear in at least two of your searches to qualify as a search-discovered competitor. If you already rank for a topic, the engine can recommend refreshing the existing page. Bing search counts and Google suggestion counts are labelled separately."
+      },
+      {
+        "heading": "Bring something original to the draft",
+        "body": "Drafting needs evidence only your business can supply, such as a case study, internal data, a customer insight, an expert quote or a first-hand opinion. Figures must be supported by cited source text. Links outside your site and provided sources are removed, and unresolved checks are shown for review."
+      },
+      {
+        "heading": "Confirm the claims before publishing",
+        "body": "The review lists brand-name sentences, list items, FAQ answers and the image for confirmation. Editing a confirmed claim or changing the image resets that confirmation. Publish remains disabled until required checks pass. The detector can miss claims that do not name your brand, so read the whole draft."
+      },
+      {
+        "heading": "Publish through your own site connection",
+        "body": "For GitHub, the engine creates a commit on a new seo/ branch and opens a pull request. Publish attempts to merge it; branch protection or conflicts leave it open for a person. For WordPress, it creates a draft that you publish in WordPress. Supporting index, sitemap and relevant internal links accompany the article."
+      },
+      {
+        "heading": "Measure and maintain",
+        "body": "The engine checks the live article and measures Search Console results at days 3, 7, 14 and 30, then monthly. It compares two 28-day windows weekly for declining pages. The competitor monitor can read up to eight approved competitor blogs daily and check new-post rankings weekly for 30 days. Missing data is labelled unmeasured. Turning the engine off pauses scheduled runs, while manual buttons still work."
+      },
+      {
+        "heading": "Costs and practical limits",
+        "body": "Each finished job uses one task. Competitor jobs use one task per kept competitor; keeping a discovered competitor costs one task, while one recommended by Marketing is free. AI images use media credits; your images and suitable attributed Wikimedia images are preferred. Browser studies and rank checks need Windows or Linux. There is no backlink, domain-authority, keyword-density or target-word-count scoring."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Engines",
+        "href": "/engines/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      },
+      {
+        "label": "Marketing engine",
+        "href": "/engines/marketing/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/crm/",
+    "title": "Bring your customer relationships together.",
+    "summary": "Use the people and companies already present in your work, then organize what happens next.",
+    "sections": [
+      {
+        "heading": "Build records from the work you do",
+        "body": "Sales leads and approved competitors become companies. Email and WhatsApp correspondents and person files in memory become people. Records reflect the underlying data rather than separate stale copies. Your own addresses, company domain, machines and group chats are excluded; a never-add list gives you further control."
+      },
+      {
+        "heading": "Import what you already have",
+        "body": "Bring in LinkedIn’s Connections.csv export without crawling LinkedIn connections. Import CSV or Excel files from another CRM, with presets for HubSpot, Pipedrive and Salesforce. Map columns and choose how matching records are handled. Potential duplicates are suggested, but you decide whether to merge."
+      },
+      {
+        "heading": "Organize people your way",
+        "body": "Create groups with fixed members or saved filters that update automatically. Sales products already appear as groups. See records in tables, a kanban pipeline, a calendar or lists, with saved views. A person in more than one group still receives one campaign message."
+      },
+      {
+        "heading": "Review recipients before a campaign",
+        "body": "Prepare email, WhatsApp or LinkedIn outreach, or choose each person’s first available channel. Preview messages and exclusions before sending. The shared do-not-contact list applies. WhatsApp waits 5 to 10 seconds between messages, rests after 50 and has a combined Sales/CRM limit of 400 a day. LinkedIn messaging uses your session for first-degree connections."
+      },
+      {
+        "heading": "Automate routine record work",
+        "body": "Start an automation from a record change, a schedule or a manual action. It can update records, wait, add a group member, create tasks, draft work or perform allowed sends. Automation-made changes do not trigger other automations, preventing loops. There is a limit of 60 runs per hour; a test uses one real record without changing or sending anything."
+      },
+      {
+        "heading": "Ask about a relationship",
+        "body": "CRM AI can draft a short message, answer a question about a record or summarize the history and next step. Answers draw on the record’s fields, messages, notes and tasks. These AI drafts, questions and summaries are not counted as tasks. CRM itself requires Basic, Pro or Enterprise."
+      },
+      {
+        "heading": "Share with clear permissions",
+        "body": "CRM data is local and can join the hourly team sync. Set members’ view, edit, delete, import and campaign permissions. A campaign sends only from its originating computer. Google Contacts sync writes CRM records outward hourly; it does not import your Google Contacts. The assistant can search, summarize and draft, but campaign sending stays in the CRM."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Engines",
+        "href": "/engines/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      },
+      {
+        "label": "How the Sales list works",
+        "href": "/engines/sales/"
+      },
+      {
+        "label": "How teams share",
+        "href": "/teams/"
+      }
+    ]
+  },
+  {
+    "path": "/engines/ipo/",
+    "title": "Understand an IPO with the working shown.",
+    "summary": "Review filing-based analysis and a transparent model score, with clear limits on what that score means.",
+    "sections": [
+      {
+        "heading": "Begin with official information",
+        "body": "The engine covers NSE and BSE mainboard offerings, NSE Emerge and BSE SME. It uses exchange issue information, SEBI-filed red herring prospectuses and official daily listing-price records. It can also follow Nasdaq and NYSE IPOs through SEC filings."
+      },
+      {
+        "heading": "Check the financial picture",
+        "body": "Code extracts financial statements, peer comparisons and key performance tables, then calculates valuation, return on capital, growth, debt and existing-holder sales. Failed accounting consistency checks produce missing data rather than a guessed figure. Rule-based flags include P/E above 1.5 times the peer median and more than 70% of the issue sold by existing holders."
+      },
+      {
+        "heading": "See the perspectives behind the score",
+        "body": "Four formulas examine fundamentals, institutional investors, company sentiment and market effects. A fifth combines them. Missing inputs are treated as neutral. Grey market premium is not used, and no score is produced before the price band is available."
+      },
+      {
+        "heading": "Understand what backtesting can show",
+        "body": "Backtesting replays past IPOs using information available by their final bid day, with date-bounded news. It tests batches of five, refits formulas and checks performance. It can stop after three unchanged batches with at least 20 tested. Until 100 IPOs have been tested, the result is an uncalibrated model ranking, not a measured probability."
+      },
+      {
+        "heading": "Keep the analysis current",
+        "body": "A daily refresh finds issues, updates filings and subscriptions, rescoring and recording listed results. You can refresh manually or follow an IPO for alerts when its score moves by at least 10 points. The optional daily email digest is off by default and covers issues closing in the next three days."
+      },
+      {
+        "heading": "Know the role of AI and the limits",
+        "body": "AI summarizes news, helps read scanned anchor letters and can provide an optional taught-expert opinion. Figures and formulas are calculated in code. News quotes must appear in the cited article. This is informational analysis, not investment advice, and it never places orders. Past patterns do not guarantee results."
+      },
+      {
+        "heading": "Desktop availability and task use",
+        "body": "IPO analysis is available on the desktop app, not Android. Each IPO analysis and each data job, including refresh, results and history, uses one task. Turning the engine off stops the daily refresh and its task use; manual actions remain available."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Engines",
+        "href": "/engines/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      }
+    ]
+  },
+  {
+    "path": "/integrations/",
+    "title": "Your tools, working together.",
+    "summary": "Connect the accounts you choose and give each worker access to the apps its job needs.",
+    "sections": [
+      {
+        "heading": "Google tools",
+        "body": "The 36-connector catalogue includes Gmail, Drive, Calendar, Sheets, Docs, Slides, Maps and YouTube, plus an in-house Google tools server. Google Ads and Analytics are also accessible through Google services. The source lists 33 Gmail tools, 35 Drive tools, 25 Calendar tools and 15 Sheets tools."
+      },
+      {
+        "heading": "Work and customer apps",
+        "body": "Connect GitHub, Slack, Notion, HubSpot, LinkedIn, Airtable, Supabase and SQLite. LinkedIn has 18 listed tools. Available actions depend on the service connection and the permissions you grant."
+      },
+      {
+        "heading": "Finance and research",
+        "body": "Finance connections include Stripe, PayPal, Xero, SEC EDGAR and Yahoo Finance. Research tools include Brave Search, DuckDuckGo, Wikipedia, arXiv, Hacker News, YouTube transcripts, Firecrawl and Bright Data."
+      },
+      {
+        "heading": "Local tools and WhatsApp",
+        "body": "The catalogue also includes your filesystem, memory, structured thinking and time. WhatsApp uses an embedded session shared by the sales and inbox workflows. Account-free tools are ready immediately; services needing an account require you to sign in."
+      },
+      {
+        "heading": "Bring your existing setup",
+        "body": "Import standard connector configuration from Claude Desktop, Cursor, VS Code or Windsurf. You can add compatible connectors beyond the built-in list. Remote connections must be secure unless they run on your own machine."
+      },
+      {
+        "heading": "Keep accounts and permissions separate",
+        "body": "Several Google accounts can be connected simultaneously, with each job pinned to one account. Worker permissions limit which tools each worker may reach. Connect the services you need and keep unrelated accounts out of the workflow."
+      },
+      {
+        "heading": "Optional desktop access",
+        "body": "Workforce can act on the desktop and inspect installed applications if you enable that capability. It is off by default and uses the same approval controls. Connected services may have their own pricing, access requirements and limits."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "Your data",
+        "href": "/security/"
+      },
+      {
+        "label": "Build your own engine",
+        "href": "/build/"
+      }
+    ]
+  },
+  {
+    "path": "/build/",
+    "title": "Make a workflow that fits your business.",
+    "summary": "Describe your process in everyday language, save a routine or ask for a custom engine.",
+    "sections": [
+      {
+        "heading": "Describe the steps",
+        "body": "Give the workflow a name and explain what should happen. Workforce compiles a sequence of two to six steps, selecting workers and connected apps for each step. It can retry compilation if something goes wrong."
+      },
+      {
+        "heading": "Use the same controls",
+        "body": "Your custom engine appears on the same task board and follows the same permissions as built-in engines. Outbound steps require approval by default unless you explicitly change that setting. Each step producing an output uses one task."
+      },
+      {
+        "heading": "Commission a tailored engine",
+        "body": "Share your answers to seven plain-language questions, your brand guidelines and up to three examples of work you would approve. Those examples help establish tone, quality and the decisions that make your process distinctive."
+      },
+      {
+        "heading": "Agree the scope and price",
+        "body": "A commission costs $500 to $2,000, plus $100 per extra piece. The exact price is agreed after a call based on the work involved. Contact Saeel at saeel.momin@trackmystartup.com to discuss it. Delivery uses a one-time install password and runs inside your copy of Workforce."
+      },
+      {
+        "heading": "Save work you repeat",
+        "body": "Turn a multi-step job into a saved routine. Schedule recurring or one-off work such as follow-ups, reports and reminders. Scheduling does not bypass task allowances or approval settings."
+      },
+      {
+        "heading": "Build a view of your business",
+        "body": "Upload a spreadsheet to create a dashboard or ask the console to track something. Dashboards can update on request and during their regular checks. Organisation owners can also enable additional engines from the marketplace."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Your mail stays unread until you have read it yourself.",
+        "href": "/engines/communication"
+      },
+      {
+        "label": "Ask about a commission",
+        "href": "mailto:saeel.momin@trackmystartup.com?subject=Engine%20commission%20enquiry"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "See the built-in engines",
+        "href": "/engines/"
+      }
+    ]
+  },
+  {
+    "path": "/teams/",
+    "title": "Keep the knowledge. Share the work.",
+    "summary": "Bring your team’s decisions, reference material and routines into a shared place the business can keep.",
+    "sections": [
+      {
+        "heading": "Share more than documents",
+        "body": "Team sharing includes notes, memory, reference material and the conversations behind decisions. It can also share saved routines, workers, dashboards, task boards, sales pipelines, engine setup and scheduled work."
+      },
+      {
+        "heading": "Let the next person find the context",
+        "body": "A price quote is more useful with the reason behind it. A client decision is more useful with the discussion that led to it. Recording this context helps colleagues pick up work when someone changes roles, instead of reconstructing it from scattered messages."
+      },
+      {
+        "heading": "Sync through your own Drive",
+        "body": "Changes sync hourly in both directions through your own Drive, with only changed information transferred. Each member keeps a local copy, and indexing and search remain local. Sharing is not instantaneous and does involve your Drive connection."
+      },
+      {
+        "heading": "Start an organisation",
+        "body": "An Enterprise plan holder can create the organisation and choose its engines. Anyone can join with an invite code, including users on Free. Members use the organisation’s pooled tasks and included features."
+      },
+      {
+        "heading": "Pay per seat, pool the tasks",
+        "body": "Enterprise is $19.99 per seat each month or $199.90 per seat yearly. Each seat contributes 1,000 monthly tasks to the shared allowance. CRM and History & memory are included. Images and video still use separate media credits."
+      },
+      {
+        "heading": "Keep shared activity under control",
+        "body": "The do-not-contact list applies across team sales activity. CRM permissions can distinguish viewing, editing, deleting, importing and sending campaigns. A synced campaign sends only from the machine that created it, helping prevent duplicate sends."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "The full data story",
+        "href": "/security/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "How memory works",
+        "href": "/memory/"
+      },
+      {
+        "label": "Pricing",
+        "href": "/pricing/"
+      }
+    ]
+  },
+  {
+    "path": "/compare/",
+    "title": "Choose the help that fits the job.",
+    "summary": "Workforce is most useful for repeatable execution across your tools. Some work still benefits from a conversation, an agency or a person.",
+    "sections": [
+      {
+        "heading": "When a chat assistant is enough",
+        "body": "A chat assistant can be a good place to explore ideas, learn something or review a draft. Modern assistants vary in memory and connected tools. Choose based on what you need the software to actually do, rather than assuming every chatbot has the same limits."
+      },
+      {
+        "heading": "When a workflow helps",
+        "body": "Workforce organizes multi-step work around business jobs: research prospects, prepare outreach, review the messages and run the permitted next steps. The task board and recurring workflows help you track work beyond a single response."
+      },
+      {
+        "heading": "Working alongside an agency",
+        "body": "An agency can bring creative judgment, specialist expertise and an outside perspective. Workforce can help with repeatable research, drafting, scheduling and reporting. Compare the actual work you need and the agency’s proposal; there is no single price that represents every agency."
+      },
+      {
+        "heading": "Working alongside your team",
+        "body": "A person brings relationships, accountability and judgment. Workforce can prepare information and handle repeatable steps, while the responsible person reviews important decisions. Shared knowledge can make handovers easier but does not replace leadership or responsibility."
+      },
+      {
+        "heading": "Compare the complete cost",
+        "body": "Free begins at 300 monthly tasks. Basic is $19.99 a month, Pro $199.99 and Enterprise $19.99 per seat. Consider separate media credits and the time needed to review output. Completion time depends on the job, connected services and approvals."
+      },
+      {
+        "heading": "Try a real job before deciding",
+        "body": "Choose one recurring task you understand well. Run it with draft-only permissions, compare the result with your usual process and decide where it saves useful effort. Keep a person involved where errors would have legal, financial, employment or client consequences."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Beyond Drafting: How to Actually Automate Your Sales Process",
+        "href": "/blog/ai-sales-tools/"
+      },
+      {
+        "label": "How the shared memory works",
+        "href": "/teams/"
+      },
+      {
+        "label": "Download Workforce",
+        "href": "/download/"
+      },
+      {
+        "label": "What it costs",
+        "href": "/pricing/"
+      },
+      {
+        "label": "What it does not do",
+        "href": "/limits/"
+      },
+      {
+        "label": "What an AI Marketing Engineer Actually Does for Your Business",
+        "href": "/blog/ai-marketing-engineer/"
+      }
+    ]
+  },
+  {
+    "path": "/blog/",
+    "title": "Ideas for a less busy working day.",
+    "summary": "Practical guides to using AI for the work around your business.",
+    "sections": [
+      {
+        "heading": "Build a repeatable sales process",
+        "body": "Move prospect research, draft outreach and approved follow-ups into a workflow you can inspect. Learn where automation helps and why reply review and opt-out handling still need attention."
+      },
+      {
+        "heading": "Prepare stronger job applications",
+        "body": "Use live listing checks to reduce dead ends, then tailor documents from your actual experience. Understand what the app prepares and what you still submit yourself."
+      },
+      {
+        "heading": "Make marketing easier to run",
+        "body": "Bring brand research, content planning, publishing approvals and lead reporting into one process. Keep the judgment about what your business should say with you."
+      },
+      {
+        "heading": "Read with the product limits in mind",
+        "body": "These guides explain ways to use Workforce. They do not promise sales, interviews or campaign results. Review the pricing, permissions and current limitations before relying on a workflow."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Stop Using AI Sales Tools That Only Draft Emails",
+        "href": "/blog/ai-sales-tools/"
+      },
+      {
+        "label": "Stop Applying to Dead Links: A Manual for AI Job Search Automation",
+        "href": "/blog/ai-job-search-tools/"
+      },
+      {
+        "label": "What an AI Marketing Engineer Actually Does for Your Business",
+        "href": "/blog/ai-marketing-engineer/"
+      }
+    ]
+  },
+  {
+    "path": "/blog/ai-marketing-engineer/",
+    "title": "A practical way to run your marketing with AI.",
+    "summary": "Bring research, planning and content production together while keeping the final say over your brand.",
+    "sections": [
+      {
+        "heading": "Start with the work, not the job title",
+        "body": "Published 26 September 2026 by the Workforce team. An AI marketing engineer connects tools and processes that help a campaign run. For a small business, the useful question is simpler: which repeated jobs could software prepare so your team can focus on decisions?"
+      },
+      {
+        "heading": "Give the system something specific to learn",
+        "body": "Start with your site, published posts, brand guidelines and examples you would happily approve. Workforce’s marketing engine uses this material to understand your business, then researches competitors on the platforms you use. Better source material gives you a better starting draft."
+      },
+      {
+        "heading": "Turn the research into a calendar",
+        "body": "The engine proposes a platform-specific plan and writes posts with suggested media. Review the calendar as a whole: does it address customer questions, reflect your priorities and sound like your business? Edit the wording before approving the slots you want to publish."
+      },
+      {
+        "heading": "Connect the tools that carry the work",
+        "body": "Gmail, LinkedIn and HubSpot are among the available connections, alongside Google and other work services. A connection only helps if it has a clear purpose in your process. Grant the access needed for the job and leave unrelated accounts disconnected."
+      },
+      {
+        "heading": "Keep publishing a deliberate choice",
+        "body": "Marketing supports Facebook, Instagram, Threads and LinkedIn. Approved slots enter the publishing queue. Approval is enabled by default, and you can control the setting per step. AI preparation does not remove the need to check facts, images and the timing of a campaign."
+      },
+      {
+        "heading": "Measure useful enquiries",
+        "body": "The engine can compare channels through leads per post, using its lead form and post-publication checks. Look for patterns that inform your next decision rather than treating a high engagement count as proof of business impact. Each post draft and competitor check uses one task; media renders have separate costs."
+      },
+      {
+        "heading": "Keep the human judgment",
+        "body": "You do not need to write code to use the ready-made workflow. You do need to decide what your business should say, which opportunities matter and what quality you will accept. Use the engine to reduce repeatable work while retaining that responsibility."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog/"
+      },
+      {
+        "label": "marketing engine",
+        "href": "https://workforce.trackmystartup.com/engines/marketing/"
+      },
+      {
+        "label": "How to Use AI Job Search Tools That Actually Get Results",
+        "href": "/blog/ai-job-search-tools/"
+      },
+      {
+        "label": "Your mail stays unread until you have read it yourself.",
+        "href": "/engines/communication"
+      },
+      {
+        "label": "Beyond Drafting: How to Actually Automate Your Sales Process",
+        "href": "/blog/ai-sales-tools/"
+      },
+      {
+        "label": "engines",
+        "href": "https://workforce.trackmystartup.com/engines/"
+      },
+      {
+        "label": "competitor price tracking",
+        "href": "https://workforce.trackmystartup.com/engines/pricing-intelligence/"
+      },
+      {
+        "label": "36 apps",
+        "href": "https://workforce.trackmystartup.com/integrations/"
+      }
+    ]
+  },
+  {
+    "path": "/blog/ai-job-search-tools/",
+    "title": "A calmer way to prepare job applications.",
+    "summary": "Check that roles are live, match them to your experience and spend your effort on documents you can stand behind.",
+    "sections": [
+      {
+        "heading": "Reduce the dead ends first",
+        "body": "Published 30 September 2026 by the Workforce team. An expired listing can look surprisingly current. Workforce opens posting pages and checks for redirects, closed applications, missing descriptions and other signs that the link is not a useful opportunity."
+      },
+      {
+        "heading": "Set a realistic search direction",
+        "body": "Begin with your actual CV and the roles you want to pursue. A short list that matches your experience is more useful than a large collection of loosely related titles. Review the suggested roles before accepting them into the application workflow."
+      },
+      {
+        "heading": "Understand what a live check can do",
+        "body": "The engine checks ten failure cases, including page errors, generic careers pages, sign-in pages and job lists mistaken for individual openings. This reduces obvious dead ends. A live page cannot guarantee that a hiring team will respond or that the role has not changed since the check."
+      },
+      {
+        "heading": "Tailor the evidence, not the facts",
+        "body": "A useful CV highlights the parts of your experience most relevant to the role. Workforce checks drafted claims against your source CV and prepares a tailored CV and cover letter. Review dates, qualifications and achievements carefully. Do not accept wording that gives a misleading impression of your experience."
+      },
+      {
+        "heading": "Make your edits before exporting",
+        "body": "Edit the generated text directly and rebuild the PDF from your version. Word files are supported as source CVs, but the app does not export Word documents. If an employer requires .docx, you will need another way to prepare that file."
+      },
+      {
+        "heading": "Submit the application yourself",
+        "body": "Workforce prepares the documents; you send them through the posting. This final check gives you a chance to confirm the employer, role, requested documents and application terms. The tool does not guarantee applicant-tracking success, interviews or an offer."
+      },
+      {
+        "heading": "Keep cost and privacy clear",
+        "body": "Finding postings is free. Accepting a posting and each document written use one task. Fifteen postings with a CV and letter each use 45 tasks. Your CV is stored and indexed locally, while online AI requests are governed by the relevant provider’s terms."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog/"
+      },
+      {
+        "label": "AI job application engine",
+        "href": "https://workforce.trackmystartup.com/engines/jobs/"
+      },
+      {
+        "label": "Workforce 2.0",
+        "href": "https://workforce.trackmystartup.com/download/"
+      },
+      {
+        "label": "JobCopilot",
+        "href": "https://jobcopilot.com/best-ai-job-search-tools/"
+      },
+      {
+        "label": "data privacy and storage",
+        "href": "https://workforce.trackmystartup.com/security/"
+      }
+    ]
+  },
+  {
+    "path": "/blog/ai-sales-tools/",
+    "title": "Build a sales process you can actually follow.",
+    "summary": "Connect prospect research, thoughtful drafts and approved outreach without losing track of the human follow-up.",
+    "sections": [
+      {
+        "heading": "Look beyond a better opening line",
+        "body": "Published 30 September 2026 by the Workforce team. Writing assistance is useful, but an outbound process also needs suitable prospects, contact checks, sending and follow-up. A workflow brings those steps together so you can inspect where work is waiting."
+      },
+      {
+        "heading": "Start with a clear customer profile",
+        "body": "Describe the customers you serve and the places you want to search. Workforce uses a browser to find companies, checks fit and contact domains, and filters generic addresses. Review the result before accepting leads. Finding is free; accepting one uses a task."
+      },
+      {
+        "heading": "Make the draft yours",
+        "body": "Give the engine useful context and edit its suggested outreach. It learns from what you actually send, rather than treating all of its own generated messages as good examples. A draft should explain a relevant reason to talk, not just insert a prospect’s name into a template."
+      },
+      {
+        "heading": "Approve a manageable outreach run",
+        "body": "Start with a small batch you can review properly. Sending is locked by default; you can approve messages individually or as a batch, and can change the engine’s permission setting. Each generated draft and sent message uses one task. A follow-up is another sent message."
+      },
+      {
+        "heading": "Do not automate away reply handling",
+        "body": "Workforce does not detect sales replies or automatically process opt-out requests. Read replies yourself and update the shared do-not-contact list. That list is checked at send time so a recorded opt-out can stop a queued message. This is an essential part of running the workflow responsibly."
+      },
+      {
+        "heading": "Keep data claims precise",
+        "body": "Prospect records and memory are stored locally, and team sharing can sync through your own Drive. AI requests use online services. Local storage does not mean no information is ever transmitted, and retrieval or templates cannot eliminate every AI error."
+      },
+      {
+        "heading": "Judge the process by useful work",
+        "body": "Compare the time spent finding suitable prospects, correcting drafts and handling follow-up with your previous process. Free includes 300 tasks monthly; paid plans add capacity and features. No tool can promise closed deals, perfect deliverability or a process that never needs your judgment."
+      }
+    ],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Blog",
+        "href": "/blog/"
+      },
+      {
+        "label": "30 Best AI Sales Automation Tools 2026",
+        "href": "https://www.heygen.com/blog/best-ai-sales-automation-tools"
+      },
+      {
+        "label": "data privacy and local storage",
+        "href": "https://workforce.trackmystartup.com/security/"
+      }
+    ]
+  },
+  {
+    "path": "/legal/privacy/",
+    "title": "Privacy Notice",
+    "summary": "How your information is handled, and the rights you have.",
+    "sections": [],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "support@trackmystartup.com",
+        "href": "mailto:support@trackmystartup.com"
+      },
+      {
+        "label": "data page",
+        "href": "/security/"
+      },
+      {
+        "label": "Terms of Service",
+        "href": "/legal/terms/"
+      }
+    ],
+    "legalHtml": "<main id=\"main\">\n<nav class=\"crumbs\" aria-label=\"Breadcrumb\"><a href=\"/\">Home</a><span class=\"sep\" aria-hidden=\"true\">/</span><span>Legal</span><span class=\"sep\" aria-hidden=\"true\">/</span><span aria-current=\"page\">Privacy</span></nav>\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://workforce.trackmystartup.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Privacy\",\"item\":\"https://workforce.trackmystartup.com/legal/privacy/\"}]}</script>\n<section class=\"hero\" data-shape=\"vault\" data-cap=\"What we hold, and what stays yours\">\n  <div class=\"wrap\">\n    <p class=\"kicker\">Legal</p>\n    <h1>Privacy Notice <em class=\"g\">in plain language.</em></h1>\n    <p class=\"lead\">Most of your data never reaches us at all. This page says exactly what does,\n    why we have it, and what you can make us do about it.</p>\n    <p class=\"answer\">Last updated 28 August 2026. Version 2026-08-28.1.</p>\n  </div>\n</section>\n\n<section data-shape=\"vault\" data-cap=\"Most of it never leaves your machine\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>What we actually collect</h2>\n      <p class=\"answer\">Your files, your memory and your documents are stored and indexed on your\n      own computer. They are not uploaded to us, and they are not part of any account record.\n      What we hold is the short list below.</p>\n    </div>\n    <ul class=\"answer\">\n      <li><b>Account details</b> &mdash; your name, email address and password hash. We need these\n      to have an account at all. Kept until you delete the account.</li>\n      <li><b>API keys you choose to store</b> &mdash; held so your workers can run. Kept until you\n      remove them.</li>\n      <li><b>Organisation membership</b> &mdash; which org you belong to, if you joined one, so\n      that shared workflows and settings reach the right people.</li>\n      <li><b>Billing records</b> &mdash; what you paid and when. Tax law requires us to keep these\n      after you leave, so deleting your account does not delete them.</li>\n      <li><b>Operational logs</b> &mdash; errors and usage counts, used to keep the product\n      running and to bill correctly.</li>\n      <li><b>Consent record</b> &mdash; the version of these terms you accepted, and when. We are\n      required to be able to show this.</li>\n    </ul>\n    <p class=\"answer\">We do not sell personal data, and we do not share it for cross-context\n    behavioural advertising. Your content is not used to train third-party models.</p>\n  </div>\n</section>\n\n<section data-shape=\"gate\" data-cap=\"Who is responsible for what\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>When you upload other people's data, you are the controller</h2>\n      <p class=\"answer\">This is the part that matters most and is most often skipped.</p>\n    </div>\n    <p class=\"answer\">For your own account details, we are the controller. But for personal data\n    you bring into Workforce 2.0 &mdash; a customer list, a lead's phone number, a CV, an inbox\n    &mdash; you are the controller and we act as your processor. We handle that data on your\n    instructions and for no purpose of our own.</p>\n    <p class=\"answer\">That split has consequences for you. You are the one who needs a lawful\n    basis for holding those records. You are the one who must answer if that person asks for a\n    copy, or asks to be deleted. We will help you do it, and we will not use the data for\n    anything else, but we cannot supply a lawful basis you do not have.</p>\n    <p class=\"answer\">Do not upload special-category data &mdash; health records, biometrics,\n    government identifiers &mdash; unless a signed agreement covering it is in place. Workforce\n    2.0 is not a HIPAA-covered entity by default, and no Business Associate Agreement exists\n    unless we have executed one with you in writing. Without that, Protected Health Information\n    does not belong in the product.</p>\n  </div>\n</section>\n\n<section data-shape=\"worker\" data-cap=\"Rights you can use today\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Your rights, and how to use them</h2>\n      <p class=\"answer\">Which of these apply depends on where you live, but we apply them to\n      everyone rather than checking your address first.</p>\n    </div>\n    <ul class=\"answer\">\n      <li><b>Get a copy</b> of the personal data we hold about you, in a portable format.</li>\n      <li><b>Correct</b> anything wrong.</li>\n      <li><b>Delete</b> your account and the data attached to it, except records we are legally\n      required to keep, such as invoices.</li>\n      <li><b>Withdraw consent</b> at any time. This does not undo processing that already\n      happened lawfully before you withdrew.</li>\n      <li><b>Object to or restrict</b> processing.</li>\n      <li><b>Opt out of sale or sharing</b> &mdash; there is nothing to opt out of, because we do\n      neither, but the right stands, and asking will never cost you service or a worse price.</li>\n      <li><b>Complain</b> to your data protection authority. In the EU or UK that is your national\n      regulator; in Hong Kong, the Privacy Commissioner for Personal Data.</li>\n    </ul>\n    <p class=\"answer\">Email <a href=\"mailto:support@trackmystartup.com\">support@trackmystartup.com</a> to use any\n    of these. We answer within 30 days, and a first request is free.</p>\n    <p class=\"answer\">These rights come from the GDPR and UK GDPR, the California Consumer\n    Privacy Act as amended by the CPRA, and Hong Kong's Personal Data (Privacy) Ordinance.\n    Similar laws elsewhere are handled the same way.</p>\n  </div>\n</section>\n\n<section data-shape=\"vault\" data-cap=\"How long we keep it\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>How long things are kept</h2>\n    </div>\n    <p class=\"answer\">Account details and stored keys last as long as the account does, and go\n    when you delete it. Billing records are kept for as long as tax and company law requires,\n    which is longer than the account and is not something we can waive. Operational logs are kept\n    only as long as they are useful for running and billing the product, then dropped. Data you\n    uploaded is deleted when you delete it, or when your account goes.</p>\n  </div>\n</section>\n\n<section data-shape=\"gate\" data-cap=\"If something goes wrong\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Security, and what happens after a breach</h2>\n    </div>\n    <p class=\"answer\">Data is encrypted in transit and at rest. Access is limited to the people\n    who need it to do their job. Sending, publishing and spending all stop and wait for your\n    approval, and no answer counts as a refusal rather than a silent send &mdash; the\n    <a href=\"/security/\">data page</a> covers that machinery in detail.</p>\n    <p class=\"answer\">No system is immune, so here is the commitment that matters. If a breach\n    affects your personal data, we will tell you and notify the relevant regulator within the\n    deadline the law sets &mdash; 72 hours of becoming aware, where the GDPR applies. We will\n    tell you what was taken and what to do about it. We will not sit on it, and we will not\n    describe it as a routine incident to avoid the word.</p>\n  </div>\n</section>\n\n<section data-shape=\"wave\" data-cap=\"Where the data physically sits\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Sub-processors and transfers</h2>\n    </div>\n    <p class=\"answer\">Running the product means a small number of other companies touch data: our hosting and authentication provider, our payment processor, and the AI providers used to complete your task. AI providers receive the content of the request you send them and are governed by their own terms, which is worth reading if the content is confidential.</p>\n    <p class=\"answer\">Where data leaves the UK or EEA, transfers rely on the UK and EU Standard\n    Contractual Clauses. Ask us for the current sub-processor list and we will send it.</p>\n  </div>\n</section>\n\n<section data-shape=\"tree\" data-cap=\"Changes\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Changes to this notice</h2>\n    </div>\n    <p class=\"answer\">If we change anything material, we bump the version and ask you to accept it\n    again rather than quietly editing this page. The version you accepted is recorded against\n    your account. The <a href=\"/legal/terms/\">Terms of Service</a> sit alongside this notice.</p>\n  </div>\n</section>\n\n</main>"
+  },
+  {
+    "path": "/legal/terms/",
+    "title": "Terms of Service",
+    "summary": "The agreement covering your use of Workforce.",
+    "sections": [],
+    "links": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Privacy Notice",
+        "href": "/legal/privacy/"
+      },
+      {
+        "label": "What it does not do",
+        "href": "/limits/"
+      },
+      {
+        "label": "pricing page",
+        "href": "/pricing/"
+      },
+      {
+        "label": "support@trackmystartup.com",
+        "href": "mailto:support@trackmystartup.com"
+      }
+    ],
+    "legalHtml": "<main id=\"main\">\n<nav class=\"crumbs\" aria-label=\"Breadcrumb\"><a href=\"/\">Home</a><span class=\"sep\" aria-hidden=\"true\">/</span><span>Legal</span><span class=\"sep\" aria-hidden=\"true\">/</span><span aria-current=\"page\">Terms</span></nav>\n<script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://workforce.trackmystartup.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Terms\",\"item\":\"https://workforce.trackmystartup.com/legal/terms/\"}]}</script>\n<section class=\"hero\" data-shape=\"gate\" data-cap=\"The agreement, without the fog\">\n  <div class=\"wrap\">\n    <p class=\"kicker\">Legal</p>\n    <h1>Terms of Service <em class=\"g\">you can actually read.</em></h1>\n    <p class=\"lead\">This is the agreement between you and Workforce 2.0. It is written to be\n    understood, because terms nobody reads protect nobody.</p>\n    <p class=\"answer\">Last updated 7 October 2026. Version 2026-10-07.1. By creating an account\n    or using the software, you agree to what follows.</p>\n  </div>\n</section>\n\n<section data-shape=\"worker\" data-cap=\"Your side of it\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Your account</h2>\n    </div>\n    <p class=\"answer\">You need to be old enough to enter a contract where you live, and to give\n    accurate details when you sign up. You are responsible for what happens under your account,\n    so keep your password and your API keys to yourself. Tell us promptly if you think someone\n    else has got in.</p>\n    <p class=\"answer\">If you sign up for an organisation, you are confirming you have the\n    authority to bind it, and the organisation is bound by these terms too.</p>\n  </div>\n</section>\n\n<section data-shape=\"gate\" data-cap=\"What it may not be used for\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Acceptable use</h2>\n      <p class=\"answer\">The product automates outreach and handles real people's data, so this\n      section is not decorative.</p>\n    </div>\n    <ul class=\"answer\">\n      <li>Do not break the law with it, and do not use it to help anyone else do so.</li>\n      <li>Do not send messages you have no lawful basis to send. Anti-spam and marketing rules\n      still apply to you when a machine does the sending.</li>\n      <li>Do not upload personal data you have no right to hold, and honour opt-outs and\n      suppression requests when you get them.</li>\n      <li>Do not upload special-category data &mdash; health, biometric, government identifiers\n      &mdash; without a signed agreement covering it.</li>\n      <li>Do not try to break, overload, or reverse-engineer the service, or resell it as your\n      own product without our written agreement.</li>\n      <li>Do not use it to harass, defraud, impersonate, or produce material that sexualises\n      children.</li>\n    </ul>\n    <p class=\"answer\">We may suspend an account that is doing these things. Where the breach is\n    serious or ongoing we can do so without notice, because waiting would make us part of it.</p>\n  </div>\n</section>\n\n<section data-shape=\"vault\" data-cap=\"Who is responsible for the data\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Data protection roles</h2>\n    </div>\n    <p class=\"answer\">For your account details, we are the controller. For personal data you\n    bring into the product, you are the controller and we are your processor, acting on your\n    instructions. The <a href=\"/legal/privacy/\">Privacy Notice</a> sets out what that means in\n    practice, and it forms part of these terms.</p>\n    <p class=\"answer\">You confirm that you have a lawful basis for the personal data you upload,\n    that you have given the people concerned whatever notice the law requires, and that you will\n    handle their access, correction and deletion requests. If you need a data processing\n    agreement or a Business Associate Agreement, ask and we will put one in place. Until one is\n    signed, the categories of data it would have covered should not be uploaded.</p>\n  </div>\n</section>\n\n<section data-shape=\"wave\" data-cap=\"What the software does and does not promise\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>AI output, and what you must still check</h2>\n    </div>\n    <p class=\"answer\">AI output can be confidently wrong. It can invent a fact, a citation or a\n    price. The product is built to keep you in the loop for exactly this reason, and sending,\n    publishing and spending all stop and wait for your approval.</p>\n    <p class=\"answer\">Anything with legal, financial, medical, safety or employment consequences\n    needs a competent human to check it before it is acted on. You remain responsible for what\n    you approve. The software is provided as it is, without warranties beyond those the law\n    insists on, and we do not promise it will be uninterrupted or error-free.</p>\n    <p class=\"answer\"><a href=\"/limits/\">What it does not do</a> is a longer, blunter list, and\n    it is worth reading before you rely on anything.</p>\n  </div>\n</section>\n\n<section data-shape=\"gate\" data-cap=\"Liability, stated honestly\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Liability</h2>\n      <p class=\"answer\">Most terms pages claim total immunity here. That claim is void in every\n      jurisdiction that matters, so this one says what is actually enforceable instead.</p>\n    </div>\n    <p class=\"answer\">Subject to the paragraph below, our total liability to you for any claim\n    connected with the service is limited to the fees you paid us in the twelve months before the\n    claim arose. We are not liable for indirect or consequential loss, lost profits, lost\n    business, or lost data beyond that cap.</p>\n    <p class=\"answer\"><b>What that cap does not touch.</b> Nothing in these terms limits or\n    excludes liability that cannot lawfully be limited. That includes death or personal injury\n    caused by negligence, fraud, gross negligence, wilful misconduct, and our own statutory\n    obligations as a processor under applicable data protection law. If you are a consumer, your\n    statutory rights are unaffected. Your right to compensation under Article 82 of the GDPR, and\n    your rights under the California Consumer Privacy Act, exist independently of this agreement\n    and are not signed away by accepting it.</p>\n    <p class=\"answer\"><b>Your indemnity.</b> You will cover us against claims, losses and\n    reasonable legal costs arising from personal data you uploaded without a lawful basis, from\n    your breach of the acceptable use section, or from messages you sent through the product that\n    you had no right to send.</p>\n  </div>\n</section>\n\n<section data-shape=\"tree\" data-cap=\"Money and endings\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Payment, changes and termination</h2>\n    </div>\n    <p class=\"answer\">Paid plans and credits are charged as described on the pricing page . Task workflows use models provided and selected by Workforce. Plan allowances, task credits and media credits are described on the pricing page.</p>\n    <p class=\"answer\">Plans (Free, Basic, Pro, Enterprise) renew monthly or yearly until cancelled\n    and are charged in your local currency at checkout. Each plan includes a monthly task allowance.\n    Extra tasks are paid from task credits at $0.03 each; images and video are paid from media\n    credits. Credits are prepaid. Enterprise seats are billed per seat, and only the Enterprise\n    holder can create an organisation.</p>\n    <p class=\"answer\">You can stop using the service and delete your account whenever you like.\n    We can end or suspend an account for a serious breach of these terms, or with reasonable\n    notice otherwise. When an account ends you keep whatever is stored on your own machine,\n    because it was never anywhere else. Sections that are meant to outlast the agreement\n    &mdash; liability, indemnity, and anything about data already processed &mdash; continue to\n    apply.</p>\n    <p class=\"answer\">If we change these terms materially, we bump the version and ask you to\n    accept the new one rather than editing this page quietly. Continuing to use the service after\n    a material change means you accept it.</p>\n  </div>\n</section>\n\n<section data-shape=\"vault\" data-cap=\"Contact\">\n  <div class=\"wrap\">\n    <div class=\"section-head rv\">\n      <h2>Getting in touch</h2>\n    </div>\n    <p class=\"answer\">Questions about these terms, a data processing agreement, or anything on\n    the <a href=\"/legal/privacy/\">Privacy Notice</a>, go to\n    <a href=\"mailto:support@trackmystartup.com\">support@trackmystartup.com</a>.</p>\n  </div>\n</section>\n\n</main>"
+  }
+]

@@ -13,3 +13,8 @@
 *.woff2 binary
 *.exe  binary
 *.apk  binary
+
+# Generated bundles contain vendor shader/template strings with significant
+# formatting. Keep whitespace checks on the editable source instead.
+assets/scene.js -whitespace
+assets/explainer.js -whitespace
