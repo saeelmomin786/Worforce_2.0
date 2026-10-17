@@ -339,7 +339,7 @@
     "sections": [
       {
         "heading": "Choose your device",
-        "body": "Windows 10 and 11, Linux and Android are available. The Windows installer is version 2.49.52, 146 MB, released 11 October 2026. Linux AppImage and Android APK downloads are version 2.49.50. Mac and iPhone releases are being prepared but are not available to download yet."
+        "body": "Windows 10 and 11, Linux and Android are available. The Windows installer is version 2.49.53, 160 MB, released 17 October 2026. Linux AppImage and Android APK downloads are version 2.49.50. Mac and iPhone releases are being prepared but are not available to download yet."
       },
       {
         "heading": "Install on Windows",
@@ -367,7 +367,7 @@
       },
       {
         "heading": "Verify the Windows download",
-        "body": "SHA-256 for Windows version 2.49.52: 12925cb64c871ac0fb0d8dbcae9733731c61316cd4f270d161b7d3d1ba3db0c0. Release details reflect the website’s 11 October 2026 download listing."
+        "body": "SHA-256 for Windows version 2.49.53: ee393cce26bcc82662aa1bcf2dafbbb81ebc812ee8f0c9c00ab32c176b3fae48. Release details reflect the website’s 17 October 2026 download listing."
       }
     ],
     "links": [
@@ -377,7 +377,7 @@
       },
       {
         "label": "Download for Windows",
-        "href": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.52/Workforce-2.0-Setup-2.49.52.exe"
+        "href": "https://github.com/saeelmomin786/Worforce_2.0/releases/download/v2.49.53/Workforce-2.0-Setup-2.49.53.exe"
       },
       {
         "label": "Linux AppImage",
