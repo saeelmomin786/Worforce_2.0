@@ -35,3 +35,7 @@ Pages are available as complete HTML. Outbound approvals are enabled by default 
 - [Build a sales process you can actually follow.](https://workforce.trackmystartup.com/blog/ai-sales-tools/): Connect prospect research, thoughtful drafts and approved outreach without losing track of the human follow-up.
 - [Privacy Notice](https://workforce.trackmystartup.com/legal/privacy/): How your information is handled, and the rights you have.
 - [Terms of Service](https://workforce.trackmystartup.com/legal/terms/): The agreement covering your use of Workforce.
+
+## Blog
+
+- [Institutional Memory Preservation That Keeps Your Business Data Local](https://workforce.trackmystartup.com/blog/institutional-memory-preservation/): Institutional memory preservation stops being a burden when your AI workforce stores company knowledge locally. Learn how to secure your business history without external cloud uploads.
