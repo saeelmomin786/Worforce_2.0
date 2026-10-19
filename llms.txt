@@ -40,6 +40,8 @@ Pages are available as complete HTML. Outbound approvals are enabled by default 
 
 
 
+
+- [Stop Managing AI at Work and Start Automating Your Operations](https://workforce.trackmystartup.com/blog/ai-at-work/): Stop using fragmented AI tools that only draft text. Workforce 2.0 keeps your data local and automates entire business processes from start to finish.
 - [How to Automate Business Processes Without Losing Your Data Privacy](https://workforce.trackmystartup.com/blog/automate-business-processes/): How to automate business processes without losing your data privacy requires moving away from tools that merely draft responses. Workforce 2.0 manages your entire workflow locally.
 - [Stop Using an AI Email Writer That Simply Drafts Replies](https://workforce.trackmystartup.com/blog/ai-email-writer/): Stop using an AI email writer that only drafts text for you to copy. Use an automated communication engine that manages your inbox and respects your voice.
 - [Stop Tracking AI News and Start Automating Your Work](https://workforce.trackmystartup.com/blog/ai-news/): Stop tracking AI news and start automating your work by focusing on tasks that deliver immediate business value. Use Workforce 2.0 to turn your requirements into finished, automated tasks that run on your own hardware.
