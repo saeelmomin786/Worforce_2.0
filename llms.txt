@@ -57,6 +57,8 @@ Pages are available as complete HTML. Outbound approvals are enabled by default 
 
 
 
+
+- [AI Video Creation That Keeps Your Creative Process Local](https://workforce.trackmystartup.com/blog/ai-video-creation/): Learn how to manage professional AI video creation while keeping your source media, private reasoning, and creative assets secured on your own hardware.
 - [How to Generate Video AI Without Losing Control of Your Assets](https://workforce.trackmystartup.com/blog/generate-video-ai/): Learn to generate video AI while keeping your scripts, footage, and creative reasoning secured on your own local hardware with Workforce 2.0.
 - [Keep up with what competitors charge. | Workforce](https://workforce.trackmystartup.com/blog/pricing-intelligence/): Stop manually checking website updates to keep up with what competitors charge. Workforce 2.0 tracks pricing movements directly from source pages and alerts you to changes automatically.
 - [Sales Enablement That Automates Your Outbound Pipeline](https://workforce.trackmystartup.com/blog/sales-enablement/): Sales enablement is the iterative process of providing your sales team with the resources they need to close more deals. Learn how Workforce 2.0 automates this workflow.
