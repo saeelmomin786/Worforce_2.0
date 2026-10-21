@@ -12,7 +12,7 @@ console.log('Verified canonical URLs, valid structured-data JSON and sitemap cov
 for(const p of pages.filter(p=>!p.path.startsWith('/legal/'))){const html=await fs.readFile('dist'+p.path+'index.html','utf8');assert(!/google.{0,30}key|aistudio|bring your own|BYOK|your own key/i.test(html),'Obsolete key messaging on '+p.path);}
 console.log('Verified that obsolete Google-key marketing is absent from all nonlegal pages.');
 
-for(const file of ['install.ps1','releases.json','BingSiteAuth.xml','.nojekyll'])assert((await fs.readFile('../'+file)).equals(await fs.readFile('dist/'+file)),'Preserved file differs: '+file);
+for(const file of ['install.ps1','releases.json','BingSiteAuth.xml','.nojekyll','6dd7918bd5d24d8588b131871a065a11.txt'])assert((await fs.readFile('../'+file)).equals(await fs.readFile('dist/'+file)),'Preserved file differs: '+file);
 const releaseMetadata=JSON.parse(await fs.readFile('../releases.json','utf8'));const download=await fs.readFile('dist/download/index.html','utf8');for(const platform of ['win','linux_x64','android'])assert(download.includes(releaseMetadata.builds[platform].file));
 for(const p of pages){const html=await fs.readFile('dist'+p.path+'index.html','utf8');assert(!html.includes('workforce-reimagined.workspace-958227.chatgpt.site'));assert(html.includes('https://workforce.trackmystartup.com'+p.path));assert(!html.includes('/assets/boot.js'));}
 console.log('Verified production URLs, current release links and preserved installer/verification files.');

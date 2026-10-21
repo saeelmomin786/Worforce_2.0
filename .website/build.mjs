@@ -51,7 +51,7 @@ for(const page of taggedPages){
  if(!html.includes('https://www.googletagmanager.com/gtag/js?id=G-RRCG90HGBS'))html=html.replace(/<head\b[^>]*>/i,head=>head+'\n'+googleTag+'\n');
  await fs.mkdir(file.slice(0,file.lastIndexOf('/')),{recursive:true});await fs.writeFile(file,html);
 }
-for(const file of ['install.ps1','releases.json','BingSiteAuth.xml','.nojekyll'])await fs.copyFile('../'+file,'dist/'+file);
+for(const file of ['install.ps1','releases.json','BingSiteAuth.xml','.nojekyll','6dd7918bd5d24d8588b131871a065a11.txt'])await fs.copyFile('../'+file,'dist/'+file);
 await fs.cp('../icons','dist/icons',{recursive:true});
 for(const entry of await fs.readdir('dist'))await fs.cp('dist/'+entry,'../'+entry,{recursive:true});
 console.log('Updated the repository root with the production static website.');
