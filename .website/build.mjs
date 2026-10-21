@@ -35,6 +35,22 @@ await fs.writeFile('dist/404.html',`<!doctype html><html lang="en"><head><meta n
 await addSearchMetadata(pages);
 console.log(`Built ${pages.length} pages.`);
 
+// Include preserved SEO articles as well as the pages generated above.
+const googleTag=`<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GB7S5E4JVY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GB7S5E4JVY');
+</script>`;
+const taggedPages=new Set([...pages.map(p=>p.path+'index.html'),'/404.html']);
+for(const slug of await fs.readdir('../blog'))if(await fs.stat(`../blog/${slug}/index.html`).catch(()=>null))taggedPages.add(`/blog/${slug}/index.html`);
+for(const page of taggedPages){
+ const file='dist'+page;let html=await fs.readFile(file,'utf8').catch(()=>fs.readFile('..'+page,'utf8'));
+ if(!html.includes('https://www.googletagmanager.com/gtag/js?id=G-GB7S5E4JVY'))html=html.replace(/<head\b[^>]*>/i,head=>head+'\n'+googleTag+'\n');
+ await fs.mkdir(file.slice(0,file.lastIndexOf('/')),{recursive:true});await fs.writeFile(file,html);
+}
 for(const file of ['install.ps1','releases.json','BingSiteAuth.xml','.nojekyll'])await fs.copyFile('../'+file,'dist/'+file);
 await fs.cp('../icons','dist/icons',{recursive:true});
 for(const entry of await fs.readdir('dist'))await fs.cp('dist/'+entry,'../'+entry,{recursive:true});
