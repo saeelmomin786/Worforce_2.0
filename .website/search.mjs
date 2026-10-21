@@ -12,7 +12,7 @@ export async function addSearchMetadata(pages){
  }
  await fs.writeFile('dist/sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(p=>`<url><loc>${escape(origin+p.path)}</loc></url>`).join('')}</urlset>`);
  const robots=await fs.readFile('robots.source.txt','utf8');
- await fs.writeFile('dist/robots.txt',robots.replace(/Allow: \/\s*$/gm,'Allow: /\nDisallow: /.website/').replace(/^Sitemap:.*$/m,'Sitemap: '+origin+'/sitemap.xml'));
+ await fs.writeFile('dist/robots.txt',robots.replace(/^Sitemap:.*$/m,'Sitemap: '+origin+'/sitemap.xml'));
  await fs.writeFile('dist/llms.txt',`# Workforce 2.0\n\n> AI workers for business research, drafting and workflows. Workforce provides and selects the AI behind task workflows. Users focus on the output instead of choosing models.\n\nPages are available as complete HTML. Outbound approvals are enabled by default and configurable. Local storage and search differ from online AI processing and optional team sharing. Prices and limits are explained on the pricing and limitations pages.\n\n## Pages\n\n${pages.map(p=>`- [${p.title}](${origin+p.path}): ${p.summary}`).join('\n')}\n`);
  console.log('Added canonical URLs, JSON-LD, sitemap, robots.txt and supplementary llms.txt.');
 }

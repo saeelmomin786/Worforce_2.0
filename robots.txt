@@ -1,35 +1,4 @@
-# workforce.trackmystartup.com
-
 User-agent: *
 Allow: /
-Disallow: /.website/
-# Answer engines. These read robots.txt and nothing else, which is why the site
-# lives on its own host rather than a github.io subpath.
-User-agent: GPTBot
-Allow: /
-Disallow: /.website/
-User-agent: OAI-SearchBot
-Allow: /
-Disallow: /.website/
-User-agent: ChatGPT-User
-Allow: /
-Disallow: /.website/
-User-agent: ClaudeBot
-Allow: /
-Disallow: /.website/
-User-agent: Claude-User
-Allow: /
-Disallow: /.website/
-User-agent: PerplexityBot
-Allow: /
-Disallow: /.website/
-User-agent: Google-Extended
-Allow: /
-Disallow: /.website/
-User-agent: CCBot
-Allow: /
-Disallow: /.website/
-User-agent: Applebot-Extended
-Allow: /
-Disallow: /.website/
+
 Sitemap: https://workforce.trackmystartup.com/sitemap.xml
