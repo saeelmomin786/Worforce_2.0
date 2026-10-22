@@ -24,7 +24,7 @@ await page.waitForTimeout(500);
 await page.keyboard.press('Escape');
 await page.goto('http://127.0.0.1:4174/pricing/');
 await page.getByRole('button',{name:'Yearly'}).click();
-assert.equal(await page.locator('[data-monthly="19.99"]').first().textContent(),'$199.90');
+assert.equal(await page.locator('[data-monthly="29.99"]').first().textContent(),'$299.90');
 await page.locator('#leads').fill('100');
 assert.equal(await page.locator('#task-count').textContent(),'300 tasks');
 await page.screenshot({path:'qa/pricing.png',fullPage:true});
