@@ -4,7 +4,13 @@ import sharp from 'sharp';
 import {addSearchMetadata} from './search.mjs';
 const releaseMetadata=JSON.parse(await fs.readFile('../releases.json','utf8'));
 const data=JSON.parse(await fs.readFile('content.json','utf8'));
-const pages=Array.isArray(data)?data:data.pages;
+// Posts the Workforce SEO engine published straight to the site (their JSON-LD is "BlogPosting"; this build writes
+// "Article"). A rebuild keeps them: listed on /blog/ newest first, never overwritten, kept in sitemap.xml and llms.txt.
+const repoPosts=[];
+for(const slug of await fs.readdir('../blog').catch(()=>[])){const html=await fs.readFile(`../blog/${slug}/index.html`,'utf8').catch(()=>'');if(!html.includes('"@type":"BlogPosting"'))continue;
+ repoPosts.push({path:`/blog/${slug}/`,title:((html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)||[])[1]||slug).replace(/<[^>]+>/g,'').trim(),summary:(html.match(/<meta name="description" content="([^"]*)"/)||[])[1]||'',date:(html.match(/"datePublished":"([^"]+)"/)||[])[1]||''});}
+repoPosts.sort((a,b)=>b.date.localeCompare(a.date));
+const pages=(Array.isArray(data)?data:data.pages).filter(p=>!repoPosts.some(r=>r.path===p.path));
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const arrow='<span aria-hidden="true">↗</span>';
 const button=(text,url,secondary=false)=>`<a class="button ${secondary?'secondary':''}" href="${url}">${text} ${arrow}</a>`;
@@ -19,10 +25,11 @@ function downloads(){return `<div class="download-grid">${[['Windows','Windows 1
 function cleanLegal(html){return html?.replace(/<script[\s\S]*?<\/script>/gi,'').replace(/<nav[\s\S]*?<\/nav>/gi,'').replace(/<\/?main[^>]*>/gi,'').replace(/ class="[^"]*"/g,'').replace(/ data-[a-z-]+="[^"]*"/g,'').replace(/<h1>/g,'<h2>').replace(/<\/h1>/g,'</h2>');}
 function detail(p){let sections=p.sections||[];const path=p.path;const isLegal=path.startsWith('/legal/');if(isLegal)return `<section class="page-heading wrap"><a class="breadcrumb" href="/">Home / Legal</a><h1>${esc(p.title)}</h1></section><article class="legal wrap">${cleanLegal(p.legalHtml)||sections.map(s=>`<h2>${esc(s.heading)}</h2><p>${esc(s.body)}</p>`).join('')}</article>`;
  let special=path==='/pricing/'?pricing():path==='/download/'?downloads():path==='/engines/'?features(true):'';
- if(path==='/blog/')special=`<div class="article-grid">${pages.filter(x=>x.path.startsWith('/blog/')&&x.path!=='/blog/').map(x=>`<a href="${x.path}"><span>GUIDE</span><h2>${esc(x.title)}</h2><p>${esc(x.summary)}</p><span>Read the article →</span></a>`).join('')}</div>`;
+ if(path==='/blog/')special=`<div class="article-grid">${[...repoPosts.map(x=>[x.path,x.title,x.summary]),...pages.filter(x=>x.path.startsWith('/blog/')&&x.path!=='/blog/').map(x=>[x.path,esc(x.title),esc(x.summary)])].map(([href,title,summary])=>`<a href="${href}"><span>GUIDE</span><h2>${title}</h2><p>${summary}</p><span>Read the article →</span></a>`).join('')}</div>`;
  return `<section class="page-heading wrap"><a class="breadcrumb" href="/">Home</a><span class="breadcrumb"> / ${path.startsWith('/engines/')?'Capabilities':path.startsWith('/blog/')?'Blog':'Explore'}</span><h1>${esc(p.title)}</h1><p>${esc(p.summary)}</p>${path.startsWith('/engines/')&&path!=='/engines/'?button('Download','/download/'):''}</section><div class="wrap">${special}</div><div class="detail-layout wrap"><aside><p>ON THIS PAGE</p>${sections.map((s,i)=>`<a href="#section-${i}">${esc(s.heading)}</a>`).join('')}</aside><div class="detail-content">${sections.map((s,i)=>`<section id="section-${i}"><h2>${esc(s.heading)}</h2>${String(s.body).split(/\n\n/).map(t=>`<p>${esc(t).replaceAll('\n','<br>')}</p>`).join('')}</section>`).join('')}${p.links?.length?`<section class="related"><h2>Keep exploring</h2>${p.links.filter(l=>l.href&&l.label&&!l.href.includes('releases/download')).map(l=>`<a class="text-link" href="${esc(l.href)}">${esc(l.label)} →</a>`).join('')}</section>`:''}</div></div>${cta}`;
 }
 const modal=`<dialog id="explainer-dialog" aria-labelledby="explainer-title"><div class="dialog-heading"><h2 id="explainer-title">From one request to work ready.</h2><button class="close-dialog" aria-label="Close explainer">×</button></div><div id="explainer-player"></div><p>A simplified illustration of the workflow. Outbound approvals are enabled by default.</p></dialog>`;
+await fs.rm('dist',{recursive:true,force:true}); // a stale dist would overwrite the engine's newer posts (line 72 reads dist first)
 await fs.mkdir('dist/assets',{recursive:true});
 const iconPng=await sharp(Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><rect width="32" height="32" rx="7" fill="#215bd7"/><path d="M8 22V13M16 22V8M24 22V11" stroke="white" stroke-width="4" stroke-linecap="round"/></svg>')).png().toBuffer();
 const icoHeader=Buffer.alloc(22);icoHeader.writeUInt16LE(1,2);icoHeader.writeUInt16LE(1,4);icoHeader[6]=32;icoHeader[7]=32;icoHeader.writeUInt16LE(1,10);icoHeader.writeUInt16LE(32,12);icoHeader.writeUInt32LE(iconPng.length,14);icoHeader.writeUInt32LE(22,18);await fs.writeFile('dist/favicon.ico',Buffer.concat([icoHeader,iconPng]));
@@ -33,6 +40,22 @@ for(const p of pages){const dir='dist'+p.path;await fs.mkdir(dir,{recursive:true
 await fs.writeFile('dist/404.html',`<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Page not found | Workforce</title><link rel="stylesheet" href="/assets/styles.css"></head><body>${nav}<main class="page-heading wrap"><h1>This page took a wrong turn.</h1><p>Find your way back to your AI team.</p>${button('Go home','/')}</main>${footer}</body></html>`);
 
 await addSearchMetadata(pages);
+// The engine's posts stay in sitemap.xml and llms.txt as it wrote them (they are not in content.json).
+const engineEntries=async(file,re)=>((await fs.readFile('../'+file,'utf8').catch(()=>'')).match(re)||[]).filter(e=>repoPosts.some(r=>e.includes(r.path+'<')||e.includes(r.path+')')));
+const urls=await engineEntries('sitemap.xml',/<url>[\s\S]*?<\/url>/g);
+if(urls.length)await fs.writeFile('dist/sitemap.xml',(await fs.readFile('dist/sitemap.xml','utf8')).replace('</urlset>',urls.join('')+'</urlset>'));
+const lines=await engineEntries('llms.txt',/^- \[.*$/gm);
+if(lines.length)await fs.appendFile('dist/llms.txt',`\n## Blog\n\n${lines.join('\n')}\n`);
+// Links the engine placed in these pages (one of its posts at the end of a paragraph, or its "Related reading" block)
+// go back in when the paragraph is unchanged; reworded copy needs them placed again.
+if(repoPosts.length){const link=new RegExp(`\\s*<a href="(?:${repoPosts.map(r=>r.path).join('|')})"[^>]*>[\\s\\S]*?</a>`,'g');
+ for(const p of pages){const old=await fs.readFile('..'+p.path+'index.html','utf8').catch(()=>'');if(!old)continue;
+  const file='dist'+p.path+'index.html',was=await fs.readFile(file,'utf8');let html=was;
+  for(const [,open,inner] of old.matchAll(/(<p\b[^>]*>)([\s\S]*?)<\/p>/g)){const links=inner.match(link);if(!links)continue;
+   const bare=open+inner.replace(link,'')+'</p>';if(html.includes(bare))html=html.replace(bare,bare.slice(0,-4)+links.join('')+'</p>');}
+  const rel=old.match(/<section class="related"><div class="wrap"><!-- seo:related -->[\s\S]*?<!-- \/seo:related --><\/div><\/section>\n?/);
+  if(rel&&!html.includes('<!-- seo:related -->'))html=html.replace(/<\/main>(?![\s\S]*<\/main>)/,rel[0]+'</main>');
+  if(html!==was)await fs.writeFile(file,html);}}
 console.log(`Built ${pages.length} pages.`);
 
 // Include preserved SEO articles as well as the pages generated above.

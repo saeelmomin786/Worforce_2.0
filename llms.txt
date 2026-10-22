@@ -30,34 +30,14 @@ Pages are available as complete HTML. Outbound approvals are enabled by default 
 - [Keep the knowledge. Share the work.](https://workforce.trackmystartup.com/teams/): Bring your team’s decisions, reference material and routines into a shared place the business can keep.
 - [Choose the help that fits the job.](https://workforce.trackmystartup.com/compare/): Workforce is most useful for repeatable execution across your tools. Some work still benefits from a conversation, an agency or a person.
 - [Ideas for a less busy working day.](https://workforce.trackmystartup.com/blog/): Practical guides to using AI for the work around your business.
-- [A practical way to run your marketing with AI.](https://workforce.trackmystartup.com/blog/ai-marketing-engineer/): Bring research, planning and content production together while keeping the final say over your brand.
-- [A calmer way to prepare job applications.](https://workforce.trackmystartup.com/blog/ai-job-search-tools/): Check that roles are live, match them to your experience and spend your effort on documents you can stand behind.
-- [Build a sales process you can actually follow.](https://workforce.trackmystartup.com/blog/ai-sales-tools/): Connect prospect research, thoughtful drafts and approved outreach without losing track of the human follow-up.
 - [Privacy Notice](https://workforce.trackmystartup.com/legal/privacy/): How your information is handled, and the rights you have.
 - [Terms of Service](https://workforce.trackmystartup.com/legal/terms/): The agreement covering your use of Workforce.
 
 ## Blog
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [A practical way to run your marketing with AI.](https://workforce.trackmystartup.com/blog/ai-marketing-engineer/): Bring research, planning and content production together while keeping the final say over your brand.
+- [A calmer way to prepare job applications.](https://workforce.trackmystartup.com/blog/ai-job-search-tools/): Check that roles are live, match them to your experience and spend your effort on documents you can stand behind.
+- [Build a sales process you can actually follow.](https://workforce.trackmystartup.com/blog/ai-sales-tools/): Connect prospect research, thoughtful drafts and approved outreach without losing track of the human follow-up.
 - [AI Video Creation That Keeps Your Creative Process Local](https://workforce.trackmystartup.com/blog/ai-video-creation/): Learn how to manage professional AI video creation while keeping your source media, private reasoning, and creative assets secured on your own hardware.
 - [How to Generate Video AI Without Losing Control of Your Assets](https://workforce.trackmystartup.com/blog/generate-video-ai/): Learn to generate video AI while keeping your scripts, footage, and creative reasoning secured on your own local hardware with Workforce 2.0.
 - [Keep up with what competitors charge. | Workforce](https://workforce.trackmystartup.com/blog/pricing-intelligence/): Stop manually checking website updates to keep up with what competitors charge. Workforce 2.0 tracks pricing movements directly from source pages and alerts you to changes automatically.
