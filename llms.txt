@@ -35,6 +35,8 @@ Pages are available as complete HTML. Outbound approvals are enabled by default 
 
 ## Blog
 
+
+- [How to Go From a Rough Idea to an Editable Film](https://workforce.trackmystartup.com/blog/video/): Learn how to turn spoken ideas into structured video scripts and scenes using a multi-pass AI video engine designed for local privacy.
 - [A practical way to run your marketing with AI.](https://workforce.trackmystartup.com/blog/ai-marketing-engineer/): Bring research, planning and content production together while keeping the final say over your brand.
 - [A calmer way to prepare job applications.](https://workforce.trackmystartup.com/blog/ai-job-search-tools/): Check that roles are live, match them to your experience and spend your effort on documents you can stand behind.
 - [Build a sales process you can actually follow.](https://workforce.trackmystartup.com/blog/ai-sales-tools/): Connect prospect research, thoughtful drafts and approved outreach without losing track of the human follow-up.
